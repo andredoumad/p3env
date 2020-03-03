@@ -9,6 +9,7 @@ alice/alice/spiders/DATABASE/
 home/gordon/p3env/alice/alice/spiders/DATABASE
 alice/alice/spiders/DATABASE
 alice/alice/spiders/NUL
+share/
 /home/gordon/p3env/alice/alice/spiders/DATABASE/*
 *.grace
 # User-specific files

@@ -1,0 +1,183 @@
+
+#-*- coding: utf-8 -*-
+#Lexicon
+
+RAM={
+'Sessions':
+	{
+		'session':'0',
+		'date':'2019-04-29',
+	},
+'States':
+	{
+		'start_transitions':'0',
+		'python_state_transitions':'0',
+		'download_webpage':'0',
+		'setup_paths':'0',
+		'parse_links':'0',
+		'find_all_tags':'0',
+		'classify_text':'0',
+		'find_all_emails':'0',
+		'find_next_link':'0',
+		'not_state_transitions':'0',
+		'neg_state':'0'
+
+	},
+'Actions':
+	{
+		'BackEnd':'0',
+		'strip_url_params2':'0',
+		'find_between':'0',
+		'find_between_r':'0',
+		'checkKey':'0',
+		'word_feats':'0',
+		'traceInfoB':'0',
+		'traceInfoA':'0',
+		'cleanText':'0',
+		'ahapLogo':'0',
+		'GetCleanlyEncodedHtmlString':'0',
+	},
+'Decision':
+	{
+		'NA':'0',
+	},
+'Condition':
+	{
+		'NA':'0',
+	},
+'Domain':
+	{
+		'url':'0',
+		'vistDate':'0',
+		'category':'0',
+		'summary':'0',
+		'priority':'0',
+		'rank':'0'
+	},
+'Filepath':
+	{
+		'source':'0',
+		'ahap:':'0',
+		'ram':'0',
+		'data':'0',
+		'domain':'0',
+		'links':'0',
+		'backend':'0'
+	},
+'Lan':
+	{
+		'hostname':'0',
+		'hostip':'0',
+		'status':'0',
+		'virtual':'0',
+		'username':'0',
+		'userpass':'0'
+	},
+'Lexicon':
+	{
+		'word':'ahap',
+		'tag':'NN',
+		'rank':'0',
+		'frequency':'0',
+		'category':''
+	},
+'Tags':
+	{
+		'tag':'NN',
+		'meaning:':'noun',
+		'frequency':'0'
+	},
+'Categories':
+	{
+		'name':'0',
+		'address':'0',
+		'rank':'0',
+		'word':'0',
+		'item':'0'
+
+	},
+'Goal':
+	{
+		'owner':'ahap',
+		'action':'all',
+		'importance':'1',
+		'fdp_pos':'ahap/positive/',
+		'fdp_neg':'ahap/negative/',
+		'fdp_nuetral':'ahap/neutral/',
+		'fdp_report':'ahap/report/',
+		'owneremail':'andredoumad@gmail.com',
+
+	},
+'states':
+    {
+        'AK': 'Alaska',
+        'AL': 'Alabama',
+        'AR': 'Arkansas',
+        'AS': 'American Samoa',
+        'AZ': 'Arizona',
+        'CA': 'California',
+        'CO': 'Colorado',
+        'CT': 'Connecticut',
+        'DC': 'District of Columbia',
+        'DE': 'Delaware',
+        'FL': 'Florida',
+        'GA': 'Georgia',
+        'GU': 'Guam',
+        'HI': 'Hawaii',
+        'IA': 'Iowa',
+        'ID': 'Idaho',
+        'IL': 'Illinois',
+        'IN': 'Indiana',
+        'KS': 'Kansas',
+        'KY': 'Kentucky',
+        'LA': 'Louisiana',
+        'MA': 'Massachusetts',
+        'MD': 'Maryland',
+        'ME': 'Maine',
+        'MI': 'Michigan',
+        'MN': 'Minnesota',
+        'MO': 'Missouri',
+        'MP': 'Northern Mariana Islands',
+        'MS': 'Mississippi',
+        'MT': 'Montana',
+        'NA': 'National',
+        'NC': 'North Carolina',
+        'ND': 'North Dakota',
+        'NE': 'Nebraska',
+        'NH': 'New Hampshire',
+        'NJ': 'New Jersey',
+        'NM': 'New Mexico',
+        'NV': 'Nevada',
+        'NY': 'New York',
+        'OH': 'Ohio',
+        'OK': 'Oklahoma',
+        'OR': 'Oregon',
+        'PA': 'Pennsylvania',
+        'PR': 'Puerto Rico',
+        'RI': 'Rhode Island',
+        'SC': 'South Carolina',
+        'SD': 'South Dakota',
+        'TN': 'Tennessee',
+        'TX': 'Texas',
+        'UT': 'Utah',
+        'VA': 'Virginia',
+        'VI': 'Virgin Islands',
+        'VT': 'Vermont',
+        'WA': 'Washington',
+        'WI': 'Wisconsin',
+        'WV': 'West Virginia',
+        'WY': 'Wyoming'
+	},
+}
+
+
+positive_vocab = [ 'chief', 'financial', 'officer', 'health', 'center', 'qualified',
+'federally', 'medical', 'executive', 'operating', 'email', 'phone', 'address', '2019', '2018', 'operation', 'management', 'fom', 'conference',
+'fqhc', 'self', 'insured', 'company', 'benefits', 'strategy', 'lead', 'risk', 'medicare', 'cost', 'report', 'reclassification', 'adjustment', 'reimbursement',
+'reporting', 'compliance', 'sliding', 'fee', 'discount', 'program', 'insurance', 'associations', 'center', 'california', 'lawyers', 'nurse', 'auditors'
+'cfo', 'ceo', 'cmo', 'clinical', 'academy', 'national', 'legal', 'claims', 'quality', 'urgent', 'care', 'institute', 'america', 'usa', 'healthcare', 'physicians', 'California' ]
+
+negative_vocab = [ 'shit','fuck','damn','bitch','piss','dick','cock','pussy','asshole', 'asshole', 'douche']
+
+neutral_vocab = [ 'the','be','to','of','and','in','a','that','have', 'i', 'it', 'for', 'not', 'on', 'he', 'as', 'you', 'do', 'at', 'this', 'but', 'his', 'by', 
+'from', 'they', 'we' ]

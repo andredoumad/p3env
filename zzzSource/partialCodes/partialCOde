@@ -1,0 +1,209 @@
+        '''
+
+
+        self.iread = open(filepath, 'r')
+        self.soup = BeautifulSoup(self.iread, 'html.parser')
+        self.iread.close()
+        self.iwrite = open(str(path_start + '_' +  str(page_index) + '_prettify_soup.html' ), 'w+')
+        self.prettify_soup = ''
+
+        self.prettify_soup = self.soup.prettify()
+        for line in self.prettify_soup:
+            print(line)
+
+        #print('\n\nPRETTIFY\n\n' + str(self.prettify_soup) +'\n\nPRETTIFY\n\n')
+        self.iwrite.write(str(self.prettify_soup))
+        self.iwrite.write(str('\n'))
+        self.iwrite.close()
+        '''
+
+        '''
+        self.iwrite = open(str(path_start + '_' +  str(page_index) + '_get_text_soup.html' ), 'w+')
+        self.get_text = ''
+        self.get_text = self.soup.get_text()
+        #print('\n\n get_text \n\n' + str(self.get_text) +'\n\nget_text\n\n')
+        self.iwrite.write(str(self.get_text))
+        self.iwrite.write(str('\n'))
+        self.iwrite.close()
+
+        self.iwrite = open(str(path_start + '_' +  str(page_index) + '_all_tags_soup.html' ), 'w+')
+        self.all_tags  = []
+        self.all_tags = self.soup.find_all(True)
+
+        for tag in self.all_tags:
+            #print('\n\n all_tags \n\n' + str(tag) +'\n\n all_tags \n\n')
+            self.iwrite.write(str(tag))
+            self.iwrite.write(str('\n'))
+        self.iwrite.close()
+
+        self.iwrite = open(str(path_start + '_' +  str(page_index) + '_strings_soup.html' ), 'a+')
+        for string in self.soup.stripped_strings:
+            self.iwrite.write(str(string))
+        self.iwrite.close()
+
+        def has_class_but_no_id(tag):
+            return tag.has_attr('class') and not tag.has_attr('id')
+
+        self.iwrite = open(str(path_start + '_' +  str(page_index) + '_has_class_but_no_id_soup.html' ), 'w+')
+        self.has_class_but_no_id  = []
+        self.has_class_but_no_id = self.soup.find_all(has_class_but_no_id)
+        for item in self.has_class_but_no_id:
+            print('\n\n has_class_but_no_id \n\n' + str(self.has_class_but_no_id) +'\n\n has_class_but_no_id \n\n')
+            self.iwrite.write(str(item))
+            self.iwrite.write(str('\n'))
+        self.iwrite.close()
+
+
+
+        def surrounded_by_strings(tag):
+            return (isinstance(tag.next_element, NavigableString)
+                    and isinstance(tag.previous_element, NavigableString))
+        self.tags_surrounded_by_strings = []
+        for tag in self.soup.find_all(surrounded_by_strings):
+            print (str(tag.name))
+            self.tags_surrounded_by_strings.append(str(tag.name))
+
+        self.iwrite = open(str(path_start + '_' +  str(page_index) + '_tags_surrounded_by_strings_soup.html' ), 'w+')
+        self.has_class_but_no_id  = ''
+        self.has_class_but_no_id = self.soup.find_all(has_class_but_no_id)
+
+        for item in self.has_class_but_no_id:
+    
+            print('\n\n has_class_but_no_id \n\n' + str(self.has_class_but_no_id) +'\n\n has_class_but_no_id \n\n')
+            self.iwrite.write(str(item))
+            self.iwrite.write(str('\n'))
+        self.iwrite.close()
+
+        #links = [a['href'] for a in soup.select('a[href]')]
+        self.head_tag = self.soup.head
+        self.siteContents = self.head_tag.contents
+
+        self.Title = ''
+        self.TitleBool = False
+        self.WebPagePhoneNumber = ''
+        self.WebPagePhoneBool = False
+        self.alice_entity_bool = False
+        self.soupResult = ''
+        self.soup_index = 0
+        self.listOfLists_text = []
+        self.moreSoup = None
+        self.evenMoreSoup = None
+
+        for content in self.siteContents:
+            print(str(content))
+            self.fwriter = open(str(path_start + '_' +  str(page_index) + '_content_soup.html' ), 'a+')
+            self.fwriter.write(str(content))
+            self.fwriter.write(str('\n'))
+            self.fwriter.close()
+
+            self.hrefList = []
+            self.xpathList = []
+            self.hrefList, self.xpathList  = WebTools.getHrefList(self, str(content))
+            self.hrefWriter = open(str(path_start + '_' +  str(page_index) + '_' + str(self.soup_index) + '_link_soup.html' ), 'w+')
+            for item in self.hrefList:
+                self.hrefWriter.write(str(item))
+                self.hrefWriter.write(str('\n'))
+            self.xpathWriter = open(str(path_start + '_' +  str(page_index) + '_' + str(self.soup_index) + '_xpath_soup.html' ), 'w+')
+            for item in self.xpathList:
+                self.xpathWriter.write(str(item))
+                self.xpathWriter.write(str('\n'))
+
+            self.langWriter = open(str(path_start + '_' +  str(page_index) + '_' + str(self.soup_index) + '_language_soup.html' ), 'w+')
+            self.moreSoup = BeautifulSoup(str(content), 'html.parser')
+            self.language_text = ''
+            #self.language_text = "".join([text for text in self.moreSoup.stripped_strings])
+            for string in self.moreSoup.strings:
+                self.langWriter.write(str(self.language_text))
+                self.langWriter.write(str('\n'))
+
+            self.xpathWriter.close()
+            self.hrefWriter.close()
+            self.langWriter.close()
+
+
+            #self.soup_index += 1
+
+        for content in self.siteContents:
+            if content:
+                #if len(content) < 500:
+                data = WebTools.format_csv_string(self, content)
+                #self.debuginfo("STANDARD PARSING: " + data)
+                try:
+                    if self.TitleBool == False:
+                        self.TitleBool, self.soupResult = WebTools.soupGetTitle(self, str(data), current_url)
+                        if self.TitleBool == True:
+                            self.Title = self.soupResult
+                            print(str(self.Title))
+                            self.fwriter = open(str(path_start + '_' +  str(page_index) + '_' + str(self.soup_index) + '_title_soup.html' ), 'w+')
+                            self.fwriter.write(str(self.Title))
+                            self.fwriter.write(str('\n'))
+                            self.fwriter.close()
+                            ##iFileIO.writeHrefCsv(path_start, page_index, self.soup_index, content ) 
+                            #self.soup_index += 1
+                except:
+                    print(str('\nEXCEPTION\n\n ' + str(self.pathStart + str(self.result_index) + '_index.html' + '\nEXCEPTION\n\n ')))
+
+                try:
+                    if self.WebPagePhoneBool == False:
+                        self.WebPagePhoneBool, self.soupResult = WebTools.extract_phone(self, str(data), current_url)
+                        if self.WebPagePhoneBool == True:
+                            self.WebPagePhoneNumber = self.soupResult
+                            self.fwriter = open(str(path_start + '_' +  str(page_index) + '_' + str(self.soup_index) + '_phone_soup.html' ), 'w+')
+                            self.fwriter.write(str(self.WebPagePhoneNumber))
+                            self.fwriter.write(str('\n'))
+                            self.fwriter.close()
+                            ##iFileIO.writeHrefCsv(path_start, page_index, self.soup_index, content )
+                            #self.soup_index += 1
+                except:
+                    print(str('\nEXCEPTION\n\n ' + str(self.pathStart + str(self.result_index) + '_index.html' + '\nEXCEPTION\n\n ')))
+
+        self.page = self.soup.find_all('p')
+        for content in self.page:
+            if content:
+                self.fwriter = open(str(path_start + '_' +  str(page_index) + '_' + str(self.soup_index) + '_paragraph_soup.html' ), 'w+')
+                self.fwriter.write(str(content))
+                self.fwriter.write(str('\n'))
+                self.fwriter.close()
+                ##iFileIO.writeHrefCsv(path_start, page_index, self.soup_index, content )
+                #self.soup_index += 1
+
+
+                #if len(content) < 500:
+                #self.data = self.format_csv_string(content)
+                #self.debuginfo("NLP PARSING: " + data)
+                self.data = str(content)
+                #self.debuginfo(data)
+                #if self.alice_entity_bool == False:
+                temp_a = []
+                temp_b= []
+                temp_c = []
+                temp_d = []
+                self.alice_entity_bool, temp_a, temp_b, temp_c, temp_d = WebTools.nlp_get_entity(self, str(data), self.a_nlp, self.a_matcher)
+                if self.alice_entity_bool == True:
+                    self.a_entity_texts = temp_a
+                    self.a_entity_start_char = temp_b
+                    self.a_entity_end_char = temp_c
+                    self.a_entity_label = temp_d
+                    self.fwriter = open(str(path_start + '_' +  str(page_index) + '_' + str(self.soup_index) + '_entity_soup.html' ), 'w+')
+                    self.fwriter.write(str(self.a_entity_texts))
+                    self.fwriter.write(str('\n'))
+                    self.fwriter.write(str(self.a_entity_start_char))
+                    self.fwriter.write(str('\n'))
+                    self.fwriter.write(str(self.a_entity_end_char))
+                    self.fwriter.write(str('\n'))
+                    self.fwriter.write(str(self.a_entity_label))
+                    self.fwriter.write(str('\n'))
+                    self.fwriter.close()
+                    ##iFileIO.writeHrefCsv(path_start, page_index, self.soup_index, content )
+                    #self.soup_index += 1
+
+        #self.debuginfo("\n")
+        #self.debuginfo("+++++ SITE CONTENT END ++++")
+        #self.debuginfo("+++++ SITE CONTENT END ++++")
+        #self.debuginfo("\n")
+        #sleep(0.01)
+
+        #return self.Title, self.WebPagePhoneNumber, self.a_entity_texts, self.a_entity_start_char, self.a_entity_end_char, self.a_entity_label
+        '''
+        
+        

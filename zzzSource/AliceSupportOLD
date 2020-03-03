@@ -1,0 +1,429 @@
+from alice.spiders.AliceRequiredModules import *
+from alice.spiders.AliceFormatting import *
+cwd=spidersDirectoryPath=spidersParentDirectoryPath=dataPath=chromedriverFilePath = None
+from alice.spiders.Chronos import *
+def codeList(moduleReference):
+	requestedSourceList = []
+	source_list = inspect.getsourcelines(moduleReference)
+	for line in source_list[0]:
+		print(line)
+		requestedSourceList.append(str(line))
+	return requestedSourceList
+
+trackPath = ""
+memoriesPath = ""
+
+#observer events
+class Event(object):
+	def __init__(self):
+		self.callbacks = []
+	def notify(self, *args, **kwargs):
+		for callback in self.callbacks:
+			callback(*args, **kwargs)
+	def register(self, callback):
+		self.callbacks.append(callback)
+		return callback
+	@classmethod
+	def watched_property(cls, event_name, key):
+		actual_key = '_%s' % key
+		def getter(obj):
+			return getattr(obj, actual_key)
+		def setter(obj, value):
+			event = getattr(obj, event_name)
+			setattr(obj, actual_key, value)
+			event.notify(obj, key, value)
+		return property(fget=getter, fset=setter)
+#observer trigger
+class Trigger(object):
+	data = Event.watched_property('changed', 'data')
+	def __init__(self, data):
+		self.changed = Event()
+		self.data = data
+#observer fires after backend
+class FrontEnd(object):
+	def redraw(self, obj, key, newvalue):
+		FrontEnd_value = str(newvalue)
+		print(str(FrontEnd_value))
+		#print(FrontEnd_value)
+		#pprint('redrawing %s with value %s' % (self, newvalue))
+#observer trigger
+trigger = Trigger(0)
+# Register some function using decorator syntax
+# Fires before listener such as backend first, then front end
+backendEntryNumber = 0
+@trigger.changed.register
+def BackEnd(obj, key, value):
+	global cwd, ahap_library, session, fdp_domain, dataPath, fdp_ahap, dataPath, fdp_links, dataPath, sourceCodeFilePath, url, status_code_ahap, domain_url_root, url_htmlsource, url_links, navigation_number, soup, set_time, time, session_id, backendEntryNumber
+	backendEntryNumber += 1
+	BackEnd_value = str(value)
+	with open(dataPath + "backend.txt", "a+") as file:
+		if(os.path.exists(dataPath)):
+			try:
+				os.stat(dataPath)
+				with open( dataPath + str("last_recorded_value_ram"), "w+") as file:
+					file.write(BackEnd_value)
+			except IOError as e:
+				pprint("couldnt write: " + str("last_recorded_value_ram"))
+				pprint(e)
+			try:
+				os.stat(dataPath)
+				if backendEntryNumber is 1:
+					writeOperation = "w+"
+				else:
+					writeOperation = "a+"
+				with open(dataPath + "backend.txt",  writeOperation) as file:
+					file.write(BackEnd_value + "\n")
+			except IOError as e:
+				pprint(e)
+# Register the FrontEnd element
+my_FrontEnd = FrontEnd()
+trigger.changed.register(my_FrontEnd.redraw)
+
+def caller_name():
+	frame=inspect.currentframe()
+	frame=frame.f_back.f_back
+	code=frame.f_code
+	return code.co_filename
+
+track_lines_list = []
+def track(payload):
+	global track_lines_list, trackPath, trackLineFreq
+	set_time = datetime.now()
+	time = set_time.strftime("%y_%m_%d_%H_%M_%S%f")
+	stack = inspect.stack()
+	stackInfo = str("|Time|" + str(time) + "\n|CURRENT FUNCTION|" + "\n|line| " + str(stack[0][2]) + "\n|function| " + str(stack[0][3]) + "\n|CALLER|" + "\n|line| " + str(stack[1][2]) + "\n|function| " + str(stack[1][3]) + "\n|OUTERMOST CALL| " + "\n|line| " + str(stack[2][2]) + "\n|function| " + str(stack[2][3]))
+	#trigger.data = stackInfo
+	callerName = str(stack[1][3])
+	lineNumberInt = int(stack[1][2])
+	track_lines_list.append(lineNumberInt)
+	trackCounter = Counter(track_lines_list)
+	callerShortName = callerName[:5]
+	trackFile = ""
+	fileMode = ""
+	if trackCounter[lineNumberInt] == 1:
+		trackFile = str(trackPath + str(lineNumberInt) + "_" + str(trackCounter[lineNumberInt]) + "_" + str(callerShortName)  + "_" + ".txt")
+		fileMode = "w+"
+	else:
+		os.rename(str(trackPath + str(lineNumberInt) + "_" + str(trackCounter[lineNumberInt] - 1) + "_" + str(callerShortName)  + "_" + ".txt"),
+			str(trackPath + str(lineNumberInt) + "_" + str(trackCounter[lineNumberInt]) + "_" + str(callerShortName)  + "_" + ".txt"))
+		fileMode = "a+"
+
+	trackfh = open(str(trackPath + str(lineNumberInt) + "_" + str(trackCounter[lineNumberInt]) + "_" + str(callerShortName)  + "_" + ".txt"), fileMode)
+	trackfh.write(str("\n\n\n"))
+	trackfh.write( "LINE " + str(lineNumberInt))
+	trackfh.write(str("\n"))
+	trackfh.write("PAYLOAD " + str(payload))
+	trackfh.write(str("\n"))
+	trackfh.write(stackInfo)
+	trackfh.write(str("\n"))
+	callerFP = str(caller_name())
+	fh = open(callerFP, 'r')
+	fhIndex = 0
+	#trigger.data =str("|SOURCE CODE SAMPLE| " + callerFP + " |" )
+	codeSample = []
+	while True:
+		line = fh.readline()
+		fhIndex += 1
+		if fhIndex is lineNumberInt:
+			codeSample.append( "|======_!_QUICK DEBUG_!_======|")
+			codeSample.append( "|CALLER|")
+			codeSample.append( "|" + str(stack[1][3]) + "|" + str(fhIndex) + "| " + line)
+			codeSample.append( "|PAYLOAD|")
+			codeSample.append( "|" + str(payload) + "|")
+		elif fhIndex > int(lineNumberInt - 4) and fhIndex < int(lineNumberInt + 10):
+			#line = line[:-2]
+			codeSample.append( "|" + str(stack[1][3]) + "|" + str(fhIndex) + "| " + line)
+			#trigger.data = str("#-code|" + line)
+		elif fhIndex > int(lineNumberInt + 4) or not line:
+			codeSample = list(map(str.strip, codeSample))
+			#for code in codeSample:
+				#trigger.data = code
+			break
+	fh.close()
+	for line in codeSample:
+		trackfh.write(line + "\n")
+	trackfh.close()
+
+asciiIndex = 0
+asciiArtList = ["/alice0.txt","/alice1.txt","/alice2.txt"]
+payloadList = []
+def printEventLogLists():
+	global payloadList, asciiIndex, asciiArtList
+	for payload in payloadList:
+		trigger.data = tLeft(payload)
+	'''
+	fh = open(os.getcwd() + asciiArtList[asciiIndex], 'r')
+	while True:
+		line = fh.read()
+		print(line)
+		if not line:
+			break
+	fh.close()
+	if asciiIndex < len(asciiArtList) -1 :
+		asciiIndex += 1
+	else:
+		asciiIndex = 0
+	'''
+
+caller_names = []
+logEventNumber = 0
+asciiHeight = 12
+asciiAnimationRate = 0
+
+eventlogworkbook = xlsxwriter.Workbook(getHourlyFileName("DATABASE/Events","EventLog.xlsx"))
+eventlogworksheetname = getMinSecMicroString()
+eventlogworksheet = eventlogworkbook.add_worksheet(eventlogworksheetname)
+
+eventlogworksheet.write(0, 0, "payload" )
+eventlogworksheet.write(0, 1, "comment" )
+writeLogNumber = 0
+
+def writeLogEvent(payload, comment):
+	global logEventNumber, writeLogNumber, eventlogworkbook, eventlogworksheetname, eventlogworksheet
+	writeLogNumber += 1
+	set_time = datetime.now()
+	year = int(set_time.strftime("%Y"))
+	month = int(set_time.strftime("%m"))
+	day = int(set_time.strftime("%d"))
+	hour = int(set_time.strftime("%H"))
+	minute = int(set_time.strftime("%M"))
+	second = int(set_time.strftime("%S"))
+	microsecond = int(set_time.strftime("%f"))
+	fTime = '{:%Y-%m-%d-%H}'.format(datetime(year, month, day, hour))
+	file, isNew = getHourlyFileName("DATABASE/Events","EventLog.csv")
+
+	f = open(file, "a+")
+	#pTime = '{:%M-%S-%f}'.format(datetime(minute, second, microsecond))
+	stack = inspect.stack()
+	lineNumberInt = int(stack[1][2])
+	print( str(lineNumberInt) + ", " +  str(payload))
+	print( str(lineNumberInt) + ", " +  str(comment))
+
+	f.write( str(lineNumberInt) + ", " + str(payload) + ", " + str(comment) + '\n')
+	f.close()
+	#eventlogworksheet.write(str(writeLogNumber), 0, str(payload) )
+	#eventlogworksheet.write(str(writeLogNumber), 1, str(comment) )
+	#eventlogworkbook.close()
+ 	#It cannot read or modify existing Excel XLSX files.
+	#https://xlsxwriter.readthedocs.io/introduction.html
+	#eventlogworkbook.open
+
+
+global runIt, commentListAdds, finalList
+commentListAdds = []
+finalList = []
+runIt = False
+def logEventList(payload, string, runIt):
+    	#track(comment)
+	global logEventNumber, asciiHeight, asciiAnimationRate, finalList, commentListAdds
+	if runIt == True:
+		logEventNumber += 1
+		#year = set_time.strftime("%y_%m_%d_%H_%M_%S%f")
+		trigger.data =str("|SOURCE CODE SAMPLE| " + str(caller_name()) + " |" )
+		trigger.data = str("\n\n\n|-------------   " + getProperTime() + "  ----------|")
+		#trigger.data = str("|-------------   Microsecond: " +str(microsecond) + "  ----------|")
+		trigger.data = str("|--------------  EVENT " + str(logEventNumber) + " BEGIN  ----------------|")
+		#trigger.data = str("|              MESAGE FROM ALICE                |")
+		ascii_alice_face = ["|","|","|","|","|","|","|","|","|","|","|","|" ]
+		for comment in  commentListAdds:
+			tempDesc = comment.split()
+			tempWords = list(map(str.strip, tempDesc))
+			for word in tempWords:
+				global finalList
+				finalList.append(word)
+		stack = inspect.stack()
+		trigger.data = (str(tLeft('|CURRENT FUNCTION|') + tCenter('|CALLER|') + tRight('|OUTERMOST CALL| ')))
+		trigger.data = (str(tLeft(str(stack[0][2])) + tCenter(str(stack[1][2])) + tRight(str(stack[2][2]))))
+		trigger.data = (str(tLeft(str(stack[0][3])) + tCenter(str(stack[1][3])) + tRight(str(stack[2][3]))))
+		#track(finalList)
+		if  int( len(finalList) - 1) > 10:
+			maxcommentLength = 10
+		elif  int( len(finalList) - 1) > 0:
+			maxcommentLength =  int( len(finalList) - 1)
+		else:
+			maxcommentLength = 0
+		commentListIndex = 0
+		aliceLineIndex = 0
+		printing = True
+		commentSentence = ""
+		lastSentenceStartIndex = 0
+		targetSentenceLength = 15
+		asciiHeightMax = 4
+		asciiHeightMin = 1
+		if asciiHeight == asciiHeightMax:
+			asciiAnimationRate = -1
+		elif asciiHeight == asciiHeightMin:
+			asciiAnimationRate = 1
+		asciiHeight += asciiAnimationRate
+
+		while printing:
+			if int( len(finalList) - 1) == commentListIndex:
+				printing = False
+
+
+			if aliceLineIndex > int(len(ascii_alice_face) -1):
+				aliceLineIndex = 0
+			if commentListIndex != 0 and int(int(commentListIndex - lastSentenceStartIndex) + targetSentenceLength) > int( len(finalList) - 1):
+				targetSentenceLength -= 1
+				#track(targetSentenceLength)
+			#if int(int(commentListIndex - lastSentenceStartIndex) + targetSentenceLength) < int( len(finalList) - 1):
+			else:
+				lastSentenceStartIndex = commentListIndex
+				commentSentence = None
+				lastWords= []
+				lastWords = finalList[lastSentenceStartIndex:int(lastSentenceStartIndex+ targetSentenceLength)]
+				#track(lastWords)
+				commentSentence = ' '.join(lastWords)
+				lastWords.clear()
+				aliceLineIndex += 1
+				if aliceLineIndex > 12:
+					aliceLineIndex = 0
+				#track(commentSentence)
+				dString = []
+				dString = commentSentence.split("|")
+				if dString:
+					for dater in dString:
+						try:
+							trigger.data = str(ascii_alice_face[aliceLineIndex] + " " + dater)
+						except:
+							print(" Missed dater")
+				else:
+					trigger.data = str(ascii_alice_face[aliceLineIndex] + " " + commentSentence)
+				commentListIndex += targetSentenceLength
+
+			#commentListIndex += targetSentenceLength
+			#commentListIndex += 1
+			if int( len(finalList) - 1) < commentListIndex:
+				while aliceLineIndex < asciiHeight:
+					trigger.data = str(ascii_alice_face[aliceLineIndex])
+					aliceLineIndex += 1
+				printing = False
+		#trigger.data = str("|_______________________________________________|")
+		#trigger.data = str("\n\n|                STATUS REPORT                  |")
+		lineNumberInt = int(stack[1][2])
+		callerFP = str(caller_name())
+		fh = open(callerFP, 'r')
+		fhIndex = 0
+		codeSample = []
+		sampleLines = 20
+		fh.close()
+		#printEventLogLists()
+		sleep(3)
+		runIt = False
+		trigger.data = str("|----------------------EVENT " + str(logEventNumber) + " END----------------------|\n\n\n")
+		commentListAdds.clear()
+	else:
+		commentListAdds.append("\n| PAYLOAD " + str(payload) + " is " + str(string))
+'''
+def addcomment(pay, string):
+	global commentListAdds
+	commentListAdds.append(string)
+'''
+def strip_url_params2(url, param_to_strip=[]):
+	if '?' not in url:
+		return url
+	queries = (url.split('?')[1]).split('&')
+	queries_obj = [query[0] for query in queries]
+	for i in range(len(queries_obj) - 1, 0, -1):
+		if queries_obj[i] in param_to_strip or queries_obj[i] in queries_obj[0:i]:
+			queries.pop(i)
+	return url.split('?')[0] + '?' + '&'.join(queries)
+
+def find_between( s, first, last ):
+	try:
+		start = s.index( first ) + len( first )
+		end = s.index( last, start )
+		return s[start:end]
+	except ValueError:
+		return ""
+def find_between_r( s, first, last ):
+	try:
+		start = s.rindex( first ) + len( first )
+		end = s.rindex( last, start )
+		return s[start:end]
+	except ValueError:
+		return ""
+def checkKey(dict, key):
+	if key in dict.keys():
+		# print("Present, ", end =" ")
+		#print("value =", dict[key])
+		return True
+	else:
+		# print("Not present")
+		return False
+
+def word_feats(words):
+	return dict([(word, True) for word in words])
+
+def traceInfoB():
+	frame,filename,line_number,function_name,lines,index = inspect.stack()[1]
+	print(frame,filename,line_number,function_name,lines,index)
+
+def traceInfoA():
+	previous_frame = inspect.currentframe().f_back
+	(filename, line_number,
+	function_name, lines, index) = inspect.getframeinfo(previous_frame)
+	return (filename, line_number, function_name, lines, index)
+
+def cleanText(self,inputText):
+	'''
+	Takes inputText and clean up the html special charcters.
+	:return string
+	'''
+	inputText=inputText.decode('utf8')
+	okList='abcdefghijklmnopqrstuvwxyz'
+	okList+='ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+	okList+="1234567890!@#$%^&*()-_+=[]{}' "
+	okList+=';"?.,`~'
+	tempString=''
+	# ignore all characters not in the ok list
+	for character in inputText:
+		if character in okList:
+			tempString+=character
+			# convert all html entities in the title to unicode charcters
+			tempString=HTMLParser().unescape(tempString)
+	return tempString
+
+def fixEncoding(data):
+	#messyFile = str( g_fdp_ram + "messy_text_RAM")
+	messyFile = str( data )
+	with open(messyFile, 'rb') as detect_file_encoding:
+		detection = chardet.detect(detect_file_encoding.read())
+		print('Chardet:', detection)
+
+		if detection['encoding'] == 'ascii':
+				with open(messyFile, encoding='ascii') as file:
+						data = file.read()
+		elif detection['encoding'] == 'ISO-8859-9':
+				# Some files with "ë" in them are parsed erroneously as iso-8859-9 or latin-5 or Turkish
+				with open(messyFile, encoding='utf-8') as file:
+						data = file.read()
+		else:
+				try:
+					with open(messyFile, encoding=detection['encoding']) as non_unicode_file:
+						data = non_unicode_file.read()
+				except Exception as e:
+					raise ValueError('Can\'t return dictionary from empty or invalid csv file %s due to %s' % (messyFile, e))
+		if not data:
+				raise ValueError('Can\'t return dictionary from empty or invalid csv file %s' % messyFile)
+		#UnicodeDammit(data)
+		#return data
+		#properData = UnicodeDammit(data)
+	return data
+
+def printcsv(csvLocation):
+	loader = pytablereader.CsvTableFileLoader(csvLocation)
+	for table_data in loader.load():
+		print("\n".join([
+			"load from file",
+			"==============",
+			"{:s}".format(pytablewriter.dumps_tabledata(table_data)),
+		]))
+
+def random_grade(row):
+	"""Returns a random integer for entry."""
+	return (random.randint(60,100)/100.0)
+
+def setTriggerData(string):
+	trigger.Data = string
+

@@ -1,0 +1,12 @@
+"|           ,dAF cAAAAAAAAAAAP^',dAliceAc ?AAAA,|",
+"|          ,AAF cAAAAAAAAAP^',dAliceAAAAAb ?AAAF|",
+"|         ,AAP JAAA>?^^^.,r=^^?AAAAAAliceAb AAAP|",
+"|       ' dAA> AliceP^,AALzdAAc,CAAAAAAA??? AAP'|",
+"|        dAAA> AAAP^ ,AAAAP??^^?AliceAAccAc ^   |",
+"|        AAAAb JAAP^,dAAP^,   -AAAAP^3A?A?      |",
+"|       <Alice=^  ,cAAAAc,   _4AAAP ',  `       |",
+"|     ' <AAAA, A, ?AliceAAAAAAliceL  ^          |",
+"|    ,c <AAAAAb,Ac,  AAAAAAliceP?AA 4Acd        |",
+"|   zAA <AliceAAAA ? AAAAAAAAP?AAL,cAAAF dc     |",
+"| zAAAA,<AliceAAAAA,  ?AAAAA.  -  AAAP^,dAAb    |",
+"|AAAAAALAAAAAAliceAb    ?AAAAc;;ccP^',cAAAAAc   |"

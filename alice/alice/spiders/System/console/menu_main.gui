@@ -1,0 +1,25 @@
+|
++++set+++
+consoleInterval
+0.025
+|
+|
+|
+|   Main Menu:
+|   Command line interface.
+|
+|   INPUT COMMANDS:
+|
+|   websearch
+|
+|   mine website
+|
+|   summarize mined data
+|
+|   define keywords
+|
+|   export spreadsheet
+|
+|   extract_summary <filename> or website address
+|   extract_phrases <filename> or website address
+|

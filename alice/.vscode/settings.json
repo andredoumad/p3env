@@ -1,0 +1,8 @@
+{
+    "python.pydev.java.home": "~/p3env/java/jre1.8.0_211",
+    "python.pythonPath": "~/p3env/bin/python",
+    "git.enabled": true,
+    "git.ignoreLimitWarning": true
+
+}
+

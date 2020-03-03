@@ -1,0 +1,366 @@
+from os.path import abspath
+from alice.spiders.AliceFormatting import *
+from alice.spiders.System.AliceRequiredModules import *
+import numpy
+import pysnooper
+if not os.path.exists( str(os.getcwd() + 'parselog') ):
+	os.makedirs( str(os.getcwd() + 'parselog'))
+global parseLog
+parseLog = ''
+parsLog = str(os.getcwd() + 'parselog')
+
+#observer events
+class Event(object):
+	def __init__(self):
+		self.callbacks = []
+	def notify(self, *args, **kwargs):
+		for callback in self.callbacks:
+			callback(*args, **kwargs)
+	def register(self, callback):
+		self.callbacks.append(callback)
+		return callback
+	@classmethod
+	def watched_property(cls, event_name, key):
+		actual_key = '_%s' % key
+		def getter(obj):
+			return getattr(obj, actual_key)
+		def setter(obj, value):
+			event = getattr(obj, event_name)
+			setattr(obj, actual_key, value)
+			event.notify(obj, key, value)
+		return property(fget=getter, fset=setter)
+#observer trigger
+class Trigger(object):
+	data = Event.watched_property('changed', 'data')
+	def __init__(self, data):
+		self.changed = Event()
+		self.data = data
+#observer fires after backend
+class FrontEnd(object):
+	def redraw(self, obj, key, newvalue):
+		FrontEnd_value = str(newvalue)
+		print(str(FrontEnd_value))
+		#print(FrontEnd_value)
+		#pprint('redrawing %s with value %s' % (self, newvalue))
+#observer trigger
+trigger = Trigger(0)
+# Register some function using decorator syntax
+# Fires before listener such as backend first, then front end
+backendEntryNumber = 0
+@trigger.changed.register
+def BackEnd(obj, key, value):
+	BackEnd_value = str(value)
+	with open(dataPath + "backend.txt", "a+") as file:
+		if(os.path.exists(dataPath)):
+			try:
+				os.stat(dataPath)
+				with open( dataPath + str("last_recorded_value_ram"), "w+") as file:
+					file.write(BackEnd_value)
+			except IOError as e:
+				pprint("couldnt write: " + str("last_recorded_value_ram"))
+				pprint(e)
+			try:
+				os.stat(dataPath)
+				if backendEntryNumber is 1:
+					writeOperation = "w+"
+				else:
+					writeOperation = "a+"
+				with open(dataPath + "/observer.txt",  writeOperation) as file:
+					file.write(BackEnd_value + "\n")
+			except IOError as e:
+				pprint(e)
+# Register the FrontEnd element
+my_FrontEnd = FrontEnd()
+trigger.changed.register(my_FrontEnd.redraw)
+
+
+
+class iLink:
+	global parseLog
+	myDirectoryPath = ''
+	currentState = None
+	totalStates = None
+	transitionTriggerEventCount = 0
+	goalEventsAchievedCount = 0
+	goalEvent = int(0)
+	flagEvent = False
+	myLog = parseLog
+	@pysnooper.snoop('parselog')
+	def __init__(self, name):
+		self.name = name
+		#self.finiteStates = []
+		self.think = self.makeThink()
+		self.act = self.makeAct()
+		self.decision = self.makeDec()
+		self.state = self.makeState()
+		self.states =self.makeStateList()
+		self.console = self.makeconsole()
+	@pysnooper.snoop('parselog')
+	def makeThink(self):
+		return self.iThink(self)
+	@pysnooper.snoop('parselog')
+	def makeAct(self):
+		return self.iAct(self)
+	@pysnooper.snoop('parselog')
+	def makeDec(self):
+		return self.iDecision(self)
+	@pysnooper.snoop('parselog')
+	def makeStateList(self):
+		return self.iStateList(self)
+	@pysnooper.snoop('parselog')
+	def makeState(self):
+		return self.iState(self)
+	@pysnooper.snoop('parselog')
+	def makeconsole(self):
+		return self.iConsole(self)
+
+	class iConsole:
+		global parseLog
+		parseLog
+		@pysnooper.snoop('parselog')
+		def __init__(self, iconsole):
+			self.iconsole = iconsole
+
+		@pysnooper.snoop('parselog')
+		def message(self, string):
+			print(string)
+
+		#@pysnooper.snoop('parselog')
+		asciiArt = []
+		asciiArt.clear()
+		def animate(self, targetFile):
+			asciiArt = []
+			asciiArt.clear()
+			if targetFile == "+++ERROR+++":
+				myTail = []
+				myTail = tail("parselog", 40, None, False)
+				print("\n\n\n   --------    last 20 lines of log :\n\n\n")
+				for line in myTail:
+					print(line)
+				print("\n\n\n   --------    NOW FULL LOG :\n\n\n")
+				asciiArt = []
+				asciiArt.clear()
+				fh = open('parselog', 'r')
+				while True:
+					line = fh.readline()
+					if line == '':
+						break
+				fh.close()
+			else:
+				fh = open(os.path.abspath(targetFile), 'r')
+				self.consoleInterval = 0.033
+				while True:
+					line = fh.readline()
+					#print(line)
+					asciiArt.append(line)
+					if not line:
+						break
+				fh.close()
+				for art in asciiArt:
+					art.rstrip()
+					art.lstrip()
+
+				flagSet = False
+				flagVar = False
+				VarName = ""
+				for art in asciiArt:
+					console = str(str(art).rstrip()).lstrip("'")
+					if flagSet == True:
+						if flagVar == False:
+							VarName = console
+							flagVar = True
+						else:
+							if VarName == "consoleInterval":
+								self.consoleInterval = console
+								flagVar = False
+								flagSet = False
+					elif console == "+++set+++":
+						flagSet = True
+					else:
+						s0 = str('{:.160}'.format(str(console)))
+						s1 = str('{:<10}'.format(s0))
+						print(s1)
+						sleep(float(self.consoleInterval))
+
+	class iThink:
+		@pysnooper.snoop('parselog')
+		def __init__(self, ithink):
+			self.ithink = ithink
+
+		@pysnooper.snoop('parselog')
+		def message(self, string):
+			f = open(str( self.ithink.myDirectoryPath + '/' + self.ithink.name + '_messages.txt'), 'a+')
+			f.write(string)
+			f.close
+
+	class iAct:
+		@pysnooper.snoop('parselog')
+		def __init__(self, iact):
+			self.iact = iact
+			self.myact = ''
+			self.mystate = ''
+			self.methodSequence = ''
+		@pysnooper.snoop('parselog')
+		def process(self, targetFile):
+			asciiArt = []
+			asciiArt.clear()
+			fh = open(os.getcwd() + "/" + targetFile, 'r')
+			self.consoleInterval = 0.1
+			while True:
+				line = fh.readline()
+				#print(line)
+				asciiArt.append(line)
+				if not line:
+					break
+			fh.close()
+			for art in asciiArt:
+				art.rstrip()
+				art.lstrip()
+
+			flagSet = False
+			flagVar = False
+			VarName = ""
+			for art in asciiArt:
+				console = str(str(art).rstrip()).lstrip("'")
+				if flagSet == True:
+					if flagVar == False:
+						VarName = console
+						flagVar = True
+					else:
+						if VarName == "consoleInterval":
+							self.consoleInterval = console
+							flagVar = False
+							flagSet = False
+				elif console == "+++set+++":
+					flagSet = True
+				else:
+					print(tConsole(console))
+					sleep(float(self.consoleInterval))
+
+	class iDecision:
+		@pysnooper.snoop('parselog')
+		def __init__(self, idecision):
+			self.idecision = idecision
+			self.mydecision = ''
+			self.mystate = ''
+			self.methodSequence = ''
+		@pysnooper.snoop('parselog')
+		def process(self, targetFile):
+			asciiArt = []
+			asciiArt.clear()
+			fh = open(os.getcwd() + "/" + targetFile, 'r')
+			self.consoleInterval = 0.1
+			while True:
+				line = fh.readline()
+				#print(line)
+				asciiArt.append(line)
+				if not line:
+					break
+			fh.close()
+			for art in asciiArt:
+				art.rstrip()
+				art.lstrip()
+
+			flagSet = False
+			flagVar = False
+			VarName = ""
+			for art in asciiArt:
+				console = str(str(art).rstrip()).lstrip("'")
+				if flagSet == True:
+					if flagVar == False:
+						VarName = console
+						flagVar = True
+					else:
+						if VarName == "consoleInterval":
+							self.consoleInterval = console
+							flagVar = False
+							flagSet = False
+				elif console == "+++set+++":
+					flagSet = True
+				else:
+					print(tConsole(console))
+					print ('\n')
+					sleep(float(self.consoleInterval))
+
+	class iStateList:
+		@pysnooper.snoop('parselog')
+		def __init__(self, istates):
+			self.istates = istates
+			self.states = []
+			self.activeState = None
+		@pysnooper.snoop('parselog')
+		def add(self, anotherState):
+			self.states.append(anotherState)
+		@pysnooper.snoop('parselog')
+		def process(self, data):
+			processing = True
+			while processing == True:
+				self.results	= self.activeState.process(data)
+			return self.results
+
+	class iState:
+		@pysnooper.snoop('parselog')
+		def __init__(self, istate):
+			self.istate = istate
+			self.actions = []
+			self.decisions = []
+			self.result = None
+		@pysnooper.snoop('parselog')
+		def appendAction(self, act):
+			self.actions.append(act)
+		@pysnooper.snoop('parselog')
+		def appendDesc(self, desc):
+  			self.decisions.append(desc)
+		@pysnooper.snoop('parselog')
+		def process(self, data):
+			processing = True
+			for action in self.actions:
+				while processing  == True:
+					self.result = action.process(data)
+				if self.result == False:
+					processing = False
+				processing = True
+			for decision in self.decisions:
+				while processing  == True:
+					 self.result = decision.process(data)
+				if self.result == False:
+					processing = False
+				processing = True
+
+
+
+
+
+
+
+
+
+    '''
+    def xpath_soup(element):
+        components = []
+        child = element if element.name else element.parent
+        for parent in child.parents:
+            siblings = parent.find_all(child.name, recursive=False)
+            components.append(
+                child.name
+                if siblings == [child] else
+                '%s[%d]' % (child.name, 1 + siblings.index(child))
+                )
+            child = parent
+        components.reverse()
+        return '/%s' % '/'.join(components)
+    '''
+    
+
+
+
+
+
+
+
+
+
+
+
+
+

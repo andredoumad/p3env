@@ -1,0 +1,1 @@
+pip install docx2txt bs4 chardet html2text nltk nameparser py pytablereader pytablewriter pylint pyvirtualdisplay requestium spacy pytest spacy_langdetect docx2txt xlsxwriter pysnooper prettytable parse xlrd dataflows pdfminer anytree sumy validate_email pyisemail ftfy email_validator verifier fake_useragent scrapy_fake_useragent

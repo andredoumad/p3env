@@ -1,0 +1,153 @@
+from alice.spiders.AliceRequiredModules import *
+#import alice.spiders.Alice as alice
+#from alice.spiders.AliceROM import *
+import alice.spiders.Alice as zero
+from alice.spiders.AliceROM import *
+from alice.spiders.AliceSupport import *
+
+def run():
+	webTextInput = open("TestExtraction.txt", 'w')
+	#thisDictionary = collections.OrderedDict()
+	#bot = alice.Prototype('aliceMark1', thisDictionary)
+
+	#bot.process.entity.myDict(thisDictionary)
+	print(sys.path)
+	print(os.getcwd())
+	cwd = os.getcwd()
+	print(str("current working directory is: " + cwd))
+	spidersDirectoryPath = str(os.path.abspath(os.path.join(os.path.dirname(__file__))))
+	print(str("target spidersDirectoryPath is: " + spidersDirectoryPath))
+	spidersParentDirectoryPath = str(os.path.abspath(os.path.join(os.path.dirname(__file__),"..")))
+	print(str("target spidersParentDirectoryPath is: " + spidersParentDirectoryPath))
+	dataPath = str(str(os.path.abspath(os.path.join(os.path.dirname(__file__),"..",".."))) + "/data/")
+	bot = zero.Prototype('aliceZero')
+	bot.alice.initialize()
+	#fr = open("alanWatts.txt", 'r')
+
+	#f = open(dataPath + 'ram_url_sourcecode.html', 'r')
+
+	soup = BeautifulSoup(open(dataPath + "ram_url_sourcecode.html"), "html.parser")
+
+
+	#logEvent("make_ram_text_csv()", "Alice creates a table of english words and phrases she recalls reading from the web server response.")
+	#global   alice_spider_parse_number, alice_spider_domain_previous_page_url, alice_spider_domain_number, alice_spider_domain_history, alice_spider_domain_current_page_index, cwd, ahap_library, session, fdp_domain, dataPath, AliceSupportSource_list, AliceSpiderSource_list, fdp_ahap, fdp_links, sourceCodeFilePath, url, status_code_ahap, domain_url_root, url_htmlsource, url_links, navigation_number, soup, set_time, time, session_id, extractedLinkList, extractedLinkDict, extractedDomain, url_text
+	url_text = soup.get_text()
+	extractedText = ""
+	extractedTextDict = {}
+	extractedParagraphList = []
+	rowNumber = 1
+	with open(dataPath + "test_url_text.csv",'w+') as paragraphsFile:
+		wr = csv.writer(paragraphsFile, dialect='excel')
+		wr.writerow(["rowNumber","timestamp","domain","paragraph","summary","rank"])
+		for paragraph in url_text:
+			set_time = datetime.now()
+			time = set_time.strftime("%y_%m_%d_%H_%M_%S%f")
+			rowNumber +=1
+			tb = TextBlob(paragraph)
+						#alan = fr.read()
+			tb = TextBlob(url_text, classifier=NaiveBayesClassifier)
+			#bot.alice.appendKeyValue(str(url_links), str(url_text))
+			print(tb.sentences)
+			for lines in tb.serialized:
+				for keys,values in lines.items():
+					#if(str(keys) == 'stripped'):
+#						webTextInput.write(str('stripped '))
+						#webTextInput.write(str(values))
+						#thisDictionary['stripped'] = values
+						#webTextInput.write(str('\n'))
+						#print(str(keys) + " " + str(values))
+						#bot.alice.MineWebsite(str(keys), str(values))
+						#bot.alice.MineWebsite(key, values)
+						#print("---------------------")
+						webTextInput = paragraph
+
+			#wr.writerow([str(rowNumber),str(time),extractedDomain,paragraph])
+			#wr.writerow([str(rowNumber),str(time),extractedDomain,paragraph])
+	url_links = soup.find_all('a')
+	extractedDomain = ""
+	extractedLink = ""
+	extractedText = ""
+	extractedNextID = ""
+	extractedTextDict = {}
+	extractedLinkDict = {}
+	extractedTextList = []
+	extractedLinkList = []
+	rowNumber = 1
+	#cleanup the urls
+	with open(dataPath + "test_url_links.csv",'w+') as resultFile:
+		wr = csv.writer(resultFile, dialect='excel')
+		wr.writerow(["rowNumber","timestamp","domain","hyperlink","hyperlinkText","idNext"])
+		for link in url_links:
+			newLink = ""
+			#extract full url + url text
+			href_extract = link.get('href')
+			newLink = str(href_extract)
+			#separate next link that contains javascript code
+			if newLink.find("Next"):
+				testNext = find_between( newLink, "('", "','')" )
+				if testNext.find("Next"):
+					extractedNextID = testNext
+			if not newLink.startswith('/'):
+				if newLink[:0] == "#":
+					pass
+				elif newLink[:9] == "javascript":
+					pass
+				elif newLink is None:
+					pass
+				elif len(newLink) <= 4:
+					pass
+				else:
+					#pprint(str(newLink))
+					extractedLink = str(newLink)
+			#pull just text from href
+			#seems to prevent encoding errors if i just write it to file then extract it
+			#with open(str(dataPath + "make_ram_url_links_scratchpad.txt"), "w+") as f:
+			#	f.write(str(link))
+			extractedText = find_between( str(link), ">", "</a>" )
+			soupy = BeautifulSoup(extractedText)
+			justText = soupy.get_text()
+			extractedText = justText
+			#extractedDomain = url
+			set_time = datetime.now()
+			time = set_time.strftime("%y_%m_%d_%H_%M_%S%f")
+			rowNumber += 1
+			extractedTextList.append(extractedText)
+			extractedLinkList.append(extractedLink)
+			bot.alice.MineWebsite(str(extractedLink), str(extractedText))
+			#[rowNumber] = time
+			#aliceBot.alice.MineWebsite(extractedDomain, extractedText)
+			wr.writerow([str(rowNumber),str(time),extractedDomain,extractedLink,extractedText,extractedNextID])
+			#printcsv(str(dataPath + "ram_url_links.csv"))
+			#make_ram_text_csv()
+			#printcsv(str(dataPath + "ram_url_text.csv"))
+			ram_url_links_xlsx = tablib.Dataset()
+			ram_url_links_xlsx = ram_url_links_xlsx.load(open(dataPath + 'ram_url_links.csv').read())
+			ram_url_links_xlsx.append_col(random_grade, header='Grade')
+			#pprint(str(ram_url_links_xlsx.height))
+			#sleep(1)
+			extractedLinkDict = {i:extractedLinkList.count(i) for i in extractedLinkList}
+
+			#for col in range(1, ram_url_links_xlsx.width):
+				#pprint( "printing column " + str(col) + " from ram_url_links: " + str(ram_url_links_xlsx.get_col(col)))
+
+			with open(dataPath + 'ram.xlsx', 'wb') as f:
+				f.write(ram_url_links_xlsx)
+
+
+	#data = fr.read()
+	#bot.process.live(ROM)
+	#bot.alice.recall()
+	#bot.entity.process(ROM)
+	webTextInput.close()
+	#fr.close
+
+	'''googlesearch.search(query, tld='com', lang='en', tbs='0', safe='off', num=10, start=0, stop=None, domains=None, pause=2.0, only_standard=False, extra_params={}, tpe='', user_agent=None)'''
+	search = iSearch.search
+	searchString = "American Healthcare Audit Professionals"
+	search(searchString, tld='com', lang='en', tbs='0', safe='off', num=10, start=0, stop=None, domains=None, pause=2.0, only_standard=False, extra_params={}, tpe='', user_agent=None)
+
+	results =  search(searchString)
+	for result in results:
+		print( str(results)) 
+		sleep(1)
+	exit()

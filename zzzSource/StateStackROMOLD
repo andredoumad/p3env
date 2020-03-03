@@ -1,0 +1,94 @@
+from alice.spiders.AliceRequiredModules import *
+
+if not os.path.exists( os.getcwd() + '/DATABASE/romStates' ):
+	os.makedirs( str(os.getcwd() + '/DATABASE/romStates'))
+if not os.path.exists( os.getcwd() + '/DATABASE/memories/logs/romStates' ):
+	os.makedirs( str(os.getcwd() + '/DATABASE/memories/logs/romStates'))
+
+
+class RomStates:
+	myDir = ''
+	activeState = int(-2)
+	transitionState = int(0)
+	myStates = []
+	varinput = None
+
+	def __init__(self, name):
+		self.name = name
+		self.iactive = -2
+		self.initializeMyself()
+
+	@pysnooper.snoop(str( os.getcwd() +'/DATABASE/memories/logs/romStates/initializeMyself.log'))
+	def initializeMyself(self):
+		if not os.path.exists( os.getcwd() + '/DATABASE/romStates/' + self.name):
+			os.makedirs( str(os.getcwd() + '/DATABASE/romStates/') + self.name)
+		self.myDir = str(os.getcwd() + '/DATABASE/romStates/' + self.name)
+
+
+	@pysnooper.snoop(str( os.getcwd() +'/DATABASE/memories/logs/romStates/update.log'))
+	def update(self, trans):
+		if self.transitionState != trans:
+			self.transitionState = trans
+		self.doActivity()
+
+	@pysnooper.snoop(str( os.getcwd() +'/DATABASE/memories/logs/romStates/doActivity.log'))
+	def doActivity(self):
+		if self.activeState != self.transitionState:
+			self.activeState = self.transitionState
+
+
+	@pysnooper.snoop(str( os.getcwd() +'/DATABASE/memories/logs/romStates/cWelcome.log'))
+	def cWelcome(self):
+		displayAsciiFile(self, "console/welcomeArt.gui")
+		#displayAsciiFile(self, "console/welcomeTitle.gui")
+		#displayAsciiFile(self, "console/welcomeInfo.gui")
+		self.cClear()
+		self.cMenu()
+		self.cClear()
+
+	@pysnooper.snoop(str( os.getcwd() +'/DATABASE/memories/logs/romStates/cClear.log'))
+	def cClear(self):
+		displayAsciiFile(self, "console/cClear.gui")
+
+	@pysnooper.snoop(str( os.getcwd() +'/DATABASE/memories/logs/romStates/cMenu.log'))
+	def cMenu(self):
+		displayAsciiFile(self, "console/cMenu.gui")
+
+	def cInput(self):
+		self.varinput = input("Please enter something: ")
+		print("You entered " + str(self.varinput))
+
+
+	@pysnooper.snoop(str(os.getcwd() + '/DATABASE/memories/logs/websearch.log'))
+	def websearch(self, find, session):
+
+			global websearchIndex, htmlsourcepath, raw,  linksFilePath
+			session.driver.get("https://duckduckgo.com")
+			search_form = session.driver.find_element_by_id('search_form_input_homepage')
+			self.results = []
+			search_form.send_keys(find)
+			search_form.submit()
+			if not os.path.exists( str(self.myDir + "/" + self.name + "/duckduckgo/search" + find) ):
+				os.makedirs( str(self.myDir +"/" + self.name + "/duckduckgo/search" + find) )
+			htmlsourcepath = str(str(self.myDir +"/" + self.name + "/duckduckgo/search" + find) + ".html" )
+			sleep(2)
+			raw = session.driver.page_source
+			f = open(htmlsourcepath, 'a+')
+			f.write(raw)
+			f.close()
+			try:
+				results = session.driver.find_elements_by_class_name('result')
+				print(results[0].text)
+				f = open(linksFilePath, 'a+')
+				f.write(raw)
+				f.close()
+				#writeLogEvent(session.driver.find_elements_by_class_name('result'), "searched for  " + find)
+			except:
+				pass
+
+	def refreshAHAP_DB(self, session):
+		positiveList = ["chief","financial","officer","health","center","qualified","federally","medical","executive","operating","email","phone","address","2019","2018","operation","management","fom","conference","fqhc","self","insured","company","benefits","strategy","lead","risk","medicare","cost","report","reclassification","adjustment","reimbursement","reporting","compliance","sliding","fee","discount","program","insurance","associations","center","california","lawyers","nurse","auditors","cfo","ceo","cmo","clinical","academy","national","legal","claims","quality","urgent","care","institute","america","usa","healthcare","physicians","California"]
+
+		for item in positiveList:
+			self.websearch(item, session)
+			sleep(5)

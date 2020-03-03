@@ -1,0 +1,116 @@
+    '''
+    @pysnooper.snoop('parse.txt', prefix='harvestVisitedLinks', depth=1)
+    def harvestVisitedLinks(self, _Alice, maxLoops, alice_nlp, a_matcher):
+        #self.debuginfo(" -------- \n     +++ definition +++     \n harvestVisitedLinks \n -------- \n")
+        if not os.path.exists( str( os.getcwd() + '/DATABASE/harvest/')):
+            os.makedirs( str( os.getcwd() + '/DATABASE/harvest/'))
+        self.harvestFilePathscsv =  str( os.getcwd() + '/DATABASE/harvest/harvestFilePaths.csv')
+        self.harvestUrlscsv =  str( os.getcwd() + '/DATABASE/harvest/harvestUrlscsv.csv')
+        if not os.path.isfile(str( os.getcwd() + '/DATABASE/visited/visitedurlsList.csv')):
+            self.clear_file(str( os.getcwd() + '/DATABASE/visited/visitedurlsList.csv'))
+        self.visitedurlsList = self.getListFromFile(str( os.getcwd() + '/DATABASE/visited/visitedurlsList.csv'), maxLoops)
+
+        self.loops = 0
+        self.working = True
+        while self.working == True:
+            for url in self.visitedurlsList:
+                self.loops +=1
+                if self.loops > maxLoops:
+                    self.working = False
+                    break
+                ##self.debuginfo("loop " + str(loops))
+                boolSuccess, filepath = self.getindexFilepathFromUrl(url)
+                if boolSuccess:
+                    self.writeFileAs(filepath, "url", url, 'w+')
+            self.working = False
+        from pathlib import Path
+        htmlsourcepaths = []
+        htmlsourcepaths = str( os.getcwd() + '/DATABASE/visited/websites/' + '**/' + "**")
+        items = glob.glob(htmlsourcepaths, recursive=True)
+        uniqueItems = self.getListWithoutDuplicates(items)
+        self.harvestFilePathsList = []
+        self.harvestUrlList = []
+
+        self.loops = 0
+        self.working = True
+        while self.working == True:
+            for item in uniqueItems:
+                self.loops +=1
+                if self.loops > maxLoops:
+                    self.working = False
+                    break
+                ##self.debuginfo("loop " + str(loops))
+                if item.find('index.html') != -1:
+                    self.harvestFilePathsList.append(item)
+                    #self.debuginfo("\n" + str(item))
+                if item.find('.url') != -1:
+                    lines = self.getListFromFile(item, maxLoops)
+                    self.harvestUrlList.append(lines[0])
+                    #self.debuginfo(str(item))
+            self.working = False
+
+        self.clear_file(self.harvestFilePathscsv)
+        #write list of targets
+        self.writelistOfStuff(self.harvestFilePathsList, self.harvestFilePathscsv)
+
+        self.clear_file(self.harvestUrlscsv)
+        #write list of targets
+        self.writelistOfStuff(self.harvestUrlList, self.harvestUrlscsv)
+
+        #make dict for csv
+        self.csvFP =  str( os.getcwd() + '/DATABASE/harvest/harvest.csv')
+        self.clear_file(self.csvFP)
+        #make harvest file
+        #self.makeCsv(self.csvFP, self.fields)
+
+        #write dict to csv
+        self.writeDictToCsv(self.csvFP, self.my_dictionary, self.fields, 0)
+        self.dictIndex = 1
+        self.linkIndex = 1
+
+        self.loops = 0
+        self.working = True
+        while self.working == True:
+            for filepath in self.harvestFilePathsList:
+                self.loops += 1
+                if self.loops > maxLoops:
+                    self.working = False
+                    break
+                date, emails, title, phone, a_entity_texts, a_entity_start_char, a_entity_end_char, a_entity_label = self.getHarvest(filepath, self.harvestUrlList[self.linkIndex], maxLoops, alice_nlp, a_matcher)
+                #self.debuginfo("Found emails")
+                self.finishedWithWebsite = False
+                self.rowIndex = 1
+                self.emailsIndex = 1
+                self.entityIndex = 1
+                for email in self.emails:
+                    #self.debuginfo("rowIndex: " + str(self.rowIndex))
+                    #self.debuginfo("entityIndex: " + str(self.entityIndex))
+                    #self.debuginfo("emailsIndex: " + str(self.emailsIndex))
+                    self.global_list_keys = []
+                    self.global_list_keys = ["Date", "Filepath", "URL",  "EMAIL", "Title", "Phone", "Text", "Start", "End", "Label" ]
+                    self.global_list_values = []
+                    self.global_list_values = [date, filepath, self.harvestUrlList[self.linkIndex], email[self.emailsIndex], title, phone, a_entity_texts[self.entityIndex], a_entity_start_char[self.entityIndex], a_entity_end_char[self.entityIndex], a_entity_label[self.entityIndex] ]
+                    self.myDictionary = self.return_lists_as_dictionary(_Alice, self.global_list_keys, self.valuesList, self.dictIndex)
+                    _Alice.memory.merge(self.myDictionary)
+                    ##self.dictionary_print_keys_recursively(self.my_dictionary)
+                    self.writeDictToCsv(self.csvFP, self.myDictionary, self.global_list_keys, self.dictIndex)
+                    self.rowIndex += 1
+                    complete = True
+                    if self.rowIndex < len(a_entity_texts):
+                        self.entityIndex += 1
+                        complete = False
+                    if self.rowIndex < len(a_entity_start_char):
+                        self.emailsIndex += 1
+                        complete = False
+                    if self.rowIndex < len(a_entity_end_char):
+                        self.entityIndex += 1
+                        complete = False
+                    if self.rowIndex < len(a_entity_label):
+                        self.entityIndex += 1
+                        complete = False
+                    if complete == True:
+                        self.finishedWithWebsite = True
+                    self.dictIndex += 1
+                self.linkIndex += 1
+            self.working = False
+    '''

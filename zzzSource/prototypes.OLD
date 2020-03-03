@@ -1,0 +1,702 @@
+#from alice.spiders.System.AliceRequiredModules import *
+#from alice.spiders.System.FileSystemIO import *
+#from alice.spiders.StateMachineFactory import *
+#from alice.spiders.System.Chronos import *
+#from alice.spiders.System.console.ConsoleMessages import *
+#from alice.spiders.ALICE import *
+import os
+from time import sleep
+
+
+
+import numpy
+import pysnooper
+@pysnooper.snoop('parselog')
+def mineSearchEngine(self, myStateMachineFactory, session, query):
+		print("\n\n-------- I'm working on:")
+		print (query)
+		session.driver.get("https://duckduckgo.com")
+		search_form = session.driver.find_element_by_id('search_form_input_homepage')
+		self.results = []
+		search_form.send_keys(query)
+		search_form.submit()
+		sleep(2)
+		#filepath = os_make_web_directories(self, "duckduckgo/search", find)
+		raw = session.driver.page_source
+		searchKey = str("duckduckgo") + str(query)
+		searchKey = "".join([c for c in searchKey if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+		htmlsourcepath = str( os.getcwd() + '/CONSOLE/mine/'+ str(searchKey) + '/' + "index.html")
+		if not os.path.exists( str( os.getcwd() + '/CONSOLE/mine/'+ str(searchKey)  + str(searchKey))):
+			os.makedirs( str( os.getcwd() + '/CONSOLE/mine/' + str(searchKey)  + str(searchKey)))
+		f = open(htmlsourcepath, 'w+')
+		f.write(raw)
+		f.close()
+		'''
+		try:
+			results = session.driver.find_elements_by_class_name('result')
+			print(results[0].text)
+			f = open(htmlsourcepath, 'a+')
+			f.write(raw)
+			f.close()
+			#writeLogEvent(session.driver.find_elements_by_class_name('result'), "searched for  " + find)
+		except:
+			pass
+		'''
+
+
+
+		'''
+	@pysnooper.snoop('parselog')
+	def memorizekeycommand(self, keyword, command):
+		f = open('keywordCommandsTemp.txt', 'a+')
+		f.write(str(keyword + "," + command) + '\n')
+		f.close()
+		try:
+			file = open('keywordCommands.txt', 'r')
+			while True:
+				line = file.readline()
+				lines = line.split(',')
+				keyReady = False
+				for line in lines:
+					#https://www.geeksforgeeks.org/python-add-new-keys-to-a-dictionary/
+					linkedWordsDict[keyword] = command
+				linkedWordsDict = line.split(',')
+				print("I'm reading my storage to find out if i should update this key val: " + line)
+				if line == '':
+					break
+		except:
+			print("Couldn't find keywordCommands.txt , i'll just make a new one.")
+			f = open('keywordCommands.txt', 'w+')
+			f.write('Keyword' + ',' + 'Command' + '\n')
+			f.write(str(keyword + "," + command) + '\n')
+			linkedWordsDict[keyword] = command
+			f.close()
+
+		print("updating the keywordCommands after with my dict now: ")
+		f = open('keywordCommandsTemp.txt', 'a+')
+		for key, value in linkedWordsDict.items():
+			f.write(str(key + "," + value) + '\n')
+		f.close()
+
+		file = open('keywordCommands.txt', 'r')
+		while True:
+			line = file.readline()
+			print("I've written into my memory: " + line)
+			if line == '':
+				break
+	'''
+		'''
+	@pysnooper.snoop('parselog')
+	def doWork(self, myStateMachineFactory, session, query):
+		print("\n\n-------- parsing for work:")
+		print (query)
+		sleep(2)
+		if targetMessage != "+++pass+++":
+			if query == "ignore":
+				print("ok I'll remember to ignore it")
+				self.memorizekeycommand(targetMessage, query)
+				neverBeenSeen = False
+
+			if query == "mine":
+				print("ok I'll remember to mine it")
+				self.memorizekeycommand(targetMessage, query)
+				neverBeenSeen = False
+
+			if query == "remove":
+				print("ok I'll remember to remove it")
+				self.memorizekeycommand(targetMessage, query)
+				neverBeenSeen = False
+			if query == 'shutdown':
+				print("ok I'll remember to remove it")
+				self.memorizekeycommand(targetMessage, query)
+				neverBeenSeen = False
+		else:
+			if query == "ignore":
+				print("ignoring message")
+				return query, True
+			elif query == "shutdown":
+				print("\n\n-------- Time to go to sleep ! Later on :) ")
+				print (query)
+				sys.exit(0)
+				exit()
+				#quit()
+				return query, True
+			elif query == "mine":
+				print("\n\n-------- trying to gather information :) ")
+				print (query)
+				try:
+					words = query.split()
+					for word in words:
+						print(word)
+						if word != query:
+							mineSearchEngine(self, word, session)
+						return query, True
+				except:
+					print("\n\n\n\n\nI tried but failed because something is wrong with self.refreshAHAP_DB\n\n\n\n\n")
+					self.my.console.animate("+++ERROR+++")
+					return query, False
+				for iFromUser in self.inputListFromUser:
+					print("iFromUser " + query)
+					#newWork.append(iFromUser)
+					for newMessage in newWork:
+						print("newMessage "  + newMessage)
+						for oldWork in finishedWork:
+							print("oldWork " + oldWork)
+							print("finishedWork " + finishedWork)
+							if oldWork != iFromUser:
+								print("oldWork " + oldWork)
+								newMessage.append(iFromUser)
+								return query, True
+							else:
+								return query, False
+			else:
+				return query, False
+
+	@pysnooper.snoop('parselog')
+	def spamMessage(self, myStateMachineFactory, session, interval, max, response, query ):
+		waiting = True
+		while waiting:
+			if ticks == 0:
+				lastSpamTime = time.time
+			ticks += 1
+			ticksTotal += 1
+			if ticksTotal > max:
+				print("\n\n-------- I'm about to do work:")
+				print (query)
+				try:
+					query, isAKeyword = self.doWork(session, myStateMachineFactory, query)
+					if isAKeyword == True:
+						isKeywordList.append(query)
+						for message in isKeywordList:
+							print("isKeywordList" + message)
+							sleep(2)
+							return query, True
+					else:
+						noKeywordList.append(query)
+						for message in noKeywordList:
+							print("noKeywordList: " + message)
+							sleep(2)
+							return query, False
+				except:
+					print("There seems to be a problem with: ")
+					print("your query: " + query)
+					noKeywordList.append(query)
+					for message in noKeywordList:
+						print("noKeywordList: " + message)
+						sleep(2)
+					return query, False
+				#myStateMachineFactory.console.animate("parselog")
+				ticks = 0
+				ticksTotal = 0
+				printedMyResponse = False
+				whileWaiting = False
+			elif ticks > interval:
+				#ticksTotal += interval
+				theTime = self.getProperTime()
+				if printedMyResponse == False:
+					f = open('spamMessage.txt', 'a+')
+					#self.myTail = []
+					#self.myTail = tail("parselog", 20, None, False)
+					#print("\n\n\n   --------    My Code:\n\n\n")
+					#for line in self.myTail:
+						#f.write(line + "\n")
+					#myStateMachineFactory.console.animate('spamMessage.txt')
+					print("\n\n\n   --------    My Response:\n\n\n")
+					f.write("\n--------    My Response:\n")
+					print(response)
+					f.write(str(response) + "\n")
+					print("\n\n\n   --------    your last message to me was: \n")
+					f.write("\n--------    your last message to me was: \n")
+					print(query + "\n")
+					f.write(str(query) + "\n")
+					printedMyResponse = True
+					ticks = 0
+					print("The time is: " + str(theTime) + " I'll start work on your latest messages in " + str(max - ticksTotal) + " ticks."  )
+					ticks = 0
+					f.close()
+				else:
+					print("The time is: " + str(theTime) + " Work begins in . " + str(max - ticksTotal) + " ticks."  )
+					ticks = 0
+
+	@pysnooper.snoop('parselog')
+	def nextPage(self, ):
+		workbook  = xlsxwriter.Workbook('wordFrequencies' + str(i) +'.xlsx')
+		worksheet = workbook.add_worksheet()
+		workbook.close()
+		searchKey = "Doumad"
+		fieldKeys = ["Andre", "Julie", "Antione", "Laura", "AHAP" ]
+		#self.websearch(searchKey, session)
+		#session.driver.get("https://duckduckgo.com")
+		#search_form = session.driver.find_element_by_id('search_form_input_homepage')
+		#self.results = []
+		#search_form.send_keys(searchKey)
+		#search_form.submit()
+		#sleep(2)
+		#filepath = os_make_web_directories(self, "duckduckgo/search", find)
+		raw = session.driver.page_source
+		#searchKey = str("duckduckgo") + str(searchKey)
+		uniqueName = str(i)
+		uniqueName = "".join([c for c in uniqueName if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+		htmlsourcepath = str( os.getcwd() + '/DATABASE/mined/websites/' + str("duckduckgo") + str(uniqueName)  + '/' + "indexPage" + ".html")
+		if not os.path.exists( str( os.getcwd() + '/DATABASE/mined/websites/' + str("duckduckgo") + str(uniqueName))):
+			os.makedirs( str( os.getcwd() + '/DATABASE/mined/websites/' + str("duckduckgo") + str(uniqueName)))
+		f = open(htmlsourcepath, 'w+')
+		content = raw.split()
+		for dater in content:
+			splitIt = dater.split("><")
+			for thing in splitIt:
+				cleanIt = thing.split("=")
+				for line in cleanIt:
+					otherStr = line.replace('>' , '\n')
+					anotherStr = otherStr.replace('<', '\n')
+					commalessString = anotherStr.replace(',', '_')
+					f.write(commalessString)
+		f.close()
+		wordDict = {}
+		wordDict = self.word_frequencies_from_file_to_dict(htmlsourcepath)
+		f = open(str( os.getcwd() + '/DATABASE/mined/websites/' + str("duckduckgo") + str(uniqueName)  + '/' + 'wordDict' + '.csv'), 'a+')
+		mom = open(str( os.getcwd() + '/DATABASE/mined/websites/' + str("duckduckgo") + str(uniqueName) + '/' + 'momDict' + '.csv'), 'a+')
+		for key, value in wordDict.items():
+			theKey = str(str(key).rstrip()).lstrip("'")
+			theValue = str(str(value).rstrip()).lstrip("'")
+			f.write("\n" + theKey + "," + theValue)
+			print(str("wordDict = " + theKey + ", " +  theValue))
+		mom.close()
+		f.close()
+	'''
+
+
+		'''
+	@pysnooper.snoop('parselog')
+	def updateworkbook(self):
+		self.sheetname = str("parse-" + str(_event_num))
+		self.worksheet = Report.add_worksheet(self.sheetname)
+		if _event_num == 0:
+			self.worksheet.write_column('linkstack','linkhistory','weblist','plinkahap')
+		self.addListToSheet(self.worksheet, 0, linkstack)
+		self.addListToSheet(self.worksheet, 1, linkhistory)
+		self.addListToSheet(self.worksheet, 2, weblist)
+		self.addListToSheet(self.worksheet, 3, plinkahap)
+		_event_num += 1
+		Report.close()
+	'''
+		'''
+	@pysnooper.snoop('parselog')
+	def updateMemoriesWithWebsiteSourceCodes(self):
+		self.mined_info_lines_count =0
+		self.mined_info_omitted_duplicates_count =0
+		self.mined_info_fully_qualified_domains =0
+		self.uniqueLinesList = []
+		for path, subdirs, files in os.walk(root):
+			for name in files:
+				memorizedLines = []
+				if fnmatch(name, pattern):
+					print (os.path.join(path, name))
+					fh = open(os.path.join(path, name), 'r')
+					ftw = open(str(os.getcwd() + '/DATABASE/memories/TotallRecallText.txt'), 'a+')
+					fw = open(str(os.getcwd() + '/DATABASE/memories/TotallRecall.html'), 'a+')
+					fwd = open(str(os.getcwd() + '/DATABASE/memories/TotallRecallDomains.html'), 'a+')
+					while True:
+						duplicate = False
+						line = fh.readline()
+						self.mined_info_lines_count += 1
+						try:
+							for mem in memorizedLines:
+								if mem == line:
+									duplicate = True
+						except:
+							pass
+						if duplicate == False:
+							fw.write(line)
+							memorizedLines.append(line)
+							self.uniqueLinesList.append(line)
+							#textLine = filter(lambda c: c.isalpha(), line)
+							ftw.write(line)
+						if duplicate == True:
+							print("DUPLICATE LINE OMITTED: " + line)
+							self.mined_info_omitted_duplicates_count += 1
+						print("memorizing: " + line )
+						if self.validate_url(line) == True:
+							front = find_between(line, "http", " ")
+							try:
+								newdomain = str("http" + front + front[:-1])
+								fwd.write(newdomain)
+								fwd.write("\n")
+								self.mined_info_fully_qualified_domains += 1
+							except:
+								pass
+						if not line:
+							break
+					fh.close()
+					fw.close()
+					fwd.close()
+		#self.memory_goalwordsdict = self.word_frequencies_from_file_matching_goals(self.ahapGoals, self.uniqueLinesList)
+		csv = open(str(os.getcwd() + '/DATABASE/memories/goalWordsDict.csv'), 'w+')
+		csv.write("'positive','count'")
+		for key, value in self.mined_goal_words_dict.items():
+			csv.write(key,',',value)
+	
+
+	@pysnooper.snoop('parselog')
+	def updatelinkstack(self):
+		f = open( linkstackfilepath, 'w+')
+		for link in linkstack:
+			f.write(link)
+			#writeLogEvent(link, " ___")
+		f.close()
+
+	@pysnooper.snoop('parselog')
+	def updatelinkhistory(self):
+		f = open( linkhistoryfilepath, 'w+')
+		for link in linkhistory:
+			f.write(link)
+			#writeLogEvent(link, " ___")
+		f.close()
+	
+	@pysnooper.snoop('parselog')
+	def addListToSheet(self, workbook, colNum, valueList):
+		row=1
+		for link in linkstack:
+			workbook.write_row(row, 0, link)
+			#writeLogEvent(link, " ___")
+			row += 1
+
+
+
+
+
+
+
+
+
+
+	@pysnooper.snoop('parselog')
+	def word_frequencies_from_file_to_dict(self, filename):
+		"""
+		Returns a dictionary with the frequencies
+		of the words occurring on file with name.
+		"""
+		file = open(filename, 'r')
+		result = {}
+		while True:
+			line = file.readline()
+			if line == '':
+				break
+			words = line.split(' ')
+			for word in words:
+				if word in result:
+					result[word] += 1
+				else:
+					result[word] = 1
+		file.close()
+		return result
+
+	@pysnooper.snoop('parselog')
+	def word_frequencies_from_file_matching_goals(self, goalsList, filename):
+		file = open(filename, 'r')
+		result = {}
+		while True:
+			line = file.readline()
+			if line == '':
+				break
+			words = line.split(' ')
+			for word in words:
+				if word in result:
+					for goal in goalsList:
+						if word == goal:
+							result[word] += 1
+		file.close()
+		return result
+
+
+
+
+
+	@pysnooper.snoop('parselog')
+	def prepareForAnimation(self, speed, operationType):
+		theTime = self.getProperTime()
+		f = open('spamMessage.txt', operationType)
+		f.write("|\n")
+		f.write("+++set+++\n")
+		f.write("consoleInterval\n")
+		f.write(str(speed) + "\n")
+		f.write("|\n")
+		f.write("|The time is: " + str(theTime) + "\n")
+		f.write("|\n")
+		f.close()
+
+
+
+
+
+
+	@pysnooper.snoop('parselog')
+	def findLinks(self):
+		list_links = session.driver.find_elements_by_tag_name('a')
+		if list_links:
+			f = open("webpages.csv", 'a+')
+			for link in list_links:
+				try:
+					print(link.get_attribute('href'))
+					f.write(link.get_attribute('href') + "," + str(session.driver.current_url) + "\n")
+				except:
+					pass
+			f.close()
+
+
+
+
+	# === We also added these methods named in accordance to Selenium's api design ===
+	# ensure_element_by_id
+	# ensure_element_by_name
+	# ensure_element_by_link_text
+	# ensure_element_by_partial_link_text
+	# ensure_element_by_tag_name
+	# ensure_element_by_class_name
+	# ensure_element_by_css_selector
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	'''

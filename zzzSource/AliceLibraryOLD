@@ -1,0 +1,121 @@
+#-*- coding: utf-8 -*-
+import os, sys
+import collections
+
+class column:
+	_allColumns = []
+	def __init__(self, inField, inBook ):
+		self._allColumns.append(self)
+		self.fieldname = inField
+		self.myBook = inBook
+		self.values = collections.OrderedDict()
+		self.index = 0
+	def add(self, value):
+		self.index = len(self.values)
+		self.index += 1
+		self.values[self.index] = value
+	#@classmethod
+	def insertColumnData(self, inBook,  inField, inValue):
+		if self.myBook == inBook:
+			if self.fieldname == inField:
+				print(inField + " BOOK IS WRITING NEW VALUES " + inValue)
+		else:
+			print("something doesn't add up here.. trying to submit a Field here?")
+
+class Book():
+	_allBooks = []
+	def __init__(self, name,inField, inValue):
+		self._allBooks.append(self)
+		self.name = name
+		self.inField = inField
+		self.inValue = inValue
+		self.name = name
+		self.fields = collections.OrderedDict()
+
+		def insertField(self, bookname, inField):
+			print(self.name)
+			if self.name == bookname:
+				print(self.name + " BOOK IS WRITING NEW Fields " + inField)
+				if inField not in self.fields:
+					self.fields[inField] = column(bookname, inField)
+				else:
+					print ( bookname, inField, self.name, self.name)
+					print (self.fields)
+					print("something doesn't add up here.. trying to submit a value here?")
+					exit()
+
+		def show(self):
+			print (self.name)
+			for field in self.fields:
+				print (field)
+
+		def insertFieldValuePair(self, bookname, inField, inValue):
+			if self.name == bookname:
+				print(self.name + " BOOK IS WRITING NEW VALUES " + inValue)
+				print ( bookname, inField, self.name, self.name)
+				print (self.fields)
+				print("something doesn't add up here.. trying to submit a Field here?")
+				exit()
+			else:
+				self.insertField(bookname, inField)
+				#a = column(bookname, inField, inValue)
+				#print( a + bookname + inField + inValue)
+				#print( "sent out to columns ")
+
+		'''
+		#@classmethod
+		def reproduce(self):
+			#use self here to customize the new organism ...
+				return self.__class__()  # same as cls = type(self); return cls()
+		'''
+		#@classmethod
+		def exportCSV(self, filepath):
+			self.exportFields = []
+			self.exportRows = []
+			print("Book is preparing to compile fields:")
+			for columnObject in self.fields:
+				self.exportFields.append(columnObject.fieldname)
+				print("Field: " + columnObject.fieldname)
+
+			#print("before cleaning exportFields: ")
+			#print(self.exportFields)
+			#self.exportFields = [x.strip() for x in self.exportFields.split(',')]
+			#self.exportFields = ''.join(str(e) for e in self.exportFields)
+			#print("after cleaning exportFields: ")
+			#print(self.exportFields)
+			'''
+			with open(str(filepath), "w+") as f_out:
+				writer = csv.DictWriter(f_out, fieldnames=reader.fieldnames, delimiter=",")
+				writer.writeheader()
+				if row['lexicon_1_RAM'] == 'Membership':
+						writer.writerow(row)
+			'''
+
+
+class Library(object):
+	global ahap_library, recursiveObject
+	def __init__(self, name):
+		self.name = name
+		self.currentTitle = ""
+		self.library = []
+		self.lastTitle =  ""
+		self.newTitles = []
+		self.refresh_title = ""
+		self.initName = []
+		self.initField = []
+		self.initValue = []
+	def initBook(self, name):
+		self.initName = name
+	def initBookData(self, name, inField, inValue):
+		self.initName = name
+		self.initField.append(inField)
+		self.initValue.append(inValue)
+	def createBook(self, name, inField, inValue):
+		book = Book(name, inField, inValue)
+		self.library.append(book)
+	def insertData(self, name, inField, inValue ):
+		#for book in library[title] = title
+		for book in self.library:
+			book.name = name
+			book.inField = inField
+			book.inValue = inValue

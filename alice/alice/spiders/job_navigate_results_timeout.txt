@@ -1,0 +1,1210 @@
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://en.m.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 8self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: https://en.m.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 23self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 27self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: https://en.m.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 23self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 27self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: https://en.m.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 23self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 27self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: https://en.m.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 19self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 20self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 23self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 24self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 27self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 29self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 30self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 31self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 32self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 11self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.continentalmessage.com/industries/healthcare/fqhc-answering-service/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://www.spok.com/http://clickserve.dartsearch.net/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://en.m.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 6self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 10self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 10self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 10self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 10self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 10self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 10self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 10self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 13self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 18self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 0self.list_href_nav[i] string: 
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 1self.list_href_nav[i] string: https://en.m.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 2self.list_href_nav[i] string: https://www.fqhc.org/find-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 3self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 4self.list_href_nav[i] string: https://www.fqhc.org/what-is-an-fqhc
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 5self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 8self.list_href_nav[i] string: https://www.ruralhealthinfo.org/topics/federally-qualified-health-centers#location-requirements
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 9self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 12self.list_href_nav[i] string: https://en.wikipedia.org/wiki/Federally_Qualified_Health_Center#Advanced_Primary_Care_Practice_demonstration_project
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 14self.list_href_nav[i] string: https://www.carecloud.com/continuum/federally-qualified-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 15self.list_href_nav[i] string: https://blog.definitivehc.com/how-many-fqhcs-are-there
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 16self.list_href_nav[i] string: http://www.nachc.org/about/about-our-health-centers/find-a-health-center/
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf
+job_name: fully_qualified_healthcare_center_contact
+self.list_href_nav[i] index: 17self.list_href_nav[i] string: https://www.chcf.org/wp-content/uploads/2017/12/PDF-SteppingUpPlateFQHCs.pdf

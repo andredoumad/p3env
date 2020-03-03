@@ -1,0 +1,710 @@
+add an implicit and explicit ignore list
+
+
+
+
+/home/gordon/p3env/alice/alice/spiders/Matrix/googlehomesdutchSaintMartinrealestate2019_0/googlehomesdutchSaintMartinrealestate2019_0_html_filepath_13_column.csv
+LINE 1:
+the following row was created by CSV IO:
+ROW 0:
+Matrix_time, pretty_index, href_index, href, lang_index, lang, entity_index, entity_text, entity_label, entity_start, entity_end, current_url, date_recorded, time_recorded, html_filepath, 
+IT NEEDS TO HAVE NO COMMA AT THE END
+
+/home/gordon/p3env/alice/alice/spiders/Matrix/googlehomesdutchSaintMartinrealestate2019_0/googlehomesdutchSaintMartinrealestate2019_0_lang_4_column.csv
+LINE 8:
+var Xa;_.Wa="bbh bbr bbs has prm sngw so".split(" ");Xa=new Ga(_.n);_.Ta("api",Xa);
+need to remove any commas from this data
+
+/home/gordon/p3env/alice/alice/spiders/Matrix/googlehomesdutchSaintMartinrealestate2019_0/googlehomesdutchSaintMartinrealestate2019_0_lang_4_column.csv
+LINE 23:
+              Gmail
+need to remove spaces that come before the data.
+
+/Matrix/columns/...
+the prefix should be the row number_fieldname_jobname_ 
+
+an empty column should instead be the column field_name
+
+
+job_search_results > return a list of urls 
+#do job path ... mom needs mom/
+do_job - m_flag_failed_error should be placed in the job path
+#do_job should click on more than just the first google result
+do_job must visit 
+do_job must write a mtrix for the report keys
+do_job needs to farm for the report keys
+do_job should navigate deeper into each website
+alice should load memory for the specific job only not memories from all jobs
+job_search_results needs formatting >> googlealien__2_6_content_soup
+
+mapUniqueLinks needs to to be modified so it can visit offline pages
+
+
+
+https://youtu.be/cwsn9N3U59c
+28m
+46m
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://pythonhosted.org/feedparser/basic-existence.html
+spacy-lookup: Named Entity Recognition based on dictionaries
+https://spacy.io/usage/processing-pipelines#custom-components
+https://github.com/mpuig/spacy-lookup
+
+Logging
+https://github.com/Delgan/loguru
+
+URL FEED
+https://github.com/gruns/furl
+https://github.com/addok/addok
+https://github.com/datamade/usaddress
+https://github.com/addok/addok
+https://github.com/scrapy/parsel
+
+Feed
+https://github.com/kurtmckee/feedparser
+https://github.com/erikrose/parsimonious
+https://pythonhosted.org/feedparser/
+
+string parser
+https://github.com/r1chardj0n3s/parse
+https://github.com/tc64/spacyss
+https://github.com/fnl/syntok
+
+io, storage, tables
+https://github.com/thombashi/pytablereader
+https://github.com/thombashi/pytablewriter
+https://github.com/frictionlessdata/goodtables-py
+https://github.com/kororo/excelcy
+https://github.com/WZBSocialScienceCenter/pdftabextract
+https://github.com/Kozea/WeasyPrint
+https://github.com/anfederico/Tableize
+https://github.com/python-tableformatter/tableformatter
+https://github.com/socialcopsdev/camelot
+https://github.com/jbarlow83/OCRmyPDF
+https://github.com/invoice-x/invoice2data
+
+Domain parser
+https://github.com/franccesco/getaltname
+
+spacy
+https://spacy.io/universe/project/textpipe
+https://spacy.io/universe/project/spacy_readability
+https://spacy.io/universe/project/spacy_grammar
+https://spacy.io/universe/project/tochtext
+https://spacy.io/universe/project/spacy-lookup
+
+rapid nlp / ranking / classification
+https://github.com/dperezrada/keywords2vec
+https://shorttext.readthedocs.io/en/latest/tutorial_dataprep.html#example-training-data-1-subject-keywords
+https://github.com/snipsco/snips-nlu#sample-code
+https://github.com/csurfer/rake-nltk
+https://github.com/boudinfl/pke
+https://github.com/vi3k6i5/flashtext
+https://github.com/stephenhky/PyShortTextCategorization
+
+
+
+image
+https://github.com/Belval/TextRecognitionDataGenerator
+https://github.com/emedvedev/attention-ocr
+
+pdf
+https://github.com/jbarlow83/OCRmyPDF
+
+deep nlp
+POS, labeling
+https://github.com/IsaacChanghau/neural_sequence_labeling/blob/master/README.md
+https://github.com/stefan-it/deep-eos
+https://github.com/bedapudi6788/deepsegment
+https://github.com/explosion/sense2vec
+https://github.com/bjascob/pyInflect
+
+
+
+deep nlp
+Spacy Universe
+Rasa NLU
+Named Entity Recognition based on dictionaries 
+https://github.com/mpuig/spacy-lookup
+https://github.com/huggingface/neuralcoref
+https://github.com/explosion/spaCy/blob/master/examples/training/train_textcat.py
+https://spacy.io/usage/training#textcat
+https://github.com/explosion/thinc
+https://github.com/explosion/spacy-stanfordnlp
+https://spacy.io/universe/project/spacy_api
+
+
+NLP
+https://spacy.io/usage/
+https://keras.io/
+https://github.com/explosion/spaCy
+https://github.com/allenai/allennlp
+https://nlpforhackers.io/complete-guide-to-spacy/
+https://github.com/lark-parser/lark
+https://lark-parser.readthedocs.io/en/latest/
+https://github.com/dipanjanS/text-analytics-with-python/tree/master/Old-First-Edition/source_code/Ch03_Processing_and_Understanding_Text
+https://github.com/yzhao062/pyod
+||gordon||/DataAspirant_codes-master.zip
+https://github.com/kk7nc/RMDL
+https://github.com/brightmart/text_classification
+https://github.com/kk7nc/HDLTex
+
+agents, feeds, reporting, chat
+https://github.com/huginn/huginn
+https://github.com/kibitzr/kibitzr/
+https://trigger-happy.readthedocs.io/en/latest/
+https://github.com/cristoper/feedmixer
+https://github.com/errbotio/errbot
+https://github.com/explosion/spacy-stanfordnlp
+
+gui based robot
+https://github.com/ScriptSmith/reaper
+
+robotic networking
+https://github.com/tornadoweb/tornado
+https://kombu.readthedocs.io/en/stable/introduction.html#features
+
+human networking
+https://github.com/diaspora/diaspora
+https://github.com/anfederico/Stocktalk
+
+request parser
+https://github.com/marshmallow-code/webargs
+https://webargs.readthedocs.io/en/latest/quickstart.html#validation
+
+html5 parse
+https://github.com/html5lib/html5lib-python
+
+
+Tensor Flow
+https://github.com/chiphuyen/stanford-tensorflow-tutorials
+
+question / answer bot
+https://github.com/5hirish/adam_qas
+
+trades
+https://github.com/DeviaVir/zenbot
+
+Topic Modeling
+https://github.com/RaRe-Technologies/gensim
+
+
+bots
+https://instagrambot.github.io/docs/en/How_to_use.html
+https://github.com/entrepreneur-interet-general/OpenScraper
+
+borg, fsm
+http://www.aleax.it/Python/5ep.html
+https://github.com/keon/algorithms
+
+bot management
+https://github.com/linkedin/iris
+
+email
+https://github.com/kootenpv/yagmail
+https://github.com/jay0lee/got-your-back
+https://github.com/mailpile/Mailpile
+
+SEO
+https://github.com/sethblack/python-seo-analyzer
+
+FBI 
+https://github.com/BuzzFeedNews/nics-firearm-background-checks
+
+censorship
+https://github.com/citizenlab/test-lists
+
+
+machine learning
+https://github.com/minimaxir/automl-gs
+
+
+
+nlp, borg, fsm, chat, 
+url feed, proxy, feed,
+deep learning, csvIO, email,
+sqldb, automatic reporting, git, 
+agents, 
+https://github.com/Kickball/awesome-selfhosted#email
+
+
+
+190502
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+grace_db gets:
+    new_record:
+        value:
+            w+ memory for current page / iteration 
+                ram
+                    str(g_fdp_ram + "last_recorded_value")
+                    #iteration_number
+                    #sitename_classification_txt
+                    g_fp_domain = str(g_fp_domain + "/" + "g_session_id_" + str(g_session_id_) + "_nav_" + str(g_navigation_number) + "_date_" + g_time + ".html")
+                    g_tags_file = ( g_fdp_ram + "tags.html")
+                    next_id_file = (g_fdp_ram + "next_id.html")
+                    g_fdp_links = (g_fdp_ram + "g_fdp_links.html")
+                    g_fdp_clean_links = (g_fdp_ram + "clean_links.html")
+                    tokensFile = str(g_fdp_ram + "tokens.csv")
+                    str( g_fdp_ram + "clean_text.txt")
+
+            a+ memory for this domain
+                domain ram
+                    sitename_human_text
+                    sitename_links_html
+                    sitename_elem_id_html
+                domain report
+                    classification_cvs
+                        summary
+                        category
+                        purpose
+                        reason
+                        ahapScore
+                    people_cvs
+                        first name
+                        last name
+                        middle name
+                        email
+                        phone
+                        title
+                        company
+                        ahapRank
+                        url
+
+                domain_diagnostic_cvs
+                        date
+                            iteration
+                                sitename_classification
+                                sitename_source__html
+                                sitename_tags_html
+                                sitename_elem_id_html
+                                sitename_links_html
+                                sitename_clean_links_txt
+                                sitename_human_text_txt
+                                backend_log
+                                tokens
+                                    Lexicon
+                                        known
+                                        new
+                            configuration
+                                vocabulary
+                                    positive
+                                    neutral
+                                    negative
+
+        source:
+            hostName
+                userName
+                    applicationName
+            date
+            graces_opinion_of_record_entry
+
+
+Links_.html OK
+
+
+check on the way it's storing the dicts, we have duplicates
+
+
+190427
+
+
+
+
+
+
+
+
+
+
+
+
+
+https://github.com/mozilla/bleach
+
+
+https://github.com/miso-belica/sumy/blob/dev/README.md
+
+https://github.com/aaronsw/html2text
+
+https://github.com/rstacruz/sparkup
+
+https://github.com/misja/python-boilerpipe
+
+https://github.com/miso-belica/sumy/blob/dev/README.md
+
+https://github.com/chardet/chardet
+
+https://github.com/pydata/pandas-datareader
+
+
+
+
+
+
+https://www.tutorialspoint.com/python/python_text_classification.htm
+
+
+https://www.tutorialspoint.com/python/python_sentiment_analysis.htm
+
+
+hide ip
+https://github.com/miso-belica/sumy
+
+https://github.com/icoxfog417/awesome-text-summarization
+
+https://www.tutorialspoint.com/python/python_extract_emails_from_text.htm
+
+https://www.tutorialspoint.com/python/python_extract_url_from_text.htm
+
+https://www.tutorialspoint.com/python/python_search_and_match.htm
+
+https://www.tutorialspoint.com/python/python_text_summarization.htm
+
+https://towardsdatascience.com/understand-text-summarization-and-create-your-own-summarizer-in-python-b26a9f09fc70
+
+
+https://towardsdatascience.com/tf-idf-for-document-ranking-from-scratch-in-python-on-real-world-dataset-796d339a4089
+
+https://www.dataquest.io/blog/tutorial-text-classification-in-python-using-spacy/
+
+count number of keyword matches
+
+https://stackoverflow.com/questions/50372558/clean-txt-and-count-most-frequent-words
+
+https://stackoverflow.com/questions/52348119/probability-of-each-words-in-a-sentence
+
+https://www.geeksforgeeks.org/find-frequency-of-each-word-in-a-string-in-python/
+https://www.geeksforgeeks.org/python-program-to-count-words-in-a-sentence/
+
+
+https://stackoverflow.com/questions/8022530/how-to-check-for-valid-email-address
+
+
+https://stackoverflow.com/questions/52185229/python-script-email-parser
+
+
+
+
+https://stackoverflow.com/questions/480214/how-do-you-remove-duplicates-from-a-list-whilst-preserving-order
+def unique_everseen(iterable, key=None):
+    "List unique elements, preserving order. Remember all elements ever seen."
+    # unique_everseen('AAAABBBCCDAABBB') --> A B C D
+    # unique_everseen('ABBCcAD', str.lower) --> A B C D
+    seen = set()
+    seen_add = seen.add
+    if key is None:
+        for element in filterfalse(seen.__contains__, iterable):
+            seen_add(element)
+            yield element
+    else:
+        for element in iterable:
+            k = key(element)
+            if k not in seen:
+                seen_add(k)
+                yield element
+
+
+
+
+google search:
+https://github.com/aviaryan/python-gsearch
+
+parse out domain names only
+def domain_name_2(url):
+return url.split("//")[-1].split("www.")[-1].split(".")[0]
+
+
+
+
+
+'''
+
+"""
+Implement strStr().
+Return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
+Example 1:
+Input: haystack = "hello", needle = "ll"
+Output: 2
+Example 2:
+Input: haystack = "aaaaa", needle = "bba"
+Output: -1
+Reference: https://leetcode.com/problems/implement-strstr/description/
+"""
+def contain_string(haystack, needle):
+    if len(needle) == 0:
+        return 0
+    if len(needle) > len(haystack):
+        return -1
+    for i in range(len(haystack)):
+        if len(haystack) - i < len(needle):
+            return -1
+        if haystack[i:i+len(needle)] == needle:
+            return i
+return -1
+
+ 
+'''
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
+Given an api which returns an array of words and an array of symbols, display
+the word with their matched symbol surrounded by square brackets.
+If the word string matches more than one symbol, then choose the one with
+longest length. (ex. 'Microsoft' matches 'i' and 'cro'):
+Example:
+Words array: ['Amazon', 'Microsoft', 'Google']
+Symbols: ['i', 'Am', 'cro', 'Na', 'le', 'abc']
+Output:
+[Am]azon, Mi[cro]soft, Goog[le]
+My solution(Wrong):
+(I sorted the symbols array in descending order of length and ran loop over
+words array to find a symbol match(using indexOf in javascript) which
+worked. But I didn't make it through the interview, I am guessing my solution
+was O(n^2) and they expected an efficient algorithm.
+output:
+['[Am]azon', 'Mi[cro]soft', 'Goog[le]', 'Amaz[o]n', 'Micr[o]s[o]ft', 'G[o][o]gle']
+"""
+
+from functools import reduce
+
+
+def match_symbol(words, symbols):
+    import re
+    combined = []
+    for s in symbols:
+        for c in words:
+            r = re.search(s, c)
+            if r:
+                combined.append(re.sub(s, "[{}]".format(s), c))
+    return combined
+
+def match_symbol_1(words, symbols):
+    res = []
+    # reversely sort the symbols according to their lengths.
+    symbols = sorted(symbols, key=lambda _: len(_), reverse=True)
+    for word in words:
+        for symbol in symbols:
+            word_replaced = ''
+            # once match, append the `word_replaced` to res, process next word
+            if word.find(symbol) != -1:
+                word_replaced = word.replace(symbol, '[' + symbol + ']')
+                res.append(word_replaced)
+                break
+        # if this word matches no symbol, append it.
+        if word_replaced == '':
+            res.append(word)
+    return res
+
+"""
+Another approach is to use a Tree for the dictionary (the symbols), and then
+match brute force. The complexity will depend on the dictionary;
+if all are suffixes of the other, it will be n*m
+(where m is the size of the dictionary). For example, in Python:
+"""
+
+
+class TreeNode:
+    def __init__(self):
+        self.c = dict()
+        self.sym = None
+
+
+def bracket(words, symbols):
+    root = TreeNode()
+    for s in symbols:
+        t = root
+        for char in s:
+            if char not in t.c:
+                t.c[char] = TreeNode()
+            t = t.c[char]
+        t.sym = s
+    result = dict()
+    for word in words:
+        i = 0
+        symlist = list()
+        while i < len(word):
+            j, t = i, root
+            while j < len(word) and word[j] in t.c:
+                t = t.c[word[j]]
+                if t.sym is not None:
+                    symlist.append((j + 1 - len(t.sym), j + 1, t.sym))
+                j += 1
+            i += 1
+        if len(symlist) > 0:
+            sym = reduce(lambda x, y: x if x[1] - x[0] >= y[1] - y[0] else y,
+                         symlist)
+            result[word] = "{}[{}]{}".format(word[:sym[0]], sym[2],
+                                             word[sym[1]:])
+return tuple(word if word not in result else result[word] for word in words)
+
+
+
+
+
+
+
+
+
+
+#
+
+#Purpose:
+find self insured companies that are looking to audit healthcare bills.
+
+for instance, an employee incurred a massive charge form a hospital, you're self insured -- you may want to have ahapinc take a look to save you
+in many cases,
+tens of thousands or even hundreds of thousands in charges.
+
+#Reason:
+healthcare clinics are sloppy with the numbers and the detail of the reports and the process of healing is complicated.
+
+#Target:
+Federally Qualified Health Centers
+Chief Financial Officers
+Chief Medical Officers
+Chief Executive Officers
+Chief Operating Officers
+
+#Harvest
+name
+email
+address
+phone
+
+#Lexicon
+2019 Financial, Operations Management / IT (FOM/IT) Conference
+2018 FOM/IT Conference Program
+Financial Operations Management
+2019 FQHC Financial Management Conference
+self insured company
+benefits strategy lead 
+risk management
+operations management
+federally qualified health centers
+Medicare Cost Report
+reclassifications, adjustments, reimbursements, and reporting
+financial compliance
+340B program
+Billing and Financial compliance
+sliding fee discount program
+
+#Resource
+http://www.nachc.org/wp-content/uploads/2018/08/Key-Health-Center-Data-by-State-2018FINAL.pdf
+
+#url
+http://www.nachc.org/trainings-and-conferences/leadership-development/chief-financial-officer-institute/
+http://www.nachc.org/wp-content/uploads/2018/09/2019FOM-2-New-Orleans.pdf
+https://www.aamas.org/
+https://www.ascassociation.org/home
+http://www.ahip.org/
+http://www.aapc.com
+http://www.aacca.net/
+www.aalnc.org
+http://www.ahima.org
+http://www.healthlawyers.org/
+http://www.calhealthplans.org/
+www.easternclaimsconference.com
+http://www.hcca-info.org
+http://www.hfma.org
+www.yournacm.com
+http://www.nachc.org/
+https://www.aapc.com/
+www.siia.org
+www.abqaurp.org
+http://www.ucaoa.org
+http://www.westernclaimconference.com
+
+
+
+#Associations	
+Ambulatory Surgery Center Association								
+America?s Health Insurance Plans	Associations						    
+American Academy of Professional Coders	Associations							
+American Association of Clinical Coders and Auditors	Associations			
+American Association of Legal Nurse Consultants	Associations					
+American Health Information Management Association	Associations				
+American Health Lawyers Association	Associations						    	
+California Association of Health Plans	Associations							
+Eastern Claims Conference	Associations							        	
+Health Care Compliance Association	Associations						    	
+Healthcare Financial Management Association	Associations						
+National Association of Case Management	Associations							
+National Association of Community Health Centers	Associations				
+Self-Insurance Institute of America, Inc.	Associations						
+The American Academy of Professional Coders	Associations					                    	
+The American Board of Quality Assurance and Utilization Review Physicians, Inc.	Associations		
+Urgent Care Association of America	Associations						                        	
+Western Claim Conference,	Associations							                           
+
+#installed
+sudo apt-get install xvfb
+sudo pip install pyvirtualdisplay
+sudo apt-get install chromium-chromedriver
+sudo pip2 install beautifulsoup4 boto3 fbi google-api-python-client \
+       oauth2client pandas requestium
+
+mongo-tools/disco,now 3.6.3-0ubuntu1 amd64 [installed,automatic]
+mongodb/disco,now 1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu2 amd64 [installed]
+mongodb-clients/disco,now 1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu2 amd64 [installed,automatic]
+mongodb-server/disco,disco,now 1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu2 all [installed,automatic]
+mongodb-server-core/disco,now 1:3.6.9+really3.6.8+90~g8e540c0b6d-0ubuntu2 amd64 [installed,automatic]
+
+'''
+
+

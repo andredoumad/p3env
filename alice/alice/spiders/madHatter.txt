@@ -1,0 +1,525 @@
+
+
+
+
+
+
+|
+|
++++set+++
+consoleInterval
+0.03
+|
+|
+MdhMMMNsMNN+mhNNym://s`hymhshyNhhsmo-yysssNdshyhh+-/sh:.y:mNm+h/y:yh-o.y++y+do+N/yN/hNNhhddmdhddNddd
+NmsMMMNyNmNsNyNNsym-:+shyyyyssm+mhNN--ydh+ymmyNmym+s-ho/yhhm/.shy-yd-syNoh:odm+d/dh-+yydNNmmmNNNhmmm
+NNoNNdNsyNModmNhoNmo/ymo+oNy+/ysNomy+`/yyhhddyydymo:-+sd/o:o:/ymN:o+o:h:-o-dd/+::yyy:NNNdhdddhyhdNNd
+NNomyNN+NNN-hNNdyhmd.os:ysN/:+moosdmN:+hNosmy-dNs+y-:/:y`+:mhomdy`oh/yo++ooNm:+s:s++-syydmNNddNNmyyh
+Nd+hNNd/NNm-dNNdsmNm`.+d/+yyyyd/yNdmho//s:ohhsmNd+ho`++s-oodo:hdd:ds.y/ss:ss+:ds:syy-hNNNmhyNmdyydmN
+mdmNNdm+NNs/NNNhoNmh+:+d/soso:syNmyhNhm-dsymNoyy+yNN.:-s-s++d:dms.s-/:/s/:hyo+so-+o:.sddysydNNymNNdm
+NdyNdNNoNddoNNhdsmdmy:+++Nm:sodmNohNNyNs/:hdsohhmhNm- :d//s+++yo/-+/s:hyo-ss-sds.odosodhmNNdmNsos//o
+NmsNNNNsNNmsNdmm/NNmoho-:ds+s/yhhsmNNshh//NmhysmN+hN:-:sy+o:o+so`+-yoomy//dsoyss+shdo-hNyhmNNNhs::/+
+NhhMMMNyNNmsdNNmoNNhsmh/-yNhd.:dNyNNN+mhh/ddmoddmsNm.``ss-moo:s/o/-dsyy:dymso+dydoh+s-ssyhhdmddN/+-:
+NomMMMNyMMmsmMMddNdyhNdmomyhm+:NNdNMNsmdN+/yysNNNomm/s:-h:/ys+hdo:+s-msdss++dshsy:/oo`omdmdsNNNm/`.:
+NoNMMMmyMMmhNMNymdNsmdmNyNmsooodNyNNNoodhooyNyNNNsNm-:o.s++mo-oyo:ym+syy-sohm++h/+dhh.dmyoh+yhyy..+o
+N+NMMMmdMMmdNMNsNNNohNMNsdmNs.ysNyNNd+dNNmdoysNNNdNm.-dysh/s/omym:dh-+yd:-+so+oysoh+/.+yy:mohhmm.++:
+NoNNMMmhMMdmMMNsNMN/mMMm+dNMN+hsNdmNNyNNNsdydyNNNymN++Nh:/:hsdhys/do+/yd/:hmsy:os:hy/.yoy/msddd/+o//
+MsNMMMmhMMyNMMmsNNysNNdmyNmmmhdhNmdNmsNmmhmNs:dNNsmm//s:/h+sds/:/yso+//os+dsss/yh-ddo.soy/dohhd-+/:-
+MyNMMMmhMNyNMMmyNddssoo++oooossysoosoohmNmNmy/mNN+yd//No:y+:y+ym+ys-oy.-+oyh+s/hh-soo.++d+d+ydm/hd+y
+MdNNMMmdMMyNMMmhy+//o//-+yo/omdysNNNmdhyyddmNhhdd+Ndy+mo.+++d/dh-+y//:+/ssmNsohd+:h/m:/s+/yohdhymNyd
+yhmhhhyhdmhNmho--+++:ohyymNNhNMNNMMMMMMMNmdhhhshmyNmo:sy+hmoy+yo:hm/o/:hs+dh/:dys-d+h:-/oyhhhmNydd/o
+dmNhs+ooss+o:-`:-+hNmsdMNNMMMMMMMMMMMMMMMMMNmyoodhddo/dmyohodmsossy-sosm+oh/ooy+s.soy+.yhyosohmshdos
+hmdmMMNmNNNmhysoshhmMNNMMMNNNMMMMMMMMMMMMMMMMNmy+sdNs/odomNymd:+:dN/+osy/sh//h:+s+myy/`:o:ymsNNoo+/.
+MMNNMMMMMMMMMMMMNNMMMMMMMMNNNMMMMMMMMMMMMMMMMMNNNs-+o/:s+ososs+d+Nm+:+ssy:ss-s:ms:o+h:./h+mNsmd/oso/
+MMMMMMMMMMMMMMMMMMMMMMMMMMMNNMMNNMMMMMMMMMNMMMMMMNhs/dhhdsys+hhhos+/yyo+y:mhom/so+oyd-.+dosh:yNymh//
+MMMMMMMMMMMMMNNMMNmMMMMNNMMmdMNyNNdNMMNMMNMMMMMMMNMNNNMNMNNNddNNdymhhyssshdhyoyooos+h://d:odoos:sd/s
+MMMMMMMMMNNMMMMMMmoMMMMhNMMdNNmsNNsNMmhNNyNMNNMMMMMNMMMNMMMNNMNNNdhhddmy+/+dh+hosos/y:o:y/ohood/yy-o
+MMMMMmNNNmhMNNMMMNsNMMmyMMNhNNymNmhNNyhNNsNMMMMMMMNNNNMNNNNMMMMNMMMNNhdhhosss+yhyoN+o.++d:dd//d:os-/
+NNNMMmdNMNmNNhMMMNymMNsNMNmNNNhNNhNMNsmNddMNNNNmmhsoossooooyhmNNNNMMNNNNNmoysosmdsh:h+d/y+oy+sN+ys-/
+MMNNNMdmNMNNNhmMMMyhNsmNmhyNNmNNhmNNydNNmNNhs++/:/o++yys++oo+//+odmNNNMNNNNNNmys+om/h/++y/sd-yh-oh-+
+NNMNmNNhNMMMMNhMMMhhsod+sdmmhNNmhNMdhNNdys:-//shhyhyhddmmdhhyhysso:+ydNNNNMMMN/y/+ms::::hooy-om/yo-s
+yNMNdNNdNNydNNNMMNmmhohm//yodddmMMNho+o+./+shhyshdddmmmhNNdmNysmysyys++smNNNMNmNNh:h//-:s:++hsh/+h:o
+NsNMMNMMMNsmddNMMmydo:+++sshNmNMNyosh+./ys//++ydmNMNmNMNMMNNNMNymNhydmho/omNNNMNmyy:s+-+h.hos.y/+o/y
+dhyMMMMMMNsNMMMMNo:ooymhhNNMMMMm/hho://:/ohdddmNNMNNNMMMMMMMMMMMmdNyyMNms+-+mMMNhhh:-y//o.d-d+m.oh-:
+NmmMMMMMMMNmMMNNNydhyNMMMMMMMMd+os++:+//oohdhyyddmhhNMMMMMMMMMMMMMMNNMMNNyso.oNMMNNd`+-:m-dyd-s.+y.+
+MMMMMMMMMNNNhdNmyoyhyoyNMMMMNy-/:+ossshdyhmmNmmdmNMMMMMMMMMMMMMMMMMMMMMMMMNho++hNMNsh/m-s/mh+.h::h:s
+MNmdNNNNMMNmNmhmNysNNhdhMMNy-.:/+yoohhhdNmhhhdNNNmNMMMMMMMMMMMMMMMMMMMMMMMMNydh//mNdN/s:N/s/s/+:/N+.
+mNMNddNmhNMNhmNydNhhNMMMMh::+sssdydhymNNddhhdmdhdNNMMMMMMMMMMMNNMMMMMMMMMMMNNNNdo:NMMoo+y-ms+:mo/y++
+mhmMNNhNNsmMNhmNydNdhNMN+.ooyyydymdmNNdmNMMMMdNNmNMMMMMMMMMNNMNNmdmNNMMMMNmdNNNmd:/NNd:+y/y-yos-.ho+
+MNhyNMNhNNsyyh+mNshNmmN/-yoyohhhNNNMmhmNNMMMmdmmmmdNNNNNdhyshmNNdddhydMMNNymyNmddh.+NNNy/:o+h/s:+do-
+sNNmhNMmyhy+dhs+hh/mmNo-hoyoydhNNdNmyNNNNNNhdNNNNNNmmmNmdydmNNNmdhNNmhhNMMmyNhNdmys.mMMNNh/-ooyy+//+
+momMmhds:o+-:msssyoydd-h+od+msNNhmmhddhNNdodNNNNNmdyyyysyhdshNNMNmhNNmdhNMMsmmdNyyhosNNmNNm/od:/-hs/
+ymoyh/+d:.oy-o/s-oyhh:sh+y/hymmyhddhdddNd+dmmNNyyhddmdmmmNddmdmMNMNNNNmomMMymNoNomyh:mhdNNNm+y:/+s::
+sys:sy/:s/:+/-:y/+oo-om-++/NyNodyohmNhNmhdNNNNNdmNNNNNMNNMMMMNNMNNMMNmNomMNyNmdNoNys+NmddNNNd-oo++++
+/oh/-/oyo//s/+/ooso`+mh-s:dmsdyhshNNyhmmdmmmNmsdmNNMMMMNMMMMMMMMMMMMMMMNmMdyNmm+yhy:hhdNNmmNN/+s/+y:
+Ns/y+syso//+/o+/+o.-hyd.y+mddohm/NNN+ydsmmNmNNmdNNMMMMMMMMMMMMMMMMMMMMMMMNmmdmyhdso/NNmdyhmNNm:oo-:-
+ssoo+///ooo+:oo/-.:yyNo`h/mos/yyoNyyodydNNNMMNyyhNMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNm:dmsdNNMNMMNo+::s-
+o/hyso//++o++/o:-:hsNdo.h:d+.:y+hds:mhdhNhNMNd+smNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy+NNNmmmNNNMNd-:oy+
+/oyso:-o//o//+-:+ysdm+d./:y/`:h:yshodm+hddmNm//yNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm+mNdddmNMMMMMN::+//
+:/o+o+:+::+-..:/oyyNosy//y+:.:y:sysyodomymhNh`+mNMMMMNhddydNNNNMMMMMMMMMMMMMMMNd+mNydmmmNNmddNm-o//:
+soyys:-:-/.`.o++m/do+ym/:m--/.h/sd-y/yhmodyms.NNMMMMMMNmh+:/+oohdmMMMMMMMMMMMNh/mNmdmNNMMNmmNNh-ooo:
+/yo/////:`.osshmo:osyhh:-m/`/.hoyh/s:ssmymyds-NMMMMNdso/:-::/:+-:oNMMMMMNmmmmh-mNNmddmmMMNNNmm-/y+:.
+o:s+/o/-.+yydmss/ossos/:-do`/`d+dyhs/ysNymyN+/NMMMMdhyyhdss+./::omMMMNmo//+/-:smmddmNMMNdddds/-ys/::
+o::+++/-hsyNs/oo-/+++osdoh/`.:m+dsd+/s+Nyssm-sMMMMMMMNNd+o+-`:hNNMMMMs-o:`-::smmmmNNNNmmmdyyo:.s+::+
+sy/+y+:dh+Nd:s/-:oyddmNN:y``+dyhydh+:somo/h++NMMMMMMMMMMmmsooyNMMMMMm/-o:`oNNddmNMMNNmdNMNNNNms:o+s-
+yss-+-hd/hhss+/dNNNNNNNh/s :sm/yoN//.ohy:/ooNMMMMMMMMMMMMMMNMMMMNMMMNdyo.++mNNNMNNNmNNNMMMMMMMNmoso:
+Nhh/sdoosdh+++hoosyssso.s+`yys+yhm-s-yd//-yNNMMMMMMMMMMMMMMMMMMNMMMMMMNo-NNNNMNmddhdmNNNMMMMMMMMNh//
+dmsdmyo:/:+o++-oo//os/+-h/.hh//hd/hh+doy.yMMMNMMMMMMMMMMMMMMMmhdNMMMMNs.+MmNNdddssdmhdmNMNMMMMMMMNm/
+dysyy+.:ohhhhdNMMNd+/+:.y+/yd-hyhsNss/m:/mNMMMMMMMMMMMMMMMMMMN+.-ossmy++hMMNhhyydmydmmmmNNNMMMMMMMNN
+::+/-+yhhyhhmNNMMMNNdhd/+s-dd:md+mNs/mh/+hdNMMMMMMMMMMMMNNNNNdmo:/sy++N/hddshy+sdhhdddmNdmNNMMMMMMNN
+hhdmmmmNNNNNdhyhmNNNNNNd.y-dhodm/NN:yNoh+dohmNNMMMMMMMNNm+//-..:-ys+hyN/mhdhhssyhhmdNmhmNmddNMMMMMMN
+NMMMmNNMMMMMMMMNdysyhNMNo.y+d/Nd/Nmomd/Nsod+odhNNNMNMMMNNmdo+--sy+ydhhssMMMMMMNMNmNhhyysyhNNMMMMMMMN
+shdNNNdmMMNMMMMMMMNNmmNNN/-ys-NN+NNyN+sNm:ds/+oohhNNNNMNNNNs+odo+sddsy/NNdMNNMNMNNdyyssoosNmmNMMMMMM
+yoohydNmmmNNMMMMMMMMNNhdNN/.o/oNomNshohNossNyo-.-::+yddddNNNNd/:hyyN/:yNsmNhmNhs++yhhys/+yhdy+sNMMMM
+MNdoosshNmdmmNMMMMMMNMNhyNN/:osyh/hdysdN:d:NNmo/:-/..--::::.-/+d:ohs-yyN/mhNdshdyNNNddNNNNmNNN+sNMNN
+MMNNNho/+ydNNmMNmmNNNdNMmhNNo+o/s+/h/oyh+d.sshm+///+/+o+/+hyosds:ss+osyy+:NsshdNMMNNMNmsdNNNNmh/NMNN
+MMNmmNNNy+:+hmdNmshNNNdNMNhNds-s/h++o:syyh/NNNmyo://+/:/y:y+/y/ysy/y+mo/oomhhNNMMMMMMmodNNmhh+/yNMNN
+mNNd:.+sdNmy:``:ymymNMNdhmhNN+o/ood/y/yym-yNMMMNNo:/+/+sN/s:-odsoy+yoN+/:/+ydNNNNNNNdyoyo-//-:.mNNNN
+mhmNmh+sy/hNNh+-oymymMNNNdhdMyy`.yyydo-so/yNMMMNNNhyo/smNy/::+hoy/s+:Nm...o:sos:-:oydmho+o/./::mNNNN
+dmd+sddhsoosdNNd:-/mymMMMN+NMhs:-d+mom/-+s/NNNNNMNNNNmNNNN--:ssyso+o-hN+``/+:/yho:/:+dhhNNNho-mNMNNN
+++dmhyyys:-ossNMNo-:yydMMhsMNo:++d:doh+-+d/+NMMMMMMMMMNMMNh::hody+/+soNd.`+-ssy:+yyoNNMMNNMMNy:osyyy
+NNmhysss//.-hhyNMNy`.sydNdoNy`-oyh-odod/ohh/+NMMMNMMMMMMMNNmys+yyssyoodN.-/-:+o:somNNMMMMMMMmssdmNmm
+MMMMNmh+/+-+-y/dMNN+`-ymNd:+-`.+ho.oddm/Nsys/yNMMMMMMMMMNNMdy++hyy+d:odN/`o:`.:`-syNNNMMMMNd+dNMMNMM
+MMMMMNNNN:``-ddNMNd/`/+Nh::/h+`odN++h+/yNNy:h:mMMMMMMMMNhNdossdy+/yy/omNo --````.:hdmNMMMmhsmNMMMMMM
+MMMMMMMNy.`.:hdhyo-+o::so-`+/hhNNNm:+--mMNN+sodMMMMMMMNNhhyhhms+-.dy+odNy.- ...`..ossmmNNmNNMMMMMMMM
+MMMMMMNy-/...-```.+/hNyNNm+.//yNMMNd:/-hMMMyohdMMMMMMMMMMNNNNNmh/+om--oNh-s.../...../sdyNmNMMMMMMMMM
+MMMMMNs//---.:`...-`:hyNmmNy..:+mNMMmo:hmNNoyomMMMMMMMMMMMMMMMNdo.:hss:Nd./.-`::-`:.:-:+hhhdmdmNmNNN
+MMMMm+-oy/-`-.--.:.``.yNyNNmd/::/hNNNN/dmmNoh+NMMMMMMMMMMMMMMNdhmhy-+momm.:`/.`//:-o--..::++++hyshhm
+hdds//s++y+-`-..-`.``:/dhmNyNNdo/:+soooNMMMmd+dNNNNmmNNNmmdmdhoNNNhy:hydm./-----+:/:/.::::/-.:/o:-/+
+hs:osh+oo/+//`..`..`.-o:yymsNmdNds/-./hmmNNNhyhNNNmddy++h+yhdNdMMNomydymd-+/`-+/::/`::--+/.-.--+.:+h
+Ndomddhh:y://++`:.``.``.+/y/Nhmydmmd/./ddmmmmhodMMNdmmysMdmdmNNMNh+hsd+Nh-y/`--+-:/:`+----+.-.`..o:y
+NdhhMNdddsyy+/.:-.`.``.`.-+/hsNdhdhmms-/sdNNNNy/dNNm+hmyNNNNNhNNNys//+hNo-s-.+-+/+/o::/+/+:+:/-:+/:y
+MmhoNMMNNNNNNso/+...`.`` `:oooyoymhdyys+o//shmNdoymy+mNmNNmNNyoyhh/.:sNm-y+o+so+sydmmddhyssoo/o+++`:
+MMd+dMMMMMNNNssNs`:-.-:-``.--:o+o+omhNdy:+soosddddddNNNNMNNNMMNmddhdmNNoyN:o//ymmdsosydmNNNNNmmhysos
+MMNo/mMMMMMMNomNy-+/:oyhhhysyy+//o++sdNNNmhso-syyhhhdddhdddmmdddmNNmNNysNN+hhyo//+ohhyso+oosyyhddmmN
+MMMNo:yyhdNNNdNd-:sdNNMNmo.:yNNNho//shydddmmmyo/+yhdmNNMNNNNNNNNMMMNNmNNMMdNMMNh..-::/oooo////osyyyd
+MMMMN/oNmhhyhmNyyNMMMMNy-/osNNNNMNNho+sshhyyhddmddyssyyyhdmNNNNMNNNNNNddNMNMNmyymNNNNMMMMMMNNmhyyhyh
+MMMMMm:NMNNmo-+sssyydmhosydNMMMMMNNNMNdsssdmdhddyyyyyymmmhyyhdyyyyydmNNNNNmdhhmMMMMMMMMMMMMMMMNNNMNN
+MMMMMMsyMNdhdmmdddyooo+:.ohmmNNNMMMMMMMNmdysdNNMMMNNNNmmmmmNNMMNNMNMMMMNmmNNMMMMMMMMMMMMMMMMMMMNMMMM
+MMMMMMh:NMMNdhhmNNdyhhdhso+:.:/oydNMMMMMMNmNdhdNNMNNNMMMNNNNNNmmmmdmdmNNNNNNNMMMMMMMMMMMMMNNNNNmmdhh
+MMMMMMN+hNdNMMMMmhmNNmdhhmNdhyyhho/ymmdNNNNMMMMNMm+yhyssyyhhhddmmmNNmmmmdhhddhyNNNNmdNmmddddhhdhdmNN
+MMMMMMMm/NNMMMMMMMMMMNMMNNdNMmdmmmmdhhhNNNNMMMMMMhs+:sdNNNNNNMMMNNNNmdddhyyddh:dmmNNNNMMMMMMMMMMMMMM
+MMMMMMMM+NMMMMMMMMMMMMMMMMMMMNMMMNNmdhhmMMMNNNNmNN++`/sssssyyysyyyhhdmmmmNNMMM+mMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMymMMMMMMMMMMMMMMNNNNmdmmdddddddddddmmmNNNMNo./s-+osyhddmNMMMNNNNmmdmMNsNMMMMMMMMMMMMMMMMMMMM
+MMMMMNNNmmmmdhhhhhdddhhdhhdmmNNNNNNMMMMMMMMy+/yooshs.`+o+yoyyyhhddddddmmNNNMNsyhhdmdNMMMMMMMMMMMMMMM
+hhyyyyhdddmNNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMNNNd/ydhs:``+osyhddmNNNNMMMMMMMMMmyNMMNNmsoMMMMMMMMMMMMMM
+NNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMdossss+:.:syhs/-+hdshhdhmmNNNmmmmdddhyhhhhhyo:hMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN+-`:o--` :osso///o+++oo+oooossyhhhddmNNNNhsyNMMMMMMMMMMMMMMM
+dydmmddmdddddmmmmyhmMMMMNmNMMNMMMMMMMMMMmhso:`-.`.-/////:/+sssyyyyyyyyhdmNNNNmmdyhNMMMMMNNMMMMMMMMMM
+hoNNyoNNNNhdmddhhyhsmhys++hhhdhhoodmNNMNdNNNmmho+//:--:/+/://+ooooooooosooossymNNMMMMMMMNNMMMMMMMMMM
+doNNsoNmNNomMMNsMNN+NNmNdoNNNmoohyhsyy+oohhhyosddhoydddddshmmmmmddmmmmmmmNNNNNMMMMMMMMMMNNMMMMMMMMMM
+m+NNosNhNN+mMNN/NNN+NMMNm+MMMN+NMMMsddmmsNNd+mmhhydyhs//+.oyhhdysyhdddosmNNdshNNmdmNMMMNddNMMNNNNMMM
+m/NNsyNyNN+NMMNoNMN+NMMMN:NMMN+NMMMsdMMN+NMN/NNoNMNodmmmd/NNNNhmmm+mmmsdhyoyyhoo+ohhsyy+oyyyhooydNNm
+N/NNssNsNNoNMNNoNMN+NMMMN/NMMNsmMMMhyMMNoNNN+NN+NMN+mMNNm+NMNm+NNN:NNNodmNNNNymNNmyddmmmhsoyyhhys/+s
+|
+|
++++set+++
+consoleInterval
+0.06
+|
+|
+hysosoos+-:hooy/:+++hhmmmmNNNNNMNMMNNmdNsmhMNNNmdmh/m+oNMMMMMMNmmNNNmdmmmmmmNmmmmmmdddddddmNmmdhdddd
+mMMNdhss+:+//osso+/++hhosmNhNNMNMMNMNmmdhddNmNNmNNh+++oNMMMNMNo-:+hNMMMMMMNNMNmmmmmdddhhhhhddmdmmdmm
+dMMNmmdmddmy++mmmdhhssNNNmd+mNMMMNdmNyNsNmdddNNNNh/m::hMMMMMMs-+-+o/mNMMMNMMMMMMMMNNNNmNNmNNNNNNNNNN
+NMMMMNNNMMMo:symMMNNNmNNMMNmNMMMMNmmmshhNNysNMdmdd:/:hNMMMMMN../.--:/NMMMMMMMMMMMMMMMNsNMMMMMMMMNNNN
+MMMNMMMMMMMy.+/NddmdNmNMMMMMMMMNNMNmNm/NNN+dMNyNd+y-hNMMMMMNd`-:.-::/sNMNMMMMMMMMMMMMNoNMMMMMMMMMMMN
+MNy+oymNMNMNyoyNNmmMNMMMMMMMMMMMMMNhdssNNdymNdyNN:-+NMMNMMMNs-::.::-+:mMMMMMMMMMMMMMMN+NMMMMMMMMMMMM
+NN-.-::omMMMMNNMNmdhyNNNMMMMMNMNMMNNd/dMMNhmNsmddo.dMMMMMMNNo-..:.`-/:+NMMMMMMMMMNMMMN+NMMMMMMMMMMMM
+Nh.-:-+.:hNMMMMMNmmhNdsmMMMMMMMNMMMNm:NMMMhNyyNm:o/NMMMNMMMN+`.``` .---mMMMMMMMMMMMMMN/NMMMMMMMMMMMM
+Mm-.-:..-:smMMMNNmNNhymmdNNNMMMMMMMNy/mMMNhdhyNm/-yMMMMNMMNN-- .`-`:.o:sMMMMMMMMMMMMMM+NMMMMMMMMMMMM
+MN-:++-.-:/+yNMMMMNNmmmhdNdhMMMMMMMNodNNNNdddymsd:hMMMMMMMMN`: :.:.o.+h-NMMMMMMMMMMMMM+mMMMMMMMMMMMM
+MN+:/-/.`/./+omMMMNmNNhmMNhdmMMMMMMNmMMMNdNMhdm:y-yMMMMMMMMN./ .---/osd-dMMMMMMMMMMMMMymMMMMMMMMMMMM
+MNd-:+o-::o:so:dNMMMMNmdNNmyNMMMMMMMMMMMddMMddhso/yMMMMMMMMN-/ `-.::osm+oNMNMMMMMMMMMMdNMMMMMMMMMMMM
+MNN+:o+`/:-+:so:dMMMMNdmNNommdMMMMNNMMMmhNMMmyoyysdMMMMMMMMN-: .-///dhys:NNMMMMNNNMNNNmmNmNNNNNNNNNM
+MNNm-:+-:--:+/ss:hNMMMMNdNdNmNMMMMMMMMMyNNMMm/dNssNMMMMMMMMN.` `-+ysydmd.dMMMMNNNNNNNNdNNmmNNNNNNNNN
+MMMNs`sy//::.o+oy:yNMMNmmMMNhNNNNMMMMMNdNmMNyyNNyomMMMMMMMMN.. .oooddyhd.yMMMMMMMMMMMNsMMMMMMMMMMMMM
+MMMNm.-oo++/:/-+sy:yNNNNNMMMmNdhNMNNNNdhdNNddyNNyomMMMMMMNNd`.`///yhdmmm`sMMMMMMMMMMNNoMMMMMMMMMMMMM
+MMMNNy:.ho+y-s+-+sy-oNNMMMMMMMmNNNMMNNydNNmdNhNNdomMMMMMMNN/`-:+yodmhdNm.yMMMMNMMMMMNNoNMMMMMMMMMMMM
+MMMMNNo./o:m/hy/.o+y+/hNMMMMMMMmsmMMMNmMNmyNMyNNdoNMMMMMNNm``.-+soydNmdy-yMMMMMMMMMMNNyMMMMMMMMMMMMM
+MMMMMNNs-/-yssss//o/sy:odNNMMMMMNMMNmdNNNyNMNhNmhoNMMMMMNN+-.-:-:hddmdN:/sMMNMMMMMMMMNNMMMMMMMMMMMMM
+MMMMNNNNo-`osm-dh+oo:m/s:sdNMMMMMMMMNNNNmhNNymNh+mMMMMMMNy--./oodshmmdds.dMNMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMN::/ymohhy:/:ohhsm:/hNMMMMMMMNNNhmNMsNm:dMMMMMMMd`/-.oo:syydmNs/:NMMMMMMMMMMMMMMMMMMMMMMMMMM
+MMNNMMMMMd-.os+Nyss:-:shydm/-osmNMMMMMNNhNMNyNsyNMMMMNMN+:+:///o+yNNNds/sMMMMMMMMMMMMMMMMMMNMMMMMMMM
+MMmdMMMMMMd--:hhsNh+o//ssmNyyhs++dNMMMMNdMMNhm/NMMMMMMMN-s:/+ydhNNdmN+y:mMMMMMMMMMMMNNNNmddyhmNMMMMM
+MMyNMMMMMMMN:-+/oNhyh/+//yN+Nyh/+:odNNMMNMMMmshMMMMMMNNm.++:hdmNNNNNo:++NMMMMMNNmdhyyyhdmNMNmyyydNNM
+MmhMMMMMMMNNNo-::myyhoos::o/Nhyh+o+-+dNMNNNNNyNMMMMMMMNd-/o:sdmdmNNh/+:NNNNmhyyydmNMMMMMMMMMMMMMmyss
+MhNMNMMMMMMMMMd/-::hhd/-+/o:oddNoN+o/-sNm++dNNMMMMMMMNNm:/s:+hhdmNdhm+yhhhhhmNMMMMMMMMMMMMMMMMMMMMMN
+mhMmdMMMMMMMMMMNy:`-/:so-ys++hmNoNyo:++osNmyshNMMMNdhyhysyho/yddhhyyyNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+hmNyNMMMMMMMMMMMNNs/``-://+o/ydNhNdhy+mo:yNMNmyhNsyhhhhhmNNNNmddmNNh+mNMMMMMMNNMMMMMMMMNMMMMMMMMMMMM
+sNmyMMMMMMMMMMMMMMNNdo.`-:+/soddNNsNhdN+:o+NMMNd.///s+/oo/-:+oyhyoysyo+hddddhhoNMMMMMMMMMMMMMMMMMMMM
+/NyNMMMMMMMMMMMMMMNNNNNs:`/-/d+NNNNmhNN/hs+:hNo//+yydmNNmdhhyosshNNmshNh+hdddhy/hhdmNMMMMMMMMMMMMMMM
+omhMMMMMMMMMNhyyhdmmNNNNNms+:.:/syhyhmshmoy++sydmNmdddhdmmdd+ssydyymNmhmNhyNMMMNydNdddhhhdNMMMMMMMMM
+sdNMMMMMNNNmsmmmmNmdhhyhhhhhhs/`.::/dhdNy+/oyhhdhsyhyssddmNNNNdyo+yyysmmdNmhMMMMNdyNMMMNmoyMMMMMMMMM
+smNNNMMMNNhsNNNMMMNMMMMNNNNmhhy/``-:yhhs--/osysooshdmNdhdmdhddyo++/.-//hmdNddNMMMMmsdMMMMNomMMMMMMMM
+hhMNNMNNNyyNNMMMNMMNNMMMmhyyhdmmh. --/ohhyhs/+syyyhyo+/+///+/o/h/+-oos+/+oyNdNMMMMMNdymMMMNsNMMMMMMM
+hmMMMNNNsyNMMNNMMMMMNNddmNNNNNNshm/`-//++///oso:-+/+//o/y+ohoshoy-++:yysy+/:shNNMMMMMNhhNMMmyMMMMMMM
+oNNNNNNyyNNNNNNNNNNNddNNNNNNNms:ho:--//+shhyo:.``:-+:s/./ddhddyhdy+:...-:yhy:+h++ymMMMNmsNMMdhMMMMMM
+oNNNNNysNMMNNMNNMNmdNNMNNNmdhmyh::+yhhyo+:-/--:y+++ssyhys++/:yhmhdhdso.:.ohd+--/-:/yNMMMNNMMNydMNMMM
+mNMMNyyNNMMMNMMMNdmNMNMNNhdNNdmm-/hh-:-.-+:/.:doh+yhoNo-:-.`-`odmhdNNN:...omyh:-`.o:/mMMMMMMMNodMMMM
+NMMNyyNMNMMMMNMNdmMMNNNmhNMMNdNy//o/` ...:h:+oh.:`+/sy/.:++o:`.-hmymNNms:`+dhho``/-/:sMMMNNMMMN+mMMM
+MMNyhNNMMMMMMMMmmNMNNNNdNNNNhNmomm+/`-`:.:+/+ooyo:+/yy.syhdNm+`-:mhdNNNNNhdhdmho`//+:oNNMMMMMMMNNMMM
+MMNmNNMMMMMMMMmyNMMNMMNmNNNhhmNsodo`.`.`..so/+//so+sy+:+`+mdmm.-`shhNNNNNNmdmdNNh//-`yMMMMMNMMMMMNMM
+MMMMMMMMMMMMNNyNMMMMMNMNNNNsmmNm+s-/..:-:+d+y:-+d//hN+//`../yy`..sdodNNNNMNNddmNmy-``hMMMMNNMMMNNMMM
+MMMMMMMMMMMMMN+NMMMMMMMMMMmdMNNNm.`::--.o-hsho:oh/:/hhoo:-:/:---`/mmdddNNNdyhhss/+:-.oNMMNhNMNdmNMMM
+MMMMMMMNMMMMmd-NMMMMMMMMMNyNNNNNN/.:..-oo/mddsss/+y//oymmdhdyhmm++mNNNNNNhNmmdsh+-ohs.dMNhNNdmNMMNMM
+MMMMMMMMMMNdhdoNNMNMMNMMMdhNNNMMNs`-.:`-/odmh:hd+s/y/-/++/+//:+mNhyNNMNNmdddmmdhs++hm-yNdNmdNMNmddMM
+MMMMMMMMMMNhyyNMMMMMMdNNN+dMMMMNN+.-`.--:hmdmydyhydyho+ooosoo+:shmNNNMNNNNdhmmmmdyooyo/yNddNNmmmNMMM
+MMMMMMMMNNy/dsNMMMMMMyMMN+mMMMMNNo`:/-h+-o+dm+dmNdNhNdddhmNdNh-shNmmshNNNNNdhNNdyoo/ooo++hNmhhdNMMMM
+NMMMMMMMMNy//mNMMMMMNyNMMNMMNNMNN+ -:-d-.++s/ysNhNymdddmdhsdNmdmdoysssNNMMNNmdmmhso:-.ym/:dhmNMMMMMM
+hNMMMNNMMm//+NMMMMMMMmMMMNNMMMdNNd.``.:-/so/+yodhhyddmhmNsymydydhshyddNmmNNNmoohs/:::`:sy.dNMMMMMMMM
+NMMNMNMMN:oo+NNMMMMMNyNMMMMMMNhNNNy.`/-//+hsyosohhysNhdmddsNsmyho++hmNNmmmNNNNo-``.-`.`dN+oMMMMMMMMh
+NmNMMNMMmyyydNMMMMMMNyNMMMNMMmdNNNN+`--//homNomosyyhNdmmhysdsy+y//oddmdddmNMNNNmy-```ohNN+/MMMMMMMm-
+dNmNMNMNNo-mMMMMNMNNdhMMMMNMMdmNNsNN/`-:/ysydoh:o:yymmdd+yhmyy-o/:shyhmmNMMMMNNNNm-``mNN/:mMMMMMMMy-
+NmNMNMMNNshNMMMMMMMMmsMMMMMMNhmMNoNNm.``/:/:s-h+y/yyhdmyhNdhhys.:-//syhmNNMMMMMNNNo``mmh+mMMMMMMMN:/
+dNMMMMMNMMMMMMMMMMMMNoMMMNNNdmhMNyNNNy-`:.`:-:/ss/s:y+yohssyh/+:.-..--/soyhymddsyo:``:/oNMMMMMMMMh`s
+NmmNNMMMMMMMMMMMMMMMmhMMMMNdNNhNNdMNNNh.`/-+/:::-:o+/sydhos/--.:--`....---:///-::os.-ymNMMMMMMMMMo`+
+NNNNNNNMMMMMMMMMMMMmyNMMMMdyNNhNhmMMNMNh``//s-:/:+hhodmdNhoyhyso+///://s/:/`/.:`../ymNMMMMMMMMMMMy`.
+mmddmNNMMMMMMMMMMMMosNMMMNyNMNdNhNMMMMNm: ``/so+-ddhhddmNmdmmmdhddo+yd+/+--.:./.:hNNNMMMMMMMMMMMMm`-
+NNNNNNNMMMMMMMMMMMNdsNMMMdmNNmNNNNMMMNs/```.::-o:+shhyymymyhmddymy+yyo/:::-`/.`:dNMMMMMMMMMMMMMMMN:.
+mdddddNNNNMMMNMMMMNhdMMMMmNNNNNNMNMMMo+s`:sh+/.s+-ooodym+yhhhy:+yh-s//`:.//... +NNNMMMMMMMMMMMMMMMd-
+mmmmmmddmNNMMNMMMMNsMMMMMMMNmNdNMNMNN.s-.ohNNms:.osoy+h////oss++/+`+.--/:.-+dm`//dNMMMMMMMMMMMMMMMMd
+shdmmdmmmddNMMMMMMNoNMMMMMNhNNdNNNNmo::-s-NNNNNNho/::-oyhyhh+///:+shmmmNNmyohm/ms-omNMMMMMMMMMMMMMMM
+dmmmdddmmddmNMMMMMNsdMMMMMNmMNmshs++:+:/++NNNNNddhd//oNNNNNs/-dNNNNNh-:yNNNNhssddd-/osddmNNNNNMMMMMM
+hdmmNNmdddmmNNMMMMNydMMMMNNNNd+soo+-`:`:/hNNNNdshdh::mNhNMm+:/ymmhyhoyhsdmNNNNNhyNd+do+syssyhmNNMMMM
+NmddddmNmmdmmdNMMMNyNMMMMNNd//:s/o++.-`.//dNMMMNNNd+`sdohNN+-././+++o/oooshymNNNdyNdmNdhmNNmhhyysNMM
+hNmdddddmmmmmmNMMMNmNMMMNNso/:oy:+:o-./.+/:NMMMNNmmh.-o--+dy```/ossyysy+s+/y/oosdmyNmhdNmdmNNhomy+mN
+ohmNdddddddmmNNMMNNhNMMNNo/ys+yh/--+-...` .sdhyo+:::----::-.``.`-+ddmdddmd+:-/:-oydhdNmhmhNhh/mNsy/m
+dohhddddhhhmmNNNMNNhNMNms/odys/o:-/.-.```` `.:--/---//mNmdh:`.-.-`./yho+yhmNNNNdhssomhhNd:NNdymd/mys
+NNNNmmmmmmmdhhysNNNmmys.oso++o/h--/././:.:::`-/::/ydNy+mNmo-odhyo-`..../odNNNNMmmNN/+odo+yNN/ydyoyhy
+yhhhhyyysysydmssNNmh+/hho/y:yhs:-+/::yyo+hhmhhmNNNNNNNmsh+oshddyNNds/-..::ohNNMNNmNh/+/ysdyh+hdoysyo
+mNMMMNNNNMNmyyyyho+od:+s+N+hssy:+///ooosdhNNNMNMMMNNNNNy+mhosds.mNNNNd+-:-:+sdNdho+h:so+-yd/dNos/h/y
+NMMMMNNMNNs+mNMmomshdyydosh/ddddos++`:ddooNNMNNMNMMMmhNNd+sms/:dMMNNNNNNho./omdmNs-dh/-+hyyoyohm+oss
+mNMNMMmdhy.ymMNmyNhsymyhmdmmhhmNmNy`.``/odNMNNNMMMNyyNNNNNhsNNNMMMMNNNNNNNNhhNNmhsm/:.-ohh/dm/hshohs
+NNMNyoshmm.symmd/hNNydNNmmdNmhyys/: .:++yhdyyhdNNNNmNhhyhhNNhmMMMNMNhoyyNmhyomNNNy-h:``yh+yy+oyos/d+
+mNd+yNmhs/`:ohdddyydhdhhooso++o+o:ohdhyhNmdmmNmdhhhdNNNNMmyhmddmNddshdmmo-shmyNmy+/o:/`yo/dh:h/hosoy
+ss/mNo:+shmyo++ohmyhy+ys+---:+oshhyhhmmmmNmmmmmmmmdhoyhmNMNNmmhNMNNddNdhdhhNMNyhs+y+/.`.:hh+os-soyoy
+y:mN/:+NNMMMNNd/+odhy+:/sshmmmNNNhhmmNNNNNmmmmmNmmNNNNmhydNMNNNMMMNNmdmmh:.hMNy+-ds/y.. .ho+y+y+hshy
+o+md//NMMMMmsosddy+/osoyhmhmmyydhhmhddhNNmNdhdhdNsNNNNNmddshNNMMNmhshNNNyo+hMMNN:yh+:/```+/ysooyohhs
+o/yh/+NMNmsohdho+:/osmmddyhmddhmNNhmNmNNNhdNNdsNddNNhyNNNddhymNdsshNMmsymNmMMNyy/y+y-//--.sh+oyh+hyy
+d-oy/-+mhohy/oo/:+yh+ohydhymdhmmddmdmyhmmmmhhmNmoNMMMMMMMNmddyyyymNNyymNdhmNNdhd/h+h:-:--.yos-yy/sdh
+my.::``.ydho:--/+yh-osyyh+-hhsohmmddmNdshmmmNdhdsNNNmdNmNNNs+syhmNdsmNMMNhosohNN:ysdss.+yoh/y/yy/yhd
+dmy--``:dh+-`.`-/oo.-/osy:+hooyNNNNNNy+hssyohNNNNNNhyhho/+ssyodNMh/NNdsydhmmhyhyodoho+:oydddhoyo/dyh
+mddd/.`/myo-```:/o-...:++-h/+ymNNNmdmy.smmsommNMNdooyds+yoo:+mNNm/mMMmhhshNNNds:mmyd+oohddddddmdyhhh
+dmmyys::mhy:``.//y/.``./-sd+:h+NNmdmd+-+/+:+hmmNNoo+Ny/-/-/-yyym/yMMdyNMNmysosodNNhys.+yhhhdddyssssy
+mmddmmd-dhh/-``:++-..  .`:hh:y-yNdyyys+-/y+:shmMNhyyNsd/:/++:yhos+MMNdmNmdmdoymNddhhd-dooyhhhhdddmmm
+Nmmmmmm+sddo`-.-//.   ``--+hdy+/oyhhshdo:/+shhdhmmmsNdsh-s-+ssodN+MMNdssmmhymNmdhddmd-oho/dmmNMMNMMM
+so+ssoos/ddh-.-::/  ```` ..-yyyhhhsyyoydhddddddhdmNmNNs::oss+sNMhyMMNmmddhmmddy+:/+///-yh++hhdmNMMMM
+-+//:+:/s+hdy/++++-::/:-``.:-oss+:+yo+ydhhdmddmdmmdmNNNhs::+dNNmyNmdyddmNdyyo:-./+/+++:`ohhddddmNMMM
++////:/+:+/+yyssoo//:::: .-:/-os:/+oo+ooyhyyyhhhhhdddhhdhyhmNNsyNyohhhhdMNdy+::--.:oyhyssdddddhhhhhd
+mdhs+:////++:+ydhyy+:::--://////::://+oosyyyshyyyyyyyyyyhdNmh:yNNNNmmd++NMMNds+::-` .:shdmmNNNNNNNNN
+MMMNms:/:::+so-:oyddmdyssooossssyhyyhhhdddddddhhhhhdddmmNh+:+yhmmNNNNmmmMMMMNMNNmddhysooooooossososs
+NMMMMMNmy:`.sN/omdhso+syhhdhhhhhdddddddmmmmmmmmmmNmdyys+/---/+oyshMMMMMMMMMMMMMMMMMMMMMMMMMMNNMNNNNM
+NNNNMMMMMNo`.s.oMmoyyy+//+/::://+sooossssssyysydhs/hhdddmmmmdyohhdMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+mddhhhdNMMNo``.dm/yMMMMMNNmddhsooo+::-.``` -:++dMNyhMMMMNNNmmmmNmmmmmmmmmNNMMMMMMMMMMMMMMMMMMMMMMMMM
+MMMMMNdsdMMN/:ydoyMMMMMMMMMMMMMMMMNNNmhyso+:-.::dmmydshyhhdddmmmmmmmmmddyssshmMMMMMMMMMMMMMMMMMMMMMM
+NmmddhysNMMMmdmdNMMMMMNNMMMMMMMMMMNMMMMMMMNNmdyyoydhs+mNMMMMMMMMMMMMMMNNmdmmy-mMMMMMMMMMMMMMMMMMMMMM
+mmmdhhmNMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMNmmNNNMMhhyhs:hyhdmmmmmdmdhddddddmmmssMMMMMMMMMMMMMMMMMMMMMM
+NhyymMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh+oyhyyhhd+y+:.syyhdddmmmmmmmNNNNNNMNsmNNNNMMMMMMMMMMMMMMMMMM
+mmNNMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMNNmds--shdho+//-yoshhmmNNNNNNmNNNNNNhdmmdddhdNMMMMMMMMMMMMMMM
+NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh+:-:`+hyyys++:oyoodmmmmmNmNNNNNNNNdmmmmdhy/NMMMMMMMMMMMMMMM
+NNhNNmdMMNNMMNMMMMMMMMMMMMMMMMMMMMMMMMMMmy-.:/./syysssoooooyhyyyyhyhyyhhhdmmmmmNmhhNMMMMMMMMMMMMMMMM
+|
+|
++++set+++
+consoleInterval
+0.09
+|
+|
+MMMMMMMMMMMMMMMMMMMMMMMMMMMNNMMMMMMMMMMMNMNNNMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNMMMNmMMMMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNMMMMMMMMMMMNMMMMMMMMMNNNNNNNNMNNNms+++yNMMMMMMMMMMMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNdo+shoo::+dNMMMMMMNMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNdo:oosshsso--:hNMMMMNNMMMMMM
+MMMNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNMMMMMMMMNMMMMMMNMMMMNNNNNNNNNms:syossyoyosy+://smNMNMMMMMMM
+MMNNMMMMMMMMMMMMMMMMNNNMMNNMMMMMMMMMMNNNNMMMMNNMMNNMMMMMMNNNNNNNNNNNms/sooosyyso/ydyyys/--+dNMMMMMMM
+MMMMMMMMMMMMMMMMMMMMMMNNMNMMMMMMMMMMMMNNMMMMMMMMMMMMMMMMMNNNNNNNNNmo//o+ossshyhmhy+shyyyso-.:hNNNMMM
+MMMMMMMMMMMMMMMMMMMMNMMNNMMMMMMMMMMMMMNMMMMMNMMMMMMMMMMMMNNNNNNNms/+++ossyddmmNMNddy+ohyshy/-.:yNMMM
+MMMMMMMMMMMMMMMMMMMNNMMNNMMMMMMNMMMMMMMMMMMMMMMMMMMMMNMNMMNNNNdo//o++ydysdNNmy/+sdhyhy/sdyyds/-`+mMM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMNMNMNdo:++++ssyhdNmds//shyosdhhhsodmyyy:/--yN
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNh+:/o/+oyhmdNmdo++hNMMMNmssmdydsshoo+:::./
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNms/o/++sooyhmNmy++sdNMdmMMMNNmhhmhhysssss++/-
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNho///ososyymdmds+/ymMMMN/hMNmshdyhhhsoossssso+/
+MMMMMMMMMMMMMMMMMMMNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmy++oo/yyydhsNmh+/ohNNNMMMMmhhhhhhhyhNmsss+ssyysso
+MMMMMMMMMMMMMMMMMNh+shdmNNMMMMMMMMMMMMMMMMMMMMNmy+//o+osyydNdNNy+:smmyydMMMMMNNNNdysoodNMNhososhssyo
+MMMMMMMMMMMMMMMMMh`-- `.:+sdmNNMMMMMMMMMMMMNmy+//+/+oysydmMNmy++yNMMy+hmMNNdyhdyNdmmyysmMMMmssssmsyd
+MMMMMMMMMMMMMMMMMd... :```.`.:+sdNNMMMMMNNho:+sydysshyymmNho/odNMMMMNyssyysoddhmmmNhyNMMMMMNNhydsmhy
+MMMMMMMMMMNNMMMMNNd:  :-.````..`.-+yNNNmo:///sosyydmdmNdo/+ymMMMMMMMMNNNNNNmhsss++NNMMMNmys+dNdydydm
+MMMMMMMMMMMMMMMMNNMNs`...:`.`.```..-:+//-:+/oysysdNNNd+/sdNNNNNNNNNNNNMMMMm/smMNdyymMMN+ymNmmdhNyhhy
+MMMNMNMMMMMMNMMMNMNMMm:  :`::`` `...:::+oo+syyyhhmNd+odNNMNmys+:::+dNMMMMMNdddNds+dMMMMNmshdhhmNMdyd
+MMNNMMMMMMMMNNMMNNMMMMNy-```:..`` `..-.:/+o++shmNMMdNNNdyo/:.-/shNNNNNNMNNMMMyydNNNdmMMMNNdsyhdmNmmy
+MMMMMMMMMMMMMMMMMMMMMMNNNy-`.```.``` `.-+++/smdysyNNo-``-/oymNmy+//+ooshNNmsyhs++syhmNmhsyNhNmhhNhmN
+MMMMMMMMMMMMMMMMNMMMMMMNNNNd+`.` ```   ..-:o//shmhoshsymNNNNy:-+hmNNNNMd/NNhdysmMMdsooydNMMMmsNMNMMM
+MMMMMMMMMMMMMMMMMMMMMMNNNNMNy/-ohys+..` ``./oy//shmNy+smNd/-odNMMMMNNNd:yMNMMMMMMN:dmNdyhdNMMm+ys+mM
+MMMMMMMMMMMMMMMMMMMMMNMNNNy/+yyhhddmdy- ````.:so:yhhdNdo+:sNNNNNMMNdo--yNNNdhyhmNMNmm:hshhoNNNdymNMM
+MMMMMMMMMMMMMMMMMMMMMMMmooh+-..` ``.-/ho.``  .`/s/+yhmNNms/hNNdhs/..:sdys+/+ooosyhNMMhdNNmNMMMMMMMmh
+MMMMMMMMMMMMMMMMMMMMMMm-hNmo/::/:+sy/./sds+:-.``-:o/ymNNNNNs+:-:+osysss+:/shdmohho/yMMNMMMMMMMMNdddN
+MMMMMMMMMMMMMMMMMMMMMNo-dNsoo:///:omm-:.+Nmy++-``./+soodmMMNmsoshdmNNd.sNNMMMMh+MMNNMMMMMMMMNdhdNNMM
+MMMMMMMMMMMMMMMMMMMNm+-sNm+::-shsos:dmsh/+Ndds:/. `:/osohdmMMMdodMMMMm-mMMNdyo.oNMMMMMMMMNdhhNNMMMMM
+mMMMMMMMMMMMNdyyyssso+dNNs-::oo+smNh/hdNNyhNydh/::-.:-ssshmmmMMNhyNMMMd+o:..-:sNMMMMMMNdyhmNMMMMMMMh
+hMMmMMMMMMNyosdmNNNNNNNNNms+yNNNmohNmhhNMNNMNyos..-+o::/yyyddddmMdodMMMNNmdmNNMMMMMNhyymNMMMMMMMymMN
+yNMyMMMNhoodNNMMMMMMMMMNh:h++/mmho:odNmyhNMMMNy+s+::+ssyssshdddmddmoyMMMMMMMMMMMNdhhmNMMMMMMMdNMNdMM
+yNNhMNy+ymNMMMNNmmNMMMMNo//syos+/shmdmMNmmMMMMN++//+/+sys+++oossydNNosNMMMMMMNdhhmNMMMMMMMMMMNMMMMMM
+hNMmN/:mNNMMNdyssyNdmMMMy/+ysyhmmNdhdNMMMMMMMMMd/+o+///:+ohmmmmmNMmNN+oNMMNdhydNMMMMMMMMMMMMMMMMMMMM
+hNNyN-/mNNhhsyhmmNMymNMNNy+ooddhNssmNNMMMMMNMMMNy/+ohyss/::+hyyyyyhdmd+hMNhdNMMMMMMMMMMMMMMMMMMMNNmM
+dNNyNo-ym/`-/osdNMNydNMMMNy+dNNNNNNNMMMMNNMNMMMMd+:-:+ydmdhhso/:/oydmdh+mMMMMMMMMMMMMMMMMMMNNmNhdhhd
+hNNyNd+.ohysh:.syNNNhmMMMMmodNNMMMMMMMMMNNMMMMMNNs///:::oshmNNmddyssyshh/NMMMMMMMMMMMNNNmNyNhdhhdodo
+hmNyNhm+`+mNNdos/dMNsdMMMMMNmNNMMMMMMMMMMMMMMMMNmNoo:os+osyyhyyhhhdhyddmsyMMMMMMMMMNNdmymsddhdsdo+/o
+hmMdNyNd``+NMNMNsmMMysNMMMMMNNNMMMMMNMNMNMMMMMMNdsysy:/hy+//oyhdmNNNNMMMN:mMMMMMNmmmydsdyhhys/+oydmN
+dNMhNhNs--/mMMMMMMMMNyyMMMMMMMMMMNmmhmhmNMMMMMMmdd+o+h/-ohh+:-/::so+hdmNMssMMNdmdsmhhhss:+/ohdNNNNNM
+ymdhmdm-/dNMMMMMMMMMMdyMMMMMMMMMMyyyNNNMMMMMMMMMssmoyyh+.oydh+/+oo/+/ydNMN/hNhydsdsss//oydNNNNMMNMMM
+:dhhmdy-hMMMMMMMMMMMMMNMMMMMMMMMMmmMMMMMNNMMMMMMdsNdNsoys:+hysh+o+++oohmMMsyhsdss+/+ymNMNmNNMMMMMMMM
+yhsddhh:dNMMMMMMMMMMMNMMMMMMMMMMMMMMMMMN+dmNNNNNNNNdy/-s//o+yh+/yso:++dNMMdoyh+/ohNMMMMMMNmmNMMMMMMM
+yh/yyhd..odNNMMMMMMMNhNMMMMMMMMMMMMMMMMd+MMNmddyyyysso.:o`-so+y:.odyoysmMMM+/sdNMMMMMMMMMMmmMMMMMMMM
+ys+mohyy:+/:++shmmmmy.sNMMMMMMMMMMMMMMNh/MMMMMMMMMNNmdh+.:-+sy://`+mNdyymNMy/NMMMMMMMMMMMMMMMMMMMMMM
+syom+dh::hsydsoosssyyssydMMMMMMMMMMMNNso:NMMMMMMMMMMMMMNs++:+sso+:`-hmmmhhmN/NMMMMMMMMMMMMMMMMMMMMMM
+yh+dsdmd//+yhmNMMMMMMMMmyNMMMMMMMMMMmh+/.NMMMMMMMMMMMMMMN-+`-:s-hy:-:syhddhh.mNNNNMMMMMMMMMMMMMMMMMM
+dyomshsNyhhs:`ohMMMMMMMMMMMMMMMMMMMMNy+/-mNMMMMMMMMMMMMMMs `.-.+.mh.:/syhhdh-shhhmMMMMMMMMMMNMMMMMMM
+hhdmsoymssmNd/+hMMMMMMMMMMMMMMMMMMMMMh/+.dMNMMNMMMMMMMMMMd `.`:. od-:.//+ohmsmNmNMMMMMMMNNMMhNMMMMMM
+ohhh+yym+hydyN/+NMMMMMMMMMMMMMMMMMMMMy//.dMMMMMMMMMMMMMMMy  :`.` -s```//sddd/hddmNMMMmNMMNMMyNMMMMNM
+Ny+ososssyhmhNNo/yNNNMMMMMMMMMMMMMMMMh:-`dMMMMMMMMMMMMMNm.`./`-.-`. `:``:/ddymMNMMNMMhmMMNMMoNMMMMhM
+dmho++yhsoNhhNMsNy///ohhmNMMMMMMMMMMMy--`mMMMMMMMMMMMMMN:..++.+`-../``..``shsmMNmMNNdhdMNdMNsdMNNMoM
+mydN:ohhoomydNmyNmyMmo++++:+hNNMNMMMM+-.-NMMMMMMMMMMMMN+:+:`yyd:s++N- ```.:domNymMNdmmhNNoNNydNhNMoM
+:mshh+ddyohydhNydmyMdd:hyoos::hNmNMMN/:-hMMMMMMdhmNNNNoodN/ -sh+hsyNsy-.```o/ddmdNomNmomNsNmsyNsNMoN
+doydm+yds/msh+shyyhNmmm/dmyoy.smMmmNd+-/NMMMNhydNNhhyhsdNN.```-:-.:.:sN+:``./sNNhNoNMd:NNymNyomsNM+N
+oyysds+moom++:yNMNo+yyhd/hNmyo-yNNNMy+.dNmdhhNmmhhdMNNNNdN+/-/o//+/o-.+hNydshyMNsMoNddsMN+NMoomoMMsm
+mssyd//yssho:+dMMMmoddds-.sNNNd-yddmh./shmNNMdhddd+yNMMMmhyhdys/o+ss+o++NyyyMsdmsM+dNNsMNoMMshmoMMhh
++ydoy`ydy+h//:+mMMNmhhhshmooyossyhdo/hNNMMMMmdhddhyyMMMhhmddodNy+d++yoo:/dNyMomMsd/NNmyMN:NN/mM+NMho
+ysoos.+oysd///`mMMNdNNmNNMNhyNymMMy/ddosyhmNMMmdmmNMMMMoymddyyhMmsyo/yhds:NdMoNN+msNmNyNhomm+NN+Nd+N
+s+/ods+:/ymo/-+NMMm/ohydhmh:mN.+NN.ohso/:.-/ydNMMMMMMMMmyhdhdNmdy/:sdsodms+NMomNyNodMMoNd+mN/NN/hNsN
+shsdhh/h.oy/-:mMNydyhyooNNN+mM:/ym.syyhdmh/.+hmdhshmMMMMMNNmho:-::yyydmNNN/sNodmsdhdNm/NsdMN+Nd+NN/N
+ymhhyos++syo:yNMN+yyddssNMMoyMd:om`.++o/oNNmdmmhmdh/yNMMNd+../:oshsodmyhmNNyosmmoNdhdm/dhdNN+dmsmd+N
+Nmhy:y//+/so+hNMMNhsdmyhNNmy/odhsh+`+oyyoodddmm/dmhs+NMd+-.`:..:osydsoyhmNMMmoymsNhsNy+NosNd:NN+NN+d
+dm/y++/:o+++ohmNmdhyhddhy+/::`.:--.`./yddhdmmNNoydyhmd+:`--.`..::oooyssymNMMMNyysMdohmoddydmodmoNd/N
+h+yso+://-///smyoohhhyo/:-.-.-`-````-``:/shmNNNmmddy+. :.:.+`.``+s+ys/shyhNNMNNsoNh+Nd:Nm+Nd/mN/hmom
+d/shsoy+::+/+.:oyhso/:.-:--o.`.-` ..` `..:--:++:.-.-..`..-./-```//y/+soshmdddmNh.smsdm+Nm+hd/NN/Nd/N
+mysyhh+o+o:oy+/+oos:-`.-.//:+`.- ...`/+.``.`-`..`......`-`:.+ / .+./s/smdmmmNNNmdsssdNodd+hdoddsmhsd
+NNod+++++/+o:+yhsy-`..--+/s-+``-`..-``:::-` .`...``-`-`.:-.`.`-`:-/osyhmNMMMMMMMNNNdsshdyhddmdhhhhhy
+Nmhyh-s+:://yys/-.-.-..:o:+//``.`-`--`:+yh:`.`..-`:...`-:-:.y/ .-.+shdmddddddhdNMMNh:/ddyyoosysymMMm
+mmymm:oo/+/ho+.+:+s/y/`s.o-/./ : .:::.oyyyd+s/ ./::-/:`:-s`oMd` `/oy++++oyyddmNMMN+/`smyN/y+oo/./yNM
+mdddh+dh/sh+o.:.o/yy:s::-sy:.+ . ./s+:/ohhhy:/-o`..::-y.h/oNMMo`.d+/-ho+/smmmMMMMMmy-/moNoNsm-:-+`+s
+NddNdyd+yyssh ::oo:yooo/+/s:.: ` .`++:-/ddsos+oy.y.``.++osNMMMNy-:`-yo//-ydddMMMMMMMNso/NsMoh-+y:.-:
+mhmdyhhdss+y--+/moooy:ysym+o```. ::/oo`-hmNMMy:s/d/:.`./:dNNMMMMNy- .-:.odhdmMMMMMMMMMm/moN://dyh/-:
+ddhsddsym+o--.soshsdhyomomhh+-o`-`o.ydh+MMMMMN://+yooo:.::symNMMMMm.`.:/hyhhmmNMMMMMMMN:hhy-d/msm+yo
+myddmoyNNs-`+/+o+md/mydom+Ny-hs+- :.ymN+NMMMMdm/syh++/oods:/ssymMMMs `-/-:shddNNNNMMMMo-sNdyM+Nym+md
+hNhoyhNNm-.-hs-hhsyh+mshhosssNdyh`.-hdmdoNMMNdd+:+-omhmhsNNhooo+omNN+` `.syyyhsosyyyhd/-hMhNNoMhNoNy
+yy+ssoo+-`syohsydmhNhhhooh+dydN+N-`.-sddhyhdhyoy:+sdmMdddshNMds-o+sNMy``-+osohmMMMMNmdyoodhMymMyM+Ns
+smy//+syddyoodNddNNyNh:h+ysyohN/N+h:--omNh..sdyMmomMdNMhMMdhdmy/:++ohNy `-smdNMMMMMMMMMMy:NdyMmdN+N+
++-:-/+yddhdmmyohNMMdooys:m/hd+hsNohh.`-/+dNhdNmMNyyNMNMMMNmdysmNdyyooy/  yhmdmmNMMMMMMMMN:msNMyNshM/
+`//ooydyydNNmNNhyddoyhohssshysNsNshmod``/ooddddNMNhymNNmhhdNNNmhhmhdhh:  .s+ohddhhmdhhdNN:omMNyN+NN/
+/`.-/`:ymNmNMMMMdshyhdmmNNmmmmdhhhhsoN/s..-//oyhmyhdy+/dNNmhdmmNNhhmdmm/`. .:+-:/ooooo::./NMMhNhhNom
+y: `ymh++mMMMMMm-hhysyhyyhhhhdddmdh--//ysds+.`/+oooyss//sdmNmddhdmNNNmmNo`.` -+oyo+o:-o-hNMMmNNsNyhM
+.:ymhyyyo:yMMNsN+mmmmdmmNNNNMMNMMMNyNhh/+yoyy+--/++++/+//o+sdddddddddmNMMdo+-.syhmNNNNm/yMMMMNsNNyMM
+hhdydmmyys.+modNs/dddmmNMMMMMMMMMNsdmhy+mmmmmdyo/+//+/+/+/++oooooossosyyyyhh+:ddydmmhhddohNNMNmNdNMM
+MMNmh:sh+.::-://++oymddmMMMMMMMMNy/ssyyhdddhhdhdhhhhdhdhhsysoso++++:-://ssso+/yyhyy+ymdyshh+oysyhyyd
+MMNNN/-:/oss- .+o+soshhhhdhhdddmdhhsydNNNNNmmmddddddddddmmmddmmmmmmdhysooosoyymNNmmmmMMMNyhmdhysyhdh
+dhys+/ho/::.`.`-sdNNNNNNNNNNNNMNmohNMMMMMMNNNNNNNNNMMNNNNNNNNNNNmmdddhNNNmsoyhyydNMNsohNNNmhysmNmy//
+syhdNNNNNNNmddyo+///+osyyhhyyhdd/-smMMMMMMMMNNNNNNNNNNNNNNmmddhhhyyssosmMMN//o+:.-/ohmd/o:/ymds++yds
+MMMMMMMMMMMMMMMMMNNmmddddddddmmo-``-:oyddmNNNmmmdhdhyyyyysssyysyhdmmmdhyo+odNNNNmhs/.-yh+++/:/s+/`:+
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNyo/.`````-///++ooyhhhhhhhhhdhhdhyso/:--/oymNMMMMMMMMNmhysosNNNdyyysmN
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNmhyso+++///::::::/:/::/++///++osyhdmNMMMMMMMMMMMMMMMMMMMMMMMMMMNNM
+MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNNNNNNNNNNNNNNNNNNNNNNMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
+|
+|
++++set+++
+consoleInterval
+0.6
+|
+        |
+        When the joker sees a person taking his life seriously
+        
+         regarding himself as extremely important, 
+
+        there is something a little bit funny about it
+        
+        he is inclined to get the giggles. 
+
+        I discuss a point of view, the jokers point of view
+
+        from which not only our social institutions
+
+    but also all the formations of the natural world are seen as games
+
+                Be careful of the word game. 
+
+                It does not mean as trivialities, 
+            
+    because when we say it is just a game this often means it is just trivial. 
+            
+            
+                There can be important games
+
+
+        as when we play the piano or musical instrument 
+
+        we are not necessarily doing something frivolus
+            
+                    but we are playing
+
+
+
+
+    and there is something in the nature of all play that is not serious
+
+
+                but at the same time might be sincere 
+
+
+|
++++set+++
+consoleInterval
+0.01
+|
+#  _______________________________________________________________________________________________________________
+#  `|`\````/`````````````````````````|`````````````````````````\````/````````````````````````````````/````````````
+#  `|``\``/``````````````````````````|``````````````````````````\``/````````````````````````````````/`````````````
+#  `o```\/```````````````````````````o```````````````````````````\/``````````````````````````````o`/``````````````
+#  `|```/\```````````````````````````|``````````````````````````|`\````````````````````````````/``````````````````
+#  `|``/``\``````````````````````````|``````````````````````````|``\``````````````````````````/```````````````````
+#  `o`/````\`````````````````````````o``````````````````````````|```\``````````````````````o`/````````````````````
+#  `|```````\````````````````````````|````````````````````````/``````\```````````````````/````````````````````````
+#  `|````````\```````````````````````|```````````````````````/````````\`````````````````/`````````````````````````
+#  `o`````````\``````````````````````o``````````````````````/``````````\`````````````o`/``````````````````````````
+#  `|``````````\`````````````````````|````````````````````|`````````````\``````````/``````````````````````````````
+#  `|```````````\````````````````````|````````````````````|``````````````\````````/```````````````````````````````
+#  `o````````````\__________________`o`__________________`|```````````````\````/`/````````````````````````````````
+#  `|````````````/\``````````````````|``````````````````/\```````````````````/````````````````````````````````````
+#  `|```````````/``\`````````````````|`````````````````/``\`````````````````/`````````````````````````````````````
+#  `o``````````/````\````````````````o``````````````o`/````\`````````````/`/``````````````````````````````````````
+#  `|``````/`````````\```````````````|``````````````|```````\``````````/``````````````````````````````````````````
+#  `|`````/```````````\``````````````|``````````````|````````\````````/```````````````````````````````````````````
+#  `o````/`````````````\`````````````o``````````````|`````````\````/`/````````````````````````````````````````````
+#  `|```/```````````````\````````````|``````````````|````````````/````````````````````````````````````````````````
+#  `|``/`````````````````\```````````|``````````````|```````````/`````````````````````````````````````````````````
+#  `o`/```````````````````\_________`o`____________`|````````/`/``````````````````````````````````````````````````
+#  `|``````````````````/```\`````````|``````````\|/\```````/``````````````````````````````````````````````````````
+#  `|`````````````````/`````\````````|``````````-*-`\`````/```````````````````````````````````````````````````````
+#  `o````````````````/```````\```___`o`______```/|\``\`/`/````````````````````````````````````````````````````````
+#  `|``````````````|``````````\``````|```````\```````/````````````````````````````````````````````````````````````
+#  `|``````````````|```````````\`````|````````\`````/`````````````````````````````````````````````````````````````
+#  `o``````````````o````````````\````o`````````\`/`/``````````````````````````````````````````````````````````````
+#  `|``````````````|````````|````\```|`````````/``````````````````````````````````````````````````````````````````
+#  `|``````````````|````````|`````\``|````````/```````````````````````````````````````````````````````````````````
+#  `o``````````````o````````|``````\`o`````/`/````````````````````````````````````````````````````````````````````
+#  `|``````````````````````````````/``````````````````````````````````````````````````````````````````````````````
+#  `|`-------------------------------|/``/````````````````````````````````````````````````````````````````````````
+#  `o````````````````````````````````|\`/`````````````````````````````````````````````````````````````````````````
+#  `|``````````````|````````|`````````/`|`````````````````````````````````````````````````````````````````````````
+#  `|``````````````|````````|````````/``|`````````````````````````````````````````````````````````````````````````
+#  `o``````````````o`````/``o```````/```|`````````````````````````````````````````````````````````````````````````
+#  `|``````````````|```/```````````/````|`````````````````````````````````````````````````````````````````````````
+#  `|``````````````|``/```````````/`````|`````````````````````````````````````````````````````````````````````````
+#  `o``````````````o`/```````````/``````|`````````````````````````````````````````````````````````````````````````
+#  `|````````````/```\``````````/```````|`````````````````````````````````````````````````````````````````````````
+#  `|```````````/`````\````````/````````|`````````````````````````````````````````````````````````````````````````
+#  `o``````````/```````\``````/`````````|`````````````````````````````````````````````````````````````````````````
+#  `|`\```````/`````````\````/``````````|`````````````````````````````````````````````````````````````````````````
+#  `|``\`````/```````````\``/```````````|`````````````````````````````````````````````````````````````````````````
+#  `o```\`o`/`````````````\/````````````|`````````````````````````````````````````````````````````````````````````
+#  `|```/\````````````````/`````````````|`````````````````````````````````````````````````````````````````````````
+#  `|``/``\``````````````/``````````````|`````````````````````````````````````````````````````````````````````````
+#  `o`/````\````````````/```````````````|`````````````````````````````````````````````````````````````````````````
+#  `|```````\``````````/``````````````````````````````````````````````````````````````````````````````````````````
+#  `|````````\````````/`````````````````_`````````````````````````````````````````````````````````````````````````
+#  `o`````````\``````/```````````````o`(_)`o``````````````````````````````````````````````````````````````````````
+#  `|``````````\````/````````````````o``_``o``````````````````````````````````````````````````````````````````````
+#  `|```````````\``/```````````````````/`\````````````````````````````````````````````````````````````````````````
+#  `o````````````\/``````````````````o`\_/`o``````````````````````````````````````````````````````````````````````
+#  `|````````````/`````````````````````|`|````````````````````````````````````````````````````````````````````````
+#  `|```````````/`````````````````````````````````````````````````````````````````````````````````````````````````
+#  `o``````````/``````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|`````````/```````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|````````/````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `o```````/`````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|``````/``````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|`````/```````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `o````/````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|```/`````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|``/``````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `o`/```````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `o`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `o`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `|`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+#  `o`````````````````````````````````````````````````````````````````````````````````````````````````````````````
+    |
++++set+++
+consoleInterval
+0.05
+    |
+    |
+#  `.d8888b.``888```````````````````````888``````````888````888````````````d8b```````````````
+#  d88P``Y88b`888```````````````````````888``````````888````888````````````88P```````````````
+#  888````888`888```````````````````````888``````````888````888````````````8P````````````````
+#  888````````88888b.```8888b.``888d888`888``.d88b.``888888`888888``.d88b.`"``.d8888b````````
+#  888````````888`"88b`````"88b`888P"```888`d88""88b`888````888````d8P``Y8b```88K````````````
+#  888````888`888``888`.d888888`888`````888`888``888`888````888````88888888```"Y8888b.```````
+#  Y88b``d88P`888``888`888``888`888`````888`Y88..88P`Y88b.``Y88b.``Y8b.````````````X88```````
+#  `"Y8888P"``888``888`"Y888888`888`````888``"Y88P"```"Y888``"Y888``"Y8888`````88888P'```````
+    |``````````````````````````````````````````````````````````````````````````````````````
+    |````````````````````````````````````````````````````````````````````````````````````````
+    |````````````````````````````````````````````````````````````````````````````````````````
+#  888```````888``````````888````````````````````````````````````````````````````````````````
+#  888```o```888``````````888````````````````````````````````````````````````````````````````
+#  888``d8b``888``````````888````````````````````````````````````````````````````````````````
+#  888`d888b`888``.d88b.``88888b.````````````````````````````````````````````````````````````
+#  888d88888b888`d8P``Y8b`888`"88b```````````````````````````````````````````````````````````
+#  88888P`Y88888`88888888`888``888```````````````````````````````````````````````````````````
+#  8888P```Y8888`Y8b.`````888`d88P```````````````````````````````````````````````````````````
+#  888P`````Y888``"Y8888``88888P"````````````````````````````````````````````````````````````
+    |````````````````````````````````````````````````````````````````````````````````````````
+    |````````````````````````````````````````````````````````````````````````````````````````
+    |````````````````````````````````````````````````````````````````````````````````````````
+#  `.d8888b.`````````````````````````````````888`````````````````````````````````````````````
+#  d88P``Y88b````````````````````````````````888`````````````````````````````````````````````
+#  888````888````````````````````````````````888`````````````````````````````````````````````
+#  888````````888d888``8888b.``888``888``888`888``.d88b.``888d888````````````````````````````
+#  888````````888P"```````"88b`888``888``888`888`d8P``Y8b`888P"``````````````````````````````
+#  888````888`888`````.d888888`888``888``888`888`88888888`888````````````````````````````````
+#  Y88b``d88P`888`````888``888`Y88b`888`d88P`888`Y8b.`````888````````````````````````````````
+#  `"Y8888P"``888`````"Y888888``"Y8888888P"``888``"Y8888``888````````````````````````````````
+    |````````````````````````````````````````````````````````````````````````````````````````
+    |````````````````````````````````````````````````````````````````````````````````````````
+    |````````````````````````````````````````````````````````````````````````````````````````
+    |
++++set+++
+consoleInterval
+0.025
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |
+    |

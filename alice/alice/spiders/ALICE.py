@@ -251,6 +251,7 @@ class GraceClarke :
             return self.name, str(' is a child of  ') , self.terminalParent.name
     #classes end
 
+
 class Charlotte(scrapy.Spider):
     #session = Session(webdriver_path=str(Path.home()) + '/p3env/alice/alice/spiders/chromedriver', browser='chrome', default_timeout=3, webdriver_options={'arguments': ['headless']})
 
@@ -1297,6 +1298,12 @@ class Charlotte(scrapy.Spider):
             else:
                 eventlog('waiting for job name!')
                 sleep(3)
+
+
+
+
+
+
 
 
 

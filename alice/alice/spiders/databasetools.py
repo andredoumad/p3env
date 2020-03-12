@@ -1,4 +1,5 @@
-from .AliceRequiredModules import *
+from AliceRequiredModules import *
+# from .AliceRequiredModules import *
 
 
 class DatabaseTools:

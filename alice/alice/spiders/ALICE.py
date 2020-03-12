@@ -1,10 +1,25 @@
-from .ALICEINWONDERLAND import AliceInWonderland
-from .AliceRequiredModules import *
-from .chronos import Chronos
-from .databasetools import DatabaseTools
-from .fileio import FileIO
-from .webtools import WebTools
-from .standalone_tools import *
+import os, sys
+PACKAGE_PARENT = '..'
+SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
+print('SCRIPT_DIR: ' + str(SCRIPT_DIR))
+sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
+
+import os, sys; sys.path.append(os.path.dirname(os.path.realpath(__file__)))
+# import ALICEINWONDERLAND
+# from .ALICEINWONDERLAND import ALICEINWONDERLAND
+from AliceRequiredModules import *
+from ALICEINWONDERLAND import AliceInWonderland
+from chronos import Chronos
+from databasetools import DatabaseTools
+from fileio import FileIO
+from webtools import WebTools
+from standalone_tools import *
+
+# from .chronos import Chronos
+# from .databasetools import DatabaseTools
+# from .fileio import FileIO
+# from .webtools import WebTools
+# from .standalone_tools import *
 
 
 if os.path.exists( str(os.getcwd() + '/pysnooper')):
@@ -250,6 +265,9 @@ class GraceClarke :
         def get_parent(self):
             return self.name, str(' is a child of  ') , self.terminalParent.name
     #classes end
+
+
+
 
 
 class Charlotte(scrapy.Spider):
@@ -2123,60 +2141,161 @@ class Charlotte(scrapy.Spider):
 
 
 
-    
-    '''
-    #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/mapUniqueLinks.history', prefix='mapUniqueLinks', depth=1)
-    def mapUniqueLinks(self, _Alice, session, url_source, dp_db_url_source, uniqueLinks, maxLoops):
-        self.mapUniqueLinks_cache = self.get_url_memory(_Alice, str(session.driver.current_url), maxLoops)
-        from urllib.parse import urlparse, urljoin
-        base_parsed = urlparse(url_source)
-        self.base_netloc = str(base_parsed.netloc)
-        self.mapUniqueLinks_cache.dev_record( "base_netloc", self.base_netloc, True)
-        for link in uniqueLinks:
-            url = link
-            parsed = urlparse(url)
-            eventlog('scheme  :', parsed.scheme)
-            eventlog('netloc  :', parsed.netloc)
-            eventlog('path    :', parsed.path)
-            eventlog('params  :', parsed.params)
-            eventlog('query   :', parsed.query)
-            eventlog('fragment:', parsed.fragment)
-            eventlog('username:', parsed.username)
-            eventlog('password:', parsed.password)
-            eventlog('hostname:', parsed.hostname)
-            eventlog('port    :', parsed.port)
-            self.link_netloc = str(parsed.netloc)
-            eventlog('self.link_netloc    :', str(self.link_netloc))
-            eventlog('self.base_netloc    :', str(self.base_netloc))
-            if self.base_netloc == self.link_netloc:
-                self.targetURL = urljoin(str(url_source), str(parsed.path))
-                self.mapUniqueLinks_cache.dev_record( "path", str(parsed.path), True)
-                eventlog('self.targetURL    :', str(self.targetURL))
-                #session.driver.get(self.targetURL)
-                #sleep(1.5)
-                self.dp_target = str(dp_db_url_source  + str(parsed.path))
-                eventlog('self.dp_target    :', str(self.dp_target))
-                self.htmlsourcepath = str(self.dp_target + "index.html")
-                self.mapUniqueLinks_cache.dev_record( "htmlsourcepath", str(self.htmlsourcepath), True)
-                eventlog('self.htmlsourcepath    :', str(self.htmlsourcepath))
-                if not os.path.exists(self.dp_target):
-                    os.makedirs(self.dp_target)
-                    try:
-                        session.driver.get(self.targetURL)
-                        sleep(1.5)
-                        self.raw = session.driver.page_source
-                        f = open(self.htmlsourcepath, 'w+')
-                        f.write(self.raw)
-                        f.close()
-                        self.writeHrefCsv(self.htmlsourcepath)
-                        eventlog(str(self.targetURL) + " success!")
-                        #self.debuginfo(" Expanding results page " +  str(i))
-                    except:
-                        eventlog(str(self.targetURL) + "  failed!")
-            else:
-                eventlog(str("\n\n driver.page_source\n\n " + str('{:.500}'.format(str(session.driver.page_source))) + "\n\n driver.page_source\n\n "))
-                eventlog("link is not of the same domain! skipping!")
-    '''
+
+
+
+
+ACTIVE_CRAWLERS_DICT = {}
+
+def get_or_new_active_crawler(human):
+    if ACTIVE_CRAWLERS_DICT.get(str(human)) == None:
+        eventlog(str('user: ' + str(human) + ' is active and needs a spider!'))
+        # self.assign_robot_to_user(str(human))
+        ACTIVE_CRAWLERS_DICT[human] = CrawlerProcess()
+    return ACTIVE_CRAWLERS_DICT.get(str(human))
+
+
+class Alice:
+    def __init__(self, name, human):
+        self.name = name
+        self.alive = True
+        self.human = human
+        self.switchboard = None
+        self.crawler = get_or_new_active_crawler(self.human)
+
+
+
+    def run(self):
+        while self.alive:
+            print(str(self.name) + ' is alive.')
+            sleep(3)
+        print(str(self.name) + ' is DEAD!')
+        sleep(1)
+        exit()
+
+    def search(self):
+        eventlog(self.name + ' search method activated.')
+        # self.process = CrawlerProcess()
+        eventlog(self.name + ' debug A')
+        # self.crawler.crawl() = CrawlerProcess()
+        eventlog(self.name + ' debug B')
+        self.crawler.crawl(Charlotte)
+        eventlog(self.name + ' debug C')
+        self.crawler.start()  # the script will block here until the crawling is finished
+        # self.switchboard.write_message('hello from Alice robot: ' + str(self.name))
+
+
+
+class MainHandler(tornado.web.RequestHandler):
+    def get(self):
+        loader = tornado.template.Loader(".")
+        self.write(loader.load("index.html").generate())
+
+
+
+
+class Switchboard(tornado.websocket.WebSocketHandler):
+
+    def startup_data(self):
+        self.user_robot_assignment_dict = {}
+
+
+    def initial(self, testing):
+        self.testing = testing
+        eventlog ('connection testing...' + str(self.testing))
+        # self.active_crawlers = active_crawlers
+
+    def open(self):
+        eventlog ('connection opened...')
+        self.startup_data()
+        # eventlog ('connection testing...' + str(self.testing))
+        self.write_message("The server says: 'Hello'. Connection was accepted.")
+
+
+    def on_message(self, message):
+        # eventlog('self.testing: ' + str(self.testing))
+        eventlog("on_message: " + str(message))
+        loaded_dict_data = json.loads(message)
+        spider_command = loaded_dict_data.get('spider_command', None)
+        message = loaded_dict_data.get('message', None)
+        robot_id = loaded_dict_data.get('robot_id', None)
+        human = loaded_dict_data.get('human', None)
+        username = loaded_dict_data.get('username', None)
+
+
+
+        if self.user_robot_assignment_dict.get(str(human)) == None:
+            eventlog(str('user: ' + str(human) + ' is active and needs a robot!'))
+            self.assign_robot_to_user(str(human))
+        
+        alice = self.user_robot_assignment_dict.get(str(human))
+
+
+
+        if spider_command == 'search':
+            eventlog('SPIDER_COMMAND IS SEARCH')
+            alice.search()
+
+
+
+
+    def on_close(self):
+        eventlog('connection closed...')
+
+
+    def assign_robot_to_user(self, human):
+        eventlog('assign_robot_to_user....')
+        thread = self.user_robot_assignment_dict.get(human)
+        eventlog('Alice robot thread: ' + str(thread))
+        if thread == None:
+            eventlog('human not found...')
+            robot = Alice('Alice', str(human))
+            robot_thread = threading.Thread(target=robot.run)    
+            robot_thread.daemon = True
+            robot_thread.start()
+            robot.thread = robot_thread
+            robot.switchboard = self
+            self.user_robot_assignment_dict[human] = robot
+            # robot.spider_ip = '127.0.0.1'
+            # robot.spider_port = '9090'
+        
+        thread = self.user_robot_assignment_dict.get(human)
+        eventlog('Alice robot thread: ' + str(thread))
+        # robot.run_chatbot()
+
+
+
+
+class WebsocketServer(tornado.web.Application):
+
+    def __init__(self):
+        # self.switchboard = Switchboard
+
+        # self.switchboard.testing = 'pikachu'
+        # self.switchboard.setup_test(self)
+        # self.switchboard = Switchboard()
+        # eventlog('websocket switchboard = ' + str(self.switchboard))
+        # self.switchboard.initial(active_crawlers)
+        handlers = [ (r"/", MainHandler), (r"/ws", Switchboard),  ]
+        eventlog('handlers: ' + str(handlers))
+        # self.switchboard.testing = 'pikachu'
+
+        # eventlog('self.witchboard.testing: ' + str(self.Switchboard.testing))
+        # for item in handlers:
+        #     eventlog('handler item: ' + str(item))
+        #     for thing in item:
+        #         eventlog('thing in item: ' + str(thing))
+
+        settings = {'debug': True}
+        super().__init__(handlers, **settings)
+
+    def run(self):
+        self.listen(port=9090)
+
+        tornado.ioloop.IOLoop.instance().start()
+
+    def stop(self):
+        tornado.ioloop.IOLoop.instance().start()
 
 
 
@@ -2184,18 +2303,102 @@ class Charlotte(scrapy.Spider):
 
 
 
+# class ActiveCrawlers:
+#     def __init__(self):
+#         self.active_crawlers_dict = {}
+#         # eventlog("ActiveCrawlers" + ' debug A')
+#         # self.process = CrawlerProcess()
+
+#     def get_or_new(self, human):
+#         if self.active_crawlers_dict.get(str(human)) == None:
+#             eventlog(str('user: ' + str(human) + ' is active and needs a spider!'))
+#             # self.assign_robot_to_user(str(human))
+#             self.active_crawlers_dict[human] = CrawlerProcess()
+
+        
+#         return self.user_robot_assignment_dict.get(str(human))
 
 
-    #-----------------------                INACTIVE FUNCTIONS
+class ChatbotServer:
+    def __init__(self, name):
+        self.name = name
+        self.alive = True
+        self.server = None
+        # self.crawlers = ActiveCrawlers()
+        self.ws = WebsocketServer()
 
-    #-----------------------                INACTIVE FUNCTIONS
+    def start_server(self):
+        asyncio.set_event_loop(asyncio.new_event_loop())
+        # self.ws.chatbot_server = self
+        self.ws.run()
 
-    #-----------------------                INACTIVE FUNCTIONS
+    def run(self):
 
-    #-----------------------                INACTIVE FUNCTIONS
+        t = Thread(target=self.start_server, args=())
+        t.daemon = True
+        t.start()
 
-    #-----------------------                INACTIVE FUNCTIONS
+        while self.alive:
+            eventlog(str(self.name) + ' is alive.')
+            sleep(2)
 
-    #-----------------------                INACTIVE FUNCTIONS
+        self.ws.stop()
+        t.join()
+        exit()
+ 
 
-    #-----------------------                INACTIVE FUNCTIONS
+
+
+# ws = WebsocketServer()
+
+# def start_server():
+#     asyncio.set_event_loop(asyncio.new_event_loop())
+#     ws.run()
+
+
+
+def run_chatbot_server():
+    print('chatbot_server has started')
+    # server = WebsocketServer()
+
+
+    # t = Thread(target=start_server, args=())
+    # t.daemon = True
+    # t.start()
+
+    chatbotserver = ChatbotServer('ChatbotServer_instance_0')
+    server_thread = threading.Thread(target=chatbotserver.run)
+    server_thread.daemon = True
+    server_thread.start()
+
+    # alice = Alice('Alice_instance_0')
+    # alice_thread = threading.Thread(target=alice.run)
+    # alice_thread.daemon = True
+    # alice_thread.start()
+
+    max_loop = 10
+    loop = 0
+    # while loop < max_loop:
+    while True:
+        print('chatbot_server: ' + str(loop))
+        sleep(3)
+        loop += 1
+
+
+
+    # alice.alive = False
+
+    # alice_thread.join()
+
+    chatbotserver.alive = False
+    server_thread.join()
+    print('chatbot_server has shutdown')
+
+if __name__ == "__main__":
+    # run_chatbot_server()
+    ws = WebsocketServer()
+    ws.run()
+
+    #     process = CrawlerProcess()
+    #     process.crawl(Charlotte)
+    #     process.start()  # the script will block here until the crawling is finished

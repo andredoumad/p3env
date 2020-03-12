@@ -13,11 +13,16 @@ from os.path import sameopenfile
 from bs4 import NavigableString
 from bs4 import BeautifulSoup
 #from urlparse import urlsplit
-from .AliceRequiredModules import *
-from .chronos import Chronos
-from .databasetools import DatabaseTools
-from .threaded import *
-from .standalone_tools import Tools
+from AliceRequiredModules import *
+from chronos import Chronos
+from databasetools import DatabaseTools
+from threaded import *
+from standalone_tools import Tools
+# from .AliceRequiredModules import *
+# from .chronos import Chronos
+# from .databasetools import DatabaseTools
+# from .threaded import *
+# from .standalone_tools import Tools
 import urllib.request, urllib.error, urllib.parse
 import urllib.parse
 #from alice.spiders.multithreaded_web_browser import *
@@ -34,7 +39,8 @@ from multiprocessing.pool import ThreadPool
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from fake_useragent import UserAgent
-from .standalone_tools import *
+from standalone_tools import *
+# from .standalone_tools import *
 
 LANGUAGE = "english"
 #SENTENCES_COUNT = 10

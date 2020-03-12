@@ -1,8 +1,13 @@
-from .AliceRequiredModules import *
-from .webtools import WebTools
-from .databasetools import DatabaseTools
-from .csv_io import CSV_IO
-from .standalone_tools import *
+# from .AliceRequiredModules import *
+from AliceRequiredModules import *
+from webtools import WebTools
+from databasetools import DatabaseTools
+from csv_io import CSV_IO
+from standalone_tools import *
+# from .webtools import WebTools
+# from .databasetools import DatabaseTools
+# from .csv_io import CSV_IO
+# from .standalone_tools import *
 
 class FileIO:
     csv = CSV_IO()

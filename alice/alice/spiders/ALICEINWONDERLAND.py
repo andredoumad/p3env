@@ -1,10 +1,17 @@
-from .AliceRequiredModules import *
-from .fileio import FileIO
-from .chronos import Chronos
-from .csv_io import CSV_IO
-from .databasetools import DatabaseTools
-from .webtools import WebTools
-from .standalone_tools import *
+# from .AliceRequiredModules import *
+from AliceRequiredModules import *
+# from .fileio import FileIO
+from fileio import FileIO
+from chronos import Chronos
+from csv_io import CSV_IO
+from databasetools import DatabaseTools
+from webtools import WebTools
+from standalone_tools import *
+# from .chronos import Chronos
+# from .csv_io import CSV_IO
+# from .databasetools import DatabaseTools
+# from .webtools import WebTools
+# from .standalone_tools import *
 
 from pathlib import Path
 class AliceInWonderland:

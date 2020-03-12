@@ -1,6 +1,9 @@
-from .AliceRequiredModules import *
-from .csv_io import CSV_IO
-from .standalone_tools import *
+from AliceRequiredModules import *
+from csv_io import CSV_IO
+from standalone_tools import *
+# from .AliceRequiredModules import *
+# from .csv_io import CSV_IO
+# from .standalone_tools import *
 
 
 class Chronos:

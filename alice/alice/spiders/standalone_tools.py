@@ -1389,9 +1389,20 @@ class Tools:
 
 
 
+# actual standalone functions.
 
-
-
+def get_list_from_file(filepath):
+    listFromFile = []
+    listFromFile.clear()
+    working = True
+    with open(filepath) as fh:
+        #fh = open(filepath)
+        while working == True:
+            for line in fh:
+                listFromFile.append(line.rstrip())
+            working = False
+        fh.close()
+    return listFromFile
 
 
 

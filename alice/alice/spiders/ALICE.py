@@ -273,7 +273,14 @@ class GraceClarke :
 class Charlotte(scrapy.Spider):
     #session = Session(webdriver_path=str(Path.home()) + '/p3env/alice/alice/spiders/chromedriver', browser='chrome', default_timeout=3, webdriver_options={'arguments': ['headless']})
 
-    def __init__(self):
+    def __init__(self, alice):
+
+        self.alice = alice
+        self.alice.charlotte = self
+        print('Charlotte has met Alice. ')
+        print('self.alice.name =  ', self.alice.name)
+        self.alice.send_message('Charlotte has connected to Alice.', 'print')
+
         self.state = 'search'
         self.charlotte = self
         self.webtools = WebTools(self.charlotte)
@@ -286,6 +293,30 @@ class Charlotte(scrapy.Spider):
         self.tools = Tools()
         self.iFileIO = FileIO()
         self.search_key = ''
+        self.name = 'Charlotte'
+
+    def write_job_keys(self, keys):
+        eventlog('Charlotte is writing job keys: ' + str(keys))
+        self.alice.send_message('Charlotte is writing job keys: ' + str(keys), 'print')
+        jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv')
+        iwrite = open(jobs_filepath, 'w')
+        iwrite.write(str(keys))
+        iwrite.write('\n')
+        iwrite.close()
+
+    def stop_search(self):
+        eventlog('Charlotte has recieved the signal stop search')
+        self.alice.send_message('Charlotte has recieved the signal stop search', 'print')
+
+    def spider_log(self, message):
+        eventlog('Charlotte spider_log: ' + str(message))
+        jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
+        iwrite = open(jobs_filepath, 'a+')
+        iwrite.write(str(message))
+        iwrite.write('\n')
+        iwrite.close()
+        # self.alice.send_message(str(message), 'print')
+
 
     loop_value = 1
     named_tuple = time.localtime() # get struct_time
@@ -2154,6 +2185,7 @@ def get_or_new_active_crawler(human):
         ACTIVE_CRAWLERS_DICT[human] = CrawlerProcess()
     return ACTIVE_CRAWLERS_DICT.get(str(human))
 
+ALICE_USER_ASSIGNMENT_DICT = {}
 
 class Alice:
     def __init__(self, name, human):
@@ -2161,28 +2193,109 @@ class Alice:
         self.alive = True
         self.human = human
         self.switchboard = None
-        self.crawler = get_or_new_active_crawler(self.human)
-
+        self.crawler = None
+        self.charlotte = None
+        self.initialized = False
+        self.crawler_thread = None
+        self.spider_log = []
+        self.state = 'initialized'
 
 
     def run(self):
         while self.alive:
-            print(str(self.name) + ' is alive.')
+            eventlog(str(self.name) + ' is alive.')
+            jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
+            try:
+                self.spider_log = get_list_from_file(jobs_filepath)
+                for record in self.spider_log:
+                    eventlog('spider log: ' + str(record))
+                    # self.send_message('Charlotte log: ' + str(record), 'print')
+            except Exception as e:
+                eventlog('spider log: ' + str(record))
+                pass
             sleep(3)
-        print(str(self.name) + ' is DEAD!')
+        eventlog(str(self.name) + ' is DEAD!')
         sleep(1)
         exit()
 
-    def search(self):
+    def spider_log(self):
+        jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
+        try:
+            self.spider_log = get_list_from_file(jobs_filepath)
+            for record in self.spider_log:
+                eventlog('spider log: ' + str(record))
+                # self.send_message('Charlotte log: ' + str(record), 'print')
+        except Exception as e:
+            eventlog('spider log: ' + str(record))
+            pass
+
+    def on_message(self, message):
+        loaded_dict_data = json.loads(message)
+        spider_command = loaded_dict_data.get('spider_command', None)
+        message = loaded_dict_data.get('message', None)
+        robot_id = loaded_dict_data.get('robot_id', None)
+        human = loaded_dict_data.get('human', None)
+        username = loaded_dict_data.get('username', None)
+
+        if spider_command == 'search':
+            eventlog('SPIDER_COMMAND IS SEARCH')
+            self.search(message)
+
+        if spider_command == 'stop':
+            eventlog('SPIDER_COMMAND IS STOP SEARCH')
+            self.stop_search()
+
+
+    def search(self, message):
         eventlog(self.name + ' search method activated.')
-        # self.process = CrawlerProcess()
-        eventlog(self.name + ' debug A')
-        # self.crawler.crawl() = CrawlerProcess()
-        eventlog(self.name + ' debug B')
-        self.crawler.crawl(Charlotte)
-        eventlog(self.name + ' debug C')
-        self.crawler.start()  # the script will block here until the crawling is finished
-        # self.switchboard.write_message('hello from Alice robot: ' + str(self.name))
+        self.send_message('I am initializing the webcrawler.', 'print')
+        if self.initialized == False:
+            self.crawler = get_or_new_active_crawler(self.human)
+            self.crawler.crawl(Charlotte, alice=self)
+            self.initialized = True
+        sleep(0.5)
+        self.charlotte.write_job_keys(message)
+        sleep(0.5)
+        self.send_message("Charlotte's crawling the web...", 'print')
+        self.crawler_thread = threading.Thread(target=self.crawler.start)    
+        self.crawler_thread.daemon = True
+        self.crawler_thread.start()
+        # self.crawler.start()
+        self.state = 'searching'
+        while self.state == 'searching':
+            self.send_message("Charlotte is searching.", 'print')
+            sleep(3)
+            jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
+            try:
+                self.spider_log = get_list_from_file(jobs_filepath)
+                for record in self.spider_log:
+                    eventlog('spider log: ' + str(record))
+                    self.send_message('Charlotte log: ' + str(record), 'print')
+            except Exception as e:
+                eventlog('spider log: ' + str(record))
+                pass
+
+    def stop_search(self):
+        eventlog(self.name + ' stop search method activated.')
+        self.send_message("self.charlotte.stop_search()", 'print')
+        self.charlotte.stop_search()
+        self.send_message("self.crawler.stop()", 'print')
+        self.crawler.stop()
+        self.send_message(self.name + ' stop search method activated.', 'print')
+        eventlog(self.name + ' stop search method activated.')
+
+        self.crawler_thread.join()
+
+
+    def send_message(self, message, command):
+        text = {
+            'message': message,
+            'command': command,
+            'From': self.name,
+            'human': self.human
+        }
+        self.switchboard.write_message(json.dumps(text))
+
 
 
 
@@ -2191,61 +2304,35 @@ class MainHandler(tornado.web.RequestHandler):
         loader = tornado.template.Loader(".")
         self.write(loader.load("index.html").generate())
 
-
-
-
 class Switchboard(tornado.websocket.WebSocketHandler):
-
-    def startup_data(self):
-        self.user_robot_assignment_dict = {}
-
-
-    def initial(self, testing):
-        self.testing = testing
-        eventlog ('connection testing...' + str(self.testing))
-        # self.active_crawlers = active_crawlers
 
     def open(self):
         eventlog ('connection opened...')
-        self.startup_data()
-        # eventlog ('connection testing...' + str(self.testing))
         self.write_message("The server says: 'Hello'. Connection was accepted.")
 
-
     def on_message(self, message):
-        # eventlog('self.testing: ' + str(self.testing))
         eventlog("on_message: " + str(message))
         loaded_dict_data = json.loads(message)
-        spider_command = loaded_dict_data.get('spider_command', None)
-        message = loaded_dict_data.get('message', None)
-        robot_id = loaded_dict_data.get('robot_id', None)
         human = loaded_dict_data.get('human', None)
-        username = loaded_dict_data.get('username', None)
+        command = loaded_dict_data.get('command', None)
 
-
-
-        if self.user_robot_assignment_dict.get(str(human)) == None:
+        if ALICE_USER_ASSIGNMENT_DICT.get(str(human)) == None:
             eventlog(str('user: ' + str(human) + ' is active and needs a robot!'))
             self.assign_robot_to_user(str(human))
         
-        alice = self.user_robot_assignment_dict.get(str(human))
+        
 
-
-
-        if spider_command == 'search':
-            eventlog('SPIDER_COMMAND IS SEARCH')
-            alice.search()
-
-
-
+        if command == 'spider_log':
+            ALICE_USER_ASSIGNMENT_DICT.get(str(human)).send_spider_log()
+        else:
+            ALICE_USER_ASSIGNMENT_DICT.get(str(human)).on_message(message)
 
     def on_close(self):
         eventlog('connection closed...')
 
-
     def assign_robot_to_user(self, human):
         eventlog('assign_robot_to_user....')
-        thread = self.user_robot_assignment_dict.get(human)
+        thread = ALICE_USER_ASSIGNMENT_DICT.get(human)
         eventlog('Alice robot thread: ' + str(thread))
         if thread == None:
             eventlog('human not found...')
@@ -2255,13 +2342,10 @@ class Switchboard(tornado.websocket.WebSocketHandler):
             robot_thread.start()
             robot.thread = robot_thread
             robot.switchboard = self
-            self.user_robot_assignment_dict[human] = robot
-            # robot.spider_ip = '127.0.0.1'
-            # robot.spider_port = '9090'
+            ALICE_USER_ASSIGNMENT_DICT[human] = robot
         
-        thread = self.user_robot_assignment_dict.get(human)
+        thread = ALICE_USER_ASSIGNMENT_DICT.get(human)
         eventlog('Alice robot thread: ' + str(thread))
-        # robot.run_chatbot()
 
 
 
@@ -2269,29 +2353,13 @@ class Switchboard(tornado.websocket.WebSocketHandler):
 class WebsocketServer(tornado.web.Application):
 
     def __init__(self):
-        # self.switchboard = Switchboard
-
-        # self.switchboard.testing = 'pikachu'
-        # self.switchboard.setup_test(self)
-        # self.switchboard = Switchboard()
-        # eventlog('websocket switchboard = ' + str(self.switchboard))
-        # self.switchboard.initial(active_crawlers)
         handlers = [ (r"/", MainHandler), (r"/ws", Switchboard),  ]
         eventlog('handlers: ' + str(handlers))
-        # self.switchboard.testing = 'pikachu'
-
-        # eventlog('self.witchboard.testing: ' + str(self.Switchboard.testing))
-        # for item in handlers:
-        #     eventlog('handler item: ' + str(item))
-        #     for thing in item:
-        #         eventlog('thing in item: ' + str(thing))
-
         settings = {'debug': True}
         super().__init__(handlers, **settings)
 
     def run(self):
         self.listen(port=9090)
-
         tornado.ioloop.IOLoop.instance().start()
 
     def stop(self):
@@ -2299,106 +2367,6 @@ class WebsocketServer(tornado.web.Application):
 
 
 
-
-
-
-
-# class ActiveCrawlers:
-#     def __init__(self):
-#         self.active_crawlers_dict = {}
-#         # eventlog("ActiveCrawlers" + ' debug A')
-#         # self.process = CrawlerProcess()
-
-#     def get_or_new(self, human):
-#         if self.active_crawlers_dict.get(str(human)) == None:
-#             eventlog(str('user: ' + str(human) + ' is active and needs a spider!'))
-#             # self.assign_robot_to_user(str(human))
-#             self.active_crawlers_dict[human] = CrawlerProcess()
-
-        
-#         return self.user_robot_assignment_dict.get(str(human))
-
-
-class ChatbotServer:
-    def __init__(self, name):
-        self.name = name
-        self.alive = True
-        self.server = None
-        # self.crawlers = ActiveCrawlers()
-        self.ws = WebsocketServer()
-
-    def start_server(self):
-        asyncio.set_event_loop(asyncio.new_event_loop())
-        # self.ws.chatbot_server = self
-        self.ws.run()
-
-    def run(self):
-
-        t = Thread(target=self.start_server, args=())
-        t.daemon = True
-        t.start()
-
-        while self.alive:
-            eventlog(str(self.name) + ' is alive.')
-            sleep(2)
-
-        self.ws.stop()
-        t.join()
-        exit()
- 
-
-
-
-# ws = WebsocketServer()
-
-# def start_server():
-#     asyncio.set_event_loop(asyncio.new_event_loop())
-#     ws.run()
-
-
-
-def run_chatbot_server():
-    print('chatbot_server has started')
-    # server = WebsocketServer()
-
-
-    # t = Thread(target=start_server, args=())
-    # t.daemon = True
-    # t.start()
-
-    chatbotserver = ChatbotServer('ChatbotServer_instance_0')
-    server_thread = threading.Thread(target=chatbotserver.run)
-    server_thread.daemon = True
-    server_thread.start()
-
-    # alice = Alice('Alice_instance_0')
-    # alice_thread = threading.Thread(target=alice.run)
-    # alice_thread.daemon = True
-    # alice_thread.start()
-
-    max_loop = 10
-    loop = 0
-    # while loop < max_loop:
-    while True:
-        print('chatbot_server: ' + str(loop))
-        sleep(3)
-        loop += 1
-
-
-
-    # alice.alive = False
-
-    # alice_thread.join()
-
-    chatbotserver.alive = False
-    server_thread.join()
-    print('chatbot_server has shutdown')
-
 if __name__ == "__main__":
-    # run_chatbot_server()
     ws = WebsocketServer()
     ws.run()
-
-    #     process = CrawlerProcess()
-    #     process.crawl(Charlotte)
-    #     process.start()  # the script will block here until the crawling is finished

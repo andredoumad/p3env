@@ -1286,7 +1286,7 @@ class WebTools:
                 while counting and self.exitFlag == 0:
                     eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' command is ' + self.charlotte.state)
-                    if count > 30:
+                    if count > 60:
                         counting = False
                     sleep(0.5)
                     count += 1
@@ -1715,6 +1715,8 @@ class WebTools:
                                                         #self.iwrite.close()
                                                         #WebTools.clear_screen(self)
                                                         eventlog('|  FOUND EMAIL  | ' + str(email) + ' Total: ' + str(emailcount))
+                                                        # self.charlotte.alice.send_message('|  FOUND EMAIL  | ' + str(email) + ' Total: ' + str(emailcount), 'print')
+                                                        
                                                         english_above_email_index = english_list_index - 25
                                                         if english_above_email_index < 0:
                                                             english_above_email_index = 0
@@ -1759,6 +1761,8 @@ class WebTools:
                                         #_THREADLOCK.release()
                                         self.completed_hyperlinks.append(str(url))
                                         eventlog('| COMPLETED URL | ' + str(url) )
+                                        # self.charlotte.alice.send_message(str('| COMPLETED URL | ' + str(url)), 'print')
+                                        self.charlotte.spider_log('| COMPLETED URL | ' + str(url))
                                         eventlog('charlotte.state: ' + self.charlotte.state)
                                         if self.charlotte.state == 'shutting_down_webcrawler_threads':
                                             self.exitFlag = 1
@@ -1808,8 +1812,8 @@ class WebTools:
 
         # Create new self.threads
         threadcount = len(website_targets)
-        if threadcount > 24:
-            threadcount = 24
+        if threadcount > 18:
+            threadcount = 18
 
         self.threads = []
         self.pool = ThreadPool(processes=threadcount)

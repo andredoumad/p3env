@@ -623,6 +623,7 @@ class WebTools:
                                 self.search_links.append(self.href)
                                 with open(harvest_search_filepath, 'a') as f:
                                     eventlog('writing: ' + str(self.href))
+                                    self.charlotte.job_results.append_message(str(self.href))
                                     eventlog('to: ' + str(harvest_search_filepath))
                                     f.write(str(self.href))
                                     f.write('\n')
@@ -1011,7 +1012,7 @@ class WebTools:
         chrome_options.add_argument(f'user-agent={userAgent}')
         chrome_options.add_experimental_option("prefs", prefs)
         self.driver = webdriver.Chrome(str(Path.home()) + '/p3env/alice/alice/spiders/chromedriver', chrome_options=chrome_options)
-        sleep(3)
+        sleep(1)
         return self.driver
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/job_search_results.history', prefix='job_search_results', depth=1)
@@ -1039,7 +1040,7 @@ class WebTools:
                 self.driver = WebTools.make_web_browser(self)
                 WebTools.check_internet_connection(self)
                 self.driver.get("https://duckduckgo.com")
-                sleep(3)
+                sleep(1)
                 search_form = self.driver.find_element_by_xpath('//*[@id="search_form_input_homepage"]')
                 #search_form = self.driver.find_element_by_id('search_form_input_homepage')
                 tryingSearch = False
@@ -1111,7 +1112,7 @@ class WebTools:
             iwrite.write('\n')
             iwrite.close()
 
-        sleep(3)
+        sleep(1)
         search_form_success = False
         try:
             search_form.submit()
@@ -1284,13 +1285,16 @@ class WebTools:
                 counting = True
                 count = 0
                 while counting and self.exitFlag == 0:
+
                     eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' command is ' + self.charlotte.state)
                     if count > 60:
                         counting = False
                     sleep(0.5)
                     count += 1
-
+                    if self.charlotte.state != 'search':
+                        eventlog('Charlotte state is not search, closing webcrawler thread!')
+                        self.exitFlag = 1
                 self.charlotte.state = 'shutting_down_webcrawler_threads'
 
                 # thread.join()
@@ -1714,7 +1718,9 @@ class WebTools:
                                                         #_THREADLOCK.release()
                                                         #self.iwrite.close()
                                                         #WebTools.clear_screen(self)
-                                                        eventlog('|  FOUND EMAIL  | ' + str(email) + ' Total: ' + str(emailcount))
+                                                        eventlog('FOUND EMAIL: ' + str(email) + ' Total: ' + str(emailcount))
+                                                        self.charlotte.spider_log('FOUND EMAIL: ' + str(email))
+                                                        self.charlotte.job_results.append_email(str(email))
                                                         # self.charlotte.alice.send_message('|  FOUND EMAIL  | ' + str(email) + ' Total: ' + str(emailcount), 'print')
                                                         
                                                         english_above_email_index = english_list_index - 25
@@ -1760,10 +1766,11 @@ class WebTools:
                                             _HARVEST_COUNT += 1
                                         #_THREADLOCK.release()
                                         self.completed_hyperlinks.append(str(url))
-                                        eventlog('| COMPLETED URL | ' + str(url) )
+                                        eventlog('Visited: ' + str(url) )
                                         # self.charlotte.alice.send_message(str('| COMPLETED URL | ' + str(url)), 'print')
-                                        self.charlotte.spider_log('| COMPLETED URL | ' + str(url))
-                                        eventlog('charlotte.state: ' + self.charlotte.state)
+                                        self.charlotte.spider_log('Visited: ' + str(url))
+                                        # eventlog('charlotte.state: ' + self.charlotte.state)
+                                        self.charlotte.job_results.append_url(str(url))
                                         if self.charlotte.state == 'shutting_down_webcrawler_threads':
                                             self.exitFlag = 1
 
@@ -2260,7 +2267,7 @@ class WebTools:
             # self.charlotte.state = 'search'
 
             #level 2
-            if len(goodLinks) > 0:
+            if len(goodLinks) > 0 and self.charlotte.state == 'search':
                 #WebTools.clear_screen(self)
                 eventlog('++++++++++++++ LEVEL 2 ++++++++++++++')
                 WebTools.check_internet_connection(self)

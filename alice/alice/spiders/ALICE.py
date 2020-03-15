@@ -3,7 +3,9 @@ PACKAGE_PARENT = '..'
 SCRIPT_DIR = os.path.dirname(os.path.realpath(os.path.join(os.getcwd(), os.path.expanduser(__file__))))
 print('SCRIPT_DIR: ' + str(SCRIPT_DIR))
 sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
-
+LOOP = None
+WS = None
+SWITCHBOARD = None
 import os, sys; sys.path.append(os.path.dirname(os.path.realpath(__file__)))
 # import ALICEINWONDERLAND
 # from .ALICEINWONDERLAND import ALICEINWONDERLAND
@@ -268,6 +270,34 @@ class GraceClarke :
 
 
 
+class JobResults:
+    def init(self):
+        self.name = None
+        self.alice = None
+        self.website_urls = []
+        self.emails = []
+        self.messages = []
+
+    def append_url(self, url):
+        self.alice.printer.append(str(url))
+        try:
+            self.website_urls.append(str(url))
+        except:
+            eventlog('we got an issue with: self.website_urls.append(str(url))')
+
+    def append_email(self, email):
+        self.alice.printer.append(str(email))
+        try:
+            self.emails.append(str(email))
+        except:
+            eventlog('we got an issue with: self.emails.append(str(email))')
+
+    def append_message(self, message):
+        self.alice.printer.append(str(message))
+        try:
+            self.messages.append(str(message))
+        except:
+            eventlog('we got an issue with: self.messages.append(str(message))')
 
 
 class Charlotte(scrapy.Spider):
@@ -294,15 +324,17 @@ class Charlotte(scrapy.Spider):
         self.iFileIO = FileIO()
         self.search_key = ''
         self.name = 'Charlotte'
+        self.job_results = None
 
     def write_job_keys(self, keys):
         eventlog('Charlotte is writing job keys: ' + str(keys))
-        self.alice.send_message('Charlotte is writing job keys: ' + str(keys), 'print')
+        self.alice.send_message(str('Charlotte is writing job keys: ' + str(keys)), 'print')
         jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv')
         iwrite = open(jobs_filepath, 'w')
         iwrite.write(str(keys))
         iwrite.write('\n')
         iwrite.close()
+        self.clear_spider_log()
 
     def stop_search(self):
         eventlog('Charlotte has recieved the signal stop search')
@@ -310,13 +342,25 @@ class Charlotte(scrapy.Spider):
 
     def spider_log(self, message):
         eventlog('Charlotte spider_log: ' + str(message))
-        jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
-        iwrite = open(jobs_filepath, 'a+')
+        if self.current_job_name != None:
+            filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(self.current_job_name) + '/spider_log.log')
+        else:
+            filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
+        iwrite = open(filepath, 'a+')
         iwrite.write(str(message))
         iwrite.write('\n')
         iwrite.close()
         # self.alice.send_message(str(message), 'print')
 
+    def clear_spider_log(self):
+        if self.current_job_name != None:
+            filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(self.current_job_name) + '/spider_log.log')
+        else:
+            filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
+        iwrite = open(filepath, 'w+')
+        iwrite.write('')
+        iwrite.close()
+        # self.alice.send_message(str(message), 'print')
 
     loop_value = 1
     named_tuple = time.localtime() # get struct_time
@@ -1108,9 +1152,35 @@ class Charlotte(scrapy.Spider):
 
 
     def log_state(self):
+        
         runtime = 0
         while self.alive:
-            eventlog('RUNTIME SECONDS: ' + str(runtime) + ' job_name: ' + str(self.current_job_name) + ' STATE: ' + str(self.state) )
+            eventlog('WS.LOOP: ' + str(WS.LOOP))
+
+            try:
+                asyncio.set_event_loop_policy(AnyThreadEventLoopPolicy())
+            except Exception as e:
+                eventlog('EXCEPTION: ' + str(e))
+            eventlog('SWITCHBOARD IS: ' + str(SWITCHBOARD))
+            text = {
+                'message': str('testing dawg testing dawg: ' + str(runtime)),
+                'command': 'print',
+                'From': self.alice.name,
+                'human': self.alice.human
+            }
+            eventlog('RUNTIME SECONDS: ' + str(runtime) + ' job_name: ' + str(self.current_job_name) + ' STATE: ' + str(self.state))
+            try:
+                self.alice.switchboard.write_message(json.dumps(text))
+            except Exception as e:
+                eventlog('EXCEPTION: ' + str(e))
+
+            try:
+                IOLoop.add_callback_from_signal(json.dumps(text))
+            except Exception as e:
+                eventlog('EXCEPTION: ' + str(e))
+
+
+
             sleep(0.5)
             runtime += 0.5
 
@@ -1125,228 +1195,246 @@ class Charlotte(scrapy.Spider):
             self.memVals.append(i)
         self.memIndex = 0
         self._Alice = AliceInWonderland(self.memIndex, self.memKeys,self.memVals, self.maxLoops, self.charlotte)
-        while self.alive:
-            self.state = 'idle'
+        # while self.alive:
+        self.state = 'idle'
 
-            eventlog('PARSING LOOP BEGIN!!!')
-            eventlog('PARSING LOOP BEGIN!!!')
-            eventlog('PARSING LOOP BEGIN!!!')
-            eventlog('PARSING LOOP BEGIN!!!')
-            eventlog('PARSING LOOP BEGIN!!!')
-            eventlog('PARSING LOOP BEGIN!!!')
-            eventlog('PARSING LOOP BEGIN!!!')
-            eventlog('PARSING LOOP BEGIN!!!')
+        eventlog('PARSING LOOP BEGIN!!!')
+        eventlog('PARSING LOOP BEGIN!!!')
+        eventlog('PARSING LOOP BEGIN!!!')
+        eventlog('PARSING LOOP BEGIN!!!')
+        eventlog('PARSING LOOP BEGIN!!!')
+        eventlog('PARSING LOOP BEGIN!!!')
+        eventlog('PARSING LOOP BEGIN!!!')
+        eventlog('PARSING LOOP BEGIN!!!')
 
-            eventlog('os.cwd()' + str(os.getcwd()))
-            home = str(Path.home())
-            eventlog('home: ' + str(home))
-            eventlog('Scrapy started parsing')
-            named_tuple = time.localtime() # get struct_time
-            time_string = time.strftime("%Y-%m-%d-%H:%M", named_tuple)
+        eventlog('os.cwd()' + str(os.getcwd()))
+        home = str(Path.home())
+        eventlog('home: ' + str(home))
+        eventlog('Scrapy started parsing')
+        named_tuple = time.localtime() # get struct_time
+        time_string = time.strftime("%Y-%m-%d-%H:%M", named_tuple)
 
-            with open(str(Path.home()) + '/p3env/alice/alice/spiders/ALICE.txt', 'a+') as f:
-                f.write('ALICE WOKE: ' + str(time_string))
-                f.write('\n')
-                f.close()
-            
+        with open(str(Path.home()) + '/p3env/alice/alice/spiders/ALICE.txt', 'a+') as f:
+            f.write('ALICE WOKE: ' + str(time_string))
+            f.write('\n')
+            f.close()
+        
 
-            self.autoclear_pysnooper(self.iFileIO)
-
-
-            eventlog('self.list_old_urls_filepaths')
+        self.autoclear_pysnooper(self.iFileIO)
 
 
-            def get_list_from_file(filepath):
-                listFromFile = []
-                listFromFile.clear()
-                working = True
-                with open(filepath) as fh:
-                    #fh = open(filepath)
-                    while working == True:
-                        for line in fh:
-                            listFromFile.append(line.rstrip())
-                        working = False
-                    fh.close()
-                return listFromFile
-
-            search_results_max_depth = 100
-            # job_name = 'AHAP'
-            # job_name = 'dante'
-
-            jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv')
-            if os.path.exists(jobs_filepath):
-                pass
-            else:
-                iwrite = open(jobs_filepath, 'a+')
-                iwrite.write('bernie_sanders')
-                iwrite.write('\n')
-                iwrite.write('andre_doumad')
-                iwrite.write('\n')
-                iwrite.write('glenn_lusk')
-                iwrite.write('\n')
-                iwrite.close()
-            self.job_names = get_list_from_file(jobs_filepath)
+        eventlog('self.list_old_urls_filepaths')
 
 
+        def get_list_from_file(filepath):
+            listFromFile = []
+            listFromFile.clear()
+            working = True
+            with open(filepath) as fh:
+                #fh = open(filepath)
+                while working == True:
+                    for line in fh:
+                        listFromFile.append(line.rstrip())
+                    working = False
+                fh.close()
+            return listFromFile
 
-            job_name = None
+        search_results_max_depth = 100
+        # job_name = 'AHAP'
+        # job_name = 'dante'
+
+        jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv')
+        if os.path.exists(jobs_filepath):
+            pass
+        else:
+            iwrite = open(jobs_filepath, 'a+')
+            iwrite.write('bernie_sanders')
+            iwrite.write('\n')
+            iwrite.write('andre_doumad')
+            iwrite.write('\n')
+            iwrite.write('glenn_lusk')
+            iwrite.write('\n')
+            iwrite.close()
+        self.job_names = get_list_from_file(jobs_filepath)
+
+
+
+        job_name = None
+        self.current_job_name = job_name
+        for name in self.job_names:
+            eventlog('for name in self.job_names: ' + str(name))
+            if len(name) > 1:
+                job_name = name.replace(' ', '_')
+
+        if job_name == None:
+            self.command = 'waiting_for_job_name'
+        else:
+            self.command = 'search'
+
             self.current_job_name = job_name
-            for name in self.job_names:
-                eventlog('for name in self.job_names: ' + str(name))
-                if len(name) > 1:
-                    job_name = name.replace(' ', '_')
+        
+        self.job_results = JobResults()
+        self.job_results.name = self.current_job_name
+        self.job_results.alice = self.alice
+        # if job_name != None:
+        iwrite = open(jobs_filepath, 'w')
+        iwrite.write('\n')
+        iwrite.close()
 
-            if job_name == None:
-                self.command = 'waiting_for_job_name'
-            else:
-                self.command = 'search'
-
-                self.current_job_name = job_name
-            
-            
-            if job_name != None:
-                iwrite = open(jobs_filepath, 'w')
+        for name in self.job_names:
+            if name != job_name and len(name) > 1:
+                iwrite = open(jobs_filepath, 'a+')
+                iwrite.write(str(name))
                 iwrite.write('\n')
                 iwrite.close()
 
-                for name in self.job_names:
-                    if name != job_name and len(name) > 1:
-                        iwrite = open(jobs_filepath, 'a+')
-                        iwrite.write(str(name))
-                        iwrite.write('\n')
-                        iwrite.close()
-
-                self.initialize_job_paths(job_name)
+        self.initialize_job_paths(job_name)
 
 
-                self.tools.create_job_search_phrase(job_name)
+        self.tools.create_job_search_phrase(job_name)
 
 
-                job_search_phrases = []
+        job_search_phrases = []
 
-                job_search_phrases = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/job_phrases.csv'))
-                for phrase in job_search_phrases:
-                    eventlog('job_search_phrases: ' + str(phrase))
+        job_search_phrases = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/job_phrases.csv'))
+        for phrase in job_search_phrases:
+            eventlog('job_search_phrases: ' + str(phrase))
 
-                def shuffle_list(inputlist):
-                    for i in range(len(inputlist)):
-                        swap = randint(0,len(inputlist)-1)
-                        temp = inputlist[swap]
-                        inputlist[swap] = inputlist[i]
-                        inputlist[i] = temp
-                    return inputlist
+        def shuffle_list(inputlist):
+            for i in range(len(inputlist)):
+                swap = randint(0,len(inputlist)-1)
+                temp = inputlist[swap]
+                inputlist[swap] = inputlist[i]
+                inputlist[i] = temp
+            return inputlist
 
-                # job_search_phrases = shuffle_list(job_search_phrases)
-                # initial_search_phrases = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/job_phrases.csv'))
-                # initial_search_phrases = shuffle_list(initial_search_phrases)
+        # job_search_phrases = shuffle_list(job_search_phrases)
+        # initial_search_phrases = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/job_phrases.csv'))
+        # initial_search_phrases = shuffle_list(initial_search_phrases)
 
-                self.autoclear_pysnooper(self.iFileIO)
+        self.autoclear_pysnooper(self.iFileIO)
 
-                # search_key = str(initial_search_phrases[0])
-                # self.newlinks = self.online_search_job(job_name, search_key, implicit_keys, explicit_keys, maxLoops, search_results_max_depth, iFileIO)
-                path, b_exists = DatabaseTools.get_job_paths(self, job_name)
-                self.b_success = False
-                if b_exists == False:
-                    eventlog('WARNING -- path does not exist -- do job first!')
-                    exit()
-                else:
-                    self.b_success = True
+        # search_key = str(initial_search_phrases[0])
+        # self.newlinks = self.online_search_job(job_name, search_key, implicit_keys, explicit_keys, maxLoops, search_results_max_depth, iFileIO)
+        path, b_exists = DatabaseTools.get_job_paths(self, job_name)
+        self.b_success = False
+        if b_exists == False:
+            eventlog('WARNING -- path does not exist -- do job first!')
+            exit()
+        else:
+            self.b_success = True
 
-                def process_job_phrases(job_search_phrases):
-                    for search_phrase in job_search_phrases:
-                        eventlog('STARTING ONLINE_THREADED_NAVIGATION_JOB')
-                        self.state = 'search'
-                        self.autoclear_pysnooper(self.iFileIO)
-                        search_key = str(search_phrase)
-                        self.newlinks = self.online_search_job(job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO)
-                        self.search_key = search_key
+        def process_job_phrases(job_search_phrases):
+            # for search_phrase in job_search_phrases:
+            #     eventlog('STARTING ONLINE_THREADED_NAVIGATION_JOB')
+            #     self.state = 'search'
+            #     self.autoclear_pysnooper(self.iFileIO)
+            #     search_key = str(search_phrase)
+            #     self.newlinks = self.online_search_job(job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO)
+            #     self.search_key = search_key
 
-                        self.job_memory = self._Alice.get_memory(job_name, self.maxLoops)
-                        self.list_google_matrix, self.list_website_matrix = DatabaseTools.explore_matrix(self, path, self._Alice)
-                        self.online_threaded_navigation_job(self._Alice, job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO, self.newlinks)
-                        eventlog('COMPLETED ONLINE_THREADED_NAVIGATION_JOB')
+            #     self.job_memory = self._Alice.get_memory(job_name, self.maxLoops)
+            #     self.list_google_matrix, self.list_website_matrix = DatabaseTools.explore_matrix(self, path, self._Alice)
+            #     self.online_threaded_navigation_job(self._Alice, job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO, self.newlinks)
+            #     eventlog('COMPLETED ONLINE_THREADED_NAVIGATION_JOB')
 
-                    self.charlotte.state = 'halting_web_crawler'
+            # for search_phrase in job_search_phrases:
+            eventlog('STARTING ONLINE_THREADED_NAVIGATION_JOB')
+            self.state = 'search'
+            self.autoclear_pysnooper(self.iFileIO)
+            search_key = str(job_search_phrases[0])
+            self.newlinks = self.online_search_job(job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO)
+            self.search_key = search_key
 
-                self.webtools.check_internet_connection()
-
-                try:
-                    thread = Thread(target = process_job_phrases, args = (job_search_phrases, ))
-                    thread.start()
-                    while self.state != 'halting_web_crawler':
-                        eventlog("charllote")
-                        sleep(0.5)
-                        eventlog("is")
-                        sleep(0.5)
-                        eventlog('crawling')
-                        sleep(0.5)
-                        eventlog('the')
-                        sleep(0.5)
-                        eventlog('web')
-                        sleep(0.5)
-                        # process_job_phrases(job_search_phrases)
-
-                except:
-                    eventlog('EXCEPTION')
-                    eventlog('process_job_phrases(job_search_phrases)')
-                    sleep(3)
+            self.job_memory = self._Alice.get_memory(job_name, self.maxLoops)
+            self.list_google_matrix, self.list_website_matrix = DatabaseTools.explore_matrix(self, path, self._Alice)
+            self.online_threaded_navigation_job(self._Alice, job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO, self.newlinks)
+            eventlog('COMPLETED ONLINE_THREADED_NAVIGATION_JOB')
 
 
-                # re-write text files so that the current job name is placed in job_list_parsed list, the rest re-write to job_list
-                with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv'), 'w') as f:
-                    with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list_parsed.csv'), 'a') as f_append:
-                        for job in self.job_names:
+            self.charlotte.state = 'halting_web_crawler'
+
+        self.webtools.check_internet_connection()
+
+        try:
+            thread = Thread(target = process_job_phrases, args = (job_search_phrases, ))
+            thread.start()
+            while self.state != 'halting_web_crawler':
+                eventlog("charllote")
+                sleep(0.5)
+                eventlog("is")
+                sleep(0.5)
+                eventlog('crawling')
+                sleep(0.5)
+                eventlog('the')
+                sleep(0.5)
+                eventlog('web')
+                sleep(0.5)
+                # process_job_phrases(job_search_phrases)
+
+        except:
+            eventlog('EXCEPTION')
+            eventlog('process_job_phrases(job_search_phrases)')
+            sleep(3)
+
+
+        # re-write text files so that the current job name is placed in job_list_parsed list, the rest re-write to job_list
+        with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv'), 'w') as f:
+            with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list_parsed.csv'), 'a') as f_append:
+                for job in self.job_names:
+
+                    if job_name.find(' ') != -1:
+                        job_name = job_name.replace(' ', '_')
+
+                    if job.find(' ') != -1:
+                        job = job.replace(' ', '_')
+
+                    eventlog('for job in self.job_names:')
+                    if job != job_name:
+                        eventlog(job + ' not equal to ' + job_name)
+                        f.write(str(job))
+                        f.write('\n')
+                    else:
+                        eventlog(job + ' is equal to ' + job_name)
+                        f_append.write(str(job))
+                        f_append.write('\n')
+
+                if len(self.job_names) <= 1:
+                    job_parsed_list = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list_parsed.csv'))
+                    searching = True
+                    while searching:
+                        for item in job_parsed_list:
+                            if item.find(' ') != -1:
+                                item = item.replace(' ', '_')
 
                             if job_name.find(' ') != -1:
                                 job_name = job_name.replace(' ', '_')
 
-                            if job.find(' ') != -1:
-                                job = job.replace(' ', '_')
-
-                            eventlog('for job in self.job_names:')
-                            if job != job_name:
-                                eventlog(job + ' not equal to ' + job_name)
-                                f.write(str(job))
-                                f.write('\n')
-                            else:
-                                eventlog(job + ' is equal to ' + job_name)
-                                f_append.write(str(job))
-                                f_append.write('\n')
-
-                        if len(self.job_names) <= 1:
-                            job_parsed_list = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list_parsed.csv'))
-                            searching = True
-                            while searching:
-                                for item in job_parsed_list:
-                                    if item.find(' ') != -1:
-                                        item = item.replace(' ', '_')
-
-                                    if job_name.find(' ') != -1:
-                                        job_name = job_name.replace(' ', '_')
-
-                                    if item == job_name:
-                                        searching = False
-
-                                f_append.write(str(job_name))
-                                f_append.write('\n')
+                            if item == job_name:
                                 searching = False
 
-                # exit()
+                        f_append.write(str(job_name))
+                        f_append.write('\n')
+                        searching = False
 
-                self.state = 'idle'
+        # exit()
 
-                eventlog('PARSING LOOP END!!!')
-                eventlog('PARSING LOOP END!!!')
-                eventlog('PARSING LOOP END!!!')
-                eventlog('PARSING LOOP END!!!')
-                eventlog('PARSING LOOP END!!!')
-                eventlog('PARSING LOOP END!!!')
-                sleep(3)
+        self.state = 'idle'
 
-                # exit()
-            else:
-                eventlog('waiting for job name!')
-                sleep(3)
+        eventlog('PARSING LOOP END!!!')
+        eventlog('PARSING LOOP END!!!')
+        eventlog('PARSING LOOP END!!!')
+        eventlog('PARSING LOOP END!!!')
+        eventlog('PARSING LOOP END!!!')
+        eventlog('PARSING LOOP END!!!')
+        sleep(3)
+
+        log_state_thread.join()
+
+        exit()
+        # else:
+        #     eventlog('waiting for job name!')
+        #     sleep(3)
 
 
 
@@ -2187,6 +2275,7 @@ def get_or_new_active_crawler(human):
 
 ALICE_USER_ASSIGNMENT_DICT = {}
 
+
 class Alice:
     def __init__(self, name, human):
         self.name = name
@@ -2199,23 +2288,47 @@ class Alice:
         self.crawler_thread = None
         self.spider_log = []
         self.state = 'initialized'
+        self.printer = []
+        self.previous_printer_length = 0
 
+    def print_printer(self):
+        try:
+            if self.previous_printer_length < len(self.printer):
+                record = str(self.printer[-1])
+                self.previous_printer_length = len(self.printer)
+                eventlog('printer: ' + record)
+                record = (record[:75] + '...') if len(record) > 75 else record
+                self.send_message(str(record), 'print')
+        except Exception as e:
+            eventlog('ERROR: ' + str(e))
+            pass
 
     def run(self):
+        # log_state_thread = Thread(target = self.log_state)
+        # log_state_thread.start()
+        eventlog(str(self.name) + ' is alive.')
+        eventlog('Alice LOOP = IOLoop.current(): ' + str(WS.LOOP))
+        # eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
         while self.alive:
-            eventlog(str(self.name) + ' is alive.')
-            jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
-            try:
-                self.spider_log = get_list_from_file(jobs_filepath)
-                for record in self.spider_log:
-                    eventlog('spider log: ' + str(record))
-                    # self.send_message('Charlotte log: ' + str(record), 'print')
-            except Exception as e:
-                eventlog('spider log: ' + str(record))
-                pass
-            sleep(3)
+            # jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
+            # try:
+            #     self.send_message('spider server: alice: state: ' + str(self.state), 'print')
+            #     # self.spider_log = get_list_from_file(jobs_filepath)
+            #     # for record in self.spider_log:
+            #     #     eventlog('spider log: ' + str(record))
+            #         # self.send_message('Charlotte log: ' + str(record), 'print')
+            # except Exception as e:
+            #     eventlog('EXCEPTION: ' + str(e))
+            #     pass
+            eventlog('spider server: alice: state: ' + str(self.state))
+            # self.send_message('spider server: alice: state: ' + str(self.state), 'print')
+            # eventlog('about to print printer')
+            # self.print_printer()
+            sleep(0.3)
+            # SWITCHBOARD = self.switchboard
         eventlog(str(self.name) + ' is DEAD!')
         sleep(1)
+        log_state_thread.join()
         exit()
 
     def spider_log(self):
@@ -2231,22 +2344,23 @@ class Alice:
 
     def on_message(self, message):
         loaded_dict_data = json.loads(message)
-        spider_command = loaded_dict_data.get('spider_command', None)
+        command = loaded_dict_data.get('command', None)
         message = loaded_dict_data.get('message', None)
         robot_id = loaded_dict_data.get('robot_id', None)
         human = loaded_dict_data.get('human', None)
         username = loaded_dict_data.get('username', None)
 
-        if spider_command == 'search':
-            eventlog('SPIDER_COMMAND IS SEARCH')
+        if command == 'search':
+            eventlog('command IS SEARCH')
             self.search(message)
 
-        if spider_command == 'stop':
-            eventlog('SPIDER_COMMAND IS STOP SEARCH')
+        if command == 'stop':
+            eventlog('command IS STOP SEARCH')
             self.stop_search()
 
 
     def search(self, message):
+
         eventlog(self.name + ' search method activated.')
         self.send_message('I am initializing the webcrawler.', 'print')
         if self.initialized == False:
@@ -2257,34 +2371,58 @@ class Alice:
         self.charlotte.write_job_keys(message)
         sleep(0.5)
         self.send_message("Charlotte's crawling the web...", 'print')
-        self.crawler_thread = threading.Thread(target=self.crawler.start)    
+        self.crawler_thread = threading.Thread(target=self.crawler.start)
         self.crawler_thread.daemon = True
         self.crawler_thread.start()
-        # self.crawler.start()
+
         self.state = 'searching'
-        while self.state == 'searching':
-            self.send_message("Charlotte is searching.", 'print')
-            sleep(3)
-            jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
-            try:
-                self.spider_log = get_list_from_file(jobs_filepath)
-                for record in self.spider_log:
-                    eventlog('spider log: ' + str(record))
-                    self.send_message('Charlotte log: ' + str(record), 'print')
-            except Exception as e:
-                eventlog('spider log: ' + str(record))
-                pass
+        # while self.state == 'searching':
+        #     # self.send_message("Charlotte is searching..." + get_date_and_time_string(), 'print')
+        #     # sleep(3)
+
+        #     try:
+        #         if self.previous_printer_length < len(self.printer):
+        #             record = str(self.printer[-1])
+        #             self.previous_printer_length = len(self.printer)
+        #             eventlog('printer: ' + record)
+        #             record = (record[:75] + '..') if len(record) > 75 else record
+        #             self.send_message(str(record), 'print')
+
+        #     except Exception as e:
+        #         eventlog('spider log: ' + str(record))
+        #         pass
+
+        if self.state == 'stop_search':
+            self.stop_search()
+
+
+
+
+
+
+        if self.state == 'stop_search':
+            self.stop_search()
+
+
+
+
+        eventlog("SEARCHING .....")
 
     def stop_search(self):
-        eventlog(self.name + ' stop search method activated.')
+        self.state = 'initialized'
+        eventlog(self.name + ' STOP_SEARCH')
+        eventlog(self.name + ' STOP_SEARCH')
+        eventlog(self.name + ' STOP_SEARCH')
         self.send_message("self.charlotte.stop_search()", 'print')
         self.charlotte.stop_search()
         self.send_message("self.crawler.stop()", 'print')
+        sleep(2)
         self.crawler.stop()
         self.send_message(self.name + ' stop search method activated.', 'print')
         eventlog(self.name + ' stop search method activated.')
 
-        self.crawler_thread.join()
+        # self.crawler_thread.join()
+        self.send_message(str(self.name + ' stopped search.'), 'print')
 
 
     def send_message(self, message, command):
@@ -2294,6 +2432,8 @@ class Alice:
             'From': self.name,
             'human': self.human
         }
+        eventlog('SENDING MESSAGE TO WEBHARVEST: ' + str(text))
+
         self.switchboard.write_message(json.dumps(text))
 
 
@@ -2305,10 +2445,34 @@ class MainHandler(tornado.web.RequestHandler):
         self.write(loader.load("index.html").generate())
 
 class Switchboard(tornado.websocket.WebSocketHandler):
+    # def __init__(
+    #     self,
+    #     application: tornado.web.Application,
+    #     # request: httputil.HTTPServerRequest,
+    #     **kwargs
+    #     ) -> None:
+    #     super(WebSocketHandler, self).__init__(application, request, **kwargs)
+    #     self.ws_connection = None  # type: Optional[WebSocketProtocol]
+    #     self.close_code = None  # type: Optional[int]
+    #     self.close_reason = None  # type: Optional[str]
+    #     self.stream = None  # type: Optional[IOStream]
+    #     self._on_close_called = False
+    #     self.httputil = None
 
     def open(self):
+        SWITCHBOARD = self
         eventlog ('connection opened...')
-        self.write_message("The server says: 'Hello'. Connection was accepted.")
+        eventlog('Switchboard LOOP = IOLoop.current(): ' + str(WS.LOOP))
+        eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
+        # text = {
+        #     "message": "The server says: 'Hello'. Connection was accepted.",
+        # }
+        # self.write_message(json.dumps(text))
+        # self.write_message("The server says: 'Hello'. Connection was accepted.")
+
+    # def write_message(self, message, binary=False):
+    #         data = json.dumps(message)
+    #         return super(Switchboard, self).write_message(data, binary)
 
     def on_message(self, message):
         eventlog("on_message: " + str(message))
@@ -2320,15 +2484,20 @@ class Switchboard(tornado.websocket.WebSocketHandler):
             eventlog(str('user: ' + str(human) + ' is active and needs a robot!'))
             self.assign_robot_to_user(str(human))
         
-        
-
-        if command == 'spider_log':
-            ALICE_USER_ASSIGNMENT_DICT.get(str(human)).send_spider_log()
+        if command == 'stop_search':
+            eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
+            eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
+            eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
+            ALICE_USER_ASSIGNMENT_DICT.get(str(human)).state = 'stop_search'
         else:
+            eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)
+            eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)
+            eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)
             ALICE_USER_ASSIGNMENT_DICT.get(str(human)).on_message(message)
 
     def on_close(self):
         eventlog('connection closed...')
+
 
     def assign_robot_to_user(self, human):
         eventlog('assign_robot_to_user....')
@@ -2345,7 +2514,7 @@ class Switchboard(tornado.websocket.WebSocketHandler):
             ALICE_USER_ASSIGNMENT_DICT[human] = robot
         
         thread = ALICE_USER_ASSIGNMENT_DICT.get(human)
-        eventlog('Alice robot thread: ' + str(thread))
+        eventlog('Alice thread: ' + str(thread))
 
 
 
@@ -2353,12 +2522,20 @@ class Switchboard(tornado.websocket.WebSocketHandler):
 class WebsocketServer(tornado.web.Application):
 
     def __init__(self):
+        self.LOOP = IOLoop.current()
+        eventlog('WebsocketServer LOOP = IOLoop.current(): ' + str(self.LOOP)) 
+        # eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
+        # self.SWITCHBOARD = Switchboard()
+        # handlers = [ (r"/", MainHandler), (r"/ws", self.SWITCHBOARD),  ]
+
         handlers = [ (r"/", MainHandler), (r"/ws", Switchboard),  ]
         eventlog('handlers: ' + str(handlers))
         settings = {'debug': True}
         super().__init__(handlers, **settings)
 
     def run(self):
+
+
         self.listen(port=9090)
         tornado.ioloop.IOLoop.instance().start()
 
@@ -2368,5 +2545,9 @@ class WebsocketServer(tornado.web.Application):
 
 
 if __name__ == "__main__":
-    ws = WebsocketServer()
-    ws.run()
+
+
+    # eventlog("Charlotte is searching..." + get_date_and_time_string() + 'print')
+    WS = WebsocketServer()
+    # LOOP = asyncio.new_event_loop()
+    WS.run()

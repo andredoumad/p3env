@@ -1405,6 +1405,19 @@ def get_list_from_file(filepath):
     return listFromFile
 
 
+def get_date_and_time_string():
+    from datetime import datetime
+
+    # datetime object containing current date and time
+    now = datetime.now()
+    
+    print("now =", now)
+
+    # dd/mm/YY H:M:S
+    dt_string = now.strftime("%Y/%m/%d/ %H:%M:%S")
+    print("date and time =", dt_string)
+    return dt_string
+
 
 
 

@@ -515,7 +515,7 @@ class WebTools:
                     self.b_found_http_between = False
                     self.foundHttpBetween = ''
                     if line.find('http') != -1:
-                        eventlog('line with http: ' + str(line) )
+                        # eventlog('line with http: ' + str(line) )
                         try:
                             self.foundHttpBetween = WebTools.find_between(self, str(line), 'http', '"')
                             self.b_found_http_between = True
@@ -544,7 +544,7 @@ class WebTools:
                         #eventlog(terminal_string)
                         #sleep(2)
                         fhref.write(self.href)
-                        eventlog('self.href = ' + str(self.href) )
+                        # eventlog('self.href = ' + str(self.href) )
                         fhref.write('\n')
 
                     #find language
@@ -622,10 +622,10 @@ class WebTools:
                                 WebTools.append_url_target(self, str(self.href), job_name)
                                 self.search_links.append(self.href)
                                 with open(harvest_search_filepath, 'a') as f:
-                                    eventlog('Writing: ' + str(self.href))
-                                    self.charlotte.job_results.append_message(str(self.href))
+                                    # eventlog('Writing: ' + str(self.href))
+                                    # self.charlotte.job_results.append_message(str(self.href))
                                     # self.charlotte.alice.send_message(str('Writing: ' + self.href), 'print')
-                                    eventlog('to: ' + str(harvest_search_filepath))
+                                    # eventlog('to: ' + str(harvest_search_filepath))
                                     f.write(str(self.href))
                                     f.write('\n')
 
@@ -647,25 +647,6 @@ class WebTools:
                         #list_pretty_index.append(self.sourcecode_line)
                     self.sourcecode_line += 1
 
-                #compile sentences, write sentences
-                '''
-                self.parser = PlaintextParser.from_file(self.englishFP, Tokenizer("english"))
-                self.stemmer = Stemmer("english")
-                self.summarizer = Summarizer(self.stemmer)
-                self.summarizer.stop_words = get_stop_words("english")
-                self.list_sentences = []
-                self.f = open(str(path_directory + str(iresult) + '_list_sentences.txt'), 'w+')
-                for sentence in self.summarizer(self.parser.document, 100):
-                    self.left = str('|compiled|')
-                    self.center = str('|sentence|')
-                    self.right =  str(sentence)
-                    terminal_string = WebTools.displayThree(self, self.left, self.center, self.right)
-                    #eventlog(terminal_string)
-                    #eventlog(sentence)
-                    self.f.write(str(sentence))
-                    self.f.write('\n')
-                self.f.close()
-                '''
 
                 self.columns = []
                 self.columns.append(list_pretty_index)
@@ -710,268 +691,6 @@ class WebTools:
                 return verified_links
 
     
-    ''' REQUIRES SPACY 
-    #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/get_parsed_html.history', prefix='get_parsed_html', depth=1)
-    def get_parsed_html(self, job_name, harvest_search_filepath, current_url, raw, path_directory, iresult, iFileIO):
-        #sleep(3)
-        #self.clear_screen()
-
-        eventlog('def get_parsed_html')
-        #sleep(3)
-        self.search_links = []
-        self.a_nlp = spacy.load('en_core_web_sm')
-        self.a_matcher = Matcher(self.a_nlp.vocab)
-        self.soup = BeautifulSoup(str(raw), 'html.parser')
-        self.pretty_sourceFP = str(path_directory + str(iresult) + '_pretty_index.html')
-        self.prettify_soup = ''
-        self.prettify_soup = self.soup.prettify()
-        list_pretty = []
-        #with open(self.pretty_sourceFP, 'w+') as iwrite:
-            #eventlog('\n\nPRETTIFY\n\n' + str(self.prettify_soup) +'\n\nPRETTIFY\n\n')
-            #iwrite.write(str(self.prettify_soup))
-            #iwrite.write(str('\n'))
-        list_pretty = self.prettify_soup.split('\n')
-
-
-        #list_pretty = Tools.get_list_from_file(self, str(path_directory + str(iresult) + '_pretty_index.html'))
-        self.matrix_name = 'parsed'
-        eventlog('harvest_search_filepath: ' + str(harvest_search_filepath))
-        if current_url.find('.google.') != -1:
-            self.matrix_name = 'google_search_results'
-            self.temporary_list = []
-            if len(list_pretty) > 160 and len(list_pretty)  < 32200:
-                for i in range(160, len(list_pretty)):
-                    eventlog('list_pretty[' + str(i) +'] = ' + str(list_pretty[i]))
-                    #sleep(0.001)
-                    self.temporary_list.append( str(list_pretty[i]))
-                list_pretty = []
-                list_pretty = self.temporary_list
-        self.englishFP = str(path_directory + str(iresult) + '_english.txt')
-        self.hrefFP = str(path_directory + str(iresult) + '_href.html')
-        with open(self.hrefFP, 'w+') as fhref:
-            with open(self.englishFP, 'w+') as flang:
-                #self.fhref = open(self.hrefFP, 'w+')
-                #self.flang = open(self.englishFP, 'w+')
-
-                #MATRIX
-                #self.nlp = spacy.load("en_core_web_sm")
-                self.sourcecode_line = 0
-                self.href_index = 0
-                self.lang_index = 0
-                self.ent_index = 0
-
-                list_pretty_index = []
-
-                self.list_href = []
-                self.list_href_index = []
-
-                self.list_lang = []
-                self.list_lang_index = []
-
-                self.list_entity_index = []
-                self.list_entity_text = []
-                self.list_entity_label = []
-                self.list_entity_start_char = []
-                self.list_entity_end_char = []
-
-                self.list_current_url = []
-                self.list_date_recorded = []
-                self.list_time_recorded = []
-                self.list_html_filepath = []
-
-                for line in list_pretty:
-                    self.set_time = datetime.datetime.now()
-                    self.entity_text = 'entity_text'
-                    self.entity_label = 'entity_label'
-                    self.entity_start_char = 'entity_start'
-                    self.entity_end_char = 'entity_end_char'
-                    self.lang = 'lang'
-                    self.href = 'href'
-                    self.b_found_href = False
-                    self.b_found_lang = False
-                    self.b_found_http_between = False
-                    self.foundHttpBetween = ''
-                    if line.find('http') != -1:
-                        eventlog('line with http: ' + str(line) )
-                        try:
-                            self.foundHttpBetween = WebTools.find_between(self, str(line), 'http', '"')
-                            self.b_found_http_between = True
-                        except:
-                            self.b_found_http_between = False
-                        #self.href = line
-                        #self.b_found_href = True
-
-                    if self.b_found_http_between == True:
-                        if self.foundHttpBetween.find('w3.org') != -1:
-                            self.b_found_http_between = False
-                        if self.foundHttpBetween.find('googleusercontent') != -1:
-                            self.b_found_http_between = False
-                        if self.foundHttpBetween.find(';') != -1:
-                            self.b_found_http_between = False
-                        if self.foundHttpBetween.find(' ') != -1:
-                            self.b_found_http_between = False
-
-                    if self.b_found_http_between == True:
-                        self.href = str('http' + str(self.foundHttpBetween))
-                        self.b_found_href = True
-                        self.left = str('|' + self.matrix_name + '|')
-                        self.center = str('|href|')
-                        self.right =  str(self.href)
-                        terminal_string = WebTools.displayThree(self, self.left, self.center, self.right)
-                        #eventlog(terminal_string)
-                        #sleep(2)
-                        fhref.write(self.href)
-                        eventlog('self.href = ' + str(self.href) )
-                        fhref.write('\n')
-
-                    #find language
-                    if len(line) < 1500 and len(line) > 3:
-                        if line.find('[') == -1 and line.find('<') == -1:
-                            if line.find('{') == -1:
-                                self.lang = line
-                                if line.find(',') != -1:
-                                    self.lang.replace(",", "")
-                                self.b_found_lang = True
-                                self.lang = line.replace(",", "")
-                                self.lang = str(self.lang.lstrip())
-                                self.lang = ' '.join(self.lang.split())
-                                #eventlog(str(line))
-                                self.left = str('|' + self.matrix_name + '|')
-                                self.center = str('|lang| ')
-                                self.right =  str(self.lang)
-                                terminal_string = WebTools.displayThree(self, self.left, self.center, self.right)
-                                #eventlog(terminal_string)
-                                #self.lang = str(line)
-                                flang.write(str(self.lang))
-                                flang.write('\n')
-
-                                self.doc = self.a_nlp(str(self.lang))
-                                for ent in self.doc.ents:
-                                    #eventlog(ent.text, ent.start_char, ent.end_char, ent.label_)
-                                    self.left = str('\n|' + self.matrix_name + '| ')
-                                    self.center = str('|entity_text| ' + str(ent.text))
-                                    self.right =  str('|entity_label| ' + str(ent.label_) + '|' )
-                                    terminal_string = WebTools.displayThree(self, self.left, self.center, self.right)
-                                    #eventlog(terminal_string)
-                                    list_pretty_index.append(self.sourcecode_line)
-
-                                    self.list_href_index.append(str(self.href_index))
-                                    self.list_href.append(str(self.href))
-                                    if Tools.verify_hyperlink(self, str(self.href), job_name) == True:
-                                        WebTools.append_url_target(self, str(self.href), job_name)
-                                        self.search_links.append(self.href)
-                                        with open(harvest_search_filepath, 'a') as f:
-                                            f.write(str(self.href))
-                                            f.write('\n')
-
-                                    self.list_lang_index.append(str(self.lang_index))
-                                    self.list_lang.append(str(self.lang))
-
-                                    self.list_entity_index.append(str(self.ent_index))
-                                    self.list_entity_text.append(str(ent.text))
-                                    self.list_entity_label.append(str(ent.label_))
-                                    self.list_entity_start_char.append(str(ent.start_char))
-                                    self.list_entity_end_char.append(str(ent.end_char))
-
-                                    self.list_current_url.append(str(current_url))
-                                    self.list_date_recorded.append(str(self.set_time.strftime("%y_%m_%d")))
-                                    self.list_time_recorded.append(str(self.set_time.strftime("%H_%M_%S")))
-                                    self.list_html_filepath.append(str(path_directory + str(iresult) + '_pretty_index.html'))
-                                    self.ent_index += 1
-                                self.lang_index += 1
-
-                    if self.b_found_href == True:
-                        if self.b_found_lang == False:
-                            list_pretty_index.append(self.sourcecode_line)
-                            self.list_href_index.append(str(self.href_index))
-                            self.list_href.append(str(self.href))
-                            if Tools.verify_hyperlink(self, str(self.href), job_name) == True:
-                                WebTools.append_url_target(self, str(self.href), job_name)
-                                self.search_links.append(self.href)
-                                with open(harvest_search_filepath, 'a') as f:
-                                    eventlog('writing: ' + str(self.href))
-                                    eventlog('to: ' + str(harvest_search_filepath))
-                                    f.write(str(self.href))
-                                    f.write('\n')
-
-                            self.list_lang_index.append(str(self.lang_index))
-                            self.list_lang.append(str(self.lang))
-
-                            self.list_entity_index.append(str(self.ent_index))
-                            self.list_entity_text.append(str(self.entity_text))
-                            self.list_entity_label.append(str(self.entity_label))
-                            self.list_entity_start_char.append(str(self.entity_start_char))
-                            self.list_entity_end_char.append(str(self.entity_end_char))
-
-                            self.list_current_url.append(str(current_url))
-                            self.list_date_recorded.append(str(self.set_time.strftime("%y_%m_%d")))
-                            self.list_time_recorded.append(str(self.set_time.strftime("%H_%M_%S")))
-                            self.list_html_filepath.append(str(path_directory + str(iresult) + '_pretty_index.html'))
-                        self.href_index += 1
-                        #list_pretty_index.append(self.sourcecode_line)
-                    self.sourcecode_line += 1
-
-                #compile sentences, write sentences
-                self.parser = PlaintextParser.from_file(self.englishFP, Tokenizer("english"))
-                self.stemmer = Stemmer("english")
-                self.summarizer = Summarizer(self.stemmer)
-                self.summarizer.stop_words = get_stop_words("english")
-                self.list_sentences = []
-                self.f = open(str(path_directory + str(iresult) + '_list_sentences.txt'), 'w+')
-                for sentence in self.summarizer(self.parser.document, 100):
-                    self.left = str('|compiled|')
-                    self.center = str('|sentence|')
-                    self.right =  str(sentence)
-                    terminal_string = WebTools.displayThree(self, self.left, self.center, self.right)
-                    #eventlog(terminal_string)
-                    #eventlog(sentence)
-                    self.f.write(str(sentence))
-                    self.f.write('\n')
-                self.f.close()
-
-                self.columns = []
-                self.columns.append(list_pretty_index)
-                self.columns.append(self.list_href_index)
-                self.columns.append(self.list_href)
-                self.columns.append(self.list_lang_index)
-                self.columns.append(self.list_lang)
-                self.columns.append(self.list_entity_index)
-                self.columns.append(self.list_entity_text)
-                self.columns.append(self.list_entity_label)
-                self.columns.append(self.list_entity_start_char)
-                self.columns.append(self.list_entity_end_char)
-                self.columns.append(self.list_current_url)
-                self.columns.append(self.list_date_recorded)
-                self.columns.append(self.list_time_recorded)
-                self.columns.append(self.list_html_filepath)
-
-                self.fields = [
-                    'pretty_index', 'href_index', 'href', 'lang_index', 'lang', 'entity_index', 'entity_text', 'entity_label', 'entity_start', 'entity_end', 
-                    'current_url', 'date_recorded', 'time_recorded', 'html_filepath']
-
-                iFileIO.csv.write_list_of_lists_to_csv_file(self.columns, self.fields, self.matrix_name, path_directory, iresult)
-                
-                self.search_links = Tools.deduplicate_list(self, self.search_links)
-                
-                verified_links = []
-                for link in self.search_links:
-                    if Tools.verify_hyperlink(self, link, job_name) == True:
-                        verified_links.append(str(link))
-                        
-                verified_links = Tools.shuffle_list(self, verified_links)
-                verified_links = Tools.deduplicate_list(self, verified_links)
-                with open(harvest_search_filepath, 'w') as f:
-                    f.write(str(''))
-                    f.close()
-                    
-                for link in verified_links:
-                    with open(harvest_search_filepath, 'a') as f:
-                        f.write(str(link))
-                        f.write('\n')
-                        f.close()
-                return verified_links
-
-    '''
 
     def make_web_browser(self):
         LOGGER.setLevel(logging.WARNING)
@@ -1720,7 +1439,7 @@ class WebTools:
                                                         #self.iwrite.close()
                                                         #WebTools.clear_screen(self)
                                                         eventlog('FOUND EMAIL: ' + str(email) + ' Total: ' + str(emailcount))
-                                                        self.charlotte.spider_log('FOUND EMAIL: ' + str(email))
+                                                        # self.charlotte.spider_log('FOUND EMAIL: ' + str(email))
                                                         self.charlotte.job_results.append_email(str(email))
                                                         # self.charlotte.alice.send_message('|  FOUND EMAIL  | ' + str(email) + ' Total: ' + str(emailcount), 'print')
                                                         
@@ -1767,9 +1486,9 @@ class WebTools:
                                             _HARVEST_COUNT += 1
                                         #_THREADLOCK.release()
                                         self.completed_hyperlinks.append(str(url))
-                                        eventlog('Visited: ' + str(url) )
-                                        self.charlotte.alice.send_message(str('| COMPLETED URL | ' + str(url)), 'print')
-                                        self.charlotte.spider_log('Visited: ' + str(url))
+                                        eventlog(str('| COMPLETED URL | ' + str(url)))
+                                        # self.charlotte.alice.send_message(str('| COMPLETED URL | ' + str(url)), 'print')
+                                        # self.charlotte.spider_log('Visited: ' + str(url))
                                         # eventlog('charlotte.state: ' + self.charlotte.state)
                                         self.charlotte.job_results.append_url(str(url))
                                         if self.charlotte.state == 'shutting_down_webcrawler_threads':
@@ -2114,8 +1833,8 @@ class WebTools:
 
             if found == False:
                 new_input_list.append(incoming_hyperlink)
-            else:
-                eventlog('Visited too many times: ' + str(incoming_hyperlink))
+            # else:
+            #     eventlog('Visited too many times: ' + str(incoming_hyperlink))
 
         inputlist = new_input_list
         #clean duplicates from newlinks passed into this function - shuffle them too

@@ -2118,7 +2118,7 @@ class Alice:
             if self.previous_printer_length < len(self.printer):
                 record = str(self.printer[-1])
                 self.previous_printer_length = len(self.printer)
-                eventlog('printer: ' + record)
+                eventlog('PRINT PRINTER: ' + record)
                 record = (record[:75] + '...') if len(record) > 75 else record
                 self.send_message(str(record), 'print')
         except Exception as e:
@@ -2126,12 +2126,19 @@ class Alice:
             pass
 
     def run(self):
+
+        try:
+            WS.LOOP.create_task(self.isecs_loop)
+            WS.LOOP.run_forever()
+        except Exception as e:
+            eventlog('EXCEPTION: ' + str(e))
+
         eventlog(str(self.name) + ' is alive.')
         eventlog('Alice LOOP = IOLoop.current(): ' + str(WS.LOOP))
         eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
         while self.alive:
             eventlog('spider server: alice: state: ' + str(self.state))
-            # self.print_printer()
+            self.print_printer()
             sleep(0.3)
         eventlog(str(self.name) + ' is DEAD!')
         sleep(1)
@@ -2154,39 +2161,6 @@ class Alice:
             self.stop_search()
 
 
-    def PrintStuff(self):
-        while self.state == 'searching':
-            sleep(0.3)
-            eventlog('SEARCHING !!!')
-            self.print_printer()
-
-
-
-    async def sec_loop(self):
-
-        eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) ABOUT TO TRY')
-        self.ithread = threading.Thread(target=self.PrintStuff)
-        self.ithread.daemon = True
-        self.ithread.start()
-        eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) WORKED!')
-        # while True:
-        #     try:
-        #         await self.send_message('testing some special message', 'print')
-        #     except Exception as e:
-        #         eventlog('EXCEPTION: ' + str(e))
-            
-        #     # await gen.sleep(1)
-        #     sleep(1)
-
-    # def IOThread(self):
-    #     # IOLoop.current().spawn_callback(self.sec_loop)
-    #     eventlog('WS.LOOP.spawn_callback(self.sec_loop) ABOUT TO TRY')
-    #     try:
-    #         WS.LOOP.spawn_callback(self.sec_loop)
-    #     except Exception as e:
-    #         eventlog('EXCEPTION: ' + str(e))
-
-    #     eventlog('WS.LOOP.spawn_callback(self.sec_loop) WORKED')
 
     def search(self, message):
         eventlog(self.name + ' search method activated.')
@@ -2205,50 +2179,6 @@ class Alice:
         self.crawler_thread.daemon = True
         self.crawler_thread.start()
 
-        from concurrent.futures import ThreadPoolExecutor
-
-        executor = ThreadPoolExecutor(max_workers=8)
-
-        # nope
-        # IOLoop.current().run_in_executor(executor, self.PrintStuff)
-
-
-        # Coroutines that loop forever are generally started with
-        # spawn_callback().
-        # IOLoop.current().spawn_callback(self.sec_loop)
-
-        # self.IOLoop_thread = threading.Thread(target=self.IOThread)
-        # self.IOLoop_thread.daemon = True
-        # self.IOLoop_thread.start()
-
-        try:
-            #works but blocks
-            eventlog('self.IOLoop_thread = threading.Thread(target=WS.LOOP.spawn_callback(self.sec_loop)) ABOUT TO TRY')
-            self.IOLoop_thread = threading.Thread(target=WS.LOOP.spawn_callback(self.sec_loop))
-            self.IOLoop_thread.daemon = True
-            self.IOLoop_thread.start()
-            eventlog('self.IOLoop_thread = threading.Thread(target=WS.LOOP.spawn_callback(self.sec_loop)) SUCCESS')
-        except Exception as e:
-            eventlog('self.IOLoop_thread = threading.Thread(target=WS.LOOP.spawn_callback(self.sec_loop)) FAILED')
-            eventlog('EXCEPTION: ' + str(e))
-            try:
-                eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) ABOUT TO TRY')
-                self.IOLoop_thread = threading.Thread(target=self.PrintStuff)
-                self.IOLoop_thread.daemon = True
-                self.IOLoop_thread.start()
-                eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) SUCCESS')
-            except:
-                eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) FAILED')
-                eventlog('EXCEPTION: ' + str(e))
-
-
-
-
-        # works but blocks the server from communicating while spider runs.....
-        # while self.state == 'searching':
-        #     sleep(0.3)
-        #     eventlog('SEARCHING !!!')
-        #     self.print_printer()
 
     def stop_search(self):
         eventlog(self.name + ' STOP_SEARCH')
@@ -2280,10 +2210,28 @@ class Alice:
         del previous_frame  # drop the reference to the stack frame to avoid reference cycles
         eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered send_message: ' + str(text))
         # self.switchboard.write_message(json.dumps(text))
-        try:
-            self.switchboard.write_message(json.dumps(text))
-        except Exception as e:
-            eventlog('EXCEPTION: ' + str(e))
+
+        if str(socket.gethostname()) == "tr3b":
+            api_url = 'http://127.0.0.1:8000/webhooks/webharvest/'
+        else:
+            api_url = 'https://stringkeeper.com/webhooks/webharvest/'
+
+        payload = {
+            'user': str(self.human),
+            'chat_message': str(message),
+            'command': str(command)
+        }
+
+        response = requests.post(api_url, data=payload)
+        # print('response: ' + str(response))
+        # print('response json: ' + str(response.json()))
+
+
+    # def send_message_to_webharvest(human, message):
+
+
+
+    # send_message_to_webharvest('dante@stringkeeper.com', 'testing 12345')
 
 
 
@@ -2334,7 +2282,7 @@ class Switchboard(tornado.websocket.WebSocketHandler):
         if thread == None:
             eventlog('human not found...')
             robot = Alice('Alice', str(human))
-            robot_thread = threading.Thread(target=robot.run)    
+            robot_thread = threading.Thread(target=robot.run)
             robot_thread.daemon = True
             robot_thread.start()
             robot.thread = robot_thread
@@ -2343,8 +2291,6 @@ class Switchboard(tornado.websocket.WebSocketHandler):
         
         thread = ALICE_USER_ASSIGNMENT_DICT.get(human)
         eventlog('Alice thread: ' + str(thread))
-
-
 
 
 class WebsocketServer(tornado.web.Application):
@@ -2370,15 +2316,12 @@ class WebsocketServer(tornado.web.Application):
         tornado.ioloop.IOLoop.instance().start()
 
 
-
 if __name__ == "__main__":
-
 
     # eventlog("Charlotte is searching..." + get_date_and_time_string() + 'print')
     WS = WebsocketServer()
     # LOOP = asyncio.new_event_loop()
     WS.run()
-
 
     # ws_thread = threading.Thread(target=WS.run)
     # ws_thread.daemon = True

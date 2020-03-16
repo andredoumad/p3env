@@ -1,5 +1,7 @@
 #!/bin/bash
-source /home/gordon/p3env/bin/activate && cd /home/gordon/p3env/alice/alice/spiders && scrapy crawl charlotte >> /home/gordon/p3env/alice/alice/spiders/logfiles/charlotte_log_$(date +\%Y\%m\%d).logfile 2>&1
+# source /home/gordon/p3env/bin/activate && cd /home/gordon/p3env/alice/alice/spiders && scrapy crawl charlotte >> /home/gordon/p3env/alice/alice/spiders/logfiles/charlotte_log_$(date +\%Y\%m\%d).logfile 2>&1
+
+source /home/gordon/p3env/bin/activate && cd /home/gordon/p3env/alice/alice/spiders && python ALICE.py
 
 #/home/gordon/p3env/bin/activate
 #cd /home/gordon/p3env

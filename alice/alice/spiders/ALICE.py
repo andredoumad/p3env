@@ -116,35 +116,6 @@ class GraceClarke :
         self.map_db_l_dp_fp( self.l_dp, self.l_fps)
         self.l_fps = self.map_db_get_grace_l_fp()
 
-        '''
-
-        file_contents_unique_lines = self.get_get_list_of_unique_lines_from_files(self.l_fps)
-
-        f= open('charlotteMonitor.txt','a+')
-        for line in file_contents_unique_lines:
-            f.write(str(line))
-            eventlog(str(line))
-            f.write(str('\n'))
-        f.close
-        '''
-    '''
-    #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/map_db_l_dp_fp.history', prefix='map_db_l_dp_fp', depth=1)
-    def make_report_from_phrase(self, phrase, columns, maxLoops):
-        columns = ['Directory_path', 'File_path']
-        listOfLists = []
-
-
-        listOfLists.append(list_dp)
-        listOfLists.append(list_fp)
-        #filepath = 'GraceClarke'
-        #self.ifileio.csv.write_list_of_lists_to_csv_file(listOfLists, columns, str(Path.home()) + '/p3env/alice/alice/spiders/databasePaths.csv' )
-        self.ifileio.csv.write_list_of_lists_to_csv_file(listOfLists, columns, 'databasePaths' )
-        
-        #for 
-        #nValue = dict(zip(list_dp, list_fp))
-        #ecords  = 
-       # self.ifileio.write_dict_file( dictZip, columns, str(Path.home()) + '/p3env/alice/alice/spiders/paired_directorypaths_filepaths.map' )
-    '''
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/map_db_l_dp_fp.history', prefix='map_db_l_dp_fp', depth=1)
     def map_db_l_dp_fp(self, list_dp, list_fp):
         columns = ['Directory_path', 'File_path']
@@ -473,107 +444,6 @@ class Charlotte(scrapy.Spider):
         f.close()
         return filepath
 
-    '''
-    #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/map_url_by_phrase.history', prefix='map_url_by_phrase', depth=1)
-    def map_url_by_phrase(self, filepathRoot, _Alice, phrase, maxLoops):
-        self.fp_google_search = ''
-        self.time_system = ''
-        self.time_human = ''
-        self.list_accesshistory = []
-        self.alice_nlp= spacy.load('en_core_web_sm')
-        self.a_matcher = Matcher(self.alice_nlp.vocab)
-        self.b_success = None
-        self.dp_root = filepathRoot
-        self.session = Session(webdriver_path=str(Path.home()) + '/p3env/alice/alice/spiders/chromedriver', browser='chrome', default_timeout=3)
-        self.session.driver.set_window_size(1000, 2000)
-        path0 = "".join([c for c in phrase if c.isalpha() or c.isdigit() or c==' ']).rstrip()
-        path1 = path0.replace(" ", "")
-        self.fixedName = ''
-        if len(path1) > 60:
-            self.fixedName = str('{:.60}'.format(str(path1)))
-        else:
-            self.fixedName = path1
-
-        #self.debuginfo(path1)
-        self.fp_google_search = str( self.dp_root + "database/google/" + self.fixedName  + '/' + self.fixedName + "google.html")
-        if not os.path.exists( str( self.dp_root + "database/google/" + self.fixedName)):
-            os.makedirs( str(self.dp_root + "database/google/" + self.fixedName))
-        self.fp_db_web =  str(self.dp_root + "database/google/" + self.fixedName)
-        self.raw = self.session.driver.page_source
-        eventlog(str("\n\n driver.page_source\n\n " + str('{:.500}'.format(str(self.session.driver.page_source))) + "\n\n driver.page_source\n\n "))
-        f = open(self.fp_google_search, 'w+')
-        f.write(self.raw)
-        f.close()
-        self.loops = 0
-        self.working = True
-        while self.working == True:
-            for i in range(1, 3):
-                self.loops += 1
-                if self.loops > maxLoops:
-                    self.working = False
-                    break
-                try:
-                    morePagesXpath = str("//*[@id='rld-" + str(i) + "']/a")
-                    self.session.driver.find_element_by_xpath(morePagesXpath).click()
-                except:
-                    break
-            self.raw = self.session.driver.page_source
-            f = open(self.fp_google_search, 'a+')
-            f.write(self.raw)
-            f.close()
-            self.working = False
-        f = open(self.fp_google_search, 'r')
-        self.raw = f.read()
-        f.close()
-        self.max_tries = 4
-        self.try_count = 0
-        self.b_success = False
-        self.skip_this_search_phrase = False
-        while self.b_success == False and self.skip_this_search_phrase == False:
-            self.b_success, self.session = self.quit_session_get_new_google_search(self.session, phrase)
-            self.try_count += 1
-            if self.try_count > self.max_tries:
-                self.skip_this_search_phrase = True
-        if self.skip_this_search_phrase == False:
-            self.b_success = self.webtools.click_first_google_result(self, self.session)
-            if self.b_success == False:
-                self.flag_failed_error(_Alice, self.fp_db_web, phrase, self.session, maxLoops)
-                self.skip_this_search_phrase = True
-        if self.skip_this_search_phrase == False:
-            self.url_landingPage = self.session.driver.current_url
-            self.b_new_db = False
-            self.b_new_db, self.htmlsourcepath, self.dp_db_web, self.navigation_targets, self.fp_db_archive, self.fp_db_realtime, self.fp_db_queue, self.fp_db_dev_report, self.fp_db_user_report, self.nlp_targets = FileIO.bot_db_initialize_filepaths(self, self.url_landingPage, self.dp_root)
-            self.b_success, self.raw, self.htmlsourcepath, self.directory_key = self.selenium_download_page_source(self.session, self.session.driver.current_url, self.dp_db_web)
-            self.b_filepath_exists, self.b_new, self.dp, fp, self.fp_access_history = FileIO.getPathsAndTime(self, self.dp_root)
-            self.URL = ''
-            self.URL = str(self.session.driver.current_url)
-            self.map_url_by_phrase_cache = self.get_url_memory(_Alice, str(self.session.driver.current_url), maxLoops)
-            self.map_url_by_phrase_cache.dev_record( "URL", self.URL, True)
-            self.time_human, self.systemTime = Chronos.getProperTime(self)
-            self.map_url_by_phrase_cache.dev_record( "Date", self.time_human, True)
-            self.fp_db_map_index, self.dp_db_page = FileIO.io_get_filepath_as(self, self.htmlsourcepath, 'csv')
-            self.map_url_by_phrase_cache.dev_record( "fp_db_map_index", self.fp_db_map_index, True)
-            self.map_url_by_phrase_cache.dev_record( "dp_db_page", self.dp_db_page, True)
-            self.list_uniqueLinks = []
-            self.fp_uniqueLinks = ''
-            self.xpaths = []
-            self.xpathsFP = ''
-            self.raw = self.session.driver.page_source
-            eventlog(str("\n\n driver.page_source\n\n " + str('{:.500}'.format(str(self.session.driver.page_source))) + "\n\n driver.page_source\n\n "))
-            try:
-                self.list_uniqueLinks, self.fp_uniqueLinks, self.xpaths, self.xpathsFP = self.writeHrefCsv(self.htmlsourcepath)
-                self.mapUniqueLinks(_Alice, self.session, self.URL, self.dp_db_page, self.uniqueLinks, maxLoops)
-                self.session.driver.quit()
-                sleep(1.5)
-                b_success = True
-                return b_success, self.fp_db_web, self.fixedName
-            except:
-                eventlog(str("\n\n driver.page_source\n\n " + str('{:.500}'.format(str(self.session.driver.page_source))) + "\n\n driver.page_source\n\n "))
-                self.flag_failed_error(_Alice, self.fp_db_web, phrase, self.session, maxLoops)
-                b_success = False
-                self.session.driver.quit()
-                return b_success, self.fp_db_web, self.fixedName
-    '''
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/navigate_web_search_key.history', prefix='navigate_web_search_key', depth=1)
     def navigate_web_search_key(self, dp_root, _Alice, phrase, maxLoops, job_name, search_results_max_depth, iFileIO):
@@ -1130,7 +1000,6 @@ class Charlotte(scrapy.Spider):
                 eventlog('excluded: ' + str(item))
         iwrite.close()
 
-
     def compile_new_list_of_unique_emails(self, job_name, published_emails_filepath):
         filepath_b = str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/email_heap.csv'
         dedup_files = DatabaseTools.return_deduplicated_list_file_A_given_file_B(self, filepath_b, published_emails_filepath)
@@ -1144,31 +1013,53 @@ class Charlotte(scrapy.Spider):
                 iwrite.write('\n')
         iwrite.close()
 
-
     def initialize_job_paths(self, job_name):
         job = str(job_name)
         eventlog('job_name: ' + job)
-        
-
 
     def log_state(self):
-        
         runtime = 0
         while self.alive:
+            eventlog('LOG_STATE RUNTIME SECONDS: ' + str(runtime) + ' job_name: ' + str(self.current_job_name) + ' STATE: ' + str(self.state))
             eventlog('WS.LOOP: ' + str(WS.LOOP))
-
-            try:
-                asyncio.set_event_loop_policy(AnyThreadEventLoopPolicy())
-            except Exception as e:
-                eventlog('EXCEPTION: ' + str(e))
             eventlog('SWITCHBOARD IS: ' + str(SWITCHBOARD))
+            
             text = {
-                'message': str('testing dawg testing dawg: ' + str(runtime)),
+                'message': str('log_state: ' + str(runtime)),
                 'command': 'print',
                 'From': self.alice.name,
                 'human': self.alice.human
             }
-            eventlog('RUNTIME SECONDS: ' + str(runtime) + ' job_name: ' + str(self.current_job_name) + ' STATE: ' + str(self.state))
+
+
+
+            try:
+                self.job_results.append_message(str('log_state: ' + str(runtime)))
+            except Exception as e:
+                eventlog('EXCEPTION: ' + str(e))
+
+            try:
+                self.alice.send_message(str('log_state: ' + str(runtime)), 'print')
+            except Exception as e:
+                eventlog('EXCEPTION: ' + str(e))
+
+            try:
+                self.alice.print_printer()
+            except Exception as e:
+                eventlog('EXCEPTION: ' + str(e))
+
+
+            try:
+                self.alice.send_message(str('log_state: ' + str(runtime)), 'print')
+            except Exception as e:
+                eventlog('EXCEPTION: ' + str(e))
+
+            try:
+                self.alice.print_printer()
+            except Exception as e:
+                eventlog('EXCEPTION: ' + str(e))
+
+
             try:
                 self.alice.switchboard.write_message(json.dumps(text))
             except Exception as e:
@@ -1179,16 +1070,15 @@ class Charlotte(scrapy.Spider):
             except Exception as e:
                 eventlog('EXCEPTION: ' + str(e))
 
-
-
             sleep(0.5)
             runtime += 0.5
 
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/parse.history', prefix='parse', depth=1)
     def parse(self, response):
-        log_state_thread = Thread(target = self.log_state)
-        log_state_thread.start()
+        # log_state_thread = Thread(target = self.log_state)
+        # log_state_thread.start()
+        # self.log_state()
         self.memKeys = list(self.explicit_keys + self.implicit_keys)
         self.memVals = []
         for i in range(0, len(self.memKeys)):
@@ -1429,7 +1319,7 @@ class Charlotte(scrapy.Spider):
         eventlog('PARSING LOOP END!!!')
         sleep(3)
 
-        log_state_thread.join()
+        # log_state_thread.join()
 
         exit()
         # else:
@@ -1560,79 +1450,12 @@ class Charlotte(scrapy.Spider):
         fp_access_history = self.writeFileAs(fp, "access_history", str(str(time_system) + "\n"), 'a+')
         return b_filepath_exists, b_new, dp, fp, fp_access_history
 
-    '''
-    #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/parse.history', prefix='compileVisitedAndFailedLists', depth=1)
-    def compileVisitedAndFailedLists(self, ignoreExisting, maxLoops):
-        linksFP =  str( os.getcwd() + '/DATABASE/combined/totalLinks.csv')
-        self.csvFP =  str( os.getcwd() + '/DATABASE/visited/visitedindex.csv')
-        self.fields = ["Filepath", "date", "url"]
-        #self.field = "testfield"
-        #self.value = "testvalue"
-        #self.values = ["filepathtest", "datetest", "urltest"]
-        #self.my_dictionary = {1: {'Filepath': '', 'date': '', 'url': ''}}
-        combineMinedurls(self, ignoreExisting, maxLoops)
-        self.removeDuplicatesFromFile(linksFP, maxLoops)
-        failedLinksListFP = str( os.getcwd() + '/DATABASE/visited/failedLinksList.csv')
-        self.removeDuplicatesFromFile(failedLinksListFP, maxLoops)
-        if not os.path.exists( str( os.getcwd() + '/DATABASE/visited/')):
-            os.makedirs( str( os.getcwd() + '/DATABASE/visited/'))
-            makeCsv(self, self.csvFP, self.fields)
-        elif not os.path.isfile( str( os.getcwd() + '/DATABASE/visited/visitedindex.csv')):
-            makeCsv(self, self.csvFP, self.fields)
-        self.listOfurls = []
-        self.listOfurls = getListFromFile(self, linksFP, maxLoops)
-        self.listIndex = 0
-        self.visitedurlsList = []
-        self.failedLinksList = []
-        if ignoreExisting:
-            #self.debuginfo(" IGNORING EXISTING FILES = \n")
-           #sleep(0.001)
-            self.missingfp_urls = []
-            for item in self.listOfurls:
-                exists, fp_url = self.getindexFilepathFromUrl(item)
-                if exists == False:
-                    self.debuginfo(" targeting url " + item)
-                   #sleep(0.001)
-                    self.missingfp_urls.append(item)
-                else:
-                    self.debuginfo(" skipping url " + item)
-            self.listOfurls = self.missingfp_urls
-        for link in self.listOfurls:
-            try:
-                #create a directory tree representing the web index html file
-                #update the csv index of all known web
-                successBool, filepath, date, url = self.geturlMappedToDirectory(link)
-                if successBool == True:
-                    self.debuginfo("able to visit: " + url)
-                self.my_dictionary[self.listIndex] = {}
-                self.my_dictionary[self.listIndex]['Filepath'] = filepath
-                self.my_dictionary[self.listIndex]['date'] = date
-                self.my_dictionary[self.listIndex]['url'] = url
-                self.writeDictToCsv(self.csvFP, self.my_dictionary, self.fields, self.listIndex)
-                self.listIndex += 1
-                self.visitedurlsList.append(link)
-                appendToFile(self, str( os.getcwd() + '/DATABASE/visited/visitedurlsList.csv'), link)
-            except:
-                #self.debuginfo("\n\n - - - - - - - - - EXCEPTION - - - - - - - - - \n\n")
-                #update the csv index of all known web
-                #self.debuginfo(" UNABLE TO MAP url ")
-                self.failedLinksList.append(link)
-                appendToFile(self, str( os.getcwd() + '/DATABASE/visited/failedLinksList.csv'), link)
-                #sleep(0.001)
-    '''
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/parse.history', prefix='getEmailList', depth=1)
     def getEmailList(self, filepath, maxLoops):
-        #raw = session.driver.page_source
         f = open(filepath, 'r')
         self.raw = f.read()
-        '''
-        soup = BeautifulSoup(raw, "lxml")
-        hrefList = []
-        for a in soup.find_all('a', href=True):
-            #self.debuginfo("Found the url:", a['href'])
-            hrefList.append(a['href'])
-        '''
+
         emails = []
         emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", self.raw)
         duplicateLessEmails = []
@@ -2284,7 +2107,6 @@ class Alice:
         self.switchboard = None
         self.crawler = None
         self.charlotte = None
-        self.initialized = False
         self.crawler_thread = None
         self.spider_log = []
         self.state = 'initialized'
@@ -2304,43 +2126,16 @@ class Alice:
             pass
 
     def run(self):
-        # log_state_thread = Thread(target = self.log_state)
-        # log_state_thread.start()
         eventlog(str(self.name) + ' is alive.')
         eventlog('Alice LOOP = IOLoop.current(): ' + str(WS.LOOP))
-        # eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
+        eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
         while self.alive:
-            # jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
-            # try:
-            #     self.send_message('spider server: alice: state: ' + str(self.state), 'print')
-            #     # self.spider_log = get_list_from_file(jobs_filepath)
-            #     # for record in self.spider_log:
-            #     #     eventlog('spider log: ' + str(record))
-            #         # self.send_message('Charlotte log: ' + str(record), 'print')
-            # except Exception as e:
-            #     eventlog('EXCEPTION: ' + str(e))
-            #     pass
             eventlog('spider server: alice: state: ' + str(self.state))
-            # self.send_message('spider server: alice: state: ' + str(self.state), 'print')
-            # eventlog('about to print printer')
             # self.print_printer()
             sleep(0.3)
-            # SWITCHBOARD = self.switchboard
         eventlog(str(self.name) + ' is DEAD!')
         sleep(1)
-        log_state_thread.join()
         exit()
-
-    def spider_log(self):
-        jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/spider_log.log')
-        try:
-            self.spider_log = get_list_from_file(jobs_filepath)
-            for record in self.spider_log:
-                eventlog('spider log: ' + str(record))
-                # self.send_message('Charlotte log: ' + str(record), 'print')
-        except Exception as e:
-            eventlog('spider log: ' + str(record))
-            pass
 
     def on_message(self, message):
         loaded_dict_data = json.loads(message)
@@ -2354,62 +2149,108 @@ class Alice:
             eventlog('command IS SEARCH')
             self.search(message)
 
-        if command == 'stop':
+        if command == 'stop_search':
             eventlog('command IS STOP SEARCH')
             self.stop_search()
 
 
-    def search(self, message):
+    def PrintStuff(self):
+        while self.state == 'searching':
+            sleep(0.3)
+            eventlog('SEARCHING !!!')
+            self.print_printer()
 
+
+
+    async def sec_loop(self):
+
+        eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) ABOUT TO TRY')
+        self.ithread = threading.Thread(target=self.PrintStuff)
+        self.ithread.daemon = True
+        self.ithread.start()
+        eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) WORKED!')
+        # while True:
+        #     try:
+        #         await self.send_message('testing some special message', 'print')
+        #     except Exception as e:
+        #         eventlog('EXCEPTION: ' + str(e))
+            
+        #     # await gen.sleep(1)
+        #     sleep(1)
+
+    # def IOThread(self):
+    #     # IOLoop.current().spawn_callback(self.sec_loop)
+    #     eventlog('WS.LOOP.spawn_callback(self.sec_loop) ABOUT TO TRY')
+    #     try:
+    #         WS.LOOP.spawn_callback(self.sec_loop)
+    #     except Exception as e:
+    #         eventlog('EXCEPTION: ' + str(e))
+
+    #     eventlog('WS.LOOP.spawn_callback(self.sec_loop) WORKED')
+
+    def search(self, message):
         eventlog(self.name + ' search method activated.')
         self.send_message('I am initializing the webcrawler.', 'print')
-        if self.initialized == False:
+        if self.state == 'initialized':
             self.crawler = get_or_new_active_crawler(self.human)
             self.crawler.crawl(Charlotte, alice=self)
-            self.initialized = True
-        sleep(0.5)
         self.charlotte.write_job_keys(message)
-        sleep(0.5)
         self.send_message("Charlotte's crawling the web...", 'print')
+
+
+        self.state = 'searching'
+        eventlog("SEARCHING .....")
+        # self.crawler.start()
         self.crawler_thread = threading.Thread(target=self.crawler.start)
         self.crawler_thread.daemon = True
         self.crawler_thread.start()
 
-        self.state = 'searching'
+        from concurrent.futures import ThreadPoolExecutor
+
+        executor = ThreadPoolExecutor(max_workers=8)
+
+        # nope
+        # IOLoop.current().run_in_executor(executor, self.PrintStuff)
+
+
+        # Coroutines that loop forever are generally started with
+        # spawn_callback().
+        # IOLoop.current().spawn_callback(self.sec_loop)
+
+        # self.IOLoop_thread = threading.Thread(target=self.IOThread)
+        # self.IOLoop_thread.daemon = True
+        # self.IOLoop_thread.start()
+
+        try:
+            #works but blocks
+            eventlog('self.IOLoop_thread = threading.Thread(target=WS.LOOP.spawn_callback(self.sec_loop)) ABOUT TO TRY')
+            self.IOLoop_thread = threading.Thread(target=WS.LOOP.spawn_callback(self.sec_loop))
+            self.IOLoop_thread.daemon = True
+            self.IOLoop_thread.start()
+            eventlog('self.IOLoop_thread = threading.Thread(target=WS.LOOP.spawn_callback(self.sec_loop)) SUCCESS')
+        except Exception as e:
+            eventlog('self.IOLoop_thread = threading.Thread(target=WS.LOOP.spawn_callback(self.sec_loop)) FAILED')
+            eventlog('EXCEPTION: ' + str(e))
+            try:
+                eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) ABOUT TO TRY')
+                self.IOLoop_thread = threading.Thread(target=self.PrintStuff)
+                self.IOLoop_thread.daemon = True
+                self.IOLoop_thread.start()
+                eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) SUCCESS')
+            except:
+                eventlog('self.IOLoop_thread = threading.Thread(target=self.PrintStuff) FAILED')
+                eventlog('EXCEPTION: ' + str(e))
+
+
+
+
+        # works but blocks the server from communicating while spider runs.....
         # while self.state == 'searching':
-        #     # self.send_message("Charlotte is searching..." + get_date_and_time_string(), 'print')
-        #     # sleep(3)
-
-        #     try:
-        #         if self.previous_printer_length < len(self.printer):
-        #             record = str(self.printer[-1])
-        #             self.previous_printer_length = len(self.printer)
-        #             eventlog('printer: ' + record)
-        #             record = (record[:75] + '..') if len(record) > 75 else record
-        #             self.send_message(str(record), 'print')
-
-        #     except Exception as e:
-        #         eventlog('spider log: ' + str(record))
-        #         pass
-
-        if self.state == 'stop_search':
-            self.stop_search()
-
-
-
-
-
-
-        if self.state == 'stop_search':
-            self.stop_search()
-
-
-
-
-        eventlog("SEARCHING .....")
+        #     sleep(0.3)
+        #     eventlog('SEARCHING !!!')
+        #     self.print_printer()
 
     def stop_search(self):
-        self.state = 'initialized'
         eventlog(self.name + ' STOP_SEARCH')
         eventlog(self.name + ' STOP_SEARCH')
         eventlog(self.name + ' STOP_SEARCH')
@@ -2420,10 +2261,11 @@ class Alice:
         self.crawler.stop()
         self.send_message(self.name + ' stop search method activated.', 'print')
         eventlog(self.name + ' stop search method activated.')
-
         # self.crawler_thread.join()
+        self.crawler_thread.join()
         self.send_message(str(self.name + ' stopped search.'), 'print')
 
+        self.state = 'initialized'
 
     def send_message(self, message, command):
         text = {
@@ -2432,10 +2274,16 @@ class Alice:
             'From': self.name,
             'human': self.human
         }
-        eventlog('SENDING MESSAGE TO WEBHARVEST: ' + str(text))
-
-        self.switchboard.write_message(json.dumps(text))
-
+        previous_frame = inspect.currentframe().f_back
+        (filename, line_number, 
+        function_name, lines, index) = inspect.getframeinfo(previous_frame)
+        del previous_frame  # drop the reference to the stack frame to avoid reference cycles
+        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered send_message: ' + str(text))
+        # self.switchboard.write_message(json.dumps(text))
+        try:
+            self.switchboard.write_message(json.dumps(text))
+        except Exception as e:
+            eventlog('EXCEPTION: ' + str(e))
 
 
 
@@ -2445,34 +2293,14 @@ class MainHandler(tornado.web.RequestHandler):
         self.write(loader.load("index.html").generate())
 
 class Switchboard(tornado.websocket.WebSocketHandler):
-    # def __init__(
-    #     self,
-    #     application: tornado.web.Application,
-    #     # request: httputil.HTTPServerRequest,
-    #     **kwargs
-    #     ) -> None:
-    #     super(WebSocketHandler, self).__init__(application, request, **kwargs)
-    #     self.ws_connection = None  # type: Optional[WebSocketProtocol]
-    #     self.close_code = None  # type: Optional[int]
-    #     self.close_reason = None  # type: Optional[str]
-    #     self.stream = None  # type: Optional[IOStream]
-    #     self._on_close_called = False
-    #     self.httputil = None
+
 
     def open(self):
-        SWITCHBOARD = self
         eventlog ('connection opened...')
-        eventlog('Switchboard LOOP = IOLoop.current(): ' + str(WS.LOOP))
-        eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
-        # text = {
-        #     "message": "The server says: 'Hello'. Connection was accepted.",
-        # }
-        # self.write_message(json.dumps(text))
-        # self.write_message("The server says: 'Hello'. Connection was accepted.")
 
-    # def write_message(self, message, binary=False):
-    #         data = json.dumps(message)
-    #         return super(Switchboard, self).write_message(data, binary)
+    def write_message(self, message, binary=False):
+            # data = json.dumps(message)
+            return super(Switchboard, self).write_message(message, binary)
 
     def on_message(self, message):
         eventlog("on_message: " + str(message))
@@ -2483,7 +2311,7 @@ class Switchboard(tornado.websocket.WebSocketHandler):
         if ALICE_USER_ASSIGNMENT_DICT.get(str(human)) == None:
             eventlog(str('user: ' + str(human) + ' is active and needs a robot!'))
             self.assign_robot_to_user(str(human))
-        
+
         if command == 'stop_search':
             eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
             eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
@@ -2522,9 +2350,10 @@ class Switchboard(tornado.websocket.WebSocketHandler):
 class WebsocketServer(tornado.web.Application):
 
     def __init__(self):
+        self.alive = True
         self.LOOP = IOLoop.current()
         eventlog('WebsocketServer LOOP = IOLoop.current(): ' + str(self.LOOP)) 
-        # eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
+        eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
         # self.SWITCHBOARD = Switchboard()
         # handlers = [ (r"/", MainHandler), (r"/ws", self.SWITCHBOARD),  ]
 
@@ -2534,8 +2363,6 @@ class WebsocketServer(tornado.web.Application):
         super().__init__(handlers, **settings)
 
     def run(self):
-
-
         self.listen(port=9090)
         tornado.ioloop.IOLoop.instance().start()
 
@@ -2551,3 +2378,22 @@ if __name__ == "__main__":
     WS = WebsocketServer()
     # LOOP = asyncio.new_event_loop()
     WS.run()
+
+
+    # ws_thread = threading.Thread(target=WS.run)
+    # ws_thread.daemon = True
+    # ws_thread.start()
+    # sleep(5)
+    # print('sleeping...')
+    # sleep(5)
+
+    # while WS.alive:
+    #     sleep(1)
+    #     for key, value in ALICE_USER_ASSIGNMENT_DICT.items():
+    #         try:
+    #             print('test')
+    #             # value.print_printer()
+    #         except Exception as e:
+    #             eventlog('EXCEPTION: ' + str(e))
+    #         sleep(0.3)
+            

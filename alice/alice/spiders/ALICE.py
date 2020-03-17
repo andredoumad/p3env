@@ -1104,10 +1104,10 @@ class Charlotte(scrapy.Spider):
         named_tuple = time.localtime() # get struct_time
         time_string = time.strftime("%Y-%m-%d-%H:%M", named_tuple)
 
-        with open(str(Path.home()) + '/p3env/alice/alice/spiders/ALICE.txt', 'a+') as f:
-            f.write('ALICE WOKE: ' + str(time_string))
-            f.write('\n')
-            f.close()
+        # with open(str(Path.home()) + '/p3env/alice/alice/spiders/ALICE.txt', 'a+') as f:
+        #     f.write('ALICE WOKE: ' + str(time_string))
+        #     f.write('\n')
+        #     f.close()
         
 
         self.autoclear_pysnooper(self.iFileIO)

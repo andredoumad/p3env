@@ -2217,9 +2217,10 @@ class Alice:
             api_url = 'https://stringkeeper.com/webhooks/webharvest/'
 
         payload = {
-            'user': str(self.human),
+            'human': str(self.human),
             'chat_message': str(message),
-            'command': str(command)
+            'command': str(command),
+            'From': 'Alice'
         }
 
         response = requests.post(api_url, data=payload)

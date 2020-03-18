@@ -1074,6 +1074,16 @@ class Charlotte(scrapy.Spider):
             runtime += 0.5
 
 
+
+    def update_state(self, state):
+        previous_frame = inspect.currentframe().f_back
+        (filename, line_number, 
+        function_name, lines, index) = inspect.getframeinfo(previous_frame)
+        del previous_frame  # drop the reference to the stack frame to avoid reference cycles
+        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered update_state: ' + str(state))
+        self.state = state
+        self.state_was_triggered_by_function_name = function_name
+
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/parse.history', prefix='parse', depth=1)
     def parse(self, response):
         # log_state_thread = Thread(target = self.log_state)
@@ -1086,16 +1096,10 @@ class Charlotte(scrapy.Spider):
         self.memIndex = 0
         self._Alice = AliceInWonderland(self.memIndex, self.memKeys,self.memVals, self.maxLoops, self.charlotte)
         # while self.alive:
-        self.state = 'idle'
+        self.update_state('idle')
 
         eventlog('PARSING LOOP BEGIN!!!')
-        eventlog('PARSING LOOP BEGIN!!!')
-        eventlog('PARSING LOOP BEGIN!!!')
-        eventlog('PARSING LOOP BEGIN!!!')
-        eventlog('PARSING LOOP BEGIN!!!')
-        eventlog('PARSING LOOP BEGIN!!!')
-        eventlog('PARSING LOOP BEGIN!!!')
-        eventlog('PARSING LOOP BEGIN!!!')
+        # self.alice.send_message('Alice is rawling the web... ', 'print' )
 
         eventlog('os.cwd()' + str(os.getcwd()))
         home = str(Path.home())
@@ -1230,7 +1234,8 @@ class Charlotte(scrapy.Spider):
 
             # for search_phrase in job_search_phrases:
             eventlog('STARTING ONLINE_THREADED_NAVIGATION_JOB')
-            self.state = 'search'
+
+            self.update_state('search')
             self.autoclear_pysnooper(self.iFileIO)
             search_key = str(job_search_phrases[0])
             self.newlinks = self.online_search_job(job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO)
@@ -1307,24 +1312,12 @@ class Charlotte(scrapy.Spider):
                         f_append.write('\n')
                         searching = False
 
-        # exit()
 
-        self.state = 'idle'
-
+        self.update_state(idle)
         eventlog('PARSING LOOP END!!!')
-        eventlog('PARSING LOOP END!!!')
-        eventlog('PARSING LOOP END!!!')
-        eventlog('PARSING LOOP END!!!')
-        eventlog('PARSING LOOP END!!!')
-        eventlog('PARSING LOOP END!!!')
-        sleep(3)
-
-        # log_state_thread.join()
+        self.alice.update_state('initialized')
 
         exit()
-        # else:
-        #     eventlog('waiting for job name!')
-        #     sleep(3)
 
 
 
@@ -2109,9 +2102,20 @@ class Alice:
         self.charlotte = None
         self.crawler_thread = None
         self.spider_log = []
+        self.state_was_triggered_by_function_name = ''
         self.state = 'initialized'
         self.printer = []
         self.previous_printer_length = 0
+        
+
+    def update_state(self, state):
+        previous_frame = inspect.currentframe().f_back
+        (filename, line_number, 
+        function_name, lines, index) = inspect.getframeinfo(previous_frame)
+        del previous_frame  # drop the reference to the stack frame to avoid reference cycles
+        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered update_state: ' + str(state))
+        self.state = state
+        self.state_was_triggered_by_function_name = function_name
 
     def print_printer(self):
         try:
@@ -2126,6 +2130,7 @@ class Alice:
             pass
 
     def run(self):
+        self.send_message('running...')
 
         try:
             WS.LOOP.create_task(self.isecs_loop)
@@ -2171,8 +2176,8 @@ class Alice:
         self.charlotte.write_job_keys(message)
         self.send_message("Charlotte's crawling the web...", 'print')
 
-
-        self.state = 'searching'
+        self.update_state('searching')
+        # self.state = 'searching'
         eventlog("SEARCHING .....")
         # self.crawler.start()
         self.crawler_thread = threading.Thread(target=self.crawler.start)
@@ -2182,22 +2187,20 @@ class Alice:
 
     def stop_search(self):
         eventlog(self.name + ' STOP_SEARCH')
-        eventlog(self.name + ' STOP_SEARCH')
-        eventlog(self.name + ' STOP_SEARCH')
         self.send_message("self.charlotte.stop_search()", 'print')
         self.charlotte.stop_search()
         self.send_message("self.crawler.stop()", 'print')
-        sleep(2)
+        sleep(1)
         self.crawler.stop()
         self.send_message(self.name + ' stop search method activated.', 'print')
         eventlog(self.name + ' stop search method activated.')
         # self.crawler_thread.join()
         self.crawler_thread.join()
-        self.send_message(str(self.name + ' stopped search.'), 'print')
+        self.send_message('Charlotte stopped search.')
+        self.update_state('initialized')
+        # self.state = 'initialized'
 
-        self.state = 'initialized'
-
-    def send_message(self, message, command):
+    def send_message(self, message, command='print'):
         text = {
             'message': message,
             'command': command,
@@ -2265,7 +2268,7 @@ class Switchboard(tornado.websocket.WebSocketHandler):
             eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
             eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
             eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
-            ALICE_USER_ASSIGNMENT_DICT.get(str(human)).state = 'stop_search'
+            ALICE_USER_ASSIGNMENT_DICT.get(str(human)).stop_search()
         else:
             eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)
             eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)

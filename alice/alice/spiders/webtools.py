@@ -738,6 +738,7 @@ class WebTools:
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/job_search_results.history', prefix='job_search_results', depth=1)
     def job_search_results(self, job_name, searchKey, maxPages, maxLoops, job_path, iFileIO):
         eventlog('def job_search_results duck duck go')
+        # self.charlotte.alice.send_message('Building a list of websites related to: ' + str(searchKey), 'print')
         def get_list_from_file(filepath):
             listFromFile = []
             listFromFile.clear()
@@ -761,6 +762,7 @@ class WebTools:
                 WebTools.check_internet_connection(self)
                 self.driver.get("https://duckduckgo.com")
                 sleep(1)
+                self.charlotte.alice.send_message('Loading search engine... ', 'print')
                 search_form = self.driver.find_element_by_xpath('//*[@id="search_form_input_homepage"]')
                 #search_form = self.driver.find_element_by_id('search_form_input_homepage')
                 tryingSearch = False
@@ -844,7 +846,7 @@ class WebTools:
         if search_form_success:
 
 
-            sleep(3)
+            sleep(2)
             searchKey = str("google_") + searchKey
             directory_key = None
             eventlog('job_name: ' + str(job_name))
@@ -904,6 +906,7 @@ class WebTools:
                         morePagesXpath = str("//*[@id='rld-" + str(i) + "']/a")
                         self.driver.find_element_by_xpath(morePagesXpath).click()
                         sleep(1)
+                        self.alice.send_message('Found ' + str(float(iresult) * float(12)) + ' websites...', 'print' )
                         raw = self.driver.page_source
 
                         #WebTools.get_parsed_html(self, harvest_search_filepath, str(self.driver.current_url), raw, dp_google_results, iresult, iFileIO)
@@ -1000,6 +1003,7 @@ class WebTools:
 
             def run(self):
                 eventlog ("Starting " + self.name)
+
                 thread = Thread(target = self.process_data, args = (self.name, self.q))
                 thread.start()
                 counting = True
@@ -1298,6 +1302,7 @@ class WebTools:
                                     #self.soup = BeautifulSoup(str(raw), 'html.parser')
                                     #with open(filepath_page_source, 'w') as write_page_source:
                                         #write_page_source.write(str(raw))
+                                    self.charlotte.alice.send_message('Reading: ' + str(url), 'print')
 
                                     soup = None
                                     prettify_soup = ''
@@ -1440,8 +1445,8 @@ class WebTools:
                                                         #WebTools.clear_screen(self)
                                                         eventlog('FOUND EMAIL: ' + str(email) + ' Total: ' + str(emailcount))
                                                         # self.charlotte.spider_log('FOUND EMAIL: ' + str(email))
-                                                        self.charlotte.job_results.append_email(str(email))
-                                                        # self.charlotte.alice.send_message('|  FOUND EMAIL  | ' + str(email) + ' Total: ' + str(emailcount), 'print')
+                                                        # self.charlotte.job_results.append_email(str(email))
+                                                        self.charlotte.alice.send_message('FOUND EMAIL ' + str(email), 'print')
                                                         
                                                         english_above_email_index = english_list_index - 25
                                                         if english_above_email_index < 0:
@@ -1487,6 +1492,7 @@ class WebTools:
                                         #_THREADLOCK.release()
                                         self.completed_hyperlinks.append(str(url))
                                         eventlog(str('| COMPLETED URL | ' + str(url)))
+                                        self.charlotte.alice.send_message('Read website: ' + str(url), 'print')
                                         # self.charlotte.alice.send_message(str('| COMPLETED URL | ' + str(url)), 'print')
                                         # self.charlotte.spider_log('Visited: ' + str(url))
                                         # eventlog('charlotte.state: ' + self.charlotte.state)

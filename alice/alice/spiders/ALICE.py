@@ -2103,7 +2103,7 @@ class Alice:
         # eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
         while self.alive:
             eventlog('alice state: ' + str(self.state))
-            # self.alice.send_message(str(self.state))
+            self.alice.send_message(str(self.state))
             # try:
             #     eventlog('alice charlotte state: ' + str(self.charlotte.state))
             #     self.alice.send_message('alice charlotte state: ' + str(self.charlotte.state))

@@ -905,13 +905,16 @@ class WebTools:
                         eventlog(str( str(pathStart + str(iresult) + '_index.html')))
                         morePagesXpath = str("//*[@id='rld-" + str(i) + "']/a")
                         self.driver.find_element_by_xpath(morePagesXpath).click()
-                        sleep(1)
-                        self.alice.send_message('Found ' + str(float(iresult) * float(12)) + ' websites...', 'print' )
+                        sleep(0.75)
+                        # icount = iresult
+                        # total = icount * 12
+                        # self.charlotte.alice.send_message(str('Found ' + str(total) + ' websites...'))
                         raw = self.driver.page_source
 
                         #WebTools.get_parsed_html(self, harvest_search_filepath, str(self.driver.current_url), raw, dp_google_results, iresult, iFileIO)
                         iresult += 1
-                    except:
+                    except Exception as e:
+                        eventlog('EXCEPTION: ' + str(e))
                         eventlog(str('\n\n Processing fully extended duck duck go search page. \n\n ' + str(pathStart + str(iresult) + '_index.html' + '\nEXCEPTION\n\n ')))
                         #eventlog(str('\nEXCEPTION\n\n ' + str(pathStart + str(iresult) + '_index.html' + '\nEXCEPTION\n\n ')))
                         break
@@ -1016,8 +1019,7 @@ class WebTools:
                         counting = False
                     sleep(0.5)
                     count += 1
-                    if self.charlotte.state != 'search':
-                        eventlog('Charlotte state is not search, closing webcrawler thread!')
+                    if self.charlotte.alice.state == 'stop_search':
                         self.exitFlag = 1
                 self.charlotte.state = 'shutting_down_webcrawler_threads'
 
@@ -1302,7 +1304,7 @@ class WebTools:
                                     #self.soup = BeautifulSoup(str(raw), 'html.parser')
                                     #with open(filepath_page_source, 'w') as write_page_source:
                                         #write_page_source.write(str(raw))
-                                    self.charlotte.alice.send_message('Reading: ' + str(url), 'print')
+                                    # self.charlotte.alice.send_message('Reading: ' + str(url), 'print')
 
                                     soup = None
                                     prettify_soup = ''
@@ -1492,7 +1494,7 @@ class WebTools:
                                         #_THREADLOCK.release()
                                         self.completed_hyperlinks.append(str(url))
                                         eventlog(str('| COMPLETED URL | ' + str(url)))
-                                        self.charlotte.alice.send_message('Read website: ' + str(url), 'print')
+                                        self.charlotte.alice.send_message('Processed: ' + str(url), 'print')
                                         # self.charlotte.alice.send_message(str('| COMPLETED URL | ' + str(url)), 'print')
                                         # self.charlotte.spider_log('Visited: ' + str(url))
                                         # eventlog('charlotte.state: ' + self.charlotte.state)
@@ -1730,7 +1732,9 @@ class WebTools:
         sleep(1)
         del webQueue
         eventlog ("Finished browsing hyperlinks")
-        self.charlotte.state = 'finished_browsing_hyperlinks'
+        self.charlotte.update_state('finished_browsing_hyperlinks')
+        self.charlotte.alice.update_state('finished_browsing_hyperlinks')
+        # self.charlotte.alice.alive = False
         sleep(1)
 
         return new_links, completed_links
@@ -1986,6 +1990,7 @@ class WebTools:
         if len(goodLinks) > 0:
             #WebTools.clear_screen(self)
             eventlog('++++++++++++++ LEVEL 1 ++++++++++++++')
+            self.charlotte.alice.send_message('++++++++++++++ LEVEL 1 ++++++++++++++')
             WebTools.check_internet_connection(self)
             links, completed_hyperlinks = WebTools.navigate_url_queue(self, _Alice, job_name, iFileIO, goodLinks)
             newLinks = WebTools.getNewLinks(self, links, completed_hyperlinks, job_name, _Alice)
@@ -1996,12 +2001,15 @@ class WebTools:
             if len(goodLinks) > 0 and self.charlotte.state == 'search':
                 #WebTools.clear_screen(self)
                 eventlog('++++++++++++++ LEVEL 2 ++++++++++++++')
+                self.charlotte.alice.send_message('++++++++++++++ LEVEL 2 ++++++++++++++')
                 WebTools.check_internet_connection(self)
                 links, completed_hyperlinks = WebTools.navigate_url_queue(self, _Alice, job_name, iFileIO, goodLinks)
                 newLinks = WebTools.getNewLinks(self, links, completed_hyperlinks, job_name, _Alice)
                 goodLinks = WebTools.harvest_newLinks_given_explicit_keys(self, newLinks, job_name)
                 # self.charlotte.state = 'search'
 
+        self.charlotte.state = 'finished_browsing_hyperlinks'
+        
 
             
 

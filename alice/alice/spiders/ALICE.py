@@ -274,12 +274,15 @@ class JobResults:
 class Charlotte(scrapy.Spider):
     #session = Session(webdriver_path=str(Path.home()) + '/p3env/alice/alice/spiders/chromedriver', browser='chrome', default_timeout=3, webdriver_options={'arguments': ['headless']})
 
-    def __init__(self, alice):
-
+    def __init__(self, alice, manager_state):
+        self.name = "Charlotte"
+        self.manager_state = manager_state
+        self.charlotte = self
         self.alice = alice
-        self.alice.charlotte = self
-        print('Charlotte has met Alice. ')
+        self.alice.charlotte = self.charlotte
+        print('Charlotte has met::: ' + str(alice))
         print('self.alice.name =  ', self.alice.name)
+        print('self.alice.charlotte.name =  ', str(self.alice.charlotte.name))
         self.alice.send_message('Charlotte has connected to Alice.', 'print')
 
         self.state = 'search'
@@ -306,10 +309,6 @@ class Charlotte(scrapy.Spider):
         iwrite.write('\n')
         iwrite.close()
         self.clear_spider_log()
-
-    def stop_search(self):
-        eventlog('Charlotte has recieved the signal stop search')
-        self.alice.send_message('Charlotte has recieved the signal stop search', 'print')
 
     def spider_log(self, message):
         eventlog('Charlotte spider_log: ' + str(message))
@@ -1017,61 +1016,27 @@ class Charlotte(scrapy.Spider):
         job = str(job_name)
         eventlog('job_name: ' + job)
 
-    def log_state(self):
-        runtime = 0
+    def running(self):
+
+        # runtime = 0
         while self.alive:
-            eventlog('LOG_STATE RUNTIME SECONDS: ' + str(runtime) + ' job_name: ' + str(self.current_job_name) + ' STATE: ' + str(self.state))
-            eventlog('WS.LOOP: ' + str(WS.LOOP))
-            eventlog('SWITCHBOARD IS: ' + str(SWITCHBOARD))
+            self.alice.charlotte = self.charlotte
+            # eventlog('charlotte state: ' + str(self.state))
+            # self.alice.send_message('charlotte state: ' + str(self.state))
+            # eventlog('alice state: ' + str(self.alice.state))            
+            # self.alice.send_message('alice state: ' + str(self.alice.state))
+
+            #WORKING WORKING WORKING!
+            # eventlog('charlotte manager_state: ' + str(self.manager_state))            
+            # self.alice.send_message('charlotte manager_state: ' + str(self.manager_state))
             
-            text = {
-                'message': str('log_state: ' + str(runtime)),
-                'command': 'print',
-                'From': self.alice.name,
-                'human': self.alice.human
-            }
-
-
-
-            try:
-                self.job_results.append_message(str('log_state: ' + str(runtime)))
-            except Exception as e:
-                eventlog('EXCEPTION: ' + str(e))
-
-            try:
-                self.alice.send_message(str('log_state: ' + str(runtime)), 'print')
-            except Exception as e:
-                eventlog('EXCEPTION: ' + str(e))
-
-            try:
-                self.alice.print_printer()
-            except Exception as e:
-                eventlog('EXCEPTION: ' + str(e))
-
-
-            try:
-                self.alice.send_message(str('log_state: ' + str(runtime)), 'print')
-            except Exception as e:
-                eventlog('EXCEPTION: ' + str(e))
-
-            try:
-                self.alice.print_printer()
-            except Exception as e:
-                eventlog('EXCEPTION: ' + str(e))
-
-
-            try:
-                self.alice.switchboard.write_message(json.dumps(text))
-            except Exception as e:
-                eventlog('EXCEPTION: ' + str(e))
-
-            try:
-                IOLoop.add_callback_from_signal(json.dumps(text))
-            except Exception as e:
-                eventlog('EXCEPTION: ' + str(e))
-
-            sleep(0.5)
-            runtime += 0.5
+            # try:
+            #     eventlog('charlotte MANAGER: ' + str(MANAGER))            
+            #     self.alice.send_message('charlotte MANAGER: ' + str(MANAGER))
+            # except:
+            #     pass
+            sleep(2)
+            # runtime += 0.5
 
 
 
@@ -1082,13 +1047,14 @@ class Charlotte(scrapy.Spider):
         del previous_frame  # drop the reference to the stack frame to avoid reference cycles
         eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered update_state: ' + str(state))
         self.state = state
+        self.manager_state.value = state
         self.state_was_triggered_by_function_name = function_name
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/parse.history', prefix='parse', depth=1)
     def parse(self, response):
-        # log_state_thread = Thread(target = self.log_state)
-        # log_state_thread.start()
-        # self.log_state()
+        running_thread = Thread(target = self.running)
+        running_thread.start()
+
         self.memKeys = list(self.explicit_keys + self.implicit_keys)
         self.memVals = []
         for i in range(0, len(self.memKeys)):
@@ -1273,52 +1239,55 @@ class Charlotte(scrapy.Spider):
             sleep(3)
 
 
-        # re-write text files so that the current job name is placed in job_list_parsed list, the rest re-write to job_list
-        with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv'), 'w') as f:
-            with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list_parsed.csv'), 'a') as f_append:
-                for job in self.job_names:
+        # # re-write text files so that the current job name is placed in job_list_parsed list, the rest re-write to job_list
+        # with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv'), 'w') as f:
+        #     with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list_parsed.csv'), 'a') as f_append:
+        #         for job in self.job_names:
 
-                    if job_name.find(' ') != -1:
-                        job_name = job_name.replace(' ', '_')
+        #             if job_name.find(' ') != -1:
+        #                 job_name = job_name.replace(' ', '_')
 
-                    if job.find(' ') != -1:
-                        job = job.replace(' ', '_')
+        #             if job.find(' ') != -1:
+        #                 job = job.replace(' ', '_')
 
-                    eventlog('for job in self.job_names:')
-                    if job != job_name:
-                        eventlog(job + ' not equal to ' + job_name)
-                        f.write(str(job))
-                        f.write('\n')
-                    else:
-                        eventlog(job + ' is equal to ' + job_name)
-                        f_append.write(str(job))
-                        f_append.write('\n')
+        #             eventlog('for job in self.job_names:')
+        #             if job != job_name:
+        #                 eventlog(job + ' not equal to ' + job_name)
+        #                 f.write(str(job))
+        #                 f.write('\n')
+        #             else:
+        #                 eventlog(job + ' is equal to ' + job_name)
+        #                 f_append.write(str(job))
+        #                 f_append.write('\n')
 
-                if len(self.job_names) <= 1:
-                    job_parsed_list = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list_parsed.csv'))
-                    searching = True
-                    while searching:
-                        for item in job_parsed_list:
-                            if item.find(' ') != -1:
-                                item = item.replace(' ', '_')
+        #         if len(self.job_names) <= 1:
+        #             job_parsed_list = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list_parsed.csv'))
+        #             searching = True
+        #             while searching:
+        #                 for item in job_parsed_list:
+        #                     if item.find(' ') != -1:
+        #                         item = item.replace(' ', '_')
 
-                            if job_name.find(' ') != -1:
-                                job_name = job_name.replace(' ', '_')
+        #                     if job_name.find(' ') != -1:
+        #                         job_name = job_name.replace(' ', '_')
 
-                            if item == job_name:
-                                searching = False
+        #                     if item == job_name:
+        #                         searching = False
 
-                        f_append.write(str(job_name))
-                        f_append.write('\n')
-                        searching = False
+        #                 f_append.write(str(job_name))
+        #                 f_append.write('\n')
+        #                 searching = False
 
 
-        self.update_state(idle)
+        self.update_state('idle')
         eventlog('PARSING LOOP END!!!')
-        self.alice.update_state('initialized')
-
-        exit()
-
+        if self.alice.state != 'initialized':
+            self.alice.stop_search()
+        # self.alice.update_state('initialized')
+        # self.alive = False
+        # running_thread.join()
+        # exit()
+        self.charlotte.alice.alive = False
 
 
 
@@ -2089,12 +2058,20 @@ def get_or_new_active_crawler(human):
         ACTIVE_CRAWLERS_DICT[human] = CrawlerProcess()
     return ACTIVE_CRAWLERS_DICT.get(str(human))
 
-ALICE_USER_ASSIGNMENT_DICT = {}
+def del_active_crawler(human):
+    if ACTIVE_CRAWLERS_DICT.get(str(human)) != None:
+        eventlog(str('user: ' + str(human) + ' is active destroys its spider!'))
+        # self.assign_robot_to_user(str(human))
+        ACTIVE_CRAWLERS_DICT[human] = None
+    # return ACTIVE_CRAWLERS_DICT.get(str(human))
 
+ALICE_USER_ASSIGNMENT_DICT = {}
+MANAGER = Manager()
 
 class Alice:
     def __init__(self, name, human):
         self.name = name
+        self.alice = self
         self.alive = True
         self.human = human
         self.switchboard = None
@@ -2106,8 +2083,9 @@ class Alice:
         self.state = 'initialized'
         self.printer = []
         self.previous_printer_length = 0
+        self.send_message_count = 0
+        self.manager_state = MANAGER.Value('state', 'initialized')
         
-
     def update_state(self, state):
         previous_frame = inspect.currentframe().f_back
         (filename, line_number, 
@@ -2115,37 +2093,39 @@ class Alice:
         del previous_frame  # drop the reference to the stack frame to avoid reference cycles
         eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered update_state: ' + str(state))
         self.state = state
+        self.manager_state.value = state 
         self.state_was_triggered_by_function_name = function_name
-
-    def print_printer(self):
-        try:
-            if self.previous_printer_length < len(self.printer):
-                record = str(self.printer[-1])
-                self.previous_printer_length = len(self.printer)
-                eventlog('PRINT PRINTER: ' + record)
-                record = (record[:75] + '...') if len(record) > 75 else record
-                self.send_message(str(record), 'print')
-        except Exception as e:
-            eventlog('ERROR: ' + str(e))
-            pass
 
     def run(self):
         self.send_message('running...')
-
-        try:
-            WS.LOOP.create_task(self.isecs_loop)
-            WS.LOOP.run_forever()
-        except Exception as e:
-            eventlog('EXCEPTION: ' + str(e))
-
-        eventlog(str(self.name) + ' is alive.')
-        eventlog('Alice LOOP = IOLoop.current(): ' + str(WS.LOOP))
-        eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
+        # eventlog(str(self.name) + ' is alive.')
+        # eventlog('Alice LOOP = IOLoop.current(): ' + str(WS.LOOP))
+        # eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
         while self.alive:
-            eventlog('spider server: alice: state: ' + str(self.state))
-            self.print_printer()
-            sleep(0.3)
-        eventlog(str(self.name) + ' is DEAD!')
+            eventlog('alice state: ' + str(self.state))
+            self.alice.send_message(str(self.state))
+            # try:
+            #     eventlog('alice charlotte state: ' + str(self.charlotte.state))
+            #     self.alice.send_message('alice charlotte state: ' + str(self.charlotte.state))
+            # except Exception as e:
+            #     eventlog('EXCEPTION: ' + str(e))
+
+
+            #WORKING WORKING WORKING
+            # eventlog('alice manager_state: ' + str(self.manager_state))            
+            # self.alice.send_message('alice manager_state: ' + str(self.manager_state))
+            # try:
+            #     eventlog('alice MANAGER: ' + str(MANAGER))            
+            #     self.alice.send_message('alice MANAGER: ' + str(MANAGER))
+            # except:
+            #     pass
+            sleep(4)
+
+        self.update_state('DEAD')
+
+        eventlog('alice state: ' + str(self.state))
+        self.alice.send_message('alice state: ' + str(self.state))
+
         sleep(1)
         exit()
 
@@ -2165,77 +2145,88 @@ class Alice:
             eventlog('command IS STOP SEARCH')
             self.stop_search()
 
+    # the wrapper to make it run more times
+    # avoiding errors from https://www.semicolonworld.com/question/59693/scrapy-reactor-not-restartable
+    def f(self, q, message, alice, manager_state):
+        try:
+            runner = scrapycrawler.CrawlerRunner()
+            deferred = runner.crawl(Charlotte, alice=alice, manager_state=manager_state)
+            self.charlotte.write_job_keys(message)
+            eventlog('self.charlotte.alice:: ' + str(self.charlotte.alice))
+            eventlog('self.charlotte:: ' + str(self.charlotte))
+            deferred.addBoth(lambda _: reactor.stop())
+            reactor.run()
+            q.put(None)
+        except Exception as e:
+            q.put(e)
 
+    # the wrapper to make it run more times
+    # avoiding errors from https://www.semicolonworld.com/question/59693/scrapy-reactor-not-restartable
+    def run_spider(self, message, alice, manager_state):
+        q = Queue()
+        p = Process(target=self.f, args=(q, message, alice, manager_state))
+        p.start()
+        result = q.get()
+        p.join()
+
+        if result is not None:
+            raise result
 
     def search(self, message):
         eventlog(self.name + ' search method activated.')
-        self.send_message('I am initializing the webcrawler.', 'print')
-        if self.state == 'initialized':
-            self.crawler = get_or_new_active_crawler(self.human)
-            self.crawler.crawl(Charlotte, alice=self)
-        self.charlotte.write_job_keys(message)
         self.send_message("Charlotte's crawling the web...", 'print')
-
         self.update_state('searching')
-        # self.state = 'searching'
-        eventlog("SEARCHING .....")
-        # self.crawler.start()
-        self.crawler_thread = threading.Thread(target=self.crawler.start)
+
+        self.crawler_thread = threading.Thread(target=self.run_spider, args= (message, self.alice, self.manager_state))
         self.crawler_thread.daemon = True
         self.crawler_thread.start()
 
 
+
+
+
     def stop_search(self):
         eventlog(self.name + ' STOP_SEARCH')
-        self.send_message("self.charlotte.stop_search()", 'print')
-        self.charlotte.stop_search()
-        self.send_message("self.crawler.stop()", 'print')
-        sleep(1)
-        self.crawler.stop()
-        self.send_message(self.name + ' stop search method activated.', 'print')
-        eventlog(self.name + ' stop search method activated.')
-        # self.crawler_thread.join()
-        self.crawler_thread.join()
-        self.send_message('Charlotte stopped search.')
-        self.update_state('initialized')
-        # self.state = 'initialized'
+        self.update_state('stop_search')
+        try:
+            self.charlotte.update_state('stop_search')
+        except Exception as e:
+            eventlog('EXCEPTION: ' + str(e))
+
+        
 
     def send_message(self, message, command='print'):
-        text = {
-            'message': message,
-            'command': command,
-            'From': self.name,
-            'human': self.human
-        }
         previous_frame = inspect.currentframe().f_back
         (filename, line_number, 
         function_name, lines, index) = inspect.getframeinfo(previous_frame)
         del previous_frame  # drop the reference to the stack frame to avoid reference cycles
-        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered send_message: ' + str(text))
-        # self.switchboard.write_message(json.dumps(text))
+        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered send_message: ' + str(message))
+
 
         if str(socket.gethostname()) == "tr3b":
             api_url = 'http://127.0.0.1:8000/webhooks/webharvest/'
         else:
             api_url = 'https://stringkeeper.com/webhooks/webharvest/'
 
-        payload = {
-            'human': str(self.human),
-            'chat_message': str(message),
-            'command': str(command),
-            'From': 'Alice'
-        }
+        if self.send_message_count > 100:
+            payload = {
+                'human': str(self.human),
+                'chat_message': str(message),
+                'command': 'clear',
+                'From': 'Alice'
+            }
+            # response = requests.post(api_url, data=payload)
+            self.send_message_count = 0
+        else:
+            payload = {
+                'human': str(self.human),
+                'chat_message': str(message),
+                'command': str(command),
+                'From': 'Alice'
+            }
 
         response = requests.post(api_url, data=payload)
-        # print('response: ' + str(response))
-        # print('response json: ' + str(response.json()))
-
-
-    # def send_message_to_webharvest(human, message):
-
-
-
-    # send_message_to_webharvest('dante@stringkeeper.com', 'testing 12345')
+        self.send_message_count += 1
 
 
 
@@ -2264,16 +2255,8 @@ class Switchboard(tornado.websocket.WebSocketHandler):
             eventlog(str('user: ' + str(human) + ' is active and needs a robot!'))
             self.assign_robot_to_user(str(human))
 
-        if command == 'stop_search':
-            eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
-            eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
-            eventlog('SWITCHBOARD STOP SEARCH FOR ' + human)
-            ALICE_USER_ASSIGNMENT_DICT.get(str(human)).stop_search()
-        else:
-            eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)
-            eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)
-            eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)
-            ALICE_USER_ASSIGNMENT_DICT.get(str(human)).on_message(message)
+        eventlog('SWITCHBOARD SEND MESSAGE FOR ' + human)
+        ALICE_USER_ASSIGNMENT_DICT.get(str(human)).on_message(message)
 
     def on_close(self):
         eventlog('connection closed...')

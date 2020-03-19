@@ -241,34 +241,34 @@ class GraceClarke :
 
 
 
-class JobResults:
-    def init(self):
-        self.name = None
-        self.alice = None
-        self.website_urls = []
-        self.emails = []
-        self.messages = []
+# class JobResults:
+#     def init(self):
+#         self.name = None
+#         self.alice = None
+#         self.website_urls = []
+#         self.emails = []
+#         self.messages = []
 
-    def append_url(self, url):
-        self.alice.printer.append(str(url))
-        try:
-            self.website_urls.append(str(url))
-        except:
-            eventlog('we got an issue with: self.website_urls.append(str(url))')
+#     def append_url(self, url):
+#         self.alice.printer.append(str(url))
+#         try:
+#             self.website_urls.append(str(url))
+#         except:
+#             eventlog('we got an issue with: self.website_urls.append(str(url))')
 
-    def append_email(self, email):
-        self.alice.printer.append(str(email))
-        try:
-            self.emails.append(str(email))
-        except:
-            eventlog('we got an issue with: self.emails.append(str(email))')
+#     def append_email(self, email):
+#         self.alice.printer.append(str(email))
+#         try:
+#             self.emails.append(str(email))
+#         except:
+#             eventlog('we got an issue with: self.emails.append(str(email))')
 
-    def append_message(self, message):
-        self.alice.printer.append(str(message))
-        try:
-            self.messages.append(str(message))
-        except:
-            eventlog('we got an issue with: self.messages.append(str(message))')
+#     def append_message(self, message):
+#         self.alice.printer.append(str(message))
+#         try:
+#             self.messages.append(str(message))
+#         except:
+#             eventlog('we got an issue with: self.messages.append(str(message))')
 
 
 class Charlotte(scrapy.Spider):
@@ -298,7 +298,7 @@ class Charlotte(scrapy.Spider):
         self.iFileIO = FileIO()
         self.search_key = ''
         self.name = 'Charlotte'
-        self.job_results = None
+        # self.job_results = None
 
     def write_job_keys(self, keys):
         eventlog('Charlotte is writing job keys: ' + str(keys))
@@ -1014,29 +1014,22 @@ class Charlotte(scrapy.Spider):
 
     def initialize_job_paths(self, job_name):
         job = str(job_name)
-        eventlog('job_name: ' + job)
+        # eventlog('job_name: ' + job)
 
     def running(self):
-
-        # runtime = 0
+        previous_state = ''
+        previous_manager_state = ''
         while self.alive:
             self.alice.charlotte = self.charlotte
-            # eventlog('charlotte state: ' + str(self.state))
-            # self.alice.send_message('charlotte state: ' + str(self.state))
-            # eventlog('alice state: ' + str(self.alice.state))            
-            # self.alice.send_message('alice state: ' + str(self.alice.state))
-
-            #WORKING WORKING WORKING!
-            # eventlog('charlotte manager_state: ' + str(self.manager_state))            
-            # self.alice.send_message('charlotte manager_state: ' + str(self.manager_state))
+            if str(previous_state) != str(self.state):
+                eventlog('charlotte state: ' + str(self.state))
+                previous_state = self.state
             
-            # try:
-            #     eventlog('charlotte MANAGER: ' + str(MANAGER))            
-            #     self.alice.send_message('charlotte MANAGER: ' + str(MANAGER))
-            # except:
-            #     pass
-            sleep(2)
-            # runtime += 0.5
+            if str(previous_manager_state) != str(self.manager_state.value):
+                eventlog('charlotte manager_state: ' + str(self.manager_state.value))
+                previous_manager_state = self.manager_state.value
+
+            sleep(1)
 
 
 
@@ -1074,17 +1067,7 @@ class Charlotte(scrapy.Spider):
         named_tuple = time.localtime() # get struct_time
         time_string = time.strftime("%Y-%m-%d-%H:%M", named_tuple)
 
-        # with open(str(Path.home()) + '/p3env/alice/alice/spiders/ALICE.txt', 'a+') as f:
-        #     f.write('ALICE WOKE: ' + str(time_string))
-        #     f.write('\n')
-        #     f.close()
-        
-
         self.autoclear_pysnooper(self.iFileIO)
-
-
-        eventlog('self.list_old_urls_filepaths')
-
 
         def get_list_from_file(filepath):
             listFromFile = []
@@ -1133,10 +1116,6 @@ class Charlotte(scrapy.Spider):
 
             self.current_job_name = job_name
         
-        self.job_results = JobResults()
-        self.job_results.name = self.current_job_name
-        self.job_results.alice = self.alice
-        # if job_name != None:
         iwrite = open(jobs_filepath, 'w')
         iwrite.write('\n')
         iwrite.close()
@@ -1150,12 +1129,9 @@ class Charlotte(scrapy.Spider):
 
         self.initialize_job_paths(job_name)
 
-
         self.tools.create_job_search_phrase(job_name)
 
-
         job_search_phrases = []
-
         job_search_phrases = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/job_phrases.csv'))
         for phrase in job_search_phrases:
             eventlog('job_search_phrases: ' + str(phrase))
@@ -1167,15 +1143,7 @@ class Charlotte(scrapy.Spider):
                 inputlist[swap] = inputlist[i]
                 inputlist[i] = temp
             return inputlist
-
-        # job_search_phrases = shuffle_list(job_search_phrases)
-        # initial_search_phrases = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/job_phrases.csv'))
-        # initial_search_phrases = shuffle_list(initial_search_phrases)
-
         self.autoclear_pysnooper(self.iFileIO)
-
-        # search_key = str(initial_search_phrases[0])
-        # self.newlinks = self.online_search_job(job_name, search_key, implicit_keys, explicit_keys, maxLoops, search_results_max_depth, iFileIO)
         path, b_exists = DatabaseTools.get_job_paths(self, job_name)
         self.b_success = False
         if b_exists == False:
@@ -1185,19 +1153,6 @@ class Charlotte(scrapy.Spider):
             self.b_success = True
 
         def process_job_phrases(job_search_phrases):
-            # for search_phrase in job_search_phrases:
-            #     eventlog('STARTING ONLINE_THREADED_NAVIGATION_JOB')
-            #     self.state = 'search'
-            #     self.autoclear_pysnooper(self.iFileIO)
-            #     search_key = str(search_phrase)
-            #     self.newlinks = self.online_search_job(job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO)
-            #     self.search_key = search_key
-
-            #     self.job_memory = self._Alice.get_memory(job_name, self.maxLoops)
-            #     self.list_google_matrix, self.list_website_matrix = DatabaseTools.explore_matrix(self, path, self._Alice)
-            #     self.online_threaded_navigation_job(self._Alice, job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO, self.newlinks)
-            #     eventlog('COMPLETED ONLINE_THREADED_NAVIGATION_JOB')
-
             # for search_phrase in job_search_phrases:
             eventlog('STARTING ONLINE_THREADED_NAVIGATION_JOB')
 
@@ -1212,24 +1167,25 @@ class Charlotte(scrapy.Spider):
             self.online_threaded_navigation_job(self._Alice, job_name, search_key, self.implicit_keys, self.explicit_keys, self.maxLoops, search_results_max_depth, self.iFileIO, self.newlinks)
             eventlog('COMPLETED ONLINE_THREADED_NAVIGATION_JOB')
 
-
             self.charlotte.state = 'halting_web_crawler'
-
+            
         self.webtools.check_internet_connection()
 
         try:
             thread = Thread(target = process_job_phrases, args = (job_search_phrases, ))
             thread.start()
             while self.state != 'halting_web_crawler':
-                eventlog("charllote")
-                sleep(0.5)
-                eventlog("is")
-                sleep(0.5)
-                eventlog('crawling')
-                sleep(0.5)
-                eventlog('the')
-                sleep(0.5)
-                eventlog('web')
+                # eventlog("charllote")
+                # sleep(0.5)
+                # eventlog("is")
+                # sleep(0.5)
+                # eventlog('crawling')
+                # sleep(0.5)
+                # eventlog('the')
+                # sleep(0.5)
+                # eventlog('web')
+
+                # eventlog('')
                 sleep(0.5)
                 # process_job_phrases(job_search_phrases)
 
@@ -2091,35 +2047,31 @@ class Alice:
         (filename, line_number, 
         function_name, lines, index) = inspect.getframeinfo(previous_frame)
         del previous_frame  # drop the reference to the stack frame to avoid reference cycles
-        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered update_state: ' + str(state))
-        self.state = state
-        self.manager_state.value = state 
         self.state_was_triggered_by_function_name = function_name
+        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered update_state: ' + str(state))
+        # self.state = state
+        self.manager_state.value = state
+        # try:
+        #     self.charlotte.update_state('stop_search')
+        # except Exception as e:
+        #     eventlog('EXCEPTION: ' + str(e))
+
 
     def run(self):
         self.send_message('running...')
-        # eventlog(str(self.name) + ' is alive.')
-        # eventlog('Alice LOOP = IOLoop.current(): ' + str(WS.LOOP))
-        # eventlog('Switchboard SWITCHBOARD = ' + str(SWITCHBOARD))
+        previous_state = ''
+        previous_manager_state = ''
+
         while self.alive:
-            eventlog('alice state: ' + str(self.state))
-            # self.alice.send_message(str(self.state))
-            # try:
-            #     eventlog('alice charlotte state: ' + str(self.charlotte.state))
-            #     self.alice.send_message('alice charlotte state: ' + str(self.charlotte.state))
-            # except Exception as e:
-            #     eventlog('EXCEPTION: ' + str(e))
+            if str(previous_state) != str(self.state):
+                eventlog('alice state: ' + str(self.state))
+                previous_state = self.state
+            
+            if str(previous_manager_state) != str(self.manager_state.value):
+                eventlog('alice manager_state: ' + str(self.manager_state.value))
+                previous_manager_state = self.manager_state.value
 
-
-            #WORKING WORKING WORKING
-            # eventlog('alice manager_state: ' + str(self.manager_state))            
-            # self.alice.send_message('alice manager_state: ' + str(self.manager_state))
-            # try:
-            #     eventlog('alice MANAGER: ' + str(MANAGER))            
-            #     self.alice.send_message('alice MANAGER: ' + str(MANAGER))
-            # except:
-            #     pass
-            sleep(4)
+            sleep(1)
 
         self.update_state('DEAD')
 
@@ -2188,10 +2140,7 @@ class Alice:
     def stop_search(self):
         eventlog(self.name + ' STOP_SEARCH')
         self.update_state('stop_search')
-        try:
-            self.charlotte.update_state('stop_search')
-        except Exception as e:
-            eventlog('EXCEPTION: ' + str(e))
+
 
         
 

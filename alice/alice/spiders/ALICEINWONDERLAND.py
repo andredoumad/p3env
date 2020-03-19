@@ -1,17 +1,11 @@
-# from .AliceRequiredModules import *
 from AliceRequiredModules import *
-# from .fileio import FileIO
 from fileio import FileIO
 from chronos import Chronos
 from csv_io import CSV_IO
 from databasetools import DatabaseTools
 from webtools import WebTools
 from standalone_tools import *
-# from .chronos import Chronos
-# from .csv_io import CSV_IO
-# from .databasetools import DatabaseTools
-# from .webtools import WebTools
-# from .standalone_tools import *
+
 
 from pathlib import Path
 class AliceInWonderland:
@@ -585,155 +579,6 @@ class AliceInWonderland:
         def get_parent(self):
             return self.name, str(' is a child of ') , self.memoryParent.name
 
-        '''
-        #@pysnooper.snoop('nodes.history', prefix='smart_update', depth=10)
-        def smart_update(self, memory_name, field_name, field_value, write):
-            self.filepath = str(str(self.dp_root) + str(self.name) + ".csv")
-            #self.my_matrix = self.time_matrix.copy()
-            #self.my_items = None
-            #for key, value in self.my_matrix.items():
-                #if key == memory_name:
-                    #self.my_items = v
-                    # install https://github.com/lark-parser/lark
-                    # install https://anytree.readthedocs.io/en/2.6.0/
-                    # https://github.com/c0fec0de/anytree
-            self.my_items = self.time_matrix.items()
-            self.my_fields = self.my_matrix.values()
-            self.m_matrix = {}
-            self.m_columns = {}
-            self.m_rows = {}
-            self.m_col_index
-            self.m_row_index
-            for key, value in self.time_matrix.items():
-                eventlog("key " + str(key) + " from: " + str(value.items()) + ".\n" )
-                if key == self.time_index:
-                    self.m_index = key
-
-                for key, value in value.items():
-                    eventlog("key " + str(key) + " from: " + str(value.items()) + ".\n" )
-                    if key == memory_name:
-                            self.b_m_name = True
-            if b_m_time_index == False:
-                self.time_matrix.update(dict(self.time_index,self.matricies))
-
-            if self.b_m_name == False:
-                for key, value in self.time_matrix.items():
-                    eventlog("key " + str(key) + " from: " + str(value.items()) + ".\n" )
-                    if key == self.time_index:
-                        for key, value in value.items():
-                            eventlog("key " + str(key) + " from: " + str(value.items()) + ".\n" )
-                            if key == memory_name:
-                                self.b_m_name = True
-                    column = self.memory_column_records
-                    row = dict(self.my_row_index, self.memory_row_records)
-                    column = dict(self.my_col_index, self.memory_field_names)
-                    memory = dict(memory_name,self.memory_names)
-                    self.named_matricies = 
-            self.b_memory_name = False
-            for memory_index in range(0, len(self.memory_names)):
-                eventlog("memory_index " + str(memory_index) + " name is: " + self.memory_names[memory_index] + ".\n" )
-                if self.memory_names[memory_index] == memory_name:
-                    self.b_memory_name = True
-                    if self.memory_names[memory_index] == memory_name:
-                        for key, value in self.memory_name_row_col_index_positions.items():
-                            if key == memory_name:
-                                #the lowest time_matrix number that this memory can go back to.
-                                for key, value in value.items():
-                                    self.my_row_index = key
-                                    self.my_col_index = value
-                                self.name_exists = True
-            if self.b_memory_name == False:
-                my_row_index = 0
-                my_col_index = 0
-                self.memory_names.append(dict(memory_name, self.memory_name_row_col_index_positions))
-
-
-
-            if self.name_exists == True:
-                self.found_field_name = False
-                for field_index in range(0, len(self.memory_field_names)):
-                    if self.memory_field_names[field_index] == field_name:
-                        self.found_field_name = True
-                if self.found_field_name == False:
-                    self.memory_field_names.append(field_name)
-                    self.found_field_records = False
-                    for key, value in self.memory_column_records.items():
-                        if key == field_name:
-                            self.found_field_records = True
-                        for key, value in value.items():
-                            if key == memory_name:
-                                self.found_memory_name = True
-                                value[self.my_row_index] = field_value
-                        if self.found_memory_name == False:
-                            mem = dict(self.my_row_index, field_value)
-                            rec = memory_name
-                            self.memory_column_records.update(dict(rec, mem))
-
-            #matrix_index
-                #matrix_resolution_index
-                    #resolution_name
-                        #row index (0 to N from top to bottom past to present)
-                            #col index (0 to N how far left or right primary resolution to peripheral)
-
-                                #fieldname and value
-
-            #self.smart_memory_rows.update(row)
-
-            keyVal = {}
-            keyVal[field_name] = field_value
-            columns = {self.col_index:keyVal} #fieldname and value at column number
-            rows = {self.row_index:columns} #row index containing columns
-
-            memory_state = {memory_name:field_name}
-            self.memory_names.update(memory_state)
-            
-            self.matrix_dimensions.update(self.matrix_time)
-            
-
-                
-
-            self.memory_matrix.update(simulation)
-            #given the time something changed
-            for key, value in self.matrix_time:
-                
-                #time index is key
-
-                for key, value in self.matrix_resolution:
-                    #matrix resolution is key
-                    
-                    for key, value in self.resolution_names:
-                        #resolution name is key
-
-                        if memory_name == key:
-                            for key, value in self.columns.items():
-                                #row number
-
-                                self.smart_memory_row = str(key)
-                                eventlog(str(self.smart_memory_row) + " smart_memory_row ")
-                                self.lineKeys = ''
-                                self.lineValues = ''
-                                self.resolution_
-                                self.col_index = 0
-                                for key, value in self.cols_and_vals.items():
-                                    #column number
-                                    self.theKeys += str(str(key) + ", ")
-                                    self.theValues += str(str(value) + ", ")
-                                    self.col_index += 1
-                                    #column
-                                self.lineKeys = self.lineKeys[:-2]
-                                self.lineValues = self.lineValues[:-2]
-                                eventlog(str(" \n\n " +  str(self.name) + "\n smart_memory " + self.recordString + " Keys " + self.theKeys))
-
-                                eventlog(str(" smart_memory " + self.recordString + " Vals " + self.theValues + " \n\n "))
-                                if write == True:
-                                    if self.recordNumber == 0:
-                                        write_line(self, self.filepath, self.theKeys, 'a+')
-                                    write_line(self, self.filepath, self.theValues, 'a+')
-                                    self.recordNumber += 1
-                            sleep(5)
-            self.time_index += 1
-        '''
-
 
         #@pysnooper.snoop(history_filepath, prefix=str(prefix), depth=1)
         def update(self, i, keys, values, maxLoops):
@@ -833,12 +678,7 @@ class AliceInWonderland:
                     if key == theField:
                         self.list_column.append(value)
                         eventlog(str(key) + " is " + str(value))
-                    #self.theKeys += str(str(key) + ", ")
-                    #self.theValues += str(str(value) + ", ")
-                #self.theKeys = self.theKeys[:-2]
-                #self.theValues = self.theValues[:-2]
-                #eventlog(str("dict_record " + self.recordString + " Keys " + self.theKeys))
-                #eventlog(str("dict_record " + self.recordString + " Vals " + self.theValues))
+
             return self.list_column
             eventlog("\n --field " + str(theField) + " ----- " + str(self.name) + " END get_list_field ----------- ")
 

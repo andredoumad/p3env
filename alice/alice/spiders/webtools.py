@@ -949,32 +949,11 @@ class WebTools:
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/navigate_url_queue.history', prefix='navigate_url_queue', depth=1)
     def navigate_url_queue(self, _Alice, job_name, iFileIO, website_targets):
-        eventlog('NAVIGATE_URL_QUEUE: ')
-        # for item in website_targets:
-        #     eventlog('WEBSITE TARGETS: ' + str(item))
-        #     eventlog('charlotte.state: ' + self.charlotte.state)
+        eventlog('navigate_url_queue')
         global _FINISH
         _FINISH = False
         global _HARVEST_COUNT
         _HARVEST_COUNT = 0
-        #global _THREADLOCK
-        #_THREADLOCK = threading.Lock()
-        '''
-        f = open(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/navigate_url_queue.history', 'w+')
-        f.write('')
-        f.write('\n')
-        f.close()
-        f = open(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/navigate_url_queue', 'w+')
-        f.write('')
-        f.write('\n')
-        f.close()
-        f = open(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/manage_queue.history', 'w+')
-        f.write('')
-        f.write('\n')
-        f.close()
-        '''
-        
-        eventlog('timeout_thread')
 
         class myThread (threading.Thread):
             def __init__(self, threadID, name, q, charlotte):
@@ -1013,7 +992,7 @@ class WebTools:
                 count = 0
                 while counting and self.exitFlag == 0:
 
-                    eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
+                    # eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' command is ' + self.charlotte.state)
                     if count > 60:
                         counting = False
@@ -1023,8 +1002,7 @@ class WebTools:
                         self.exitFlag = 1
                 self.charlotte.state = 'shutting_down_webcrawler_threads'
 
-                # thread.join()
-                # self.state = 'shutting_down_webcrawler_threads'
+
                 eventlog("thread finished...exiting")
                 self.exitFlag = 1
                 # exit()
@@ -1448,7 +1426,7 @@ class WebTools:
                                                         eventlog('FOUND EMAIL: ' + str(email) + ' Total: ' + str(emailcount))
                                                         # self.charlotte.spider_log('FOUND EMAIL: ' + str(email))
                                                         # self.charlotte.job_results.append_email(str(email))
-                                                        self.charlotte.alice.send_message('FOUND EMAIL ' + str(email), 'print')
+                                                        self.charlotte.alice.send_message(' | FOUND EMAIL | >> ' + str(email) + ' <<', 'print')
                                                         
                                                         english_above_email_index = english_list_index - 25
                                                         if english_above_email_index < 0:
@@ -1494,12 +1472,9 @@ class WebTools:
                                         #_THREADLOCK.release()
                                         self.completed_hyperlinks.append(str(url))
                                         eventlog(str('| COMPLETED URL | ' + str(url)))
-                                        self.charlotte.alice.send_message('Processed: ' + str(url), 'print')
-                                        # self.charlotte.alice.send_message(str('| COMPLETED URL | ' + str(url)), 'print')
-                                        # self.charlotte.spider_log('Visited: ' + str(url))
-                                        # eventlog('charlotte.state: ' + self.charlotte.state)
-                                        self.charlotte.job_results.append_url(str(url))
-                                        if self.charlotte.state == 'shutting_down_webcrawler_threads':
+                                        dater = (url[:50] + '...') if len(url) > 50 else url
+                                        self.charlotte.alice.send_message('reading: ' + str(dater), 'print')
+                                        if str(self.charlotte.manager_state.value) == 'shutting_down_webcrawler_threads':
                                             self.exitFlag = 1
 
                                     #self.write_pretty_source.close()
@@ -1623,7 +1598,7 @@ class WebTools:
             searching = True
             t_count_processing = 0
             t_count_total = 0
-            if self.charlotte.state == 'shutting_down_webcrawler_threads':
+            if str(self.charlotte.manager_state.value) == 'shutting_down_webcrawler_threads':
                 for t in self.threads:
                     eventlog('webtools is setting ' + str(t.name) + ' exitFlag to 1.')
                     t.exitFlag = 1
@@ -1681,7 +1656,9 @@ class WebTools:
                 # for t in self.threads:
                 #     if t.exitFlag == 1:
                 #         t.processing = True
-                eventlog('| working/total | ' + str(t_count_processing) + '/' + str(t_count_total))
+                # eventlog('| working/total | ' + str(t_count_processing) + '/' + str(t_count_total))
+                eventlog(str('Working Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
+                self.charlotte.alice.send_message(str('Working Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
                 sleep(5)
 
             eventlog('active threads loop end')
@@ -1998,7 +1975,7 @@ class WebTools:
             # self.charlotte.state = 'search'
 
             #level 2
-            if len(goodLinks) > 0 and self.charlotte.state == 'search':
+            if len(goodLinks) > 0 and str(self.charlotte.manager_state.value) == 'search':
                 #WebTools.clear_screen(self)
                 eventlog('++++++++++++++ LEVEL 2 ++++++++++++++')
                 self.charlotte.alice.send_message('++++++++++++++ LEVEL 2 ++++++++++++++')

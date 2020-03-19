@@ -954,6 +954,10 @@ class WebTools:
         _FINISH = False
         global _HARVEST_COUNT
         _HARVEST_COUNT = 0
+        self.charlotte.alice.send_message(' |  ---------------------------   ')
+        self.charlotte.alice.send_message(' | DEMO RUNNING FOR LIMITED TIME  ')
+        self.charlotte.alice.send_message(' |      MAXIMUM THREADS = 4       ')
+        self.charlotte.alice.send_message(' |  ---------------------------   ')
 
         class myThread (threading.Thread):
             def __init__(self, threadID, name, q, charlotte):
@@ -990,19 +994,15 @@ class WebTools:
                 thread.start()
                 counting = True
                 count = 0
-                self.charlotte.alice.send_message(' | --------------------------- | ')
-                self.charlotte.alice.send_message(' | DEMO RUNNING FOR 60 SECONDS | ')
-                self.charlotte.alice.send_message(' | DEMO RUNNING WITH 4 THREADS | ')
-                self.charlotte.alice.send_message(' | --------------------------- | ')
-                while counting and self.exitFlag == 0:
 
+                while counting and self.exitFlag == 0:
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' command is ' + self.charlotte.state)
                     if count > 60:
                         counting = False
                     sleep(1)
                     count += 1
-                    if self.charlotte.manager_state.value == 'stop_search':
+                    if str(self.charlotte.manager_state.value) == 'stop_search':
                         self.exitFlag = 1
                 self.charlotte.state = 'shutting_down_webcrawler_threads'
 
@@ -1635,9 +1635,12 @@ class WebTools:
                 poor_harvest = False
                 if change < 5:
                     poor_harvest = True
-                if finished == True or poor_harvest == True:
+                if finished == True or poor_harvest == True or str(self.charlotte.manager_state.value) == 'stop_search' or str(self.charlotte.state) == 'shutting_down_webcrawler_threads':
                     #WebTools.clear_screen(self)
-                    eventlog('\n Only harvested ' + str(change) + ' in 30 seconds. -- CLOSING threads. \n')
+                    eventlog('finished = ' + str(finished))
+                    eventlog('poor_harvest = ' + str(poor_harvest))
+                    eventlog('str(self.charlotte.manager_state.value): ' +str(self.charlotte.manager_state.value))
+                    eventlog(' ------  CLOSING BROWSERS. --------')
                     self.activeThreads = False
                 else:
                     change = current_harvest - previous_harvest
@@ -1661,7 +1664,7 @@ class WebTools:
                 #     if t.exitFlag == 1:
                 #         t.processing = True
                 # eventlog('| working/total | ' + str(t_count_processing) + '/' + str(t_count_total))
-                eventlog(str('Working Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
+                eventlog(str('Working internet browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
                 self.charlotte.alice.send_message(str('Working Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
                 sleep(5)
 
@@ -1716,6 +1719,7 @@ class WebTools:
         self.charlotte.update_state('finished_browsing_hyperlinks')
         self.charlotte.alice.update_state('finished_browsing_hyperlinks')
         # self.charlotte.alice.alive = False
+        self.charlotte.alice.send_message(str('Internet browsers have finished working...'))
         sleep(1)
 
         return new_links, completed_links

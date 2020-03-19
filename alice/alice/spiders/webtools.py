@@ -990,15 +990,19 @@ class WebTools:
                 thread.start()
                 counting = True
                 count = 0
+                self.charlotte.alice.send_message(' | --------------------------- | ')
+                self.charlotte.alice.send_message(' | DEMO RUNNING FOR 60 SECONDS | ')
+                self.charlotte.alice.send_message(' | DEMO RUNNING WITH 4 THREADS | ')
+                self.charlotte.alice.send_message(' | --------------------------- | ')
                 while counting and self.exitFlag == 0:
 
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' command is ' + self.charlotte.state)
                     if count > 60:
                         counting = False
-                    sleep(0.5)
+                    sleep(1)
                     count += 1
-                    if self.charlotte.alice.state == 'stop_search':
+                    if self.charlotte.manager_state.value == 'stop_search':
                         self.exitFlag = 1
                 self.charlotte.state = 'shutting_down_webcrawler_threads'
 

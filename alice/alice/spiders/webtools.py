@@ -1722,6 +1722,7 @@ class WebTools:
         # self.charlotte.alice.alive = False
         self.charlotte.alice.send_message(str('Internet browsers have finished working...'))
         self.charlotte.update_state('stop_search')
+        self.charlotte.alice.send_message(message='initialized', command='update_state')
 
         sleep(1)
 

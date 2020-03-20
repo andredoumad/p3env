@@ -2149,7 +2149,7 @@ class Alice:
         (filename, line_number, 
         function_name, lines, index) = inspect.getframeinfo(previous_frame)
         del previous_frame  # drop the reference to the stack frame to avoid reference cycles
-        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered send_message: ' + str(message))
+        eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered send_message: ' + str(message) + ' command: ' + str(command))
 
 
         if str(socket.gethostname()) == "tr3b":

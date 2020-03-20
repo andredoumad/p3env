@@ -48,10 +48,10 @@ def eventlog(logstring):
         debug_line_number = str('00' + str(line_number))
     elif line_number < 10000:
         debug_line_number = str('0' + str(line_number))
-    print('|==| ' + str(debug_line_number) + ' |==| ' + str(filename)[-25:] + ' | ' + str(function_name) + ' | ' + str(logstring) + ' |==|')
+    print(str(get_hour_minute_second_string()) + ' |==| ' + str(debug_line_number) + ' |==| ' + str(filename)[-25:] + ' | ' + str(function_name) + ' | ' + str(logstring) + ' |==|')
 
     f = open(str(Path.home()) + '/p3env/eventlog.log', "a")
-    f.write('|==| ' + str(debug_line_number) + ' |==| ' + str(filename)[-25:] + ' | ' + str(function_name) + ' | ' + str(logstring) + ' |==|')
+    f.write(str(get_hour_minute_second_string()) + ' |==| ' + str(debug_line_number) + ' |==| ' + str(filename)[-25:] + ' | ' + str(function_name) + ' | ' + str(logstring) + ' |==|')
     f.write('\n')
     f.close()
     if os.path.getsize(str(Path.home()) + '/p3env/eventlog.log') > 1000000:
@@ -1416,6 +1416,19 @@ def get_date_and_time_string():
     # dd/mm/YY H:M:S
     dt_string = now.strftime("%Y/%m/%d/ %H:%M:%S")
     print("date and time =", dt_string)
+    return dt_string
+
+def get_hour_minute_second_string():
+    from datetime import datetime
+
+    # datetime object containing current date and time
+    now = datetime.now()
+    
+    # print("now =", now)
+
+    # dd/mm/YY H:M:S
+    dt_string = now.strftime("%H:%M:%S")
+    # print("Hour minute second =", dt_string)
     return dt_string
 
 

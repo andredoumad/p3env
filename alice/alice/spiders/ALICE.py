@@ -1021,13 +1021,13 @@ class Charlotte(scrapy.Spider):
         previous_manager_state = ''
         while self.alive:
             self.alice.charlotte = self.charlotte
-            # if str(previous_state) != str(self.state):
-            eventlog('charlotte state: ' + str(self.state))
-                # previous_state = self.state
+            if str(previous_state) != str(self.state):
+                eventlog('charlotte state: ' + str(self.state))
+                previous_state = self.state
             
-            # if str(previous_manager_state) != str(self.manager_state.value):
-            eventlog('charlotte manager_state: ' + str(self.manager_state.value))
-                # previous_manager_state = self.manager_state.value
+            if str(previous_manager_state) != str(self.manager_state.value):
+                eventlog('charlotte manager_state: ' + str(self.manager_state.value))
+                previous_manager_state = self.manager_state.value
 
             sleep(1)
 
@@ -2063,13 +2063,13 @@ class Alice:
         previous_manager_state = ''
 
         while self.alive:
-            # if str(previous_state) != str(self.state):
-            eventlog('alice state: ' + str(self.state))
-                # previous_state = self.state
+            if str(previous_state) != str(self.state):
+                eventlog('alice state: ' + str(self.state))
+                previous_state = self.state
             
-            # if str(previous_manager_state) != str(self.manager_state.value):
-            eventlog('alice manager_state: ' + str(self.manager_state.value))
-                # previous_manager_state = self.manager_state.value
+            if str(previous_manager_state) != str(self.manager_state.value):
+                eventlog('alice manager_state: ' + str(self.manager_state.value))
+                previous_manager_state = self.manager_state.value
 
             sleep(1)
 

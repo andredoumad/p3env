@@ -147,7 +147,6 @@ class DatabaseTools:
                             print('DUPLICATE: ' + str(file_B_item))
                             found = True
                             searching = False
-                
                 searching = False
 
             if found != True:
@@ -170,78 +169,37 @@ class DatabaseTools:
 
         if self.b_fp == True:
             for i in range(0, len(self.list_fp)):
-                #print('|examine_database| self.b_fp file_nav found: ' + str(i) + ' ' + str(self.list_fp[i]))
                 self.list_of_file_paths.append(str(self.list_fp[i]))
                 if self.list_fp[i].find('_+|file_nav|+_') != -1:
                     self.list_of_file_nav.append(self.list_fp[i])
-                    #print('|examine_database| self.b_fp found navigation matrix: ' + str(self.list_fp[i]))
+
                 elif self.list_fp[i].find('_matrix.csv') != -1:
                     self.list_of_web_matrix_files.append(self.list_fp[i])
                     for matrix_file in self.list_of_web_matrix_files:
                         pass
-                        #print('|examine_database| self.b_fp for matrix_file in self.list_of_web_matrix_files: ' + str(matrix_file))
-                        #sleep(0.5)
-                    #print('|examine_database| self.b_fp found web matrix: ' + str(self.list_fp[i]))
-                #sleep(0.5)
-            #write lists to nav file
+
             self.list_of_file_paths = DatabaseTools.getListWithoutDuplicates(self, self.list_of_file_paths)
             with open(str(path + '_+|file_nav|+_.csv'), 'w+') as f:
-                #f = open(str(path + '_+|file_nav|+_.csv'), 'w+')
                 for item in self.list_of_file_paths:
-                    #print('|examine_database| for item in self.list_of_file_paths: ' + str(item))
                     f.write(str(item))
                     f.write('\n')
-                    #sleep(0.003)
+
                 f.close()
 
-            #write nav_matrix file
             self.b_found_website_matrix_files = False
             for i in range(0, len(self.list_of_web_matrix_files)):
                 if self.list_of_web_matrix_files[i].find('0_matrix.csv') != -1:
                     self.b_found_website_matrix_files = True
 
             if self.b_found_website_matrix_files == True:
-                #f = open(str(path + '_+|matrix_nav|+_.csv'), 'w+')
                 self.list_sorted_matrix_files = []
                 self.b_sorting_matrix = True
                 self.target_index = 0
-                '''
-                while self.b_sorting_matrix == True:
-                    for i in range(0, len(self.list_of_web_matrix_files)):
-                        print('|examine_database| length list_of_web_matrix_files: ' + str(len(self.list_of_web_matrix_files)) )
-                        print('|examine_database| length list_sorted_matrix_files: ' + str(len(self.list_sorted_matrix_files)) )
-                        self.current_matrix_filepath = str(self.list_of_web_matrix_files[i].strip())
-                        print('|examine_database| current_matrix_filepath: ' + str(self.current_matrix_filepath))
-                        self.current_target_string = str('_' + str(self.target_index) + '_matrix.csv')
-                        print('|examine_database| current target is: ' + str(self.current_target_string))
-                        print('|examine_database| comparing ' + self.current_matrix_filepath + ' with ' + self.current_target_string)
-                        if self.current_matrix_filepath.find(self.current_target_string) != -1:
-                            print(self.current_matrix_filepath + ' DOES CONTAIN ' + self.current_target_string)
-                            #sleep(0.003)
-                            self.list_sorted_matrix_files.append(str(self.current_matrix_filepath))
-                            self.target_index += 1
-                            #sleep(0.003)
-                            for ib in range(0, len(self.list_sorted_matrix_files)):
-                                print('|examine_database| list_sorted_matrix_files: ' + str(ib) + ' ' + str(self.list_sorted_matrix_files[ib]))
-                                #sleep(0.003)
-                        else:
-                            print(str(self.current_matrix_filepath) + ' does not contain ' + self.current_target_string)
-                            #sleep(0.003)
-                        if len(self.list_sorted_matrix_files) == len(self.list_of_web_matrix_files):
-                            print('|examine_database| matrix sorting complete :)')
-                            self.b_sorting_matrix = False
-                '''
-                #print('length len(self.list_of_web_matrix_files): ' + str(len(self.list_of_web_matrix_files)))
-                #print('self.list_of_web_matrix_files[0] ' + str(self.list_of_web_matrix_files[0]))
-                #sleep(1)
-                #self.list_of_web_matrix_files = self.list_sorted_matrix_files
+
                 with open(str(path + '_+|matrix_nav|+_.csv'), 'w+') as f:
                     for item in self.list_of_web_matrix_files:
-                        #print('|examine_database| for item in self.list_of_web_matrix_files: ' + str(item))
                         f.write(str(item))
                         f.write('\n')
-                        #sleep(0.003)
-                    #print('|examine_database| ======== items in list_of_web_matrix_files =========')
                     f.close()
 
         #directories
@@ -270,25 +228,17 @@ class DatabaseTools:
             while self.made_decision == False:
                 for selected_directory_path in self.list_of_directory_paths:
                     if selected_directory_path != path:
-                        #_Alice.terminal.displayThree(str(path), str('|examine_database|  will change to'), str(selected_directory_path))
                         self.list_of_visited_directory_paths.append(str(selected_directory_path))
                         self.target_directory = selected_directory_path
                         self.b_examining_database = True
-                        #_Alice.terminal.displayThree(str('|examine_database| from directory'), str(path), str('======='))
-                        #_Alice.terminal.displayThree(str('|examine_database| to directory '), str(self.target_directory), str('======='))
                         self.made_decision = True
-                        #sleep(0.003)
-        #print('length len(self.list_of_web_matrix_files): ' + str(len(self.list_of_web_matrix_files)))
-        #print('self.list_of_web_matrix_files[0] ' + str(self.list_of_web_matrix_files[0]))
-        ##sleep(0.5)
+
         return self.b_examining_database, self.list_of_web_matrix_files, self.target_directory
 
     #@pysnooper.snoop('/home/gordon/p3env/alice/alice/spiders/auto_cleared_history/get_website_directory_filepath.history', prefix='get_website_directory_filepath', depth=1)
     def get_website_directory_filepath(self, job_name, website_target ):
         self.directory_key = None
-        #print('job_name: ' + str(job_name))
         self.website_root_path = DatabaseTools.make_job_paths(self, job_name)
-        #print('website_root_path: ' + str(self.website_root_path))
         self.regex = re.compile('[@_!$%^&*()<>?\|}{~:;],.')
         self.cleaned = ''
         self.previous_newVal = ''
@@ -341,8 +291,6 @@ class DatabaseTools:
 
     #@pysnooper.snoop('/home/gordon/p3env/alice/alice/spiders/auto_cleared_history/filesystem_browse_list_of_google_matrix_files.history', prefix='filesystem_browse_list_of_google_matrix_files', depth=1)
     def filesystem_browse_list_of_google_matrix_files(self, list_of_web_matrix_files, _Alice):
-        #sleep(3)
-        #self.clear_screen()
 
         print('def browse_list_of_web_matrix_files')
         #sleep(3)

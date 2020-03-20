@@ -737,7 +737,7 @@ class WebTools:
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/job_search_results.history', prefix='job_search_results', depth=1)
     def job_search_results(self, job_name, searchKey, maxPages, maxLoops, job_path, iFileIO):
-        eventlog('def job_search_results duck duck go')
+        eventlog('def job_search_results    ')
         # self.charlotte.alice.send_message('Building a list of websites related to: ' + str(searchKey), 'print')
         def get_list_from_file(filepath):
             listFromFile = []
@@ -761,7 +761,7 @@ class WebTools:
                 self.driver = WebTools.make_web_browser(self)
                 WebTools.check_internet_connection(self)
                 self.driver.get("https://duckduckgo.com")
-                sleep(1)
+                sleep(0.5)
                 self.charlotte.alice.send_message('Loading search engine... ', 'print')
                 search_form = self.driver.find_element_by_xpath('//*[@id="search_form_input_homepage"]')
                 #search_form = self.driver.find_element_by_id('search_form_input_homepage')
@@ -834,7 +834,7 @@ class WebTools:
             iwrite.write('\n')
             iwrite.close()
 
-        sleep(1)
+        sleep(0.5)
         search_form_success = False
         try:
             search_form.submit()
@@ -846,7 +846,7 @@ class WebTools:
         if search_form_success:
 
 
-            sleep(2)
+            sleep(0.5)
             searchKey = str("google_") + searchKey
             directory_key = None
             eventlog('job_name: ' + str(job_name))
@@ -905,7 +905,7 @@ class WebTools:
                         eventlog(str( str(pathStart + str(iresult) + '_index.html')))
                         morePagesXpath = str("//*[@id='rld-" + str(i) + "']/a")
                         self.driver.find_element_by_xpath(morePagesXpath).click()
-                        sleep(0.75)
+                        sleep(0.5)
                         # icount = iresult
                         # total = icount * 12
                         # self.charlotte.alice.send_message(str('Found ' + str(total) + ' websites...'))
@@ -956,7 +956,7 @@ class WebTools:
         _HARVEST_COUNT = 0
         self.charlotte.alice.send_message(' |  ---------------------------   ')
         self.charlotte.alice.send_message(' | DEMO RUNNING FOR LIMITED TIME  ')
-        self.charlotte.alice.send_message(' |      MAXIMUM THREADS = 4       ')
+        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 2       ')
         self.charlotte.alice.send_message(' |  ---------------------------   ')
 
         class myThread (threading.Thread):
@@ -1526,8 +1526,8 @@ class WebTools:
 
         # Create new self.threads
         threadcount = len(website_targets)
-        if threadcount > 4:
-            threadcount = 4
+        if threadcount > 2:
+            threadcount = 2
 
         self.threads = []
         self.pool = ThreadPool(processes=threadcount)
@@ -1596,8 +1596,9 @@ class WebTools:
         previous_harvest = _HARVEST_COUNT
 
         harvest_timer = 0
+        eventlog('active threads loop begin')
         while self.activeThreads == True:
-            eventlog('active threads loop begin')
+            
             finished = True
             searching = True
             t_count_processing = 0
@@ -1668,7 +1669,7 @@ class WebTools:
                 self.charlotte.alice.send_message(str('Working Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
                 sleep(5)
 
-            eventlog('active threads loop end')
+        eventlog('active threads loop end')
 
         eventlog('ACTIVE threads IS FAlSE')
 
@@ -1720,6 +1721,8 @@ class WebTools:
         self.charlotte.alice.update_state('finished_browsing_hyperlinks')
         # self.charlotte.alice.alive = False
         self.charlotte.alice.send_message(str('Internet browsers have finished working...'))
+        self.charlotte.update_state('stop_search')
+
         sleep(1)
 
         return new_links, completed_links

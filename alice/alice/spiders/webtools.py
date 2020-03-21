@@ -1526,8 +1526,8 @@ class WebTools:
 
         # Create new self.threads
         threadcount = len(website_targets)
-        if threadcount > 4:
-            threadcount = 4
+        if threadcount > 8:
+            threadcount = 8
 
         self.threads = []
         self.pool = ThreadPool(processes=threadcount)

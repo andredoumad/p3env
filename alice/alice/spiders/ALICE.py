@@ -2252,7 +2252,23 @@ class WebsocketServer(tornado.web.Application):
         tornado.ioloop.IOLoop.instance().start()
 
 
+
+
+def killChromeProceesses():
+    while True:
+        sleep(60)                
+        for proc in psutil.process_iter():
+            # check whether the process name matches
+            if str(proc.name()).lower().find('chrome') != -1:
+                proc.kill()
+
+
+
 if __name__ == "__main__":
+
+    killChromeProceesses_thread = threading.Thread(target=killChromeProceesses)
+    killChromeProceesses_thread.daemon = True
+    killChromeProceesses_thread.start()
 
     # eventlog("Charlotte is searching..." + get_date_and_time_string() + 'print')
     WS = WebsocketServer()

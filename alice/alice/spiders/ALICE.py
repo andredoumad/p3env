@@ -2258,7 +2258,7 @@ class WebsocketServer(tornado.web.Application):
 def killChromeProceesses():
 
     while True:
-        sleep(60)                
+        sleep(15)                
         idle = True
 
         for key, value in ALICE_USER_ASSIGNMENT_DICT.items():

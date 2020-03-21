@@ -956,7 +956,7 @@ class WebTools:
         _HARVEST_COUNT = 0
         self.charlotte.alice.send_message(' |  ---------------------------   ')
         self.charlotte.alice.send_message(' | DEMO RUNNING FOR LIMITED TIME  ')
-        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 4       ')
+        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 8       ')
         self.charlotte.alice.send_message(' |  ---------------------------   ')
 
         class myThread (threading.Thread):

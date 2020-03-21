@@ -1237,9 +1237,9 @@ class Charlotte(scrapy.Spider):
 
         self.update_state('idle')
         eventlog('PARSING LOOP END!!!')
-        if self.alice.state != 'initialized':
+        if self.alice.state != 'idle':
             self.alice.stop_search()
-        # self.alice.update_state('initialized')
+        # self.alice.update_state('idle')
         # self.alive = False
         # running_thread.join()
         # exit()
@@ -2024,6 +2024,7 @@ def del_active_crawler(human):
 ALICE_USER_ASSIGNMENT_DICT = {}
 MANAGER = Manager()
 
+
 class Alice:
     def __init__(self, name, human):
         self.name = name
@@ -2036,11 +2037,11 @@ class Alice:
         self.crawler_thread = None
         self.spider_log = []
         self.state_was_triggered_by_function_name = ''
-        self.state = 'initialized'
+        self.state = 'idle'
         self.printer = []
         self.previous_printer_length = 0
         self.send_message_count = 0
-        self.manager_state = MANAGER.Value('state', 'initialized')
+        self.manager_state = MANAGER.Value('state', 'idle')
         
     def update_state(self, state):
         previous_frame = inspect.currentframe().f_back
@@ -2256,15 +2257,21 @@ class WebsocketServer(tornado.web.Application):
 
 def killChromeProceesses():
 
-
     while True:
         sleep(60)                
         idle = True
-        for key, value in ALICE_USER_ASSIGNMENT_DICT:
-            if value.manager_state.value != 'initialized':
+
+        for key, value in ALICE_USER_ASSIGNMENT_DICT.items():
+            eventlog('key, value: ' + str(key) + ' , ' + str(value))
+            if value.manager_state.value != 'idle':
                 idle = False
+                eventlog('is NOT in idle state')
+            else:
+                eventlog('IS IDLE')
+
 
         if idle:
+            eventlog('MACHINE IS IDLE, CLEARING CHROME INSTANCES')
             for proc in psutil.process_iter():
                 # check whether the process name matches
                 if str(proc.name()).lower().find('chrome') != -1:

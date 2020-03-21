@@ -2255,12 +2255,20 @@ class WebsocketServer(tornado.web.Application):
 
 
 def killChromeProceesses():
+
+
     while True:
         sleep(60)                
-        for proc in psutil.process_iter():
-            # check whether the process name matches
-            if str(proc.name()).lower().find('chrome') != -1:
-                proc.kill()
+        idle = True
+        for key, value in ALICE_USER_ASSIGNMENT_DICT:
+            if value.manager_state.value != 'initialized':
+                idle = False
+
+        if idle:
+            for proc in psutil.process_iter():
+                # check whether the process name matches
+                if str(proc.name()).lower().find('chrome') != -1:
+                    proc.kill()
 
 
 

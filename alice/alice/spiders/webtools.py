@@ -1811,31 +1811,33 @@ class WebTools:
             f.write('\n')
         f.close()
 
+
+        # IGNORE URLS THAT HAVE BEEN VISITED TOO OFTEN.
         inputlist = DatabaseTools.getListWithoutDuplicates(self, inputlist)
-        new_input_list = []
-        for incoming_hyperlink in inputlist:
-            i_domain = str(DatabaseTools.find_between(self, incoming_hyperlink, '//', '/'))
-            searching = True
-            found = False
-            while searching == True:
-                for key, value in new_dict_domain_count.items():
-                    domain = key
-                    count = value
-                    if len(domain) == len(i_domain):
-                        if domain == i_domain:
-                            if count < 64:
-                                new_input_list.append(incoming_hyperlink)
-                                found = True
-                                searching = False
-                                break
-                searching = False
+        # new_input_list = []
+        # for incoming_hyperlink in inputlist:
+        #     i_domain = str(DatabaseTools.find_between(self, incoming_hyperlink, '//', '/'))
+        #     searching = True
+        #     found = False
+        #     while searching == True:
+        #         for key, value in new_dict_domain_count.items():
+        #             domain = key
+        #             count = value
+        #             if len(domain) == len(i_domain):
+        #                 if domain == i_domain:
+        #                     if count < 64:
+        #                         new_input_list.append(incoming_hyperlink)
+        #                         found = True
+        #                         searching = False
+        #                         break
+        #         searching = False
 
-            if found == False:
-                new_input_list.append(incoming_hyperlink)
-            # else:
-            #     eventlog('Visited too many times: ' + str(incoming_hyperlink))
+        #     if found == False:
+        #         new_input_list.append(incoming_hyperlink)
+        #     # else:
+        #     #     eventlog('Visited too many times: ' + str(incoming_hyperlink))
+        # inputlist = new_input_list
 
-        inputlist = new_input_list
         #clean duplicates from newlinks passed into this function - shuffle them too
         for i in range(len(inputlist)):
             swap = randint(0,len(inputlist)-1)

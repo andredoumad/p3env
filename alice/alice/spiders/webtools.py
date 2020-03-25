@@ -1476,7 +1476,7 @@ class WebTools:
                                         #_THREADLOCK.release()
                                         self.completed_hyperlinks.append(str(url))
                                         eventlog(str('| COMPLETED URL | ' + str(url)))
-                                        dater = (url[:50] + '...') if len(url) > 50 else url
+                                        dater = (url[:70] + '...') if len(url) > 70 else url
                                         self.charlotte.alice.send_message('reading: ' + str(dater), 'print')
                                         if str(self.charlotte.manager_state.value) == 'shutting_down_webcrawler_threads':
                                             self.exitFlag = 1
@@ -1720,9 +1720,9 @@ class WebTools:
         self.charlotte.update_state('finished_browsing_hyperlinks')
         self.charlotte.alice.update_state('finished_browsing_hyperlinks')
         # self.charlotte.alice.alive = False
-        self.charlotte.alice.send_message(str('Internet browsers have finished working...'))
+        self.charlotte.alice.send_message(str('I have finished searching...'))
         self.charlotte.update_state('stop_search')
-        self.charlotte.alice.send_message(message='initialized', command='update_state')
+        # self.charlotte.alice.send_message(message='finished search.', command='update_state')
 
         sleep(1)
 

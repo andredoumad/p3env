@@ -301,8 +301,7 @@ class Charlotte(scrapy.Spider):
         # self.job_results = None
 
     def write_job_keys(self, keys):
-        eventlog('configuring system for work...')
-        self.alice.send_message(str('configuring system for work...', 'print'))
+        self.alice.send_message('configuring system for work...', 'print')
         jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv')
         iwrite = open(jobs_filepath, 'w')
         iwrite.write(str(keys))
@@ -2127,7 +2126,7 @@ class Alice:
 
     def search(self, message):
         eventlog(self.name + ' search method activated.')
-        self.send_message("I am crawling the web...", 'print')
+        self.send_message("I am going to search the web for you...", 'print')
         self.update_state('searching')
 
         self.crawler_thread = threading.Thread(target=self.run_spider, args= (message, self.alice, self.manager_state))

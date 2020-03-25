@@ -1666,8 +1666,8 @@ class WebTools:
                 #         t.processing = True
                 # eventlog('| working/total | ' + str(t_count_processing) + '/' + str(t_count_total))
                 # eventlog(str('Working internet browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
-                self.charlotte.alice.send_message(str('Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
-                sleep(6)
+                # self.charlotte.alice.send_message(str('Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
+                sleep(2)
 
         eventlog('active threads loop end')
 

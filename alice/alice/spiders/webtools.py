@@ -956,7 +956,7 @@ class WebTools:
         _HARVEST_COUNT = 0
         self.charlotte.alice.send_message(' |  ---------------------------   ')
         self.charlotte.alice.send_message(' | DEMO RUNNING FOR LIMITED TIME  ')
-        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 2       ')
+        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 6       ')
         self.charlotte.alice.send_message(' |  ---------------------------   ')
 
         class myThread (threading.Thread):
@@ -998,7 +998,7 @@ class WebTools:
                 while counting and self.exitFlag == 0:
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' command is ' + self.charlotte.state)
-                    if count > 60:
+                    if count > 120:
                         counting = False
                     sleep(1)
                     count += 1
@@ -1526,8 +1526,8 @@ class WebTools:
 
         # Create new self.threads
         threadcount = len(website_targets)
-        if threadcount > 2:
-            threadcount = 2
+        if threadcount > 6:
+            threadcount = 6
 
         self.threads = []
         self.pool = ThreadPool(processes=threadcount)

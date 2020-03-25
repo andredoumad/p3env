@@ -474,6 +474,11 @@ class Tools:
                             searching = False
                 searching = False
             '''
+
+            hyperlink_ignore_keys.append('duckduck')
+            hyperlink_ignore_keys.append('donttrack.us')
+            hyperlink_ignore_keys.append('spreadprivacy')
+
             searching = True
             while searching == True:
                 for trigger in hyperlink_ignore_keys:

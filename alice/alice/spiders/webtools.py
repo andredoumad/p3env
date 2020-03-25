@@ -998,7 +998,7 @@ class WebTools:
                 while counting and self.exitFlag == 0:
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
                     # eventlog(str(self.name) + ' count is ' + str(count) + ' command is ' + self.charlotte.state)
-                    if count > 120:
+                    if count > 240:
                         counting = False
                     sleep(1)
                     count += 1
@@ -1526,8 +1526,8 @@ class WebTools:
 
         # Create new self.threads
         threadcount = len(website_targets)
-        if threadcount > 6:
-            threadcount = 6
+        if threadcount > 8:
+            threadcount = 8
 
         self.threads = []
         self.pool = ThreadPool(processes=threadcount)

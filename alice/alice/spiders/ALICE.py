@@ -302,7 +302,7 @@ class Charlotte(scrapy.Spider):
 
     def write_job_keys(self, keys):
         eventlog('configuring system for work...')
-        self.alice.send_message(str('configuring system for work...', 'print')
+        self.alice.send_message(str('configuring system for work...', 'print'))
         jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv')
         iwrite = open(jobs_filepath, 'w')
         iwrite.write(str(keys))

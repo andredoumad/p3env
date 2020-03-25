@@ -956,7 +956,7 @@ class WebTools:
         _HARVEST_COUNT = 0
         self.charlotte.alice.send_message(' |  ---------------------------   ')
         self.charlotte.alice.send_message(' | DEMO RUNNING FOR LIMITED TIME  ')
-        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 6       ')
+        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 8       ')
         self.charlotte.alice.send_message(' |  ---------------------------   ')
 
         class myThread (threading.Thread):
@@ -1477,7 +1477,7 @@ class WebTools:
                                         self.completed_hyperlinks.append(str(url))
                                         eventlog(str('| COMPLETED URL | ' + str(url)))
                                         dater = (url[:70] + '...') if len(url) > 70 else url
-                                        self.charlotte.alice.send_message('reading: ' + str(dater), 'print')
+                                        self.charlotte.alice.send_message('read: ' + str(dater), 'print')
                                         if str(self.charlotte.manager_state.value) == 'shutting_down_webcrawler_threads':
                                             self.exitFlag = 1
 

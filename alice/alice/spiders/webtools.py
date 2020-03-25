@@ -762,7 +762,7 @@ class WebTools:
                 WebTools.check_internet_connection(self)
                 self.driver.get("https://duckduckgo.com")
                 sleep(0.5)
-                self.charlotte.alice.send_message('Loading search engine... ', 'print')
+                self.charlotte.alice.send_message('waking web crawlers... ', 'print')
                 search_form = self.driver.find_element_by_xpath('//*[@id="search_form_input_homepage"]')
                 #search_form = self.driver.find_element_by_id('search_form_input_homepage')
                 tryingSearch = False
@@ -955,7 +955,7 @@ class WebTools:
         global _HARVEST_COUNT
         _HARVEST_COUNT = 0
         self.charlotte.alice.send_message(' | DEMO RUNNING FOR LIMITED TIME  ')
-        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 8       ')
+        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 4       ')
 
         class myThread (threading.Thread):
             def __init__(self, threadID, name, q, charlotte):
@@ -1524,8 +1524,8 @@ class WebTools:
 
         # Create new self.threads
         threadcount = len(website_targets)
-        if threadcount > 8:
-            threadcount = 8
+        if threadcount > 4:
+            threadcount = 4
 
         self.threads = []
         self.pool = ThreadPool(processes=threadcount)

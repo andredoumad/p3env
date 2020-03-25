@@ -1633,7 +1633,8 @@ class WebTools:
                 change = current_harvest - previous_harvest
                 poor_harvest = False
                 if change < 5:
-                    poor_harvest = True
+                    # poor_harvest = True
+                    eventlog('harvest is poor, but moving forward with search anyway')
                 if finished == True or poor_harvest == True or str(self.charlotte.manager_state.value) == 'stop_search' or str(self.charlotte.state) == 'shutting_down_webcrawler_threads':
                     #WebTools.clear_screen(self)
                     eventlog('finished = ' + str(finished))

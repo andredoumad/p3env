@@ -1665,9 +1665,9 @@ class WebTools:
                 #     if t.exitFlag == 1:
                 #         t.processing = True
                 # eventlog('| working/total | ' + str(t_count_processing) + '/' + str(t_count_total))
-                eventlog(str('Working internet browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
-                self.charlotte.alice.send_message(str('Working Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
-                sleep(5)
+                # eventlog(str('Working internet browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
+                self.charlotte.alice.send_message(str('Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
+                sleep(6)
 
         eventlog('active threads loop end')
 
@@ -1978,7 +1978,7 @@ class WebTools:
         #level 1
         if len(goodLinks) > 0:
             #WebTools.clear_screen(self)
-            eventlog('++++++++++++++ LEVEL 1 ++++++++++++++')
+            # eventlog('++++++++++++++ LEVEL 1 ++++++++++++++')
             self.charlotte.alice.send_message('++++++++++++++ LEVEL 1 ++++++++++++++')
             WebTools.check_internet_connection(self)
             links, completed_hyperlinks = WebTools.navigate_url_queue(self, _Alice, job_name, iFileIO, goodLinks)

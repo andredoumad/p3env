@@ -283,7 +283,7 @@ class Charlotte(scrapy.Spider):
         print('Charlotte has met::: ' + str(alice))
         print('self.alice.name =  ', self.alice.name)
         print('self.alice.charlotte.name =  ', str(self.alice.charlotte.name))
-        self.alice.send_message('Charlotte has connected to Alice.', 'print')
+        # self.alice.send_message('Charlotte has connected to Alice.', 'print')
 
         self.state = 'search'
         self.charlotte = self
@@ -301,8 +301,8 @@ class Charlotte(scrapy.Spider):
         # self.job_results = None
 
     def write_job_keys(self, keys):
-        eventlog('Charlotte is writing job keys: ' + str(keys))
-        self.alice.send_message(str('Charlotte is writing job keys: ' + str(keys)), 'print')
+        eventlog('configuring system for work...')
+        self.alice.send_message(str('configuring system for work...', 'print')
         jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv')
         iwrite = open(jobs_filepath, 'w')
         iwrite.write(str(keys))
@@ -2059,7 +2059,7 @@ class Alice:
 
 
     def run(self):
-        self.send_message('running...')
+        # self.send_message('running...')
         previous_state = ''
         previous_manager_state = ''
 
@@ -2127,7 +2127,7 @@ class Alice:
 
     def search(self, message):
         eventlog(self.name + ' search method activated.')
-        self.send_message("Charlotte's crawling the web...", 'print')
+        self.send_message("I am crawling the web...", 'print')
         self.update_state('searching')
 
         self.crawler_thread = threading.Thread(target=self.run_spider, args= (message, self.alice, self.manager_state))

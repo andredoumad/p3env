@@ -1979,7 +1979,7 @@ class WebTools:
         if len(goodLinks) > 0:
             #WebTools.clear_screen(self)
             # eventlog('++++++++++++++ LEVEL 1 ++++++++++++++')
-            self.charlotte.alice.send_message('++++++++++++++ LEVEL 1 ++++++++++++++')
+            # self.charlotte.alice.send_message('++++++++++++++ LEVEL 1 ++++++++++++++')
             WebTools.check_internet_connection(self)
             links, completed_hyperlinks = WebTools.navigate_url_queue(self, _Alice, job_name, iFileIO, goodLinks)
             newLinks = WebTools.getNewLinks(self, links, completed_hyperlinks, job_name, _Alice)

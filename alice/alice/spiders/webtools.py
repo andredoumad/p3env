@@ -955,7 +955,7 @@ class WebTools:
         global _HARVEST_COUNT
         _HARVEST_COUNT = 0
         self.charlotte.alice.send_message(' | DEMO RUNNING FOR LIMITED TIME  ')
-        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 4       ')
+        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 2       ')
 
         class myThread (threading.Thread):
             def __init__(self, threadID, name, q, charlotte):
@@ -1609,8 +1609,8 @@ class WebTools:
 
         # Create new self.threads
         threadcount = len(website_targets)
-        if threadcount > 4:
-            threadcount = 4
+        if threadcount > 2:
+            threadcount = 2
 
         self.threads = []
         self.pool = ThreadPool(processes=threadcount)

@@ -37,6 +37,7 @@ import nltk
 import nltk.classify.util
 from nameparser.parser import HumanName
 import py
+import srsly
 import pytablereader
 import pytablewriter
 import pyvirtualdisplay
@@ -44,7 +45,7 @@ import requestium
 import requests
 import selenium
 import six
-#import spacy INCOMPATIBLE WITH PYTHON 38
+import spacy #INCOMPATIBLE WITH PYTHON 38 ??????
 import tldextract
 import xlsxwriter
 import docx2txt

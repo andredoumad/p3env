@@ -1289,16 +1289,11 @@ class WebTools:
                                     soup = None
                                     prettify_soup = ''
                                     list_pretty = []
-                                    #with open(filepath_page_source) as read_page_source:
                                     soup = BeautifulSoup(str(raw), 'html.parser')
                                     prettify_soup = soup.prettify()
                                     list_pretty = prettify_soup.split('\n')
-
                                     list_english = []
-
                                     downloaded_and_wrote_english = False
-
-                                    #self.t_history('ABOUT TO RUN FOR LINE IN LIST_PRETTY')
                                     ignored_toggle = False
 
                                     for dater in list_pretty:
@@ -1388,6 +1383,8 @@ class WebTools:
                                     english_list_index = 0
 
                                     for item in list_english:
+                                        ###########################################
+                                        # process emails start 
                                         emails = []
                                         emails = re.findall(r"[a-z0-9\.\-+_]+@[a-z0-9\.\-+_]+\.[a-z]+", str(item))
                                         if emails:
@@ -1455,6 +1452,16 @@ class WebTools:
                                                                 iwrite.write(str('\n'))
                                                             #self.iwrite.close()
                                         english_list_index += 1
+                                        # process emails end
+                                        ###########################################
+
+                                        ###########################################
+                                        # process person start
+
+
+
+                                        # process person end
+                                        ###########################################
 
                                     #self.write_emails.close()
 
@@ -2101,3 +2108,28 @@ class WebTools:
             return True, data
         else:
             return False, data
+
+
+
+
+if __name__ == "__main__":
+
+    # Load English tokenizer, tagger, parser, NER and word vectors
+    nlp = spacy.load("en_core_web_sm")
+
+    # Process whole documents
+    text = ("When Sebastian Thrun started working on self-driving cars at "
+            "Google in 2007, few people outside of the company took him "
+            "seriously. “I can tell you very senior CEOs of major American "
+            "car companies would shake my hand and turn away because I wasn’t "
+            "worth talking to,” said Thrun, in an interview with Recode earlier "
+            "this week.")
+    doc = nlp(text)
+
+    # Analyze syntax
+    print("Noun phrases:", [chunk.text for chunk in doc.noun_chunks])
+    print("Verbs:", [token.lemma_ for token in doc if token.pos_ == "VERB"])
+
+    # Find named entities, phrases and concepts
+    for entity in doc.ents:
+        print(entity.text, entity.label_)

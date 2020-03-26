@@ -379,7 +379,7 @@ class WebTools:
                                 '''
                                 with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/old_domains_list.csv'), 'a') as iwrite:
                                     iwrite.write(self.domain)
-                                    iwrite.write(str('\n'))
+                                    iwrite.write('\n')
                                 '''
                                 _OLD_DOMAINS.append(self.domain)
 
@@ -399,7 +399,7 @@ class WebTools:
                     '''
                     with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/url_targets.csv'), 'a') as iwrite:
                         iwrite.write(url)
-                        iwrite.write(str('\n'))
+                        iwrite.write('\n')
                     '''
                 '''
                 else:
@@ -425,7 +425,7 @@ class WebTools:
         
         #with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/email_heap_full.csv'), 'a+')
             #iwrite.write(url)
-            #iwrite.write(str('\n'))
+            #iwrite.write('\n')
         
         #with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/url_targets.csv'), 'w') as iwrite:
             #iwrite.close()
@@ -452,7 +452,7 @@ class WebTools:
         #with open(self.pretty_sourceFP, 'w+') as iwrite:
             #eventlog('\n\nPRETTIFY\n\n' + str(self.prettify_soup) +'\n\nPRETTIFY\n\n')
             #iwrite.write(str(self.prettify_soup))
-            #iwrite.write(str('\n'))
+            #iwrite.write('\n')
         list_pretty = self.prettify_soup.split('\n')
 
 
@@ -1240,6 +1240,9 @@ class WebTools:
                                 elif chars.find('container') != -1:
                                     valid = False
                                     reason = 'container'
+                                elif chars.find('.css') != -1:
+                                    valid = False
+                                    reason = '.css'
 
                                 for item in self.known_chars:
                                     if len(chars) == len(item):
@@ -1317,17 +1320,33 @@ class WebTools:
                                     list_english = []
                                     downloaded_and_wrote_english = False
                                     ignored_toggle = False
-
+                                    dater_index = 0
                                     for dater in list_pretty:
                                         string = str(dater.strip())
+                                        pretty_strings_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/pretty_strings.txt')
+                                        with open(pretty_strings_document_filepath, 'a+') as w:
+                                            if dater_index < 10:
+                                                debug_line_number = str('0000' + str(dater_index))        
+                                            elif dater_index < 100:
+                                                debug_line_number = str('000' + str(dater_index))
+                                            elif dater_index < 1000:
+                                                debug_line_number = str('00' + str(dater_index))
+                                            elif dater_index < 10000:
+                                                debug_line_number = str('0' + str(dater_index))
+                                            w.write(debug_line_number + ' | ' + str(string))
+                                            w.write('\n')
+
                                         if string.find('<script') != -1 or string.find('<style') != -1:
                                             ignored_toggle = True
                                         if string == '</script>' or string == '</style>':
                                             ignored_toggle = False
 
                                         if ignored_toggle == False and len(string.strip()) < 7500 and len(string.strip()) > 10:
-                                            triggers = str('",:|/}{)(][')
-                                            triggers += str("'")
+                                            # triggers = str('",:|/}{)(][')
+                                            # triggers += str("'")
+                                            triggers = str('}{')
+
+
                                             groups = []
                                             def tsplit(s, sep):
                                                 stack = [s]
@@ -1339,7 +1358,7 @@ class WebTools:
                                                 return stack
                                             groups_prep = tsplit(string, triggers)
                                             for val in groups_prep:
-                                                if len(val) > 4 and len(val) < 60:
+                                                if len(val) > 4 and len(val) < 6000:
                                                     groups.append(val)
 
                                             #with open(fp_webpage_english_ignored, 'a+')
@@ -1354,19 +1373,20 @@ class WebTools:
                                                     list_english_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/list_english.txt')
                                                     with open(list_english_document_filepath, 'a+') as w:
                                                         w.write(str(chars))
-                                                        w.write(str('\n'))
+                                                        w.write('\n')
                                                 else:
                                                     list_not_english_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/list_not_english.txt')
                                                     with open(list_not_english_document_filepath, 'a+') as w:
                                                         w.write('--------------------------------------')
-                                                        w.write(str('\n'))
+                                                        w.write('\n')
                                                         w.write('REASON: ' + str(reason))
-                                                        w.write(str('\n'))
+                                                        w.write('\n')
                                                         w.write(str(chars))
-                                                        w.write(str('\n'))
+                                                        w.write('\n')
                                                         w.write('--------------------------------------')
-                                                        w.write(str('\n'))
+                                                        w.write('\n')
                                                     pass
+                                        dater_index += 1
 
 
                                     for item in list_pretty:
@@ -1393,6 +1413,7 @@ class WebTools:
 
                                     english_list_index = 0
                                     nlp = spacy.load("en_core_web_sm")
+                                    
                                     
                                     for item in list_english:
 
@@ -1430,7 +1451,7 @@ class WebTools:
                                                         #_THREADLOCK.acquire()
                                                         with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/email_heap.csv'), 'a') as iwrite:
                                                             iwrite.write(str(email))
-                                                            iwrite.write(str('\n'))
+                                                            iwrite.write('\n')
                                                             _HARVEST_COUNT += 1
                                                         #_THREADLOCK.release()
                                                         #self.iwrite.close()
@@ -1438,7 +1459,7 @@ class WebTools:
                                                         eventlog('FOUND EMAIL: ' + str(email) + ' Total: ' + str(emailcount))
                                                         # self.charlotte.spider_log('FOUND EMAIL: ' + str(email))
                                                         # self.charlotte.job_results.append_email(str(email))
-                                                        self.charlotte.alice.send_message(' | EMAIL | >> ' + str(email) + ' <<', 'print')
+                                                        self.charlotte.alice.send_message(' | EMAIL | ' + str(email) + ' ', 'print')
                                                         
                                                         english_above_email_index = english_list_index - 25
                                                         if english_above_email_index < 0:
@@ -1462,7 +1483,7 @@ class WebTools:
                                                                 os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/'))
                                                             with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/email_heap_full_' + time_string + '.csv'), 'a') as iwrite:
                                                                 iwrite.write(content)
-                                                                iwrite.write(str('\n'))
+                                                                iwrite.write('\n')
                                                             #self.iwrite.close()
                                         english_list_index += 1
                                         # process emails end
@@ -1472,6 +1493,22 @@ class WebTools:
 
                                         ###########################################
                                         # process person start
+                                        def SentToAlice(message):
+                                            message = str(message).lower()
+                                            message_length = len(message)
+                                            searching = True
+                                            found = False
+                                            
+                                            while searching:
+                                                for element in self.charlotte.alice_printed_history:
+                                                    if message_length == len(element):
+                                                        if message == str(element).lower():
+                                                            found = True
+                                                            searching = False
+                                                self.charlotte.alice_printed_history.append(message)
+                                                searching = False                                            
+                                            return found
+
 
 
                                         # Process whole documents
@@ -1482,13 +1519,13 @@ class WebTools:
                                             eventlog('wrote: ' + processed_language_document_filepath)
                                             with open(processed_language_document_filepath, 'a+') as w:
                                                 w.write('URL,Sentence,Noun Phrase,Lemma,POS,Entity Text,Label')
-                                                w.write(str('\n'))
+                                                w.write('\n')
 
                                         def append_language(noun_phrase='-', lemma='-', pos='-', entity_text='-', label='-'):
-                                            eventlog('append_language: ' + str(url) + ',' + str(item) + ',' + str(noun_phrase) + ',' + str(lemma) + ',' + str(pos) + ',' + str(entity_text) + ',' + str(label))
+                                            # eventlog('append_language: ' + str(url) + ',' + str(item) + ',' + str(noun_phrase) + ',' + str(lemma) + ',' + str(pos) + ',' + str(entity_text) + ',' + str(label))
                                             with open(processed_language_document_filepath, 'a+') as iwrite:
                                                 iwrite.write(str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-"))
-                                                iwrite.write(str('\n'))
+                                                iwrite.write('\n')
 
                                         doc = nlp(item)
 
@@ -1498,7 +1535,7 @@ class WebTools:
                                             append_language(noun_phrase=some_text)
                                             # noun_phrases_string += str(some_text)
                                             # noun_phrases_string += ', '
-                                            eventlog('Noun phrase: ' + str(some_text))
+                                            # eventlog('Noun phrase: ' + str(some_text))
 
                                         # append_language('Sentence Noun phrases: ' + str(noun_phrases_string))
 
@@ -1506,18 +1543,16 @@ class WebTools:
 
                                         for token in doc:
                                             append_language(lemma=token.lemma_, pos=token.pos_)
-                                            eventlog('Lemma: ' + str(token.lemma_) + ' , ' + str(token.pos_))
+                                            # eventlog('Lemma: ' + str(token.lemma_) + ' , ' + str(token.pos_))
 
                                         # Find named entities, phrases and concepts
                                         entities_in_sentence = ''
+                                        
                                         for entity in doc.ents:
                                             append_language(entity_text=entity.text, label=entity.label_)
-                                            eventlog('Entity: ' + str(entity.text) + ' Label: ' + str(entity.label_))
-                                            if str(entity.label_) == 'ORG':
-                                                self.charlotte.alice.send_message(' | ORG | >> ' + str(entity.text) + ' <<', 'print')
-                                            if str(entity.label_) == 'PERSON':
-                                                self.charlotte.alice.send_message(' | PERSON | >> ' + str(entity.text) + ' <<', 'print')
-                                        
+                                            # eventlog('Entity: ' + str(entity.text) + ' Label: ' + str(entity.label_))
+                                            if not SentToAlice(entity.text):
+                                                self.charlotte.alice.send_message(' | ' + str(entity.label_) + ' | ' + str(entity.text).lower() + ' ', 'print')
 
                                         # process person end
                                         ###########################################
@@ -1534,34 +1569,23 @@ class WebTools:
                                         #_THREADLOCK.acquire()
                                         with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a') as iwrite:
                                             iwrite.write(url)
-                                            iwrite.write(str('\n'))
+                                            iwrite.write('\n')
                                             _HARVEST_COUNT += 1
                                         #_THREADLOCK.release()
                                         self.completed_hyperlinks.append(str(url))
                                         eventlog(str('| COMPLETED URL | ' + str(url)))
                                         dater = (url[:70] + '...') if len(url) > 70 else url
-                                        self.charlotte.alice.send_message('read: ' + str(dater), 'print')
+                                        self.charlotte.alice.send_message(' | PARSED | ' + str(dater), 'print')
                                         if str(self.charlotte.manager_state.value) == 'shutting_down_webcrawler_threads':
                                             self.exitFlag = 1
 
-                                    #self.write_pretty_source.close()
-                                    #self.read_page_source.close()
-                                    #read_pretty_index.close()
-                                    ##WebTools.clear_screen(self)
-                                    #q.task_done()
+
                                 else:
                                     self.t_history('INVALID URL ' + str(url) )
                                     if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name))):
                                         os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/'))
-                                    '''
-                                    self.f = open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/url_FAILED.csv'), 'a+')
-                                    self.f.write(str(url))
-                                    self.f.write('\n')
-                                    self.f.close()
-                                    '''
+
                                     self.exitFlag = 1
-                                    #self.driver.get('https://www.google.com/')
-                                    #q.task_done()
 
                             parse_url(url)
                             try:

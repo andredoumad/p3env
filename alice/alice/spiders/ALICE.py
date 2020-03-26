@@ -40,6 +40,19 @@ cwd=spidersDirectoryPath=spidersParentDirectoryPath=dataPath=chromedriverFilePat
 sourceCodeFileName = str(str(getframeinfo(currentframe()).filename))
 
 
+jobs_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/job_list.csv')
+if os.path.exists(jobs_filepath):
+    pass
+else:
+
+    if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/')):
+        os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' ))
+
+    iwrite = open(jobs_filepath, 'w+')
+    iwrite.close()
+
+
+
 def makeFilePaths(sourceCodeFileName):
     global cwd, spidersDirectoryPath, spidersParentDirectoryPath, dataPath, chromedriverFilePath, trackPath, memoriesPath
     eventlog(sys.path)
@@ -299,6 +312,7 @@ class Charlotte(scrapy.Spider):
         self.search_key = ''
         self.name = 'Charlotte'
         # self.job_results = None
+        self.alice_printed_history = []
 
     def write_job_keys(self, keys):
         self.alice.send_message('configuring system for work...', 'print')
@@ -1089,6 +1103,10 @@ class Charlotte(scrapy.Spider):
         if os.path.exists(jobs_filepath):
             pass
         else:
+
+            if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/')):
+                os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' ))
+
             iwrite = open(jobs_filepath, 'a+')
             iwrite.write('bernie_sanders')
             iwrite.write('\n')

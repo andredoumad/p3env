@@ -1324,17 +1324,18 @@ class WebTools:
                                     for dater in list_pretty:
                                         string = str(dater.strip())
                                         pretty_strings_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/pretty_strings.txt')
-                                        with open(pretty_strings_document_filepath, 'a+') as w:
-                                            if dater_index < 10:
-                                                debug_line_number = str('0000' + str(dater_index))        
-                                            elif dater_index < 100:
-                                                debug_line_number = str('000' + str(dater_index))
-                                            elif dater_index < 1000:
-                                                debug_line_number = str('00' + str(dater_index))
-                                            elif dater_index < 10000:
-                                                debug_line_number = str('0' + str(dater_index))
-                                            w.write(debug_line_number + ' | ' + str(string))
-                                            w.write('\n')
+                                        if str(socket.gethostname()) == "tr3b":
+                                            with open(pretty_strings_document_filepath, 'a+') as w:
+                                                if dater_index < 10:
+                                                    debug_line_number = str('0000' + str(dater_index))        
+                                                elif dater_index < 100:
+                                                    debug_line_number = str('000' + str(dater_index))
+                                                elif dater_index < 1000:
+                                                    debug_line_number = str('00' + str(dater_index))
+                                                elif dater_index < 10000:
+                                                    debug_line_number = str('0' + str(dater_index))
+                                                w.write(debug_line_number + ' | ' + str(string))
+                                                w.write('\n')
 
                                         if string.find('<script') != -1 or string.find('<style') != -1:
                                             ignored_toggle = True
@@ -1523,9 +1524,10 @@ class WebTools:
 
                                         def append_language(noun_phrase='-', lemma='-', pos='-', entity_text='-', label='-'):
                                             # eventlog('append_language: ' + str(url) + ',' + str(item) + ',' + str(noun_phrase) + ',' + str(lemma) + ',' + str(pos) + ',' + str(entity_text) + ',' + str(label))
-                                            with open(processed_language_document_filepath, 'a+') as iwrite:
-                                                iwrite.write(str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-"))
-                                                iwrite.write('\n')
+                                            if str(socket.gethostname()) == "tr3b":
+                                                with open(processed_language_document_filepath, 'a+') as iwrite:
+                                                    iwrite.write(str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-"))
+                                                    iwrite.write('\n')
 
                                         doc = nlp(item)
 
@@ -1533,17 +1535,11 @@ class WebTools:
                                         noun_phrases_string = ''
                                         for some_text in doc.noun_chunks:
                                             append_language(noun_phrase=some_text)
-                                            # noun_phrases_string += str(some_text)
-                                            # noun_phrases_string += ', '
-                                            # eventlog('Noun phrase: ' + str(some_text))
-
-                                        # append_language('Sentence Noun phrases: ' + str(noun_phrases_string))
 
                                         tokens_analyzed_string = ''
 
                                         for token in doc:
                                             append_language(lemma=token.lemma_, pos=token.pos_)
-                                            # eventlog('Lemma: ' + str(token.lemma_) + ' , ' + str(token.pos_))
 
                                         # Find named entities, phrases and concepts
                                         entities_in_sentence = ''

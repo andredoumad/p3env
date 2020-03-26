@@ -1278,13 +1278,35 @@ class WebTools:
                                         b_valid_url = False
 
                                 if b_valid_url == True:
-                                    #website_directory = DatabaseTools.get_website_directory_filepath(self, job_name, str(self.name))
-                                    #filepath_page_source = str(website_directory + 'pretty_source.html')
-                                    #self.t_history(str(str('filepath_page_source:') + ' ' + str(filepath_page_source)))
-                                    #self.soup = BeautifulSoup(str(raw), 'html.parser')
-                                    #with open(filepath_page_source, 'w') as write_page_source:
-                                        #write_page_source.write(str(raw))
-                                    # self.charlotte.alice.send_message('Reading: ' + str(url), 'print')
+
+
+
+                                    fp_url = ''
+                                    previous_ch = ''
+                                    for ch in str(url):
+                                        regex = re.compile('[@_!#$%^&*()<>?/\|}{~:;],.')
+                                        if regex.search(ch) == None and ch != ' ':
+                                            if ch == '/' and previous_ch != '/':
+                                                fp_url += ch
+                                            elif ch.isdigit() == True:
+                                                fp_url += ch
+                                            elif ch.isalpha() == True:
+                                                fp_url += ch
+                                        previous_ch = ch
+
+                                    # eventlog('fp_url: ' + str(fp_url))
+                                    temp_string = "".join([c for c in str(url) if c.isalpha() or c.isdigit() or c==' ']).rstrip()
+                                    string = temp_string.replace(" ", "")
+                                    # eventlog('string: ' + str(string))
+
+                                    if len(string) > 60:
+                                        directory_key = str('{:.60}'.format(str(string)))
+                                    else:
+                                        directory_key = string
+
+
+                                    if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/')):
+                                        os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/'))
 
                                     soup = None
                                     prettify_soup = ''
@@ -1303,7 +1325,7 @@ class WebTools:
                                         if string == '</script>' or string == '</style>':
                                             ignored_toggle = False
 
-                                        if ignored_toggle == False and len(string.strip()) < 750 and len(string.strip()) > 10:
+                                        if ignored_toggle == False and len(string.strip()) < 7500 and len(string.strip()) > 10:
                                             triggers = str('",:|/}{)(][')
                                             triggers += str("'")
                                             groups = []
@@ -1327,28 +1349,25 @@ class WebTools:
 
                                                 if b_english == True:
                                                     self.known_chars.append(chars)
-                                                    #write_english.write(chars)
-                                                    #write_english.write('\n')
                                                     list_english.append(chars)
-                                                    #self.t_history('included ' + str("| " + reason + " | ") + ' ' + str(chars) )
-                                                    #eventlog(str(self.name) + str(self.urlshort) + str(chars))
                                                     downloaded_and_wrote_english = True
+                                                    list_english_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/list_english.txt')
+                                                    with open(list_english_document_filepath, 'a+') as w:
+                                                        w.write(str(chars))
+                                                        w.write(str('\n'))
                                                 else:
+                                                    list_not_english_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/list_not_english.txt')
+                                                    with open(list_not_english_document_filepath, 'a+') as w:
+                                                        w.write('--------------------------------------')
+                                                        w.write(str('\n'))
+                                                        w.write('REASON: ' + str(reason))
+                                                        w.write(str('\n'))
+                                                        w.write(str(chars))
+                                                        w.write(str('\n'))
+                                                        w.write('--------------------------------------')
+                                                        w.write(str('\n'))
                                                     pass
-                                                    #iwrite.write('ignored ' + str(" | " + reason + " | ") + ' ' + str(chars) )
-                                                    #iwrite.write(str('\n'))
-                                            #iwrite.close()
 
-
-                                    #eventlog(str(self.name) + str(self.urlshort) + str('finished writing english'))
-
-                                    #fp_webpage_hyperlinks = str(website_directory + 'pretty_hyperlinks.csv')
-                                    #with open(fp_webpage_hyperlinks, 'w') as write_hyperlinks:
-                                    #self.write_hyperlinks = open(fp_webpage_hyperlinks, 'w+')
-
-                                    # record current url
-                                    #write_hyperlinks.write(url)
-                                    #write_hyperlinks.write('\n')
 
                                     for item in list_pretty:
                                         hyperlink = ''
@@ -1364,25 +1383,19 @@ class WebTools:
 
                                             if valid_hyperlink == True:
                                                 WebTools.append_url_target(self, str(hyperlink), job_name)
-                                                #write_hyperlinks.write(str(hyperlink))
-                                                #write_hyperlinks.write('\n')
-                                                #self.t_history(str(hyperlink))
-                                                #webQueue.put(item)
                                                 self.found_hyperlinks.append(hyperlink)
 
                                         except:
                                             self.t_history('FAILED HYPERLINK ' + str(hyperlink))
                                             pass
 
-                                    #self.write_hyperlinks.close()
-
-                                    #fp_webpage_emails = str(website_directory + 'pretty_emails.csv')
-                                    #self.write_emails = open(fp_webpage_emails, 'w+')
                                     list_webpage_emails = []
-                                    #make emails
-                                    english_list_index = 0
 
+                                    english_list_index = 0
+                                    nlp = spacy.load("en_core_web_sm")
+                                    
                                     for item in list_english:
+
                                         ###########################################
                                         # process emails start 
                                         emails = []
@@ -1425,7 +1438,7 @@ class WebTools:
                                                         eventlog('FOUND EMAIL: ' + str(email) + ' Total: ' + str(emailcount))
                                                         # self.charlotte.spider_log('FOUND EMAIL: ' + str(email))
                                                         # self.charlotte.job_results.append_email(str(email))
-                                                        self.charlotte.alice.send_message(' | FOUND EMAIL | >> ' + str(email) + ' <<', 'print')
+                                                        self.charlotte.alice.send_message(' | EMAIL | >> ' + str(email) + ' <<', 'print')
                                                         
                                                         english_above_email_index = english_list_index - 25
                                                         if english_above_email_index < 0:
@@ -1455,15 +1468,60 @@ class WebTools:
                                         # process emails end
                                         ###########################################
 
+
+
                                         ###########################################
                                         # process person start
 
 
+                                        # Process whole documents
+                                        if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/')):
+                                            os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/'))
+                                        processed_language_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/processed_language.csv')
+                                        if not os.path.exists(processed_language_document_filepath):
+                                            eventlog('wrote: ' + processed_language_document_filepath)
+                                            with open(processed_language_document_filepath, 'a+') as w:
+                                                w.write('URL,Sentence,Noun Phrase,Lemma,POS,Entity Text,Label')
+                                                w.write(str('\n'))
+
+                                        def append_language(noun_phrase='-', lemma='-', pos='-', entity_text='-', label='-'):
+                                            eventlog('append_language: ' + str(url) + ',' + str(item) + ',' + str(noun_phrase) + ',' + str(lemma) + ',' + str(pos) + ',' + str(entity_text) + ',' + str(label))
+                                            with open(processed_language_document_filepath, 'a+') as iwrite:
+                                                iwrite.write(str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-"))
+                                                iwrite.write(str('\n'))
+
+                                        doc = nlp(item)
+
+                                        # Analyze syntax
+                                        noun_phrases_string = ''
+                                        for some_text in doc.noun_chunks:
+                                            append_language(noun_phrase=some_text)
+                                            # noun_phrases_string += str(some_text)
+                                            # noun_phrases_string += ', '
+                                            eventlog('Noun phrase: ' + str(some_text))
+
+                                        # append_language('Sentence Noun phrases: ' + str(noun_phrases_string))
+
+                                        tokens_analyzed_string = ''
+
+                                        for token in doc:
+                                            append_language(lemma=token.lemma_, pos=token.pos_)
+                                            eventlog('Lemma: ' + str(token.lemma_) + ' , ' + str(token.pos_))
+
+                                        # Find named entities, phrases and concepts
+                                        entities_in_sentence = ''
+                                        for entity in doc.ents:
+                                            append_language(entity_text=entity.text, label=entity.label_)
+                                            eventlog('Entity: ' + str(entity.text) + ' Label: ' + str(entity.label_))
+                                            if str(entity.label_) == 'ORG':
+                                                self.charlotte.alice.send_message(' | ORG | >> ' + str(entity.text) + ' <<', 'print')
+                                            if str(entity.label_) == 'PERSON':
+                                                self.charlotte.alice.send_message(' | PERSON | >> ' + str(entity.text) + ' <<', 'print')
+                                        
 
                                         # process person end
                                         ###########################################
 
-                                    #self.write_emails.close()
 
                                     if downloaded_and_wrote_english == True:
                                         named_tuple = time.localtime() # get struct_time
@@ -2118,18 +2176,39 @@ if __name__ == "__main__":
     nlp = spacy.load("en_core_web_sm")
 
     # Process whole documents
-    text = ("When Sebastian Thrun started working on self-driving cars at "
+    item = ("When Sebastian Thrun started working on self-driving cars at "
             "Google in 2007, few people outside of the company took him "
             "seriously. “I can tell you very senior CEOs of major American "
             "car companies would shake my hand and turn away because I wasn’t "
             "worth talking to,” said Thrun, in an interview with Recode earlier "
             "this week.")
-    doc = nlp(text)
-
+    doc = nlp(item)
+    eventlog('SENTENCE: ' + str(item))
     # Analyze syntax
-    print("Noun phrases:", [chunk.text for chunk in doc.noun_chunks])
-    print("Verbs:", [token.lemma_ for token in doc if token.pos_ == "VERB"])
+    noun_phrases_string = ''
+    for some_text in doc.noun_chunks:
+        noun_phrases_string += str(some_text)
+        noun_phrases_string += ', '
+        # eventlog('Noun phrases: ' + str(some_text))
+
+    eventlog('Sentence Noun phrases: ' + str(noun_phrases_string))
+
+    tokens_analyzed_string = ''
+
+    for token in doc:
+        tokens_analyzed_string += '(' + str(token.lemma_) + ', ' + str(token.pos_) + ') '
+        # eventlog(str('(' + str(token.lemma_) + ', ' + str(token.pos_) + ') '))
+        # eventlog('Lemma: ' + str(token.lemma_) + ' , ' + str(token.pos_))
+    eventlog('Parts of Sentence : ' + tokens_analyzed_string)
+
+    # print("Noun phrases:", [chunk.text for chunk in doc.noun_chunks])
+    # print("Verbs:", [token.lemma_ for token in doc if token.pos_ == "VERB"])
 
     # Find named entities, phrases and concepts
+    entities_in_sentence = ''
     for entity in doc.ents:
-        print(entity.text, entity.label_)
+        # print(entity.text, entity.label_)
+        entities_in_sentence += '(' + str(entity.text) + ', ' + str(entity.label_) + ') '
+        # eventlog('Entity: ' + str(entity.text) + ' Label: ' + str(entity.label_))
+    
+    eventlog('Entities in sentence: ' + str(entities_in_sentence))

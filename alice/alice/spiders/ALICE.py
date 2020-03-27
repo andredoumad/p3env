@@ -2203,8 +2203,6 @@ class MainHandler(tornado.web.RequestHandler):
         self.write(loader.load("index.html").generate())
 
 class Switchboard(tornado.websocket.WebSocketHandler):
-
-
     def open(self):
         eventlog ('connection opened...')
 
@@ -2303,6 +2301,7 @@ if __name__ == "__main__":
     killChromeProceesses_thread.start()
 
     # eventlog("Charlotte is searching..." + get_date_and_time_string() + 'print')
+    eventlog('Alice awoke...')
     WS = WebsocketServer()
     # LOOP = asyncio.new_event_loop()
     WS.run()

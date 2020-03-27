@@ -923,8 +923,6 @@ class WebTools:
             raw = self.driver.page_source
 
             self.newlinks = WebTools.get_parsed_html(self, job_name, harvest_search_filepath, str(self.driver.current_url), raw, dp_google_results, iresult, iFileIO)
-            # for link in self.newlinks:
-                # eventlog(str(WebTools.lineno(self) + ' SEARCHRESULT: ' + str(link)))
 
             self.driver.quit()
             b_success = True
@@ -945,7 +943,6 @@ class WebTools:
 
             return b_success, dp_google_results, directory_key, self.newlinks
         
-        
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/navigate_url_queue.history', prefix='navigate_url_queue', depth=1)
     def navigate_url_queue(self, _Alice, job_name, iFileIO, website_targets):
@@ -955,7 +952,7 @@ class WebTools:
         global _HARVEST_COUNT
         _HARVEST_COUNT = 0
         self.charlotte.alice.send_message(' | DEMO RUNNING FOR LIMITED TIME  ')
-        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 2       ')
+        self.charlotte.alice.send_message(' | DEMO MAXIMUM THREADS = 4       ')
 
         class myThread (threading.Thread):
             def __init__(self, threadID, name, q, charlotte):
@@ -972,21 +969,10 @@ class WebTools:
                 self.exitFlag = 0
                 self.living = True
                 self.charlotte = charlotte
-                '''
-                self.read_page_source = None
-                self.write_page_source = None
-                self.write_english = None
-                self.write_emails = None
-                self.write_hyperlinks = None
-                self.write_pretty_source = None
-                self.f = None
-                self.iwrite = None
-                '''
                 self.activated = True
-                #self.processing = True
 
             def run(self):
-                eventlog ("Starting " + self.name)
+                eventlog ("Starting thread " + self.name)
 
                 thread = Thread(target = self.process_data, args = (self.name, self.q))
                 thread.start()
@@ -994,8 +980,6 @@ class WebTools:
                 count = 0
 
                 while counting and self.exitFlag == 0:
-                    # eventlog(str(self.name) + ' count is ' + str(count) + ' search_key is ' + self.charlotte.search_key)
-                    # eventlog(str(self.name) + ' count is ' + str(count) + ' command is ' + self.charlotte.state)
                     if count > 240:
                         counting = False
                     sleep(1)
@@ -1007,8 +991,6 @@ class WebTools:
 
                 eventlog("thread finished...exiting")
                 self.exitFlag = 1
-                # exit()
-                # self.process_data(self.name, self.q)
 
                 eventlog("Exiting " + self.name)
 
@@ -1251,7 +1233,6 @@ class WebTools:
                                             reason = 'DUPLICATE'
                                             break
 
-
                                 return valid, reason
 
                             #@pysnooper.snoop(str(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/' + name + 'download_webpage_sourcecode.history'), prefix='download_webpage_sourcecode', depth=1)
@@ -1282,8 +1263,6 @@ class WebTools:
 
                                 if b_valid_url == True:
 
-
-
                                     fp_url = ''
                                     previous_ch = ''
                                     for ch in str(url):
@@ -1297,10 +1276,8 @@ class WebTools:
                                                 fp_url += ch
                                         previous_ch = ch
 
-                                    # eventlog('fp_url: ' + str(fp_url))
                                     temp_string = "".join([c for c in str(url) if c.isalpha() or c.isdigit() or c==' ']).rstrip()
                                     string = temp_string.replace(" ", "")
-                                    # eventlog('string: ' + str(string))
 
                                     if len(string) > 60:
                                         directory_key = str('{:.60}'.format(str(string)))
@@ -1346,8 +1323,6 @@ class WebTools:
                                             # triggers = str('",:|/}{)(][')
                                             # triggers += str("'")
                                             triggers = str('}{')
-
-
                                             groups = []
                                             def tsplit(s, sep):
                                                 stack = [s]
@@ -1438,28 +1413,19 @@ class WebTools:
                                                                     line = f.readline()
                                                                     if line == '':
                                                                         break
-                                                                    #if str(line.rstrip()).find(email) != -1:
                                                                     if str(line.rstrip()) == str(email):
                                                                         valid_email = False
                                                                         break
-                                                                    #website_targets.append(line.rstrip())
 
                                                 if valid_email == True:
                                                     is_valid = pyisemail.is_email(str(email), check_dns=True)
                                                     if is_valid == True:
-                                                        #self.t_history(content)
                                                         emailcount = WebTools.file_len(self, str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/email_heap.csv'))
-                                                        #_THREADLOCK.acquire()
                                                         with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/email_heap.csv'), 'a') as iwrite:
                                                             iwrite.write(str(email))
                                                             iwrite.write('\n')
                                                             _HARVEST_COUNT += 1
-                                                        #_THREADLOCK.release()
-                                                        #self.iwrite.close()
-                                                        #WebTools.clear_screen(self)
                                                         eventlog('FOUND EMAIL: ' + str(email) + ' Total: ' + str(emailcount))
-                                                        # self.charlotte.spider_log('FOUND EMAIL: ' + str(email))
-                                                        # self.charlotte.job_results.append_email(str(email))
                                                         self.charlotte.alice.send_message(' | EMAIL | ' + str(email) + ' ', 'print')
                                                         
                                                         english_above_email_index = english_list_index - 25
@@ -1470,27 +1436,19 @@ class WebTools:
                                                             english_below_email_index = len(list_english)
 
                                                         for i in range(english_above_email_index, english_below_email_index):
-                                                            #self.doc = self.nlp(str(list_english[i]))
-                                                            #content = str(str(email) + ',' + str(list_english[i]) + ',' + str(url) + ',' + str(fp_webpage_pretty_index))
                                                             content = str(str(email) + ',' + str(list_english[i]) + ',' + str(url))
-                                                            #write_emails.write(str(email) + ',' + str(list_english[i] + ' ' +  str(self.doc.ents.label_)) + ',' + url + ',' + str(fp_webpage_pretty_index))
                                                             list_webpage_emails.append(content)
-                                                            #write_emails.write(content)
-                                                            #write_emails.write('\n')
-                                                            #self.t_history(str(email) + ',' + str(list_english[i]) + ',' + url + ',' + str(fp_webpage_pretty_index))
                                                             named_tuple = time.localtime() # get struct_time
                                                             time_string = time.strftime("%Y-%m-%d", named_tuple)
-                                                            if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/')):
-                                                                os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/'))
-                                                            with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/email_heap_full_' + time_string + '.csv'), 'a') as iwrite:
-                                                                iwrite.write(content)
-                                                                iwrite.write('\n')
-                                                            #self.iwrite.close()
+                                                            if str(socket.gethostname()) == "tr3b":
+                                                                if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/')):
+                                                                    os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/'))
+                                                                with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/email_heap_full_' + time_string + '.csv'), 'a') as iwrite:
+                                                                    iwrite.write(content)
+                                                                    iwrite.write('\n')
                                         english_list_index += 1
                                         # process emails end
                                         ###########################################
-
-
 
                                         ###########################################
                                         # process person start
@@ -1509,8 +1467,6 @@ class WebTools:
                                                 self.charlotte.alice_printed_history.append(message)
                                                 searching = False                                            
                                             return found
-
-
 
                                         # Process whole documents
                                         if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/')):
@@ -1553,21 +1509,17 @@ class WebTools:
                                         # process person end
                                         ###########################################
 
-
                                     if downloaded_and_wrote_english == True:
                                         named_tuple = time.localtime() # get struct_time
                                         time_string = time.strftime("%Y-%m-%d", named_tuple)
                                         if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/')):
                                             os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/'))
 
-                                        #self.t_history(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'))
-                                        #self.t_history(url)
-                                        #_THREADLOCK.acquire()
                                         with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a') as iwrite:
                                             iwrite.write(url)
                                             iwrite.write('\n')
                                             _HARVEST_COUNT += 1
-                                        #_THREADLOCK.release()
+
                                         self.completed_hyperlinks.append(str(url))
                                         eventlog(str('| COMPLETED URL | ' + str(url)))
                                         dater = (url[:70] + '...') if len(url) > 70 else url
@@ -1575,12 +1527,10 @@ class WebTools:
                                         if str(self.charlotte.manager_state.value) == 'shutting_down_webcrawler_threads':
                                             self.exitFlag = 1
 
-
                                 else:
                                     self.t_history('INVALID URL ' + str(url) )
                                     if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name))):
                                         os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/'))
-
                                     self.exitFlag = 1
 
                             parse_url(url)
@@ -1588,8 +1538,6 @@ class WebTools:
                                 self.driver.quit()
                             except:
                                 eventlog('self.driver.quit failed: ' + str(self.name) + ' ' +  str(WebTools.lineno(self)))
-                            ##WebTools.clear_screen(self)
-                        
 
 
         if not os.path.exists( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/')):
@@ -1597,20 +1545,15 @@ class WebTools:
 
         webQueue = queue.Queue()
 
-
-        # Fill the queue
-        ##_THREADLOCK.acquire()
         maxSearchLoops = 0
         for item in website_targets:
             webQueue.put(item)
 
-
         threadID = 1
 
-        # Create new self.threads
         threadcount = len(website_targets)
-        if threadcount > 2:
-            threadcount = 2
+        if threadcount > 4:
+            threadcount = 4
 
         self.threads = []
         self.pool = ThreadPool(processes=threadcount)
@@ -1629,7 +1572,6 @@ class WebTools:
             self.pool.apply_async(thread)
             try:
                 thread.daemon = True
-                
                 self.threads.append(thread)
                 thread.start()
                 threadID += 1
@@ -1639,7 +1581,6 @@ class WebTools:
                     thread.daemon = True
                     self.threads.append(thread)
                     thread.start()
-                    
                     threadID += 1
                 except:
                     eventlog('could not start thread, thread deleted.')
@@ -1650,7 +1591,6 @@ class WebTools:
         searchingloop = 0
         notifyloop = 0
         self.activeThreads = True
-        #while searchingloop < maxSearchLoops and not webQueue.empty():
         new_links = []
         completed_links = []
         def get_list_from_file(filepath):
@@ -1660,22 +1600,20 @@ class WebTools:
             with open(str(filepath)) as fh:
                 while working == True:
                     for line in fh:
-                        #eventlog('INPUT: ' + str(line.rstrip()))
                         listFromFile.append(line.rstrip())
                     working = False
                 fh.close()
             return listFromFile
         named_tuple = time.localtime() # get struct_time
         time_string = time.strftime("%Y-%m-%d", named_tuple)
-        if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv')):
-            with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+') as f:
-                #f = open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+')
-                f.write('')
-                f.write('\n')
-                f.close()
+        if str(socket.gethostname()) == "tr3b":
+            if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv')):
+                with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+') as f:
+                    #f = open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+')
+                    f.write('')
+                    f.write('\n')
+                    f.close()
 
-        #previous_list_completed_urls = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'))
-        #previous_list_completed_emails = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/email_heap.csv'))
         previous_harvest = _HARVEST_COUNT
 
         harvest_timer = 0
@@ -1690,7 +1628,6 @@ class WebTools:
                 for t in self.threads:
                     eventlog('webtools is setting ' + str(t.name) + ' exitFlag to 1.')
                     t.exitFlag = 1
-
 
             while searching == True:
                 for t in self.threads:
@@ -1707,8 +1644,7 @@ class WebTools:
 
             named_tuple = time.localtime() # get struct_time
             time_string = time.strftime("%Y-%m-%d", named_tuple)
-            #current_list_completed_urls = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'))
-            #current_list_completed_emails = get_list_from_file(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/email_heap.csv'))
+
             current_harvest = _HARVEST_COUNT
             WebTools.check_internet_connection(self)
 
@@ -1745,12 +1681,6 @@ class WebTools:
 
                     previous_harvest = _HARVEST_COUNT
             else:
-                # for t in self.threads:
-                #     if t.exitFlag == 1:
-                #         t.processing = True
-                # eventlog('| working/total | ' + str(t_count_processing) + '/' + str(t_count_total))
-                # eventlog(str('Working internet browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
-                # self.charlotte.alice.send_message(str('Internet Browsers: ' + str(t_count_processing) + ' of ' + str(t_count_total)))
                 sleep(2)
 
         eventlog('active threads loop end')
@@ -1803,13 +1733,9 @@ class WebTools:
         eventlog ("Finished browsing hyperlinks")
         self.charlotte.update_state('finished_browsing_hyperlinks')
         self.charlotte.alice.update_state('finished_browsing_hyperlinks')
-        # self.charlotte.alice.alive = False
         self.charlotte.alice.send_message(str('I have finished searching...'))
         self.charlotte.update_state('stop_search')
-        # self.charlotte.alice.send_message(message='finished search.', command='update_state')
-
         sleep(1)
-
         return new_links, completed_links
 
     #@pysnooper.snoop(str(Path.home()) + '/p3env/alice/alice/spiders/auto_cleared_history/getNewLinks.history', prefix='getNewLinks', depth=1)

@@ -1301,18 +1301,18 @@ class WebTools:
                                     for dater in list_pretty:
                                         string = str(dater.strip())
                                         pretty_strings_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/pretty_strings.txt')
-                                        if str(socket.gethostname()) == "tr3b":
-                                            with open(pretty_strings_document_filepath, 'a+') as w:
-                                                if dater_index < 10:
-                                                    debug_line_number = str('0000' + str(dater_index))        
-                                                elif dater_index < 100:
-                                                    debug_line_number = str('000' + str(dater_index))
-                                                elif dater_index < 1000:
-                                                    debug_line_number = str('00' + str(dater_index))
-                                                elif dater_index < 10000:
-                                                    debug_line_number = str('0' + str(dater_index))
-                                                w.write(debug_line_number + ' | ' + str(string))
-                                                w.write('\n')
+                                        # if str(socket.gethostname()) == "tr3b":
+                                        with open(pretty_strings_document_filepath, 'a+') as w:
+                                            if dater_index < 10:
+                                                debug_line_number = str('0000' + str(dater_index))        
+                                            elif dater_index < 100:
+                                                debug_line_number = str('000' + str(dater_index))
+                                            elif dater_index < 1000:
+                                                debug_line_number = str('00' + str(dater_index))
+                                            elif dater_index < 10000:
+                                                debug_line_number = str('0' + str(dater_index))
+                                            w.write(debug_line_number + ' | ' + str(string))
+                                            w.write('\n')
 
                                         if string.find('<script') != -1 or string.find('<style') != -1:
                                             ignored_toggle = True
@@ -1440,12 +1440,12 @@ class WebTools:
                                                             list_webpage_emails.append(content)
                                                             named_tuple = time.localtime() # get struct_time
                                                             time_string = time.strftime("%Y-%m-%d", named_tuple)
-                                                            if str(socket.gethostname()) == "tr3b":
-                                                                if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/')):
-                                                                    os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/'))
-                                                                with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/email_heap_full_' + time_string + '.csv'), 'a') as iwrite:
-                                                                    iwrite.write(content)
-                                                                    iwrite.write('\n')
+                                                            # if str(socket.gethostname()) == "tr3b":
+                                                            if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/')):
+                                                                os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/'))
+                                                            with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/email_heap_full_' + time_string + '.csv'), 'a') as iwrite:
+                                                                iwrite.write(content)
+                                                                iwrite.write('\n')
                                         english_list_index += 1
                                         # process emails end
                                         ###########################################
@@ -1480,10 +1480,10 @@ class WebTools:
 
                                         def append_language(noun_phrase='-', lemma='-', pos='-', entity_text='-', label='-'):
                                             # eventlog('append_language: ' + str(url) + ',' + str(item) + ',' + str(noun_phrase) + ',' + str(lemma) + ',' + str(pos) + ',' + str(entity_text) + ',' + str(label))
-                                            if str(socket.gethostname()) == "tr3b":
-                                                with open(processed_language_document_filepath, 'a+') as iwrite:
-                                                    iwrite.write(str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-"))
-                                                    iwrite.write('\n')
+                                            # if str(socket.gethostname()) == "tr3b":
+                                            with open(processed_language_document_filepath, 'a+') as iwrite:
+                                                iwrite.write(str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-"))
+                                                iwrite.write('\n')
 
                                         doc = nlp(item)
 
@@ -1606,13 +1606,13 @@ class WebTools:
             return listFromFile
         named_tuple = time.localtime() # get struct_time
         time_string = time.strftime("%Y-%m-%d", named_tuple)
-        if str(socket.gethostname()) == "tr3b":
-            if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv')):
-                with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+') as f:
-                    #f = open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+')
-                    f.write('')
-                    f.write('\n')
-                    f.close()
+        # if str(socket.gethostname()) == "tr3b":
+        if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv')):
+            with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+') as f:
+                #f = open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+')
+                f.write('')
+                f.write('\n')
+                f.close()
 
         previous_harvest = _HARVEST_COUNT
 

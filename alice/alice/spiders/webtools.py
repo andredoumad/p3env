@@ -761,9 +761,10 @@ class WebTools:
                 self.driver = WebTools.make_web_browser(self)
                 WebTools.check_internet_connection(self)
                 self.driver.get("https://duckduckgo.com")
-                sleep(0.5)
+                sleep(1.5)
                 self.charlotte.alice.send_message('waking web crawlers... ', 'print')
                 search_form = self.driver.find_element_by_xpath('//*[@id="search_form_input_homepage"]')
+                # //*[@id="search_form_input_homepage"]
                 #search_form = self.driver.find_element_by_id('search_form_input_homepage')
                 tryingSearch = False
             except:

@@ -1735,6 +1735,7 @@ class WebTools:
         self.charlotte.update_state('finished_browsing_hyperlinks')
         self.charlotte.alice.update_state('finished_browsing_hyperlinks')
         self.charlotte.alice.send_message(str('I have finished searching...'))
+        self.charlotte.alice.send_message(message=str('looking_for_command'), command='update_state')
         self.charlotte.update_state('stop_search')
         sleep(1)
         return new_links, completed_links

@@ -2057,7 +2057,7 @@ class Alice:
         self.state = 'idle'
         self.printer = []
         self.previous_printer_length = 0
-        self.send_message_count = 0
+        # self.send_message_count = 0
         self.manager_state = MANAGER.Value('state', 'idle')
         
     def update_state(self, state):
@@ -2175,25 +2175,25 @@ class Alice:
         else:
             api_url = 'https://stringkeeper.com/webhooks/webharvest/'
 
-        if self.send_message_count > 100:
-            payload = {
-                'human': str(self.human),
-                'chat_message': str(message),
-                'command': 'clear',
-                'From': 'Alice'
-            }
-            # response = requests.post(api_url, data=payload)
-            self.send_message_count = 0
-        else:
-            payload = {
-                'human': str(self.human),
-                'chat_message': str(message),
-                'command': str(command),
-                'From': 'Alice'
-            }
+        # if self.send_message_count > 100:
+        #     payload = {
+        #         'human': str(self.human),
+        #         'chat_message': str(message),
+        #         'command': 'clear',
+        #         'From': 'Alice'
+        #     }
+        #     # response = requests.post(api_url, data=payload)
+        #     self.send_message_count = 0
+        # else:
+        payload = {
+            'human': str(self.human),
+            'chat_message': str(message),
+            'command': str(command),
+            'From': 'Alice'
+        }
 
         response = requests.post(api_url, data=payload)
-        self.send_message_count += 1
+        # self.send_message_count += 1
 
 
 

@@ -2144,7 +2144,9 @@ class Alice:
 
     def search(self, message):
         eventlog(self.name + ' search method activated.')
+        self.send_message("clear", 'clear')
         self.send_message("I am going to search the web for you...", 'print')
+        self.send_message(str(message), 'print')
         self.update_state('searching')
 
         self.crawler_thread = threading.Thread(target=self.run_spider, args= (message, self.alice, self.manager_state))

@@ -2019,9 +2019,6 @@ class Charlotte(scrapy.Spider):
 
 
 
-
-
-
 ACTIVE_CRAWLERS_DICT = {}
 
 def get_or_new_active_crawler(human):
@@ -2177,16 +2174,7 @@ class Alice:
         else:
             api_url = 'https://stringkeeper.com/webhooks/webharvest/'
 
-        # if self.send_message_count > 100:
-        #     payload = {
-        #         'human': str(self.human),
-        #         'chat_message': str(message),
-        #         'command': 'clear',
-        #         'From': 'Alice'
-        #     }
-        #     # response = requests.post(api_url, data=payload)
-        #     self.send_message_count = 0
-        # else:
+
         payload = {
             'human': str(self.human),
             'chat_message': str(message),

@@ -981,7 +981,7 @@ class WebTools:
                 count = 0
 
                 while counting and self.exitFlag == 0:
-                    if count > 240:
+                    if count > 120:
                         counting = False
                     sleep(1)
                     count += 1
@@ -1476,7 +1476,7 @@ class WebTools:
                                         if not os.path.exists(processed_language_document_filepath):
                                             eventlog('wrote: ' + processed_language_document_filepath)
                                             with open(processed_language_document_filepath, 'a+') as w:
-                                                w.write('URL,Sentence,Noun Phrase,Lemma,POS,Entity Text,Label')
+                                                w.write('URL,Sentence,Noun Chunk,Lemma,POS,Entity Text,Label')
                                                 w.write('\n')
 
                                         def append_language(noun_phrase='-', lemma='-', pos='-', entity_text='-', label='-'):

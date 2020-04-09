@@ -1482,8 +1482,32 @@ class WebTools:
                                         def append_language(noun_phrase='-', lemma='-', pos='-', entity_text='-', label='-'):
                                             # eventlog('append_language: ' + str(url) + ',' + str(item) + ',' + str(noun_phrase) + ',' + str(lemma) + ',' + str(pos) + ',' + str(entity_text) + ',' + str(label))
                                             # if str(socket.gethostname()) == "tr3b":
+                                            string_content = str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-")
+                                            if label != '-':
+                                                record_message = {
+                                                    'csv_index': 'placeholder',
+                                                    'csv_url': str(url).replace(",", "-"),
+                                                    'csv_sentence': str(item).replace(",", "-"),
+                                                    'csv_noun_chunk': str(noun_phrase).replace(",", "-"),
+                                                    'csv_lemma': str(lemma).replace(",", "-"),
+                                                    'csv_pos': str(pos).replace(",", "-"),
+                                                    'csv_text': str(entity_text).replace(",", "-"),
+                                                    'csv_label': str(label).replace(",", "-")
+                                                }
+                                            # record_message['csv_index'] = 0
+                                            # record_message['csv_url'] = str(url)
+                                            # record_message['csv_sentence'] = str(item)
+                                            # record_message['csv_noun_chunk'] = noun_phrase
+                                            # record_message['csv_lemma'] = lemma
+                                            # record_message['csv_pos'] = pos
+                                            # record_message['csv_text'] = entity_text
+                                            # record_message['csv_label'] = label
+
                                             with open(processed_language_document_filepath, 'a+') as iwrite:
-                                                iwrite.write(str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-"))
+                                                if label != '-':
+                                                    self.charlotte.alice.send_message(record_message, 'a_csv')
+    
+                                                iwrite.write(string_content)
                                                 iwrite.write('\n')
 
                                         doc = nlp(item)

@@ -1172,6 +1172,7 @@ class Charlotte(scrapy.Spider):
         def process_job_phrases(job_search_phrases):
             # for search_phrase in job_search_phrases:
             eventlog('STARTING ONLINE_THREADED_NAVIGATION_JOB')
+            self.charlotte.alice.send_message('clear', 'clear')
 
             self.update_state('search')
             self.autoclear_pysnooper(self.iFileIO)
@@ -2112,6 +2113,10 @@ class Alice:
             eventlog('command IS STOP SEARCH')
             self.stop_search()
 
+        if command == 'clear':
+            eventlog('command IS CLEAR')
+            self.send_message("clear", 'clear')
+
     # the wrapper to make it run more times
     # avoiding errors from https://www.semicolonworld.com/question/59693/scrapy-reactor-not-restartable
     def f(self, q, message, alice, manager_state):
@@ -2142,6 +2147,7 @@ class Alice:
     def search(self, message):
         eventlog(self.name + ' search method activated.')
         self.send_message("clear", 'clear')
+        sleep(1)
         self.send_message("I am going to search the web for you...", 'print')
         self.send_message(str(message), 'print')
         self.update_state('searching')
@@ -2174,13 +2180,39 @@ class Alice:
         else:
             api_url = 'https://stringkeeper.com/webhooks/webharvest/'
 
+        
+        if command == 'a_csv':
+            eventlog('detected a_csv message, unpacking message:')
+            eventlog('csv_index ' + message['csv_index'])
+            eventlog('csv_url ' + message['csv_url'])
+            eventlog('csv_sentence ' + message['csv_sentence'])
+            eventlog('csv_noun_chunk ' + message['csv_noun_chunk'])
+            eventlog('csv_lemma ' + message['csv_lemma'])
+            eventlog('csv_pos ' + message['csv_pos'])
+            eventlog('csv_text ' + message['csv_text'])
+            eventlog('csv_label ' + message['csv_label'])
 
-        payload = {
-            'human': str(self.human),
-            'chat_message': str(message),
-            'command': str(command),
-            'From': 'Alice'
-        }
+            payload = {
+                'human': str(self.human),
+                'chat_message': 'appending new record to csv',
+                'command': str(command),
+                'From': 'Alice',
+                'csv_index': message['csv_index'],
+                'csv_url': message['csv_url'],
+                'csv_sentence': message['csv_sentence'],
+                'csv_noun_chunk': message['csv_noun_chunk'],
+                'csv_lemma': message['csv_lemma'],
+                'csv_pos': message['csv_pos'],
+                'csv_text': message['csv_text'],
+                'csv_label': message['csv_label']
+            }
+        else:
+            payload = {
+                'human': str(self.human),
+                'chat_message': str(message),
+                'command': str(command),
+                'From': 'Alice'
+            }
 
         response = requests.post(api_url, data=payload)
         # self.send_message_count += 1

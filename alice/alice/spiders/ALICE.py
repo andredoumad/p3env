@@ -1172,7 +1172,7 @@ class Charlotte(scrapy.Spider):
         def process_job_phrases(job_search_phrases):
             # for search_phrase in job_search_phrases:
             eventlog('STARTING ONLINE_THREADED_NAVIGATION_JOB')
-            self.charlotte.alice.send_message('clear', 'clear')
+            # self.charlotte.alice.send_message('clear', 'clear')
 
             self.update_state('search')
             self.autoclear_pysnooper(self.iFileIO)

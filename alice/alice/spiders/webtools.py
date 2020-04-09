@@ -1525,13 +1525,14 @@ class WebTools:
                                         # Find named entities, phrases and concepts
                                         entities_in_sentence = ''
 
-                                        # This was to send entity text to the alice chat message window -- it's now going to be 
-                                        # sent only to the table, and bottom window 
-                                        # for entity in doc.ents:
-                                        #     append_language(entity_text=entity.text, label=entity.label_)
-                                        #     # eventlog('Entity: ' + str(entity.text) + ' Label: ' + str(entity.label_))
-                                        #     if not SentToAlice(entity.text):
-                                        #         self.charlotte.alice.send_message(' | ' + str(entity.label_) + ' | ' + str(entity.text).lower() + ' ', 'print')
+
+                                        for entity in doc.ents:
+                                            append_language(entity_text=entity.text, label=entity.label_)
+                                            # eventlog('Entity: ' + str(entity.text) + ' Label: ' + str(entity.label_))
+                                            # This was to send entity text to the alice chat message window -- it's now going to be 
+                                            # sent only to the table, and bottom window 
+                                            # if not SentToAlice(entity.text):
+                                            #     self.charlotte.alice.send_message(' | ' + str(entity.label_) + ' | ' + str(entity.text).lower() + ' ', 'print')
 
                                         # process person end
                                         ###########################################

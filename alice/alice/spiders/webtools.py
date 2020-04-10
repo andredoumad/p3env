@@ -1514,25 +1514,26 @@ class WebTools:
 
                                         # Analyze syntax
                                         noun_phrases_string = ''
-                                        for some_text in doc.noun_chunks:
-                                            append_language(noun_phrase=some_text)
+                                        # for some_text in doc.noun_chunks:
+                                        #     append_language(noun_phrase=some_text)
 
                                         tokens_analyzed_string = ''
 
-                                        for token in doc:
-                                            append_language(lemma=token.lemma_, pos=token.pos_)
+                                        # for token in doc:
+                                        #     append_language(lemma=token.lemma_, pos=token.pos_)
 
                                         # Find named entities, phrases and concepts
                                         entities_in_sentence = ''
 
 
                                         for entity in doc.ents:
-                                            append_language(entity_text=entity.text, label=entity.label_)
+                                            # append_language(entity_text=entity.text, label=entity.label_)
                                             # eventlog('Entity: ' + str(entity.text) + ' Label: ' + str(entity.label_))
                                             # This was to send entity text to the alice chat message window -- it's now going to be 
                                             # sent only to the table, and bottom window 
-                                            # if not SentToAlice(entity.text):
-                                            #     self.charlotte.alice.send_message(' | ' + str(entity.label_) + ' | ' + str(entity.text).lower() + ' ', 'print')
+                                            if not SentToAlice(entity.text):
+                                                # self.charlotte.alice.send_message(' | ' + str(entity.label_) + ' | ' + str(entity.text).lower() + ' ', 'print')
+                                                append_language(entity_text=entity.text, label=entity.label_)
 
                                         # process person end
                                         ###########################################

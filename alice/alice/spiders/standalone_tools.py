@@ -1126,7 +1126,11 @@ class Tools:
         #     eventlog('not good')
         #     exit()
         #subject, message = Tools.generate_ahap_flyer(self)
-        subject, message = Tools.select_ahap_flyer(self)
+        
+        # subject, message = Tools.select_ahap_flyer(self)
+        
+        subject = 'testing subject'
+        message = 'test message'
         Tools.send_email_from_ahap(self, 'andredoumad@gmail.com', subject, message)
         Tools.send_email_from_ahap(self, 'ad@ahapinc.com', subject, message)
         Tools.send_email_from_ahap(self, 'jd@ahapinc.com', subject, message)

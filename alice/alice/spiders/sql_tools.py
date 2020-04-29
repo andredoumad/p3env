@@ -49,6 +49,16 @@ if __name__ == "__main__":
     # # Extract a list containing information about all managers’ employee number, first and last name, department number, and hire date.
     # sql = "SELECT e.emp_no, e.first_name, e.last_name, dm.dept_no, e.hire_date FROM employees e JOIN dept_manager dm ON e.emp_no = dm.emp_no;"
 
+    # sql = "SELECT m.dept_no, m.emp_no, d.dept_name FROM dept_manager_dup m LEFT JOIN departments_dup d ON m.dept_no = d.dept_no ORDER BY m.dept_no;"
+
+    # Join the 'employees' and the 'dept_manager' tables to return a subset of all the employees whose last name is Markovitch. See if the output contains a manager with that name.
+    # sql = "SELECT e.emp_no, e.first_name, e.last_name, dm.dept_no, dm.from_date FROM employees e LEFT JOIN dept_manager dm ON e.emp_no = dm.emp_no WHERE e.last_name = 'Markovitch'"
+
+    # sql = "SELECT m.dept_no, m.emp_no, d.dept_name FROM dept_manager_dup m INNER JOIN departments_dup d ON m.dept_no = d.dept_no ORDER BY dept_no;"
+
+    #select managers 
+    # sql = "SELECT dm.emp_no, e.emp_no, e.first_name, e.last_name, e.hire_date FROM dept_manager dm, employees e WHERE dm.emp_no = e.emp_no"
+
     mycursor.execute(sql)
     for x in mycursor:
         print(x)

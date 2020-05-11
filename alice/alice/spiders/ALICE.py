@@ -2175,7 +2175,7 @@ class Alice:
         eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered send_message: ' + str(message) + ' command: ' + str(command))
 
 
-        if str(socket.gethostname()) == "www.stringkeeper.com":
+        if str(socket.gethostname()) != "tr3b" or str(socket.gethostname()) == "gman":
             api_url = 'https://stringkeeper.com/webhooks/webharvest/'
         else:
             api_url = 'http://127.0.0.1:8000/webhooks/webharvest/'

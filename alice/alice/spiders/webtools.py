@@ -1302,7 +1302,6 @@ class WebTools:
                                     for dater in list_pretty:
                                         string = str(dater.strip())
                                         pretty_strings_document_filepath = str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/spacy/' + str(directory_key) + '/pretty_strings.txt')
-                                        # if str(socket.gethostname()) == "tr3b":
                                         with open(pretty_strings_document_filepath, 'a+') as w:
                                             if dater_index < 10:
                                                 debug_line_number = str('0000' + str(dater_index))        
@@ -1402,7 +1401,6 @@ class WebTools:
                                         
                                         def append_language(noun_phrase='-', lemma='-', pos='-', entity_text='-', label='-'):
                                             # eventlog('append_language: ' + str(url) + ',' + str(item) + ',' + str(noun_phrase) + ',' + str(lemma) + ',' + str(pos) + ',' + str(entity_text) + ',' + str(label))
-                                            # if str(socket.gethostname()) == "tr3b":
                                             string_content = str(url).replace(",", "-") + ',' + str(item).replace(",", "-") + ',' + str(noun_phrase).replace(",", "-") + ',' + str(lemma).replace(",", "-") + ',' + str(pos).replace(",", "-") + ',' + str(entity_text).replace(",", "-") + ',' + str(label).replace(",", "-")
                                             if label != '-':
                                                 record_message = {
@@ -1475,7 +1473,6 @@ class WebTools:
                                                             list_webpage_emails.append(content)
                                                             named_tuple = time.localtime() # get struct_time
                                                             time_string = time.strftime("%Y-%m-%d", named_tuple)
-                                                            # if str(socket.gethostname()) == "tr3b":
                                                             if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/')):
                                                                 os.makedirs( str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/'))
                                                             with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/contacts/emails/daily/email_heap_full_' + time_string + '.csv'), 'a') as iwrite:
@@ -1642,7 +1639,6 @@ class WebTools:
             return listFromFile
         named_tuple = time.localtime() # get struct_time
         time_string = time.strftime("%Y-%m-%d", named_tuple)
-        # if str(socket.gethostname()) == "tr3b":
         if not os.path.exists(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv')):
             with open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+') as f:
                 #f = open(str(str(Path.home()) + '/p3env/alice/alice/spiders/DATABASE/JOBS/' + str(job_name) + '/harvest/url_queue_complete/daily/' + str(time_string) +  '_url_queue_complete.csv'), 'a+')

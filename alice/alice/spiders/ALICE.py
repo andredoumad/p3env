@@ -2307,11 +2307,12 @@ def killChromeProceesses():
 
 
         if idle:
-            eventlog('MACHINE IS IDLE, CLEARING CHROME INSTANCES')
-            for proc in psutil.process_iter():
-                # check whether the process name matches
-                if str(proc.name()).lower().find('chrome') != -1:
-                    proc.kill()
+            if socket.gethostname() != "tr3b":
+                eventlog('MACHINE IS IDLE, CLEARING CHROME INSTANCES')
+                for proc in psutil.process_iter():
+                    # check whether the process name matches
+                    if str(proc.name()).lower().find('chrome') != -1:
+                        proc.kill()
 
 
 

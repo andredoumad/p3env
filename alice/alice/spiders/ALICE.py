@@ -2175,11 +2175,11 @@ class Alice:
         eventlog("'" + str(function_name) + ' LINE::' + str(line_number) + ' triggered send_message: ' + str(message) + ' command: ' + str(command))
 
 
-        # if str(socket.gethostname()) != "tr3b" or str(socket.gethostname()) == "gman":
-        #     api_url = 'https://stringkeeper.com/webhooks/webharvest/'
-        # else:
-        #     api_url = 'http://127.0.0.1:8000/webhooks/webharvest/'
-        api_url = 'http://127.0.0.1:8000/webhooks/webharvest/'
+        if str(socket.gethostname()) != "tr3b":
+            api_url = 'https://stringkeeper.com/webhooks/webharvest/'
+        else:
+            api_url = 'http://127.0.0.1:8000/webhooks/webharvest/'
+
         if command == 'a_csv':
             eventlog('detected a_csv message, unpacking message:')
             eventlog('csv_index ' + message['csv_index'])
